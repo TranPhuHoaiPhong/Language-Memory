@@ -3,7 +3,7 @@ const { convertTranscriptToVietnamese, translateTranscript } = require("../utils
 
 const fs = require("fs").promises;
 
-exports.transcriptSer = async (data, language = "vi") => {
+exports.transcriptSer = async (data, language) => {
     try {
 
         const transcriptText = convertTranscriptToText(data);

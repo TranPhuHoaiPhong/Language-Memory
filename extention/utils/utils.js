@@ -1,4 +1,4 @@
-async function downloadTranscript(url) {
+async function downloadTranscript(url, language) {
 
     const res = await fetch(url.toString());
 
@@ -14,7 +14,8 @@ async function downloadTranscript(url) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            transcript: text
+            transcript: text,
+            language: language
         })
     });
 
@@ -33,5 +34,19 @@ function renderLines(text) {
         .split(/\r?\n/)
         .map(line => `<div class="sub-line">${line}</div>`)
         .join("");
+
+}
+
+function showMessage(message) {
+
+    attachSubtitle();
+
+    updateSubtitlePosition(); 
+
+    subtitleDiv.innerHTML = `
+        <div class="sub-original">
+            <div class="sub-line">${message}</div>
+        </div>
+    `;
 
 }

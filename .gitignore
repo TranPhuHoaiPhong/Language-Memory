@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Images
+extention/icons/
+
 # Logs
 *.log
 npm-debug.log*

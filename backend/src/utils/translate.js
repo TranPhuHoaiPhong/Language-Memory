@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-async function translate(text, language = "vi") {
+async function translate(text, language) {
 
     const response = await axios.get(
         "https://translate.googleapis.com/translate_a/single",
@@ -51,7 +51,7 @@ function timeToSeconds(time) {
 
 async function translateTranscript(
     transcriptText,
-    language = "vi"
+    language
 ) {
 
     const lines =

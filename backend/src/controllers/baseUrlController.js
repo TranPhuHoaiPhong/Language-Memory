@@ -2,9 +2,9 @@ const baseUrl = require("../services/baseUrlService");
 
 exports.transcriptContr = async(req,res)=>{
     try{
-        const {transcript} = req.body;
+        const {transcript, language} = req.body;
 
-        const result = await baseUrl.transcriptSer(transcript, language = "vi");
+        const result = await baseUrl.transcriptSer(transcript, language);
 
         res.json({
             success:true,
