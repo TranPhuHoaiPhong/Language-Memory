@@ -1,0 +1,7005 @@
+{
+  "wireMagic": "pb3",
+  "pens": [{}],
+  "wsWinStyles": [{},
+    {
+      "mhModeHint": 2,
+      "juJustifCode": 0,
+      "sdScrollDir": 3
+    }
+  ],
+  "wpWinPositions": [{},
+    {
+      "apPoint": 6,
+      "ahHorPos": 20,
+      "avVerPos": 100,
+      "rcRows": 2,
+      "ccCols": 40
+    }
+  ],
+  "events": [{
+      "tStartMs": 0,
+      "dDurationMs": 392840,
+      "id": 1,
+      "wpWinPosId": 1,
+      "wsWinStyleId": 1
+    },
+    {
+      "tStartMs": 0,
+      "dDurationMs": 4640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nếu "
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 248
+        },
+        {
+          "utf8": "sự ",
+          "tOffsetMs": 496
+        },
+        {
+          "utf8": "cố ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "xảy ",
+          "tOffsetMs": 992
+        },
+        {
+          "utf8": "ra ",
+          "tOffsetMs": 1240
+        },
+        {
+          "utf8": "thì ",
+          "tOffsetMs": 1488
+        },
+        {
+          "utf8": "sao?  ",
+          "tOffsetMs": 1736
+        },
+        {
+          "utf8": "Nếu ",
+          "tOffsetMs": 1984
+        },
+        {
+          "utf8": "tôi",
+          "tOffsetMs": 2232
+        }
+      ]
+    },
+    {
+      "tStartMs": 2310,
+      "dDurationMs": 2330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 2320,
+      "dDurationMs": 4800,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "bị "
+        },
+        {
+          "utf8": "lạc ",
+          "tOffsetMs": 116
+        },
+        {
+          "utf8": "đường ",
+          "tOffsetMs": 232
+        },
+        {
+          "utf8": "thì ",
+          "tOffsetMs": 348
+        },
+        {
+          "utf8": "sao?  ",
+          "tOffsetMs": 464
+        },
+        {
+          "utf8": "Nếu ",
+          "tOffsetMs": 580
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 696
+        },
+        {
+          "utf8": "quên ",
+          "tOffsetMs": 812
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 928
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 1044
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 1160
+        },
+        {
+          "utf8": "thì ",
+          "tOffsetMs": 1276
+        },
+        {
+          "utf8": "sao?   ",
+          "tOffsetMs": 1392
+        },
+        {
+          "utf8": "Nếu",
+          "tOffsetMs": 1508
+        }
+      ]
+    },
+    {
+      "tStartMs": 4630,
+      "dDurationMs": 2490,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 4640,
+      "dDurationMs": 4720,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "như... "
+        },
+        {
+          "utf8": "Ai ",
+          "tOffsetMs": 203
+        },
+        {
+          "utf8": "quan ",
+          "tOffsetMs": 406
+        },
+        {
+          "utf8": "tâm ",
+          "tOffsetMs": 609
+        },
+        {
+          "utf8": "chứ?  ",
+          "tOffsetMs": 812
+        },
+        {
+          "utf8": "Tôi ",
+          "tOffsetMs": 1015
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 1218
+        },
+        {
+          "utf8": "lên ",
+          "tOffsetMs": 1421
+        },
+        {
+          "utf8": "đường ",
+          "tOffsetMs": 1624
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 1827
+        },
+        {
+          "utf8": "du ",
+          "tOffsetMs": 2030
+        },
+        {
+          "utf8": "học",
+          "tOffsetMs": 2233
+        }
+      ]
+    },
+    {
+      "tStartMs": 7110,
+      "dDurationMs": 2250,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 7120,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "cách "
+        },
+        {
+          "utf8": "nhà ",
+          "tOffsetMs": 220
+        },
+        {
+          "utf8": "4.000 ",
+          "tOffsetMs": 440
+        },
+        {
+          "utf8": "dặm ",
+          "tOffsetMs": 660
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 880
+        },
+        {
+          "utf8": "khoảng ",
+          "tOffsetMs": 1100
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1320
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 1540
+        },
+        {
+          "utf8": "nữa.",
+          "tOffsetMs": 1760
+        }
+      ]
+    },
+    {
+      "tStartMs": 9350,
+      "dDurationMs": 1370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 9360,
+      "dDurationMs": 2800,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Một "
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 93
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 186
+        },
+        {
+          "utf8": "mục ",
+          "tOffsetMs": 279
+        },
+        {
+          "utf8": "tiêu ",
+          "tOffsetMs": 372
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 465
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 558
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 651
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 837
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 930
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 1023
+        },
+        {
+          "utf8": "đó",
+          "tOffsetMs": 1116
+        }
+      ]
+    },
+    {
+      "tStartMs": 10710,
+      "dDurationMs": 1450,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 10720,
+      "dDurationMs": 2760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thú "
+        },
+        {
+          "utf8": "vị ",
+          "tOffsetMs": 165
+        },
+        {
+          "utf8": "để ",
+          "tOffsetMs": 330
+        },
+        {
+          "utf8": "mang ",
+          "tOffsetMs": 495
+        },
+        {
+          "utf8": "về.  ",
+          "tOffsetMs": 660
+        },
+        {
+          "utf8": "Một ",
+          "tOffsetMs": 825
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 990
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 1155
+        },
+        {
+          "utf8": "có",
+          "tOffsetMs": 1320
+        }
+      ]
+    },
+    {
+      "tStartMs": 12150,
+      "dDurationMs": 1330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 12160,
+      "dDurationMs": 3040,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "ý "
+        },
+        {
+          "utf8": "nghĩa, ",
+          "tOffsetMs": 124
+        },
+        {
+          "utf8": "chứ ",
+          "tOffsetMs": 248
+        },
+        {
+          "utf8": "không ",
+          "tOffsetMs": 372
+        },
+        {
+          "utf8": "chỉ ",
+          "tOffsetMs": 496
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 620
+        },
+        {
+          "utf8": "đồ ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "chơi ",
+          "tOffsetMs": 868
+        },
+        {
+          "utf8": "mua ",
+          "tOffsetMs": 992
+        },
+        {
+          "utf8": "ở",
+          "tOffsetMs": 1116
+        }
+      ]
+    },
+    {
+      "tStartMs": 13470,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 13480,
+      "dDurationMs": 3440,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "cửa "
+        },
+        {
+          "utf8": "hàng ",
+          "tOffsetMs": 80
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "tặng.  ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "Tôi ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "thích ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "giữ ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 560
+        },
+        {
+          "utf8": "vật ",
+          "tOffsetMs": 640
+        },
+        {
+          "utf8": "dụng ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "nhỏ ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "xinh ",
+          "tOffsetMs": 880
+        },
+        {
+          "utf8": "liên ",
+          "tOffsetMs": 960
+        },
+        {
+          "utf8": "quan ",
+          "tOffsetMs": 1040
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 1120
+        },
+        {
+          "utf8": "âm ",
+          "tOffsetMs": 1200
+        },
+        {
+          "utf8": "nhạc ",
+          "tOffsetMs": 1280
+        },
+        {
+          "utf8": "bên ",
+          "tOffsetMs": 1360
+        },
+        {
+          "utf8": "mình",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 15190,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 15200,
+      "dDurationMs": 4800,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": ".  "
+        },
+        {
+          "utf8": "Vì ",
+          "tOffsetMs": 304
+        },
+        {
+          "utf8": "vậy, ",
+          "tOffsetMs": 608
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 912
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 1216
+        },
+        {
+          "utf8": "tìm",
+          "tOffsetMs": 1520
+        }
+      ]
+    },
+    {
+      "tStartMs": 16910,
+      "dDurationMs": 3090,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 16920,
+      "dDurationMs": 5880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thứ "
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 140
+        },
+        {
+          "utf8": "đó.  ",
+          "tOffsetMs": 280
+        },
+        {
+          "utf8": "Nhưng ",
+          "tOffsetMs": 420
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 560
+        },
+        {
+          "utf8": "tiên, ",
+          "tOffsetMs": 700
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 840
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 980
+        },
+        {
+          "utf8": "đóng ",
+          "tOffsetMs": 1120
+        },
+        {
+          "utf8": "gói ",
+          "tOffsetMs": 1260
+        },
+        {
+          "utf8": "hành ",
+          "tOffsetMs": 1400
+        },
+        {
+          "utf8": "lý ",
+          "tOffsetMs": 1540
+        },
+        {
+          "utf8": "đã.",
+          "tOffsetMs": 1680
+        }
+      ]
+    },
+    {
+      "tStartMs": 19990,
+      "dDurationMs": 2810,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 20000,
+      "dDurationMs": 4480,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Máy "
+        },
+        {
+          "utf8": "tính ",
+          "tOffsetMs": 208
+        },
+        {
+          "utf8": "xách ",
+          "tOffsetMs": 416
+        },
+        {
+          "utf8": "tay, ",
+          "tOffsetMs": 624
+        },
+        {
+          "utf8": "máy ",
+          "tOffsetMs": 832
+        },
+        {
+          "utf8": "ảnh, ",
+          "tOffsetMs": 1040
+        },
+        {
+          "utf8": "bộ ",
+          "tOffsetMs": 1248
+        },
+        {
+          "utf8": "sạc, ",
+          "tOffsetMs": 1456
+        },
+        {
+          "utf8": "sổ ",
+          "tOffsetMs": 1664
+        },
+        {
+          "utf8": "phác ",
+          "tOffsetMs": 1872
+        },
+        {
+          "utf8": "thảo,",
+          "tOffsetMs": 2080
+        }
+      ]
+    },
+    {
+      "tStartMs": 22790,
+      "dDurationMs": 1690,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 22800,
+      "dDurationMs": 5880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "nhật "
+        },
+        {
+          "utf8": "ký, ",
+          "tOffsetMs": 253
+        },
+        {
+          "utf8": "hộ ",
+          "tOffsetMs": 506
+        },
+        {
+          "utf8": "chiếu ",
+          "tOffsetMs": 759
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 1012
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1265
+        },
+        {
+          "utf8": "loạt",
+          "tOffsetMs": 1518
+        }
+      ]
+    },
+    {
+      "tStartMs": 24470,
+      "dDurationMs": 4210,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 24480,
+      "dDurationMs": 4200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "những "
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 192
+        },
+        {
+          "utf8": "khác.  ",
+          "tOffsetMs": 384
+        },
+        {
+          "utf8": "Giờ ",
+          "tOffsetMs": 576
+        },
+        {
+          "utf8": "thì, ",
+          "tOffsetMs": 768
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 960
+        },
+        {
+          "utf8": "ta ",
+          "tOffsetMs": 1152
+        },
+        {
+          "utf8": "cùng ",
+          "tOffsetMs": 1344
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 1536
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 1728
+        },
+        {
+          "utf8": "thôi.",
+          "tOffsetMs": 1920
+        }
+      ]
+    },
+    {
+      "tStartMs": 47910,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 47920,
+      "dDurationMs": 2960,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Sau "
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 124
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 248
+        },
+        {
+          "utf8": "châu ",
+          "tOffsetMs": 372
+        },
+        {
+          "utf8": "Âu ",
+          "tOffsetMs": 496
+        },
+        {
+          "utf8": "[âm ",
+          "tOffsetMs": 620
+        },
+        {
+          "utf8": "nhạc], ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 868
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 992
+        },
+        {
+          "utf8": "còn",
+          "tOffsetMs": 1116
+        }
+      ]
+    },
+    {
+      "tStartMs": 49110,
+      "dDurationMs": 1770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 49120,
+      "dDurationMs": 2880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "khoảng "
+        },
+        {
+          "utf8": "8 ",
+          "tOffsetMs": 142
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 284
+        },
+        {
+          "utf8": "nữa ",
+          "tOffsetMs": 426
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 568
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 710
+        },
+        {
+          "utf8": "khởi ",
+          "tOffsetMs": 852
+        },
+        {
+          "utf8": "hành ",
+          "tOffsetMs": 994
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 1136
+        },
+        {
+          "utf8": "Ý,",
+          "tOffsetMs": 1278
+        }
+      ]
+    },
+    {
+      "tStartMs": 50870,
+      "dDurationMs": 1130,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 50880,
+      "dDurationMs": 3400,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 166
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 332
+        },
+        {
+          "utf8": "nơi ",
+          "tOffsetMs": 498
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 664
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 830
+        },
+        {
+          "utf8": "tìm",
+          "tOffsetMs": 996
+        }
+      ]
+    },
+    {
+      "tStartMs": 51990,
+      "dDurationMs": 2290,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 52000,
+      "dDurationMs": 4640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "món "
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 141
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 282
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 423
+        },
+        {
+          "utf8": "đó.  ",
+          "tOffsetMs": 564
+        },
+        {
+          "utf8": "Nhưng ",
+          "tOffsetMs": 705
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 846
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 987
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1128
+        },
+        {
+          "utf8": "ta ",
+          "tOffsetMs": 1269
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 1410
+        },
+        {
+          "utf8": "Ý,",
+          "tOffsetMs": 1551
+        }
+      ]
+    },
+    {
+      "tStartMs": 54270,
+      "dDurationMs": 2370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 54280,
+      "dDurationMs": 4680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "đây "
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 97
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 194
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 291
+        },
+        {
+          "utf8": "bình ",
+          "tOffsetMs": 388
+        },
+        {
+          "utf8": "thường ",
+          "tOffsetMs": 485
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 582
+        },
+        {
+          "utf8": "nước ",
+          "tOffsetMs": 679
+        },
+        {
+          "utf8": "ngoài ",
+          "tOffsetMs": 776
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 873
+        },
+        {
+          "utf8": "diễn ",
+          "tOffsetMs": 970
+        },
+        {
+          "utf8": "ra ",
+          "tOffsetMs": 1067
+        },
+        {
+          "utf8": "như ",
+          "tOffsetMs": 1164
+        },
+        {
+          "utf8": "thế ",
+          "tOffsetMs": 1261
+        },
+        {
+          "utf8": "nào.",
+          "tOffsetMs": 1358
+        }
+      ]
+    },
+    {
+      "tStartMs": 56630,
+      "dDurationMs": 2330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 56640,
+      "dDurationMs": 4960,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Khoảng "
+        },
+        {
+          "utf8": "8 ",
+          "tOffsetMs": 173
+        },
+        {
+          "utf8": "giờ ",
+          "tOffsetMs": 346
+        },
+        {
+          "utf8": "sáng, ",
+          "tOffsetMs": 519
+        },
+        {
+          "utf8": "thức ",
+          "tOffsetMs": 692
+        },
+        {
+          "utf8": "dậy ",
+          "tOffsetMs": 865
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 1038
+        },
+        {
+          "utf8": "chuẩn ",
+          "tOffsetMs": 1211
+        },
+        {
+          "utf8": "bị.   ",
+          "tOffsetMs": 1384
+        },
+        {
+          "utf8": "Khoảng",
+          "tOffsetMs": 1557
+        }
+      ]
+    },
+    {
+      "tStartMs": 58950,
+      "dDurationMs": 2650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 58960,
+      "dDurationMs": 6440,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "8:15, "
+        },
+        {
+          "utf8": "hãy ",
+          "tOffsetMs": 315
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 630
+        },
+        {
+          "utf8": "ăn ",
+          "tOffsetMs": 945
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 1260
+        },
+        {
+          "utf8": "đó.  ",
+          "tOffsetMs": 1575
+        },
+        {
+          "utf8": "Từ ",
+          "tOffsetMs": 1890
+        },
+        {
+          "utf8": "8:30 ",
+          "tOffsetMs": 2205
+        },
+        {
+          "utf8": "đến",
+          "tOffsetMs": 2520
+        }
+      ]
+    },
+    {
+      "tStartMs": 61590,
+      "dDurationMs": 3810,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 61600,
+      "dDurationMs": 5520,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "11:20, "
+        },
+        {
+          "utf8": "giờ ",
+          "tOffsetMs": 493
+        },
+        {
+          "utf8": "học.  ",
+          "tOffsetMs": 986
+        },
+        {
+          "utf8": "11:30, ",
+          "tOffsetMs": 1479
+        },
+        {
+          "utf8": "nhà ",
+          "tOffsetMs": 1972
+        },
+        {
+          "utf8": "nguyện.  ",
+          "tOffsetMs": 2465
+        },
+        {
+          "utf8": "12:00,",
+          "tOffsetMs": 2958
+        }
+      ]
+    },
+    {
+      "tStartMs": 65390,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 65400,
+      "dDurationMs": 4160,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "giờ "
+        },
+        {
+          "utf8": "ăn ",
+          "tOffsetMs": 205
+        },
+        {
+          "utf8": "trưa, ",
+          "tOffsetMs": 410
+        },
+        {
+          "utf8": "đôi ",
+          "tOffsetMs": 615
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 820
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 1025
+        },
+        {
+          "utf8": "thể ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "ăn ",
+          "tOffsetMs": 1435
+        },
+        {
+          "utf8": "trên",
+          "tOffsetMs": 1640
+        }
+      ]
+    },
+    {
+      "tStartMs": 67110,
+      "dDurationMs": 2450,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 67120,
+      "dDurationMs": 4275,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tàu.  "
+        },
+        {
+          "utf8": "Sau ",
+          "tOffsetMs": 266
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 532
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 798
+        },
+        {
+          "utf8": "thời ",
+          "tOffsetMs": 1064
+        },
+        {
+          "utf8": "gian ",
+          "tOffsetMs": 1330
+        },
+        {
+          "utf8": "rảnh,",
+          "tOffsetMs": 1596
+        }
+      ]
+    },
+    {
+      "tStartMs": 69550,
+      "dDurationMs": 1845,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 69560,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tức "
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "thời ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "gian ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "làm ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "việc.",
+          "tOffsetMs": 600
+        }
+      ]
+    },
+    {
+      "tStartMs": 71385,
+      "dDurationMs": 1775,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 71395,
+      "dDurationMs": 4205,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 73150,
+      "dDurationMs": 2450,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 73160,
+      "dDurationMs": 5280,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Hoặc ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 193
+        },
+        {
+          "utf8": "dạo ",
+          "tOffsetMs": 386
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 579
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 772
+        },
+        {
+          "utf8": "thành ",
+          "tOffsetMs": 965
+        },
+        {
+          "utf8": "phố ",
+          "tOffsetMs": 1158
+        },
+        {
+          "utf8": "bất ",
+          "tOffsetMs": 1351
+        },
+        {
+          "utf8": "kỳ.  ",
+          "tOffsetMs": 1544
+        },
+        {
+          "utf8": "Sau ",
+          "tOffsetMs": 1737
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 1930
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 2123
+        },
+        {
+          "utf8": "tôi",
+          "tOffsetMs": 2316
+        }
+      ]
+    },
+    {
+      "tStartMs": 75590,
+      "dDurationMs": 2850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 75600,
+      "dDurationMs": 4200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "sẽ "
+        },
+        {
+          "utf8": "ăn ",
+          "tOffsetMs": 192
+        },
+        {
+          "utf8": "tối ",
+          "tOffsetMs": 384
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 576
+        },
+        {
+          "utf8": "thành ",
+          "tOffsetMs": 768
+        },
+        {
+          "utf8": "phố",
+          "tOffsetMs": 960
+        }
+      ]
+    },
+    {
+      "tStartMs": 78430,
+      "dDurationMs": 1370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 78440,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "hoặc "
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "nhà.",
+          "tOffsetMs": 360
+        }
+      ]
+    },
+    {
+      "tStartMs": 79790,
+      "dDurationMs": 2250,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 79800,
+      "dDurationMs": 3960,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Sau "
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 125
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 250
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 375
+        },
+        {
+          "utf8": "nhiều ",
+          "tOffsetMs": 500
+        },
+        {
+          "utf8": "thời ",
+          "tOffsetMs": 625
+        },
+        {
+          "utf8": "gian ",
+          "tOffsetMs": 750
+        },
+        {
+          "utf8": "rảnh ",
+          "tOffsetMs": 875
+        },
+        {
+          "utf8": "hơn.",
+          "tOffsetMs": 1000
+        }
+      ]
+    },
+    {
+      "tStartMs": 82030,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 82040,
+      "dDurationMs": 2720,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "sau ",
+          "tOffsetMs": 164
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 328
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 492
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 656
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 820
+        },
+        {
+          "utf8": "phần ",
+          "tOffsetMs": 984
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 1148
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 1312
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 1476
+        },
+        {
+          "utf8": "trong",
+          "tOffsetMs": 1640
+        }
+      ]
+    },
+    {
+      "tStartMs": 83750,
+      "dDurationMs": 1010,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 83760,
+      "dDurationMs": 2700,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "ngày đã đến.   Giờ uống trà"
+      }]
+    },
+    {
+      "tStartMs": 84750,
+      "dDurationMs": 1710,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 84760,
+      "dDurationMs": 3720,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "."
+      }]
+    },
+    {
+      "tStartMs": 86450,
+      "dDurationMs": 2030,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 86460,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 92345,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 92355,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]"
+      }]
+    },
+    {
+      "tStartMs": 95270,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 95280,
+      "dDurationMs": 3320,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Sau ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 86
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 172
+        },
+        {
+          "utf8": "thêm ",
+          "tOffsetMs": 258
+        },
+        {
+          "utf8": "thời ",
+          "tOffsetMs": 344
+        },
+        {
+          "utf8": "gian ",
+          "tOffsetMs": 430
+        },
+        {
+          "utf8": "rảnh.",
+          "tOffsetMs": 516
+        }
+      ]
+    },
+    {
+      "tStartMs": 96830,
+      "dDurationMs": 1770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 96840,
+      "dDurationMs": 4040,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "cuối ",
+          "tOffsetMs": 146
+        },
+        {
+          "utf8": "cùng, ",
+          "tOffsetMs": 292
+        },
+        {
+          "utf8": "đi",
+          "tOffsetMs": 438
+        }
+      ]
+    },
+    {
+      "tStartMs": 98590,
+      "dDurationMs": 2290,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 98600,
+      "dDurationMs": 5320,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "ngủ.  "
+        },
+        {
+          "utf8": "Nhưng ",
+          "tOffsetMs": 220
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 440
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 660
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 880
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 1100
+        },
+        {
+          "utf8": "bình ",
+          "tOffsetMs": 1320
+        },
+        {
+          "utf8": "thường ",
+          "tOffsetMs": 1540
+        },
+        {
+          "utf8": "hơn.",
+          "tOffsetMs": 1760
+        }
+      ]
+    },
+    {
+      "tStartMs": 100870,
+      "dDurationMs": 3050,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 100880,
+      "dDurationMs": 4840,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Còn "
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "Ý ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "thì ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "sao?",
+          "tOffsetMs": 720
+        }
+      ]
+    },
+    {
+      "tStartMs": 103910,
+      "dDurationMs": 1810,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 103920,
+      "dDurationMs": 5360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Tôi "
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 136
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 272
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 408
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 544
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 680
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 816
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 952
+        },
+        {
+          "utf8": "nhưng ",
+          "tOffsetMs": 1088
+        },
+        {
+          "utf8": "bỏ ",
+          "tOffsetMs": 1224
+        },
+        {
+          "utf8": "qua ",
+          "tOffsetMs": 1360
+        },
+        {
+          "utf8": "chuyện ",
+          "tOffsetMs": 1496
+        },
+        {
+          "utf8": "đó",
+          "tOffsetMs": 1632
+        }
+      ]
+    },
+    {
+      "tStartMs": 105710,
+      "dDurationMs": 3570,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 105720,
+      "dDurationMs": 5120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": ", "
+        },
+        {
+          "utf8": "24.000 ",
+          "tOffsetMs": 473
+        },
+        {
+          "utf8": "bậc ",
+          "tOffsetMs": 946
+        },
+        {
+          "utf8": "thang, ",
+          "tOffsetMs": 1419
+        },
+        {
+          "utf8": "mì ",
+          "tOffsetMs": 1892
+        },
+        {
+          "utf8": "Ý, ",
+          "tOffsetMs": 2365
+        },
+        {
+          "utf8": "pizza",
+          "tOffsetMs": 2838
+        }
+      ]
+    },
+    {
+      "tStartMs": 109270,
+      "dDurationMs": 1570,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 109280,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "rất ",
+          "tOffsetMs": 256
+        },
+        {
+          "utf8": "nhiều ",
+          "tOffsetMs": 512
+        },
+        {
+          "utf8": "tòa ",
+          "tOffsetMs": 768
+        },
+        {
+          "utf8": "nhà.  ",
+          "tOffsetMs": 1024
+        },
+        {
+          "utf8": "Rome",
+          "tOffsetMs": 1280
+        }
+      ]
+    },
+    {
+      "tStartMs": 110830,
+      "dDurationMs": 2010,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 110840,
+      "dDurationMs": 6400,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "khởi "
+        },
+        {
+          "utf8": "đầu ",
+          "tOffsetMs": 225
+        },
+        {
+          "utf8": "rất ",
+          "tOffsetMs": 450
+        },
+        {
+          "utf8": "đẹp, ",
+          "tOffsetMs": 675
+        },
+        {
+          "utf8": "nhưng ",
+          "tOffsetMs": 900
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 1125
+        },
+        {
+          "utf8": "chỉ ",
+          "tOffsetMs": 1350
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 1575
+        },
+        {
+          "utf8": "sự",
+          "tOffsetMs": 1800
+        }
+      ]
+    },
+    {
+      "tStartMs": 112830,
+      "dDurationMs": 4410,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 112840,
+      "dDurationMs": 4400,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "khởi "
+        },
+        {
+          "utf8": "đầu ",
+          "tOffsetMs": 213
+        },
+        {
+          "utf8": "mà ",
+          "tOffsetMs": 426
+        },
+        {
+          "utf8": "thôi.  ",
+          "tOffsetMs": 639
+        },
+        {
+          "utf8": "Tiếp ",
+          "tOffsetMs": 852
+        },
+        {
+          "utf8": "theo, ",
+          "tOffsetMs": 1065
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1278
+        },
+        {
+          "utf8": "ta ",
+          "tOffsetMs": 1491
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 1704
+        },
+        {
+          "utf8": "Đấu",
+          "tOffsetMs": 1917
+        }
+      ]
+    },
+    {
+      "tStartMs": 120550,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 120560,
+      "dDurationMs": 4560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "trường "
+        },
+        {
+          "utf8": "La ",
+          "tOffsetMs": 163
+        },
+        {
+          "utf8": "Mã, ",
+          "tOffsetMs": 326
+        },
+        {
+          "utf8": "thật ",
+          "tOffsetMs": 489
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 652
+        },
+        {
+          "utf8": "điên ",
+          "tOffsetMs": 815
+        },
+        {
+          "utf8": "rồ.  ",
+          "tOffsetMs": 978
+        },
+        {
+          "utf8": "Cảm ",
+          "tOffsetMs": 1141
+        },
+        {
+          "utf8": "giác ",
+          "tOffsetMs": 1304
+        },
+        {
+          "utf8": "như ",
+          "tOffsetMs": 1467
+        },
+        {
+          "utf8": "đang ",
+          "tOffsetMs": 1630
+        },
+        {
+          "utf8": "dùng",
+          "tOffsetMs": 1793
+        }
+      ]
+    },
+    {
+      "tStartMs": 122430,
+      "dDurationMs": 2690,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 122440,
+      "dDurationMs": 2680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "phông "
+        },
+        {
+          "utf8": "nền ",
+          "tOffsetMs": 80
+        },
+        {
+          "utf8": "xanh ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "vậy.",
+          "tOffsetMs": 240
+        }
+      ]
+    },
+    {
+      "tStartMs": 133270,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 133280,
+      "dDurationMs": 3160,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "sau ",
+          "tOffsetMs": 130
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 260
+        },
+        {
+          "utf8": "tham ",
+          "tOffsetMs": 390
+        },
+        {
+          "utf8": "quan ",
+          "tOffsetMs": 520
+        },
+        {
+          "utf8": "Đấu ",
+          "tOffsetMs": 650
+        },
+        {
+          "utf8": "trường ",
+          "tOffsetMs": 780
+        },
+        {
+          "utf8": "La ",
+          "tOffsetMs": 910
+        },
+        {
+          "utf8": "Mã, ",
+          "tOffsetMs": 1040
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1170
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1300
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 1430
+        },
+        {
+          "utf8": "ăn",
+          "tOffsetMs": 1560
+        }
+      ]
+    },
+    {
+      "tStartMs": 134921,
+      "dDurationMs": 1519,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 134931,
+      "dDurationMs": 3829,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "trưa "
+        },
+        {
+          "utf8": "kèm ",
+          "tOffsetMs": 122
+        },
+        {
+          "utf8": "nhạc, ",
+          "tOffsetMs": 244
+        },
+        {
+          "utf8": "rồi ",
+          "tOffsetMs": 366
+        },
+        {
+          "utf8": "tiếp ",
+          "tOffsetMs": 488
+        },
+        {
+          "utf8": "tục ",
+          "tOffsetMs": 610
+        },
+        {
+          "utf8": "khám ",
+          "tOffsetMs": 732
+        },
+        {
+          "utf8": "phá ",
+          "tOffsetMs": 854
+        },
+        {
+          "utf8": "thêm ",
+          "tOffsetMs": 976
+        },
+        {
+          "utf8": "nhiều ",
+          "tOffsetMs": 1098
+        },
+        {
+          "utf8": "nơi ",
+          "tOffsetMs": 1220
+        },
+        {
+          "utf8": "khác",
+          "tOffsetMs": 1342
+        }
+      ]
+    },
+    {
+      "tStartMs": 136430,
+      "dDurationMs": 2330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 136440,
+      "dDurationMs": 2320,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "."
+      }]
+    },
+    {
+      "tStartMs": 139990,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 140000,
+      "dDurationMs": 3080,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "vẫn ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "chưa ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "thấy ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 1000
+        },
+        {
+          "utf8": "gì",
+          "tOffsetMs": 1200
+        }
+      ]
+    },
+    {
+      "tStartMs": 141270,
+      "dDurationMs": 1810,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 141280,
+      "dDurationMs": 4131,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thực "
+        },
+        {
+          "utf8": "sự ",
+          "tOffsetMs": 115
+        },
+        {
+          "utf8": "ưng ",
+          "tOffsetMs": 230
+        },
+        {
+          "utf8": "ý ",
+          "tOffsetMs": 345
+        },
+        {
+          "utf8": "để ",
+          "tOffsetMs": 460
+        },
+        {
+          "utf8": "làm ",
+          "tOffsetMs": 575
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 690
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 805
+        },
+        {
+          "utf8": "niệm.",
+          "tOffsetMs": 920
+        }
+      ]
+    },
+    {
+      "tStartMs": 143070,
+      "dDurationMs": 2341,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 143080,
+      "dDurationMs": 3360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "rồi ",
+          "tOffsetMs": 100
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "có",
+          "tOffsetMs": 400
+        }
+      ]
+    },
+    {
+      "tStartMs": 145401,
+      "dDurationMs": 1039,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 145411,
+      "dDurationMs": 2509,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[âm nhạc].",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 146430,
+      "dDurationMs": 1490,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 146440,
+      "dDurationMs": 3120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Bắt ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đầu ",
+          "tOffsetMs": 144
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 288
+        },
+        {
+          "utf8": "mới ",
+          "tOffsetMs": 432
+        },
+        {
+          "utf8": "bằng ",
+          "tOffsetMs": 576
+        },
+        {
+          "utf8": "buổi ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "lễ ",
+          "tOffsetMs": 864
+        },
+        {
+          "utf8": "thờ ",
+          "tOffsetMs": 1008
+        },
+        {
+          "utf8": "phượng ",
+          "tOffsetMs": 1152
+        },
+        {
+          "utf8": "tại ",
+          "tOffsetMs": 1296
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 147910,
+      "dDurationMs": 1650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 147920,
+      "dDurationMs": 3000,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "công "
+        },
+        {
+          "utf8": "viên ",
+          "tOffsetMs": 195
+        },
+        {
+          "utf8": "gần ",
+          "tOffsetMs": 390
+        },
+        {
+          "utf8": "đó.  ",
+          "tOffsetMs": 585
+        },
+        {
+          "utf8": "Sau ",
+          "tOffsetMs": 780
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 975
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1170
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1365
+        },
+        {
+          "utf8": "lên",
+          "tOffsetMs": 1560
+        }
+      ]
+    },
+    {
+      "tStartMs": 149550,
+      "dDurationMs": 1370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 149560,
+      "dDurationMs": 3440,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "tàu"
+      }]
+    },
+    {
+      "tStartMs": 150910,
+      "dDurationMs": 2090,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 150920,
+      "dDurationMs": 4640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 960
+        },
+        {
+          "utf8": "Pompeii.  ",
+          "tOffsetMs": 1440
+        },
+        {
+          "utf8": "Pompeii",
+          "tOffsetMs": 1920
+        }
+      ]
+    },
+    {
+      "tStartMs": 152990,
+      "dDurationMs": 2570,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 153000,
+      "dDurationMs": 2560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thật "
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "vời.",
+          "tOffsetMs": 240
+        }
+      ]
+    },
+    {
+      "tStartMs": 155881,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 155891,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 160466,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 160476,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]"
+      }]
+    },
+    {
+      "tStartMs": 167016,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 167026,
+      "dDurationMs": 3454,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]"
+      }]
+    },
+    {
+      "tStartMs": 168870,
+      "dDurationMs": 1610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 168880,
+      "dDurationMs": 4480,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 92
+        },
+        {
+          "utf8": "chưa ",
+          "tOffsetMs": 184
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 276
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 368
+        },
+        {
+          "utf8": "đỉnh ",
+          "tOffsetMs": 460
+        },
+        {
+          "utf8": "điểm ",
+          "tOffsetMs": 552
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 644
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 736
+        },
+        {
+          "utf8": "đi.   ",
+          "tOffsetMs": 828
+        },
+        {
+          "utf8": "Hoàn",
+          "tOffsetMs": 920
+        }
+      ]
+    },
+    {
+      "tStartMs": 170470,
+      "dDurationMs": 2890,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 170480,
+      "dDurationMs": 2880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "toàn "
+        },
+        {
+          "utf8": "không ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "đúng.",
+          "tOffsetMs": 360
+        }
+      ]
+    },
+    {
+      "tStartMs": 176670,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 176680,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Florence "
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 204
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 408
+        },
+        {
+          "utf8": "sự ",
+          "tOffsetMs": 612
+        },
+        {
+          "utf8": "thay ",
+          "tOffsetMs": 816
+        },
+        {
+          "utf8": "đổi, ",
+          "tOffsetMs": 1020
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1224
+        },
+        {
+          "utf8": "chương ",
+          "tOffsetMs": 1428
+        },
+        {
+          "utf8": "mới ",
+          "tOffsetMs": 1632
+        },
+        {
+          "utf8": "trong",
+          "tOffsetMs": 1836
+        }
+      ]
+    },
+    {
+      "tStartMs": 178590,
+      "dDurationMs": 1690,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 178600,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "chuyến "
+        },
+        {
+          "utf8": "đi.  ",
+          "tOffsetMs": 228
+        },
+        {
+          "utf8": "Tôi ",
+          "tOffsetMs": 456
+        },
+        {
+          "utf8": "biết ",
+          "tOffsetMs": 684
+        },
+        {
+          "utf8": "đây ",
+          "tOffsetMs": 912
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 1140
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1368
+        },
+        {
+          "utf8": "trong",
+          "tOffsetMs": 1596
+        }
+      ]
+    },
+    {
+      "tStartMs": 180270,
+      "dDurationMs": 1890,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 180280,
+      "dDurationMs": 5087,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "những "
+        },
+        {
+          "utf8": "cơ ",
+          "tOffsetMs": 135
+        },
+        {
+          "utf8": "hội ",
+          "tOffsetMs": 270
+        },
+        {
+          "utf8": "cuối ",
+          "tOffsetMs": 405
+        },
+        {
+          "utf8": "cùng ",
+          "tOffsetMs": 540
+        },
+        {
+          "utf8": "để ",
+          "tOffsetMs": 675
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 810
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 945
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 1080
+        },
+        {
+          "utf8": "đồ ",
+          "tOffsetMs": 1215
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 1350
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 1485
+        },
+        {
+          "utf8": "đó.  ",
+          "tOffsetMs": 1620
+        },
+        {
+          "utf8": "Nhưng",
+          "tOffsetMs": 1755
+        }
+      ]
+    },
+    {
+      "tStartMs": 182150,
+      "dDurationMs": 3217,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 182160,
+      "dDurationMs": 4680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Florence "
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 166
+        },
+        {
+          "utf8": "vẻ ",
+          "tOffsetMs": 332
+        },
+        {
+          "utf8": "đẹp ",
+          "tOffsetMs": 498
+        },
+        {
+          "utf8": "riêng ",
+          "tOffsetMs": 664
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 830
+        },
+        {
+          "utf8": "nó.",
+          "tOffsetMs": 996
+        }
+      ]
+    },
+    {
+      "tStartMs": 185357,
+      "dDurationMs": 1483,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 185367,
+      "dDurationMs": 2993,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 186830,
+      "dDurationMs": 1530,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 186840,
+      "dDurationMs": 3112,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Ngày ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đầu ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "tiên, ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "leo ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "lên ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 840
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 960
+        },
+        {
+          "utf8": "chiêm ",
+          "tOffsetMs": 1080
+        },
+        {
+          "utf8": "ngưỡng ",
+          "tOffsetMs": 1200
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1320
+        },
+        {
+          "utf8": "trong",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 188350,
+      "dDurationMs": 1602,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 188360,
+      "dDurationMs": 3612,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "những "
+        },
+        {
+          "utf8": "khung ",
+          "tOffsetMs": 142
+        },
+        {
+          "utf8": "cảnh ",
+          "tOffsetMs": 284
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 426
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 568
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 710
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 852
+        },
+        {
+          "utf8": "cả ",
+          "tOffsetMs": 994
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 1136
+        },
+        {
+          "utf8": "đi.",
+          "tOffsetMs": 1278
+        }
+      ]
+    },
+    {
+      "tStartMs": 189942,
+      "dDurationMs": 2030,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 189952,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]"
+      }]
+    },
+    {
+      "tStartMs": 194430,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 194440,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 111
+        },
+        {
+          "utf8": "hôm ",
+          "tOffsetMs": 222
+        },
+        {
+          "utf8": "sau, ",
+          "tOffsetMs": 333
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 444
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 555
+        },
+        {
+          "utf8": "[nhạc] ",
+          "tOffsetMs": 666
+        },
+        {
+          "utf8": "còn ",
+          "tOffsetMs": 777
+        },
+        {
+          "utf8": "thấy ",
+          "tOffsetMs": 888
+        },
+        {
+          "utf8": "nhiều",
+          "tOffsetMs": 999
+        }
+      ]
+    },
+    {
+      "tStartMs": 195630,
+      "dDurationMs": 2370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 195640,
+      "dDurationMs": 2360,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "hơn nữa."
+      }]
+    },
+    {
+      "tStartMs": 198270,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 198280,
+      "dDurationMs": 3840,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 235
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 470
+        },
+        {
+          "utf8": "Florence, ",
+          "tOffsetMs": 705
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 940
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1175
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 1410
+        },
+        {
+          "utf8": "cho ",
+          "tOffsetMs": 1645
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 1880
+        }
+      ]
+    },
+    {
+      "tStartMs": 200190,
+      "dDurationMs": 1930,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 200200,
+      "dDurationMs": 3520,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "ngày "
+        },
+        {
+          "utf8": "để ",
+          "tOffsetMs": 115
+        },
+        {
+          "utf8": "làm ",
+          "tOffsetMs": 230
+        },
+        {
+          "utf8": "bất ",
+          "tOffsetMs": 345
+        },
+        {
+          "utf8": "cứ ",
+          "tOffsetMs": 460
+        },
+        {
+          "utf8": "điều ",
+          "tOffsetMs": 575
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 690
+        },
+        {
+          "utf8": "mình ",
+          "tOffsetMs": 805
+        },
+        {
+          "utf8": "muốn.",
+          "tOffsetMs": 920
+        }
+      ]
+    },
+    {
+      "tStartMs": 202110,
+      "dDurationMs": 1610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 202120,
+      "dDurationMs": 3552,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 144
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 288
+        },
+        {
+          "utf8": "ngày ",
+          "tOffsetMs": 432
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 576
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 864
+        },
+        {
+          "utf8": "mà ",
+          "tOffsetMs": 1008
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1152
+        },
+        {
+          "utf8": "từng ",
+          "tOffsetMs": 1296
+        },
+        {
+          "utf8": "trải",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 203710,
+      "dDurationMs": 1962,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 203720,
+      "dDurationMs": 3720,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "qua."
+      }]
+    },
+    {
+      "tStartMs": 205662,
+      "dDurationMs": 1778,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 205672,
+      "dDurationMs": 4488,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 207430,
+      "dDurationMs": 2730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 207440,
+      "dDurationMs": 4680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Trước ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "tiên, ",
+          "tOffsetMs": 228
+        },
+        {
+          "utf8": "thêm ",
+          "tOffsetMs": 456
+        },
+        {
+          "utf8": "bánh ",
+          "tOffsetMs": 684
+        },
+        {
+          "utf8": "rán ",
+          "tOffsetMs": 912
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 1140
+        },
+        {
+          "utf8": "bánh ",
+          "tOffsetMs": 1368
+        },
+        {
+          "utf8": "sừng ",
+          "tOffsetMs": 1596
+        },
+        {
+          "utf8": "bò.  ",
+          "tOffsetMs": 1824
+        },
+        {
+          "utf8": "Sau ",
+          "tOffsetMs": 2052
+        },
+        {
+          "utf8": "đó,",
+          "tOffsetMs": 2280
+        }
+      ]
+    },
+    {
+      "tStartMs": 210150,
+      "dDurationMs": 1970,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 210160,
+      "dDurationMs": 2920,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "chúng "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 146
+        },
+        {
+          "utf8": "bắt ",
+          "tOffsetMs": 292
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 438
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 584
+        },
+        {
+          "utf8": "tàu.  ",
+          "tOffsetMs": 730
+        },
+        {
+          "utf8": "Mục ",
+          "tOffsetMs": 876
+        },
+        {
+          "utf8": "tiêu ",
+          "tOffsetMs": 1022
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 1168
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1314
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1460
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 1606
+        },
+        {
+          "utf8": "Cinque",
+          "tOffsetMs": 1752
+        }
+      ]
+    },
+    {
+      "tStartMs": 212110,
+      "dDurationMs": 970,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 212120,
+      "dDurationMs": 2600,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "Terre,"
+      }]
+    },
+    {
+      "tStartMs": 213070,
+      "dDurationMs": 1650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 213080,
+      "dDurationMs": 3040,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 190
+        },
+        {
+          "utf8": "không ",
+          "tOffsetMs": 380
+        },
+        {
+          "utf8": "hề ",
+          "tOffsetMs": 570
+        },
+        {
+          "utf8": "biết ",
+          "tOffsetMs": 760
+        },
+        {
+          "utf8": "rằng ",
+          "tOffsetMs": 950
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 1140
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 1330
+        },
+        {
+          "utf8": "là",
+          "tOffsetMs": 1520
+        }
+      ]
+    },
+    {
+      "tStartMs": 214710,
+      "dDurationMs": 1410,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 214720,
+      "dDurationMs": 4707,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "một "
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 128
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 256
+        },
+        {
+          "utf8": "lựa ",
+          "tOffsetMs": 384
+        },
+        {
+          "utf8": "chọn ",
+          "tOffsetMs": 512
+        },
+        {
+          "utf8": "[âm ",
+          "tOffsetMs": 640
+        },
+        {
+          "utf8": "nhạc] ",
+          "tOffsetMs": 768
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 896
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 1024
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 1152
+        },
+        {
+          "utf8": "và",
+          "tOffsetMs": 1280
+        }
+      ]
+    },
+    {
+      "tStartMs": 216110,
+      "dDurationMs": 3317,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 216120,
+      "dDurationMs": 3880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "có "
+        },
+        {
+          "utf8": "thể ",
+          "tOffsetMs": 98
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 196
+        },
+        {
+          "utf8": "nơi ",
+          "tOffsetMs": 294
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 392
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 490
+        },
+        {
+          "utf8": "thấy ",
+          "tOffsetMs": 588
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 686
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 784
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 882
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 980
+        },
+        {
+          "utf8": "đó.",
+          "tOffsetMs": 1078
+        }
+      ]
+    },
+    {
+      "tStartMs": 219417,
+      "dDurationMs": 583,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 219427,
+      "dDurationMs": 2013,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 219990,
+      "dDurationMs": 1450,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 220000,
+      "dDurationMs": 3720,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Trước ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 155
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 310
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 465
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 620
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 775
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 930
+        },
+        {
+          "utf8": "dừng ",
+          "tOffsetMs": 1085
+        },
+        {
+          "utf8": "chân ",
+          "tOffsetMs": 1240
+        },
+        {
+          "utf8": "ở",
+          "tOffsetMs": 1395
+        }
+      ]
+    },
+    {
+      "tStartMs": 221430,
+      "dDurationMs": 2290,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 221440,
+      "dDurationMs": 4200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Tháp "
+        },
+        {
+          "utf8": "nghiêng ",
+          "tOffsetMs": 280
+        },
+        {
+          "utf8": "Pisa.",
+          "tOffsetMs": 560
+        }
+      ]
+    },
+    {
+      "tStartMs": 223710,
+      "dDurationMs": 1930,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 223720,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "sau ",
+          "tOffsetMs": 156
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 312
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 468
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 624
+        },
+        {
+          "utf8": "ngắn ",
+          "tOffsetMs": 780
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 936
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 1092
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1248
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1404
+        },
+        {
+          "utf8": "tiếp ",
+          "tOffsetMs": 1560
+        },
+        {
+          "utf8": "tục",
+          "tOffsetMs": 1716
+        }
+      ]
+    },
+    {
+      "tStartMs": 225630,
+      "dDurationMs": 1650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 225640,
+      "dDurationMs": 3400,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "hành "
+        },
+        {
+          "utf8": "trình ",
+          "tOffsetMs": 246
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 492
+        },
+        {
+          "utf8": "Cinque ",
+          "tOffsetMs": 738
+        },
+        {
+          "utf8": "Terre.  ",
+          "tOffsetMs": 984
+        },
+        {
+          "utf8": "[nhạc] ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "Đó",
+          "tOffsetMs": 1476
+        }
+      ]
+    },
+    {
+      "tStartMs": 227270,
+      "dDurationMs": 1770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 227280,
+      "dDurationMs": 2760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "có "
+        },
+        {
+          "utf8": "lẽ ",
+          "tOffsetMs": 123
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 246
+        },
+        {
+          "utf8": "địa ",
+          "tOffsetMs": 369
+        },
+        {
+          "utf8": "điểm ",
+          "tOffsetMs": 492
+        },
+        {
+          "utf8": "yêu ",
+          "tOffsetMs": 615
+        },
+        {
+          "utf8": "thích ",
+          "tOffsetMs": 738
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 861
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 984
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1107
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "suốt",
+          "tOffsetMs": 1353
+        }
+      ]
+    },
+    {
+      "tStartMs": 229030,
+      "dDurationMs": 1010,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 229040,
+      "dDurationMs": 3160,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "chuyến đi."
+      }]
+    },
+    {
+      "tStartMs": 230030,
+      "dDurationMs": 2170,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 230040,
+      "dDurationMs": 4880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Chúng "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 222
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 444
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 666
+        },
+        {
+          "utf8": "nơi, ",
+          "tOffsetMs": 888
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 1110
+        },
+        {
+          "utf8": "mỗi ",
+          "tOffsetMs": 1332
+        },
+        {
+          "utf8": "bước ",
+          "tOffsetMs": 1554
+        },
+        {
+          "utf8": "chân ",
+          "tOffsetMs": 1776
+        },
+        {
+          "utf8": "qua",
+          "tOffsetMs": 1998
+        }
+      ]
+    },
+    {
+      "tStartMs": 232190,
+      "dDurationMs": 2730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 232200,
+      "dDurationMs": 5360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thành "
+        },
+        {
+          "utf8": "phố ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "đều ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "hé ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "lộ ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "vẻ ",
+          "tOffsetMs": 1000
+        },
+        {
+          "utf8": "đẹp ",
+          "tOffsetMs": 1200
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 1400
+        },
+        {
+          "utf8": "vời.   ",
+          "tOffsetMs": 1600
+        },
+        {
+          "utf8": "Nhiều",
+          "tOffsetMs": 1800
+        }
+      ]
+    },
+    {
+      "tStartMs": 234910,
+      "dDurationMs": 2650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 234920,
+      "dDurationMs": 4157,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tòa "
+        },
+        {
+          "utf8": "nhà ",
+          "tOffsetMs": 252
+        },
+        {
+          "utf8": "đầy ",
+          "tOffsetMs": 504
+        },
+        {
+          "utf8": "màu ",
+          "tOffsetMs": 756
+        },
+        {
+          "utf8": "sắc ",
+          "tOffsetMs": 1008
+        },
+        {
+          "utf8": "hơn, ",
+          "tOffsetMs": 1260
+        },
+        {
+          "utf8": "nhiều ",
+          "tOffsetMs": 1512
+        },
+        {
+          "utf8": "cửa ",
+          "tOffsetMs": 1764
+        },
+        {
+          "utf8": "hàng ",
+          "tOffsetMs": 2016
+        },
+        {
+          "utf8": "hơn, ",
+          "tOffsetMs": 2268
+        },
+        {
+          "utf8": "và",
+          "tOffsetMs": 2520
+        }
+      ]
+    },
+    {
+      "tStartMs": 237550,
+      "dDurationMs": 1527,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 237560,
+      "dDurationMs": 3537,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "rồi "
+        },
+        {
+          "utf8": "nó ",
+          "tOffsetMs": 80
+        },
+        {
+          "utf8": "hiện ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "ra ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "mắt.",
+          "tOffsetMs": 400
+        }
+      ]
+    },
+    {
+      "tStartMs": 239067,
+      "dDurationMs": 2030,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 239077,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 248892,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 248902,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc] Mọi"
+      }]
+    },
+    {
+      "tStartMs": 257670,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 257680,
+      "dDurationMs": 2640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thứ ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "dường ",
+          "tOffsetMs": 279
+        },
+        {
+          "utf8": "như ",
+          "tOffsetMs": 558
+        },
+        {
+          "utf8": "chậm",
+          "tOffsetMs": 837
+        }
+      ]
+    },
+    {
+      "tStartMs": 258830,
+      "dDurationMs": 1490,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 258840,
+      "dDurationMs": 3840,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "lại."
+      }]
+    },
+    {
+      "tStartMs": 260310,
+      "dDurationMs": 2370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 260320,
+      "dDurationMs": 4520,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Chúng "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 142
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 284
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 426
+        },
+        {
+          "utf8": "thể ",
+          "tOffsetMs": 568
+        },
+        {
+          "utf8": "dừng ",
+          "tOffsetMs": 710
+        },
+        {
+          "utf8": "lại ",
+          "tOffsetMs": 852
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 994
+        },
+        {
+          "utf8": "ngồi ",
+          "tOffsetMs": 1136
+        },
+        {
+          "utf8": "xuống.",
+          "tOffsetMs": 1278
+        }
+      ]
+    },
+    {
+      "tStartMs": 262670,
+      "dDurationMs": 2170,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 262680,
+      "dDurationMs": 3907,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Khung "
+        },
+        {
+          "utf8": "cảnh ",
+          "tOffsetMs": 346
+        },
+        {
+          "utf8": "thật ",
+          "tOffsetMs": 692
+        },
+        {
+          "utf8": "thanh ",
+          "tOffsetMs": 1038
+        },
+        {
+          "utf8": "bình, ",
+          "tOffsetMs": 1384
+        },
+        {
+          "utf8": "nhưng ",
+          "tOffsetMs": 1730
+        },
+        {
+          "utf8": "đồng",
+          "tOffsetMs": 2076
+        }
+      ]
+    },
+    {
+      "tStartMs": 264830,
+      "dDurationMs": 1757,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 264840,
+      "dDurationMs": 2120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "thời "
+        },
+        {
+          "utf8": "cũng ",
+          "tOffsetMs": 93
+        },
+        {
+          "utf8": "ồn ",
+          "tOffsetMs": 186
+        },
+        {
+          "utf8": "ào.",
+          "tOffsetMs": 279
+        }
+      ]
+    },
+    {
+      "tStartMs": 266577,
+      "dDurationMs": 383,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 266587,
+      "dDurationMs": 1653,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 266950,
+      "dDurationMs": 1290,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 266960,
+      "dDurationMs": 3120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Chúng ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 216
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 432
+        },
+        {
+          "utf8": "vội ",
+          "tOffsetMs": 648
+        },
+        {
+          "utf8": "vã ",
+          "tOffsetMs": 864
+        },
+        {
+          "utf8": "suốt",
+          "tOffsetMs": 1080
+        }
+      ]
+    },
+    {
+      "tStartMs": 268230,
+      "dDurationMs": 1850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 268240,
+      "dDurationMs": 4953,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "cả "
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "cho ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 640
+        },
+        {
+          "utf8": "giờ,",
+          "tOffsetMs": 800
+        }
+      ]
+    },
+    {
+      "tStartMs": 270070,
+      "dDurationMs": 3123,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 270080,
+      "dDurationMs": 3113,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "nhưng "
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 121
+        },
+        {
+          "utf8": "đây, ",
+          "tOffsetMs": 242
+        },
+        {
+          "utf8": "mọi ",
+          "tOffsetMs": 363
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 484
+        },
+        {
+          "utf8": "dường ",
+          "tOffsetMs": 605
+        },
+        {
+          "utf8": "như ",
+          "tOffsetMs": 726
+        },
+        {
+          "utf8": "chậm ",
+          "tOffsetMs": 847
+        },
+        {
+          "utf8": "lại.  ",
+          "tOffsetMs": 968
+        },
+        {
+          "utf8": "[nhạc]",
+          "tOffsetMs": 1089
+        }
+      ]
+    },
+    {
+      "tStartMs": 273990,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 274000,
+      "dDurationMs": 4360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 100
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "lúc ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "nhận ",
+          "tOffsetMs": 500
+        },
+        {
+          "utf8": "ra ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "chính ",
+          "tOffsetMs": 700
+        },
+        {
+          "utf8": "xác",
+          "tOffsetMs": 800
+        }
+      ]
+    },
+    {
+      "tStartMs": 275590,
+      "dDurationMs": 2770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 275600,
+      "dDurationMs": 4840,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "mình "
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "làm ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "niệm.",
+          "tOffsetMs": 720
+        }
+      ]
+    },
+    {
+      "tStartMs": 278350,
+      "dDurationMs": 2090,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 278360,
+      "dDurationMs": 3293,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "rời ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "đi, ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1000
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1200
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 1400
+        },
+        {
+          "utf8": "ghé ",
+          "tOffsetMs": 1600
+        },
+        {
+          "utf8": "thăm",
+          "tOffsetMs": 1800
+        }
+      ]
+    },
+    {
+      "tStartMs": 280430,
+      "dDurationMs": 1223,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 280440,
+      "dDurationMs": 2200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "một "
+        },
+        {
+          "utf8": "thành ",
+          "tOffsetMs": 208
+        },
+        {
+          "utf8": "phố ",
+          "tOffsetMs": 416
+        },
+        {
+          "utf8": "khác ",
+          "tOffsetMs": 624
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 832
+        },
+        {
+          "utf8": "ăn",
+          "tOffsetMs": 1040
+        }
+      ]
+    },
+    {
+      "tStartMs": 281643,
+      "dDurationMs": 997,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 281653,
+      "dDurationMs": 2067,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tối "
+        },
+        {
+          "utf8": "kèm ",
+          "tOffsetMs": 13
+        },
+        {
+          "utf8": "nhạc.",
+          "tOffsetMs": 26
+        }
+      ]
+    },
+    {
+      "tStartMs": 282630,
+      "dDurationMs": 1090,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 282640,
+      "dDurationMs": 2680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Đó "
+        },
+        {
+          "utf8": "cũng ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 640
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 960
+        }
+      ]
+    },
+    {
+      "tStartMs": 283710,
+      "dDurationMs": 1610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 283720,
+      "dDurationMs": 3800,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "trải "
+        },
+        {
+          "utf8": "nghiệm ",
+          "tOffsetMs": 211
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 422
+        },
+        {
+          "utf8": "vời.  ",
+          "tOffsetMs": 633
+        },
+        {
+          "utf8": "Mặt ",
+          "tOffsetMs": 844
+        },
+        {
+          "utf8": "trời ",
+          "tOffsetMs": 1055
+        },
+        {
+          "utf8": "bắt ",
+          "tOffsetMs": 1266
+        },
+        {
+          "utf8": "đầu",
+          "tOffsetMs": 1477
+        }
+      ]
+    },
+    {
+      "tStartMs": 285310,
+      "dDurationMs": 2210,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 285320,
+      "dDurationMs": 3680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "lặn.  "
+        },
+        {
+          "utf8": "Chúng ",
+          "tOffsetMs": 142
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 284
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 426
+        },
+        {
+          "utf8": "gặp ",
+          "tOffsetMs": 568
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 710
+        },
+        {
+          "utf8": "con ",
+          "tOffsetMs": 852
+        },
+        {
+          "utf8": "chó.",
+          "tOffsetMs": 994
+        }
+      ]
+    },
+    {
+      "tStartMs": 287510,
+      "dDurationMs": 1490,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 287520,
+      "dDurationMs": 3080,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "[âm ",
+          "tOffsetMs": 136
+        },
+        {
+          "utf8": "nhạc] ",
+          "tOffsetMs": 272
+        },
+        {
+          "utf8": "vang ",
+          "tOffsetMs": 408
+        },
+        {
+          "utf8": "lên ",
+          "tOffsetMs": 544
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 680
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 816
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 952
+        },
+        {
+          "utf8": "đến ",
+          "tOffsetMs": 1088
+        },
+        {
+          "utf8": "bữa ",
+          "tOffsetMs": 1224
+        },
+        {
+          "utf8": "tối,",
+          "tOffsetMs": 1360
+        }
+      ]
+    },
+    {
+      "tStartMs": 288990,
+      "dDurationMs": 1610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 289000,
+      "dDurationMs": 3120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "khung "
+        },
+        {
+          "utf8": "cảnh ",
+          "tOffsetMs": 80
+        },
+        {
+          "utf8": "thật ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "vời.",
+          "tOffsetMs": 320
+        }
+      ]
+    },
+    {
+      "tStartMs": 290590,
+      "dDurationMs": 1530,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 290600,
+      "dDurationMs": 2640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "ăn ",
+          "tOffsetMs": 540
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "ít ",
+          "tOffsetMs": 900
+        },
+        {
+          "utf8": "pizza.  ",
+          "tOffsetMs": 1080
+        },
+        {
+          "utf8": "Đây ",
+          "tOffsetMs": 1260
+        },
+        {
+          "utf8": "là",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 292110,
+      "dDurationMs": 1130,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 292120,
+      "dDurationMs": 3240,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "hậu quả."
+      }]
+    },
+    {
+      "tStartMs": 293230,
+      "dDurationMs": 2130,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 293240,
+      "dDurationMs": 4120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 136
+        },
+        {
+          "utf8": "khi ",
+          "tOffsetMs": 272
+        },
+        {
+          "utf8": "tiết ",
+          "tOffsetMs": 408
+        },
+        {
+          "utf8": "lộ ",
+          "tOffsetMs": 544
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 680
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 816
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 952
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 1088
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 1224
+        },
+        {
+          "utf8": "mình, ",
+          "tOffsetMs": 1360
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 1496
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1632
+        },
+        {
+          "utf8": "còn ",
+          "tOffsetMs": 1768
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 1904
+        },
+        {
+          "utf8": "đến",
+          "tOffsetMs": 2040
+        }
+      ]
+    },
+    {
+      "tStartMs": 295350,
+      "dDurationMs": 2010,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 295360,
+      "dDurationMs": 4760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "một "
+        },
+        {
+          "utf8": "địa ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "điểm ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "khác, ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "và ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1000
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 1200
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 1400
+        },
+        {
+          "utf8": "thấy ",
+          "tOffsetMs": 1600
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 1800
+        }
+      ]
+    },
+    {
+      "tStartMs": 297350,
+      "dDurationMs": 2770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 297360,
+      "dDurationMs": 2760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "món "
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 48
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 96
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 144
+        },
+        {
+          "utf8": "cuối ",
+          "tOffsetMs": 192
+        },
+        {
+          "utf8": "cùng.",
+          "tOffsetMs": 240
+        }
+      ]
+    },
+    {
+      "tStartMs": 303258,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 303268,
+      "dDurationMs": 6172,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 304750,
+      "dDurationMs": 4690,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 304760,
+      "dDurationMs": 4680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Venice ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "lại ",
+          "tOffsetMs": 248
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 496
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "quá.  ",
+          "tOffsetMs": 992
+        },
+        {
+          "utf8": "Đi ",
+          "tOffsetMs": 1240
+        },
+        {
+          "utf8": "thuyền ",
+          "tOffsetMs": 1488
+        },
+        {
+          "utf8": "gondola.   ",
+          "tOffsetMs": 1736
+        },
+        {
+          "utf8": "Có ",
+          "tOffsetMs": 1984
+        },
+        {
+          "utf8": "rất",
+          "tOffsetMs": 2232
+        }
+      ]
+    },
+    {
+      "tStartMs": 309910,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 309920,
+      "dDurationMs": 4000,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "nhiều "
+        },
+        {
+          "utf8": "cửa ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "hàng.",
+          "tOffsetMs": 480
+        }
+      ]
+    },
+    {
+      "tStartMs": 312750,
+      "dDurationMs": 1170,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 312760,
+      "dDurationMs": 2953,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Và "
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 125
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 250
+        },
+        {
+          "utf8": "lúc ",
+          "tOffsetMs": 375
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 500
+        },
+        {
+          "utf8": "tìm ",
+          "tOffsetMs": 625
+        },
+        {
+          "utf8": "thấy ",
+          "tOffsetMs": 750
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 875
+        }
+      ]
+    },
+    {
+      "tStartMs": 313910,
+      "dDurationMs": 1803,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 313920,
+      "dDurationMs": 3813,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "món quà lưu niệm nhỏ khác."
+      }]
+    },
+    {
+      "tStartMs": 315703,
+      "dDurationMs": 2030,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 315713,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 319790,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 319800,
+      "dDurationMs": 3400,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Chuyến ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 130
+        },
+        {
+          "utf8": "này ",
+          "tOffsetMs": 260
+        },
+        {
+          "utf8": "[nhạc] ",
+          "tOffsetMs": 390
+        },
+        {
+          "utf8": "dài",
+          "tOffsetMs": 520
+        }
+      ]
+    },
+    {
+      "tStartMs": 321310,
+      "dDurationMs": 1890,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 321320,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "đôi ",
+          "tOffsetMs": 186
+        },
+        {
+          "utf8": "lúc ",
+          "tOffsetMs": 372
+        },
+        {
+          "utf8": "khá ",
+          "tOffsetMs": 558
+        },
+        {
+          "utf8": "vất ",
+          "tOffsetMs": 744
+        },
+        {
+          "utf8": "vả.  ",
+          "tOffsetMs": 930
+        },
+        {
+          "utf8": "Nhưng ",
+          "tOffsetMs": 1116
+        },
+        {
+          "utf8": "nếu ",
+          "tOffsetMs": 1302
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1488
+        },
+        {
+          "utf8": "không",
+          "tOffsetMs": 1674
+        }
+      ]
+    },
+    {
+      "tStartMs": 323190,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 323200,
+      "dDurationMs": 2760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "trải "
+        },
+        {
+          "utf8": "qua ",
+          "tOffsetMs": 205
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 410
+        },
+        {
+          "utf8": "khó ",
+          "tOffsetMs": 615
+        },
+        {
+          "utf8": "khăn ",
+          "tOffsetMs": 820
+        },
+        {
+          "utf8": "nhỏ ",
+          "tOffsetMs": 1025
+        },
+        {
+          "utf8": "đó, ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1435
+        },
+        {
+          "utf8": "đã",
+          "tOffsetMs": 1640
+        }
+      ]
+    },
+    {
+      "tStartMs": 324910,
+      "dDurationMs": 1050,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 324920,
+      "dDurationMs": 2360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "không "
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 176
+        },
+        {
+          "utf8": "trải ",
+          "tOffsetMs": 352
+        },
+        {
+          "utf8": "nghiệm ",
+          "tOffsetMs": 528
+        },
+        {
+          "utf8": "âm ",
+          "tOffsetMs": 704
+        },
+        {
+          "utf8": "nhạc",
+          "tOffsetMs": 880
+        }
+      ]
+    },
+    {
+      "tStartMs": 325950,
+      "dDurationMs": 1330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 325960,
+      "dDurationMs": 4280,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "nhiều đến vậy."
+      }]
+    },
+    {
+      "tStartMs": 327270,
+      "dDurationMs": 2970,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 327280,
+      "dDurationMs": 3760,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nếu "
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 202
+        },
+        {
+          "utf8": "khuất ",
+          "tOffsetMs": 404
+        },
+        {
+          "utf8": "phục ",
+          "tOffsetMs": 606
+        },
+        {
+          "utf8": "trước ",
+          "tOffsetMs": 808
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 1010
+        },
+        {
+          "utf8": "nghi ",
+          "tOffsetMs": 1212
+        },
+        {
+          "utf8": "ngờ, ",
+          "tOffsetMs": 1414
+        },
+        {
+          "utf8": "nỗi ",
+          "tOffsetMs": 1616
+        },
+        {
+          "utf8": "sợ ",
+          "tOffsetMs": 1818
+        },
+        {
+          "utf8": "hãi ",
+          "tOffsetMs": 2020
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 2222
+        },
+        {
+          "utf8": "mình, ",
+          "tOffsetMs": 2424
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 2626
+        },
+        {
+          "utf8": "đã",
+          "tOffsetMs": 2828
+        }
+      ]
+    },
+    {
+      "tStartMs": 330230,
+      "dDurationMs": 810,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 330240,
+      "dDurationMs": 2640,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "không "
+        },
+        {
+          "utf8": "được ",
+          "tOffsetMs": 102
+        },
+        {
+          "utf8": "trải ",
+          "tOffsetMs": 204
+        },
+        {
+          "utf8": "nghiệm ",
+          "tOffsetMs": 306
+        },
+        {
+          "utf8": "[âm ",
+          "tOffsetMs": 408
+        },
+        {
+          "utf8": "nhạc] ",
+          "tOffsetMs": 510
+        },
+        {
+          "utf8": "ở ",
+          "tOffsetMs": 612
+        },
+        {
+          "utf8": "Đấu",
+          "tOffsetMs": 714
+        }
+      ]
+    },
+    {
+      "tStartMs": 331030,
+      "dDurationMs": 1850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 331040,
+      "dDurationMs": 4440,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "trường La Mã,"
+      }]
+    },
+    {
+      "tStartMs": 332870,
+      "dDurationMs": 2610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 332880,
+      "dDurationMs": 2600,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "Venice,"
+      }]
+    },
+    {
+      "tStartMs": 335910,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 335920,
+      "dDurationMs": 3200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 75
+        },
+        {
+          "utf8": "trong ",
+          "tOffsetMs": 150
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 225
+        },
+        {
+          "utf8": "nơi ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "[âm ",
+          "tOffsetMs": 375
+        },
+        {
+          "utf8": "nhạc] ",
+          "tOffsetMs": 450
+        },
+        {
+          "utf8": "tuyệt ",
+          "tOffsetMs": 525
+        },
+        {
+          "utf8": "vời ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 675
+        },
+        {
+          "utf8": "mà",
+          "tOffsetMs": 750
+        }
+      ]
+    },
+    {
+      "tStartMs": 337270,
+      "dDurationMs": 1850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 337280,
+      "dDurationMs": 3880,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tôi "
+        },
+        {
+          "utf8": "từng ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "đến.",
+          "tOffsetMs": 400
+        }
+      ]
+    },
+    {
+      "tStartMs": 339110,
+      "dDurationMs": 2050,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 339120,
+      "dDurationMs": 3460,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Còn "
+        },
+        {
+          "utf8": "về ",
+          "tOffsetMs": 100
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "niệm,",
+          "tOffsetMs": 400
+        }
+      ]
+    },
+    {
+      "tStartMs": 341150,
+      "dDurationMs": 1430,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 341160,
+      "dDurationMs": 2680,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tôi "
+        },
+        {
+          "utf8": "biết ",
+          "tOffsetMs": 175
+        },
+        {
+          "utf8": "mình ",
+          "tOffsetMs": 350
+        },
+        {
+          "utf8": "không ",
+          "tOffsetMs": 525
+        },
+        {
+          "utf8": "thể ",
+          "tOffsetMs": 700
+        },
+        {
+          "utf8": "mua ",
+          "tOffsetMs": 875
+        },
+        {
+          "utf8": "đồ ",
+          "tOffsetMs": 1050
+        },
+        {
+          "utf8": "chơi ",
+          "tOffsetMs": 1225
+        },
+        {
+          "utf8": "ở",
+          "tOffsetMs": 1400
+        }
+      ]
+    },
+    {
+      "tStartMs": 342570,
+      "dDurationMs": 1270,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 342580,
+      "dDurationMs": 4300,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "cửa "
+        },
+        {
+          "utf8": "hàng ",
+          "tOffsetMs": 36
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 72
+        },
+        {
+          "utf8": "tặng ",
+          "tOffsetMs": 108
+        },
+        {
+          "utf8": "âm ",
+          "tOffsetMs": 144
+        },
+        {
+          "utf8": "nhạc ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "được.",
+          "tOffsetMs": 216
+        }
+      ]
+    },
+    {
+      "tStartMs": 343830,
+      "dDurationMs": 3050,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 343840,
+      "dDurationMs": 4360,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Vậy "
+        },
+        {
+          "utf8": "nên, ",
+          "tOffsetMs": 100
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 200
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 400
+        },
+        {
+          "utf8": "dạo ",
+          "tOffsetMs": 500
+        },
+        {
+          "utf8": "quanh ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "Cinque ",
+          "tOffsetMs": 700
+        },
+        {
+          "utf8": "Terre",
+          "tOffsetMs": 800
+        }
+      ]
+    },
+    {
+      "tStartMs": 346870,
+      "dDurationMs": 1330,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 346880,
+      "dDurationMs": 2238,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "chọn ",
+          "tOffsetMs": 145
+        },
+        {
+          "utf8": "lấy ",
+          "tOffsetMs": 290
+        },
+        {
+          "utf8": "hòn ",
+          "tOffsetMs": 435
+        },
+        {
+          "utf8": "đá ",
+          "tOffsetMs": 580
+        },
+        {
+          "utf8": "đẹp ",
+          "tOffsetMs": 725
+        },
+        {
+          "utf8": "nhất ",
+          "tOffsetMs": 870
+        },
+        {
+          "utf8": "mà ",
+          "tOffsetMs": 1015
+        },
+        {
+          "utf8": "tôi",
+          "tOffsetMs": 1160
+        }
+      ]
+    },
+    {
+      "tStartMs": 348190,
+      "dDurationMs": 928,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 348200,
+      "dDurationMs": 1040,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "tìm thấy."
+      }]
+    },
+    {
+      "tStartMs": 349108,
+      "dDurationMs": 132,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 349118,
+      "dDurationMs": 1762,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 349230,
+      "dDurationMs": 1650,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 349240,
+      "dDurationMs": 5080,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nó ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "không ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "thứ ",
+          "tOffsetMs": 640
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 800
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 960
+        },
+        {
+          "utf8": "điên ",
+          "tOffsetMs": 1120
+        },
+        {
+          "utf8": "rồ, ",
+          "tOffsetMs": 1280
+        },
+        {
+          "utf8": "một",
+          "tOffsetMs": 1440
+        }
+      ]
+    },
+    {
+      "tStartMs": 350870,
+      "dDurationMs": 3450,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 350880,
+      "dDurationMs": 4840,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "món "
+        },
+        {
+          "utf8": "đồ ",
+          "tOffsetMs": 205
+        },
+        {
+          "utf8": "đắt ",
+          "tOffsetMs": 410
+        },
+        {
+          "utf8": "tiền, ",
+          "tOffsetMs": 615
+        },
+        {
+          "utf8": "mà ",
+          "tOffsetMs": 820
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 1025
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "kỷ ",
+          "tOffsetMs": 1435
+        },
+        {
+          "utf8": "niệm",
+          "tOffsetMs": 1640
+        }
+      ]
+    },
+    {
+      "tStartMs": 354310,
+      "dDurationMs": 1410,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 354320,
+      "dDurationMs": 3120,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "về "
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 90
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "này, ",
+          "tOffsetMs": 270
+        },
+        {
+          "utf8": "về",
+          "tOffsetMs": 360
+        }
+      ]
+    },
+    {
+      "tStartMs": 355710,
+      "dDurationMs": 1730,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 355720,
+      "dDurationMs": 2480,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "vẻ "
+        },
+        {
+          "utf8": "đẹp ",
+          "tOffsetMs": 160
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 320
+        },
+        {
+          "utf8": "nó, ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "về",
+          "tOffsetMs": 640
+        }
+      ]
+    },
+    {
+      "tStartMs": 357430,
+      "dDurationMs": 770,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 357440,
+      "dDurationMs": 3600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "sự "
+        },
+        {
+          "utf8": "mệt ",
+          "tOffsetMs": 64
+        },
+        {
+          "utf8": "mỏi, ",
+          "tOffsetMs": 128
+        },
+        {
+          "utf8": "[nhạc]",
+          "tOffsetMs": 192
+        }
+      ]
+    },
+    {
+      "tStartMs": 358190,
+      "dDurationMs": 2850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 358200,
+      "dDurationMs": 4019,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "sự "
+        },
+        {
+          "utf8": "tĩnh ",
+          "tOffsetMs": 272
+        },
+        {
+          "utf8": "lặng, ",
+          "tOffsetMs": 544
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 816
+        },
+        {
+          "utf8": "bước ",
+          "tOffsetMs": 1088
+        },
+        {
+          "utf8": "chân, ",
+          "tOffsetMs": 1360
+        },
+        {
+          "utf8": "về ",
+          "tOffsetMs": 1632
+        },
+        {
+          "utf8": "cảnh ",
+          "tOffsetMs": 1904
+        },
+        {
+          "utf8": "vật, ",
+          "tOffsetMs": 2176
+        },
+        {
+          "utf8": "về ",
+          "tOffsetMs": 2448
+        },
+        {
+          "utf8": "con",
+          "tOffsetMs": 2720
+        }
+      ]
+    },
+    {
+      "tStartMs": 361030,
+      "dDurationMs": 1189,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 361040,
+      "dDurationMs": 3199,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "người."
+      }]
+    },
+    {
+      "tStartMs": 362209,
+      "dDurationMs": 2030,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 362219,
+      "dDurationMs": 2020,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 364830,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 364840,
+      "dDurationMs": 4080,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Còn ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "về ",
+          "tOffsetMs": 105
+        },
+        {
+          "utf8": "món ",
+          "tOffsetMs": 210
+        },
+        {
+          "utf8": "quà ",
+          "tOffsetMs": 315
+        },
+        {
+          "utf8": "lưu ",
+          "tOffsetMs": 420
+        },
+        {
+          "utf8": "niệm ",
+          "tOffsetMs": 525
+        },
+        {
+          "utf8": "Venice ",
+          "tOffsetMs": 630
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 735
+        },
+        {
+          "utf8": "tôi,",
+          "tOffsetMs": 840
+        }
+      ]
+    },
+    {
+      "tStartMs": 367790,
+      "dDurationMs": 1130,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 367800,
+      "dDurationMs": 2280,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tôi "
+        },
+        {
+          "utf8": "đã ",
+          "tOffsetMs": 121
+        },
+        {
+          "utf8": "mua ",
+          "tOffsetMs": 242
+        },
+        {
+          "utf8": "cuốn ",
+          "tOffsetMs": 363
+        },
+        {
+          "utf8": "sổ ",
+          "tOffsetMs": 484
+        },
+        {
+          "utf8": "tay ",
+          "tOffsetMs": 605
+        },
+        {
+          "utf8": "nhỏ ",
+          "tOffsetMs": 726
+        },
+        {
+          "utf8": "xíu ",
+          "tOffsetMs": 847
+        },
+        {
+          "utf8": "này",
+          "tOffsetMs": 968
+        }
+      ]
+    },
+    {
+      "tStartMs": 368910,
+      "dDurationMs": 1170,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 368920,
+      "dDurationMs": 2520,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "."
+      }]
+    },
+    {
+      "tStartMs": 370070,
+      "dDurationMs": 1370,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 370080,
+      "dDurationMs": 3200,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Tôi "
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 90
+        },
+        {
+          "utf8": "sử ",
+          "tOffsetMs": 180
+        },
+        {
+          "utf8": "dụng ",
+          "tOffsetMs": 270
+        },
+        {
+          "utf8": "nó ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "cho ",
+          "tOffsetMs": 450
+        },
+        {
+          "utf8": "những ",
+          "tOffsetMs": 540
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 630
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "sắp ",
+          "tOffsetMs": 810
+        },
+        {
+          "utf8": "tới ",
+          "tOffsetMs": 900
+        },
+        {
+          "utf8": "của ",
+          "tOffsetMs": 990
+        },
+        {
+          "utf8": "mình",
+          "tOffsetMs": 1080
+        }
+      ]
+    },
+    {
+      "tStartMs": 371430,
+      "dDurationMs": 1850,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 371440,
+      "dDurationMs": 2920,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": ".  "
+        },
+        {
+          "utf8": "Những ",
+          "tOffsetMs": 410
+        },
+        {
+          "utf8": "bức ",
+          "tOffsetMs": 820
+        },
+        {
+          "utf8": "vẽ ",
+          "tOffsetMs": 1230
+        },
+        {
+          "utf8": "nhỏ,",
+          "tOffsetMs": 1640
+        }
+      ]
+    },
+    {
+      "tStartMs": 373270,
+      "dDurationMs": 1090,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 373280,
+      "dDurationMs": 2039,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "những ghi chú nhỏ.   Một"
+      }]
+    },
+    {
+      "tStartMs": 374350,
+      "dDurationMs": 969,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 374360,
+      "dDurationMs": 1840,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "lời "
+        },
+        {
+          "utf8": "nhắc ",
+          "tOffsetMs": 93
+        },
+        {
+          "utf8": "nhở ",
+          "tOffsetMs": 186
+        },
+        {
+          "utf8": "khác.",
+          "tOffsetMs": 279
+        }
+      ]
+    },
+    {
+      "tStartMs": 375309,
+      "dDurationMs": 891,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 375319,
+      "dDurationMs": 2921,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 376190,
+      "dDurationMs": 2050,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 376200,
+      "dDurationMs": 3704,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Tôi ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "vẫn ",
+          "tOffsetMs": 185
+        },
+        {
+          "utf8": "còn ",
+          "tOffsetMs": 370
+        },
+        {
+          "utf8": "bốn ",
+          "tOffsetMs": 555
+        },
+        {
+          "utf8": "chuyến ",
+          "tOffsetMs": 740
+        },
+        {
+          "utf8": "đi ",
+          "tOffsetMs": 925
+        },
+        {
+          "utf8": "nữa ",
+          "tOffsetMs": 1110
+        },
+        {
+          "utf8": "sắp ",
+          "tOffsetMs": 1295
+        },
+        {
+          "utf8": "tới,",
+          "tOffsetMs": 1480
+        }
+      ]
+    },
+    {
+      "tStartMs": 378230,
+      "dDurationMs": 1674,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 378240,
+      "dDurationMs": 1800,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "và "
+        },
+        {
+          "utf8": "mặc ",
+          "tOffsetMs": 75
+        },
+        {
+          "utf8": "dù ",
+          "tOffsetMs": 150
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 225
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 300
+        },
+        {
+          "utf8": "thể ",
+          "tOffsetMs": 375
+        },
+        {
+          "utf8": "có ",
+          "tOffsetMs": 450
+        },
+        {
+          "utf8": "chút ",
+          "tOffsetMs": 525
+        },
+        {
+          "utf8": "nghi ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "ngờ,",
+          "tOffsetMs": 675
+        }
+      ]
+    },
+    {
+      "tStartMs": 379894,
+      "dDurationMs": 146,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 379904,
+      "dDurationMs": 3136,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "[nhạc]",
+        "isSpeakerChange": 1
+      }]
+    },
+    {
+      "tStartMs": 380030,
+      "dDurationMs": 3010,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 380040,
+      "dDurationMs": 5600,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "tôi ",
+          "isSpeakerChange": 1
+        },
+        {
+          "utf8": "biết ",
+          "tOffsetMs": 91
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 182
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 273
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 364
+        },
+        {
+          "utf8": "một ",
+          "tOffsetMs": 455
+        },
+        {
+          "utf8": "trải ",
+          "tOffsetMs": 546
+        },
+        {
+          "utf8": "nghiệm.",
+          "tOffsetMs": 637
+        }
+      ]
+    },
+    {
+      "tStartMs": 383030,
+      "dDurationMs": 2610,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 383040,
+      "dDurationMs": 6160,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Ai "
+        },
+        {
+          "utf8": "biết ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "chuyện ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "sẽ ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "xảy ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "ra?",
+          "tOffsetMs": 720
+        }
+      ]
+    },
+    {
+      "tStartMs": 385630,
+      "dDurationMs": 3570,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 385640,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "đó ",
+          "tOffsetMs": 116
+        },
+        {
+          "utf8": "chính ",
+          "tOffsetMs": 232
+        },
+        {
+          "utf8": "xác ",
+          "tOffsetMs": 348
+        },
+        {
+          "utf8": "là ",
+          "tOffsetMs": 464
+        },
+        {
+          "utf8": "lý ",
+          "tOffsetMs": 580
+        },
+        {
+          "utf8": "do ",
+          "tOffsetMs": 696
+        },
+        {
+          "utf8": "tại ",
+          "tOffsetMs": 812
+        },
+        {
+          "utf8": "sao ",
+          "tOffsetMs": 928
+        },
+        {
+          "utf8": "tôi ",
+          "tOffsetMs": 1044
+        },
+        {
+          "utf8": "muốn ",
+          "tOffsetMs": 1160
+        },
+        {
+          "utf8": "đi.",
+          "tOffsetMs": 1276
+        }
+      ]
+    },
+    {
+      "tStartMs": 389270,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 389280,
+      "dDurationMs": 3560,
+      "wWinId": 1,
+      "segs": [{
+          "utf8": "Nhưng "
+        },
+        {
+          "utf8": "chúng ",
+          "tOffsetMs": 120
+        },
+        {
+          "utf8": "ta ",
+          "tOffsetMs": 240
+        },
+        {
+          "utf8": "phải ",
+          "tOffsetMs": 360
+        },
+        {
+          "utf8": "chờ ",
+          "tOffsetMs": 480
+        },
+        {
+          "utf8": "xem ",
+          "tOffsetMs": 600
+        },
+        {
+          "utf8": "điều ",
+          "tOffsetMs": 720
+        },
+        {
+          "utf8": "gì ",
+          "tOffsetMs": 840
+        },
+        {
+          "utf8": "sẽ",
+          "tOffsetMs": 960
+        }
+      ]
+    },
+    {
+      "tStartMs": 390350,
+      "dDurationMs": 2490,
+      "wWinId": 1,
+      "aAppend": 1,
+      "segs": [{
+        "utf8": "\n"
+      }]
+    },
+    {
+      "tStartMs": 390360,
+      "dDurationMs": 2480,
+      "wWinId": 1,
+      "segs": [{
+        "utf8": "xảy ra."
+      }]
+    }
+  ]
+}

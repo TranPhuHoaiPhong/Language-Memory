@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+
+  "name": "Language Memory",
+
+  "version": "1.0",
+
+  "permissions": [
+    "activeTab"
+  ],
+
+
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://www.youtube.com/*"
+  ],
+
+
+  "content_scripts": [{
+    "matches": [
+      "https://www.youtube.com/watch*"
+    ],
+
+    "js": [
+      "utils/utils.js",
+      "style/style.js",
+      "content/youtube.js"
+    ]
+  }]
+}
