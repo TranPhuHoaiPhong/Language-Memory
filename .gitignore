@@ -3,6 +3,7 @@ node_modules/
 
 # Images
 extention/icons/
+extention/assets/
 
 # Logs
 *.log

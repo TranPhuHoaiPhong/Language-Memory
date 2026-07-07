@@ -1,6 +1,6 @@
 const youtubedl = require("youtube-dl-exec");
 
-exports.processId = async (videoId, language = "vi") => {
+exports.processId = async (videoId, language) => {
 
     const info = await youtubedl(
         `https://www.youtube.com/watch?v=${videoId}`,
@@ -22,10 +22,18 @@ exports.processId = async (videoId, language = "vi") => {
 
     const url = new URL(track.url);
 
+    const lang = url.searchParams.get("lang");
+
+    if (lang === language) {
+        return null;
+    }
+
     url.searchParams.delete("tlang");
 
     const base1 = url.toString();
-    // const base2 = `${base1}&tlang=${language}`;
 
-    return base1;
-};
+    return {
+        dta: base1,
+        lang: lang
+    };
+}; 

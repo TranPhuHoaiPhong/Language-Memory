@@ -1,35 +1,55 @@
 const axios = require("axios");
+const https = require("https");
 
-async function translate(text, language) {
+const httpsAgent = new https.Agent({
+    keepAlive: true,
+    maxSockets: 100,
+    maxFreeSockets: 20
+});
+
+const CONCURRENCY = 40;
+const AMOUNT = 10;
+
+async function translate(texts, sourceLanguage, targetLanguage) {
+
+    const merged = texts
+        .map((text, index) =>
+            `[${String(index + 1).padStart(6, "0")}]\n${text}`
+        )
+        .join("\n\n");
 
     const response = await axios.get(
         "https://translate.googleapis.com/translate_a/single",
         {
+            httpsAgent,
+            timeout: 10000,
             params: {
                 client: "gtx",
-                sl: "en",
-                tl: language,
+                sl: sourceLanguage,
+                tl: targetLanguage,
                 dt: "t",
-                q: text
+                q: merged
             }
         }
     );
 
-    return response.data[0]
+    const translated = response.data[0]
         .map(x => x[0])
         .join("");
 
-}
+    const matches = [
+        ...translated.matchAll(
+            /\[(\d{6})\]\s*([\s\S]*?)(?=\[\d{6}\]|$)/g
+        )
+    ];
 
-function chunk(arr, size) {
+    const result = new Array(texts.length);
 
-    let result = [];
+    for (const match of matches) {
 
-    for (let i = 0; i < arr.length; i += size) {
+        const index = Number(match[1]) - 1;
 
-        result.push(
-            arr.slice(i, i + size)
-        );
+        result[index] = match[2].trim();
 
     }
 
@@ -51,107 +71,150 @@ function timeToSeconds(time) {
 
 async function translateTranscript(
     transcriptText,
-    language
+    language,
+    lang
 ) {
 
-    const lines =
-    transcriptText
+    const lines = transcriptText
         .split("\n")
         .map(x => x.trim())
         .filter(Boolean);
 
     const parsed = lines
-        .map(line => {
+        .map(line => {  
 
-            const match =
-            line.match(
-                /^(\d{2}:\d{2}:\d{2}\.\d{3})\s+(.+)$/
-            );
+            const match = line.match(/^(\d{2}:\d{2}:\d{2}\.\d{3})\s+(.+)$/);
 
             if (!match)
                 return null;
 
             return {
-
                 time: match[1],
                 english: match[2]
-
             };
 
         })
         .filter(Boolean);
 
-    const batches =
-    chunk(parsed, 15);
+    const translatedItems = new Array(parsed.length);
 
-    let translatedItems = [];
+    let nextIndex = 0;
 
-    for (const batch of batches) {
+    async function worker(workerId) {
 
-        const translatedBatch =
-        await Promise.all(
+        while (true) {
 
-            batch.map(async item => ({
+            const current = nextIndex;
 
-                time: item.time,
-                english: item.english,
-                translated:
-                await translate(
-                    item.english,
-                    language
-                )
+            nextIndex += AMOUNT;
 
-            }))
+            if (current >= parsed.length)
+                return;
 
-        );
+            const items =
+                parsed.slice(
+                    current,
+                    current + AMOUNT
+                );
 
-        translatedItems.push(
-            ...translatedBatch
-        );
+            try {
 
-        // console.log(
-        //     `Translated batch: ${translatedItems.length}/${parsed.length}`
-        // );
+                const translated =
+                    await translate(
+                        items.map(x => x.english),
+                        lang,
+                        language
+                    );
+
+                items.forEach((item, index) => {
+
+                    translatedItems[current + index] = {
+
+                        time: item.time,
+
+                        english: item.english,
+
+                        translated:
+                            translated[index] ??
+                            item.english
+
+                    };
+
+                });
+
+            }
+
+            catch (err) {
+
+                items.forEach((item, index) => {
+
+                    translatedItems[current + index] = {
+
+                        time: item.time,
+
+                        english: item.english,
+
+                        translated: item.english
+
+                    };
+
+                });
+
+            }
+
+        }
 
     }
 
-    const result =
-    translatedItems.map(
+    await Promise.all(
+
+        Array.from(
+            {
+                length: Math.min(
+                    CONCURRENCY,
+                    parsed.length
+                )
+            },
+
+            (_, i) => worker(i + 1)
+
+        )
+
+    );
+
+    return translatedItems.map(
+
         (item, index) => {
 
-            const start =
-            timeToSeconds(
-                item.time
-            );
+            const start = timeToSeconds(item.time);
 
             const end =
-            index <
-            translatedItems.length - 1
-                ? timeToSeconds(
-                    translatedItems[index + 1].time
-                )
-                : start;
+
+                index <
+
+                translatedItems.length - 1
+
+                    ? timeToSeconds(
+
+                        translatedItems[index + 1].time
+
+                    )
+
+                    : start;
 
             return {
-
                 start,
                 end,
-
-                original:
-                item.english,
-
-                translated:
-                item.translated
-
+                original: item.english,
+                translated: item.translated
             };
 
         }
-    );
 
-    return result;
+    );
 
 }
 
 module.exports = {
     translateTranscript
-};
+}; 

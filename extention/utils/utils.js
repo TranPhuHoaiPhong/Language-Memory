@@ -1,4 +1,4 @@
-async function downloadTranscript(url, language) {
+async function downloadTranscript(url, language, lang, videoId) {
 
     const res = await fetch(url.toString());
 
@@ -15,7 +15,9 @@ async function downloadTranscript(url, language) {
         },
         body: JSON.stringify({
             transcript: text,
-            language: language
+            language: language,
+            lang: lang,
+            videoId: videoId
         })
     });
 

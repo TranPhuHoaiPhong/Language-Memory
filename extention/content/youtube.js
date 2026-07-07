@@ -135,11 +135,7 @@ async function loadTranscript() {
 
     currentVideoId = videoId;
 
-    loading = true;
-
     showSubtitle([]);
-
-    showMessage("Generating subtitles...");
 
     try {
 
@@ -155,14 +151,31 @@ async function loadTranscript() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    id: videoId
+                    id: videoId,
+                    language: language
                 })
             }
         );
 
         const data = await response.json();
 
-        const sub = await downloadTranscript(data.data, language);
+        if ( data.dta === data.lang ) {
+            loading = false;
+            showSubtitle([]);
+            showMessage("");
+            subtitleDiv.querySelectorAll(".sub-line").forEach(el => {
+                el.style.padding = "0";
+            });
+            return;
+        }
+
+        loading = true;
+
+        showSubtitle([]);
+
+        showMessage("Generating subtitles...");
+
+        const sub = await downloadTranscript(data.dta, language, data.lang, videoId);
 
         loading = false;
 
@@ -182,7 +195,9 @@ async function loadTranscript() {
 
 loadTranscript();
 
-document.addEventListener("yt-navigate-finish", loadTranscript);
+document.addEventListener("yt-navigate-finish", () => {
+    loadTranscript();
+});
 
 const observer = new ResizeObserver(() => {
     updateSubtitlePosition();
