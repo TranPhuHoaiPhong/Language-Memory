@@ -52,3 +52,7 @@ function showMessage(message) {
     `;
 
 }
+
+function hidePopup() {
+    wordPopup.style.display = "none";
+}

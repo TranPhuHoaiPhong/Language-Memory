@@ -50,7 +50,8 @@ const subtitleCacheSchema = new mongoose.Schema(
         },
 
         subtitle: {
-            type: [subtitleItemSchema],
+            type: Buffer,
+            // type: [subtitleItemSchema],
             required: true
         }
     },

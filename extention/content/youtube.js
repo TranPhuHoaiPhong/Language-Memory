@@ -1,12 +1,39 @@
-injectCss();
+const wordPopup = document.createElement("div");
+wordPopup.id = "word-popup";
+document.body.appendChild(wordPopup);
 
 const subtitleDiv = document.createElement("div");
-
 subtitleDiv.id = "subtitle-translate";
+
+document.addEventListener("yt-navigate-finish", () => {
+    loadTranscript();
+});
+
+const observer = new ResizeObserver(() => {
+    updateSubtitlePosition();
+});
+
+const video = getVideo();
+
+if (video) {
+    observer.observe(video);
+    video.addEventListener("play", () => {
+        hidePopup();
+        window.getSelection().removeAllRanges();
+    });
+}
+
+let lastHeight = 0;
+let subtitlesData = [];
+let lastSubtitle = null;
+let currentIndex = 0;
+let loading = false;
+let currentVideoId = null;
+let currentLanguage = "en";
 
 function attachSubtitle() {
 
-    const container = document.querySelector(".html5-video-container");
+    const container = document.querySelector("#player");
 
     if (!container) return false;
 
@@ -16,8 +43,6 @@ function attachSubtitle() {
 
     return true;
 }
-
-let lastHeight = 0;
 
 function updateSubtitlePosition() {
 
@@ -34,16 +59,8 @@ function updateSubtitlePosition() {
         subtitleDiv.style.fontSize = fontSize + "px";
     }
 
-    subtitleDiv.style.bottom = (-lastHeight + parseFloat(subtitleDiv.style.fontSize)) + "px";
+    subtitleDiv.style.bottom = (parseFloat(subtitleDiv.style.fontSize)) + "px";
 }
-
-let subtitlesData = [];
-
-let lastSubtitle = null;
-
-let currentIndex = 0;
-
-let loading = false;
 
 function showSubtitle(subtitles) {
 
@@ -119,11 +136,15 @@ function updateLoop() {
     requestAnimationFrame(updateLoop);
 }
 
-updateLoop();
-
 // ======================= Main =======================
 
-let currentVideoId = null;
+async function loadLanguage() {
+    const { language = "en" } = await new Promise((resolve) => {
+        chrome.storage.sync.get("language", resolve);
+    });
+
+    currentLanguage = language;
+}
 
 async function loadTranscript() {
 
@@ -139,10 +160,6 @@ async function loadTranscript() {
 
     try {
 
-        const { language = "en" } = await new Promise((resolve) => {
-            chrome.storage.sync.get("language", resolve);
-        });
-
         const response = await fetch(
             "http://localhost:3000/api/send-id",
             {
@@ -152,7 +169,7 @@ async function loadTranscript() {
                 },
                 body: JSON.stringify({
                     id: videoId,
-                    language: language
+                    language: currentLanguage
                 })
             }
         );
@@ -175,7 +192,7 @@ async function loadTranscript() {
 
         showMessage("Generating subtitles...");
 
-        const sub = await downloadTranscript(data.dta, language, data.lang, videoId);
+        const sub = await downloadTranscript(data.dta, currentLanguage, data.lang, videoId);
 
         loading = false;
 
@@ -193,17 +210,11 @@ async function loadTranscript() {
 
 }
 
-loadTranscript();
+injectCss();
+updateLoop();
 
-document.addEventListener("yt-navigate-finish", () => {
+(async () => {
+    await loadLanguage();
+    initPopupEvents(wordPopup, getVideo, currentLanguage, () => lastSubtitle);
     loadTranscript();
-});
-
-const observer = new ResizeObserver(() => {
-    updateSubtitlePosition();
-});
-
-const video = getVideo();
-if (video) {
-    observer.observe(video);
-}
+})();

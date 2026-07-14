@@ -16,7 +16,7 @@ chrome.storage.sync.get("language", ({ language }) => {
     if (language) {
         select.value = language;
     } else {
-        select.value = "en";
+        select.value = "0";
     }
 
 });

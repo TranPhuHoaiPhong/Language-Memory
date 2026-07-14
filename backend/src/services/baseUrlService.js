@@ -1,7 +1,17 @@
 const { convertTranscriptToText } = require("../utils/transcript");
 const { translateTranscript } = require("../utils/translate");
+
 const SubtitleCache = require("../models/SubtitleCache");
+
+const zlib = require("zlib");
+const { promisify } = require("util");
+
+const brotliCompress = promisify(zlib.brotliCompress);
+const brotliDecompress = promisify(zlib.brotliDecompress);
+
 const fs = require("fs").promises;
+
+
 
 exports.transcriptSer = async (data, language, lang, videoId) => {
     try {
@@ -10,10 +20,14 @@ exports.transcriptSer = async (data, language, lang, videoId) => {
             videoId,
             sourceLanguage: lang,
             language
-        }).lean();
+        });
 
         if (cache) {
-            return cache.subtitle;
+
+            const json = await brotliDecompress(cache.subtitle);
+
+            return JSON.parse(json.toString());
+
         }
 
         const transcriptText = convertTranscriptToText(data);
@@ -30,6 +44,15 @@ exports.transcriptSer = async (data, language, lang, videoId) => {
         //     "utf8"
         // );
 
+        const compressed = await brotliCompress(
+            Buffer.from(JSON.stringify(subtitle)),
+            {
+                params: {
+                    [zlib.constants.BROTLI_PARAM_QUALITY]: 5
+                }
+            }
+        );
+
         await SubtitleCache.updateOne(
             {
                 videoId,
@@ -38,7 +61,7 @@ exports.transcriptSer = async (data, language, lang, videoId) => {
             },
             {
                 $set: {
-                    subtitle
+                    subtitle: compressed
                 }
             },
             {
