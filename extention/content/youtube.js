@@ -30,6 +30,7 @@ let currentIndex = 0;
 let loading = false;
 let currentVideoId = null;
 let currentLanguage = "en";
+let sourceLanguage = "";
 
 function attachSubtitle() {
 
@@ -176,6 +177,8 @@ async function loadTranscript() {
 
         const data = await response.json();
 
+        sourceLanguage = data.lang;
+
         if ( data.dta === data.lang ) {
             loading = false;
             showSubtitle([]);
@@ -192,9 +195,38 @@ async function loadTranscript() {
 
         showMessage("Generating subtitles...");
 
-        const sub = await downloadTranscript(data.dta, currentLanguage, data.lang, videoId);
+        let sub = null;
+        let lastError = null;
+
+        for (let i = 1; i <= 5; i++) {
+            try {
+                sub = await downloadTranscript(
+                    data.dta,
+                    currentLanguage,
+                    data.lang,
+                    videoId
+                );
+
+                break; 
+
+            } catch (err) {
+
+                lastError = err;
+
+                console.warn(`Retry ${i}/5 failed`, err);
+
+                if (i < 5) {
+                    // Chờ 1 giây rồi thử lại
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                }
+            }
+        }
 
         loading = false;
+
+        if (!sub) {
+            throw lastError;
+        }
 
         showSubtitle(sub.data);
 
@@ -204,7 +236,7 @@ async function loadTranscript() {
 
         showSubtitle([]);
 
-        showMessage("Failed to load subtitles. Please try again later.");
+        showMessage(err);
 
     }
 
@@ -215,6 +247,6 @@ updateLoop();
 
 (async () => {
     await loadLanguage();
-    initPopupEvents(wordPopup, getVideo, currentLanguage, () => lastSubtitle);
+    initPopupEvents(wordPopup, getVideo, currentLanguage, () => lastSubtitle, () => sourceLanguage);
     loadTranscript();
 })();

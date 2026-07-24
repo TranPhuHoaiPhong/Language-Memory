@@ -12,28 +12,72 @@ exports.processId = async (videoId, language) => {
         }
     );
 
-    const captions = info.automatic_captions?.en;
+    let subtitleGroups = info.automatic_captions || {};
 
-    if (!captions || captions.length === 0) {
+    if (Object.keys(subtitleGroups).length === 0) {
+        subtitleGroups = info.subtitles || {};
+    }
+
+    if (Object.keys(subtitleGroups).length === 0) {
         throw new Error("Transcript not found");
     }
 
-    const track = captions[0];
+    const keys = Object.keys(subtitleGroups);
+
+    const preferred = info.language?.toLowerCase();
+
+    let firstLang = null;
+
+    if (preferred) {
+
+        firstLang = keys.find(
+            k => k.toLowerCase() === preferred
+        );
+
+        if (!firstLang) {
+
+            const base = preferred.split("-")[0];
+
+            firstLang =
+                keys.find(k => k.toLowerCase() === base) ||
+                keys.find(k => k.toLowerCase().startsWith(base + "-"));
+        }
+    }
+
+    if (!firstLang) {
+        firstLang = keys[0];
+    }
+
+    const tracks = subtitleGroups[firstLang];
+
+    if (!tracks || tracks.length === 0) {
+        throw new Error("Transcript not found");
+    }
+
+    const track =
+        tracks.find(t => t.ext === "json3") ||
+        tracks.find(t => t.ext === "vtt") ||
+        tracks[0];
 
     const url = new URL(track.url);
 
-    const lang = url.searchParams.get("lang");
+    url.searchParams.set("fmt", "json3");
 
-    if (lang === language) {
-        return null;
+    const lang =
+        url.searchParams.get("lang") ||
+        firstLang;
+
+    if (lang.toLowerCase() === language.toLowerCase()) {
+        return {
+            dta: lang,
+            lang
+        };
     }
 
     url.searchParams.delete("tlang");
 
-    const base1 = url.toString();
-
     return {
-        dta: base1,
-        lang: lang
+        dta: url.toString(),
+        lang
     };
-}; 
+};

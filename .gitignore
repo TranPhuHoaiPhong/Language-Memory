@@ -1,15 +1,20 @@
-# Dependencies
+# Node
 node_modules/
 
-# Images
-extention/icons/
-extention/assets/
+# Python virtual environment
+server/env/
+server/venv/
+server/.venv/
 
-# Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
+# Python cache
+server/__pycache__/
+server/**/*.pyc
+*.py[cod]
+
+# Python packages cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Environment variables
 .env
@@ -19,6 +24,18 @@ pnpm-debug.log*
 dist/
 build/
 
+# Images
+extension/icons/
+extension/assets/
+extention/icons/
+
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
 # OS
 .DS_Store
 Thumbs.db
@@ -26,3 +43,15 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+env/
+venv/
+.venv/

@@ -2,13 +2,17 @@ const axios = require("axios");
 
 const PYTHON_API = "http://127.0.0.1:8000/ipa";
 
-exports.searchService = async (word, language, subtitle) => {
+exports.searchService = async (word, language, subtitle, sourceLanguage) => {
     try {
+
+        console.log("language", language)
+        console.log("sourceLanguage", sourceLanguage);
     
         const { data } = await axios.post(PYTHON_API, {
-            "word": word
+            "word": word,
+            "language": sourceLanguage
         });
-
+        
         return {
             word: data.word,
             ipa: data.ipa,

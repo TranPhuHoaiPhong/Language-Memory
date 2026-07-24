@@ -2,9 +2,9 @@ const search = require("../services/searchService");
 
 exports.searchContr = async(req,res)=>{
     try{
-        const { word, language, subtitle } = req.body;
+        const { word, language, subtitle, sourceLanguage } = req.body;
 
-        const result = await search.searchService(word, language, subtitle);
+        const result = await search.searchService(word, language, subtitle, sourceLanguage);
 
         res.json({
             success:true,

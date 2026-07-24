@@ -40,7 +40,7 @@ function convertTranscriptToText(data) {
     }
 
     function isEndSentence(text){
-        return /[,.!?]["')\]]*$/.test(text.trim());
+        return /[.!?]["')\]]*$/.test(text.trim());
     }
 
     function saveSentence(result,start,text){

@@ -1,13 +1,13 @@
 const WORD_INFO_API = "http://localhost:3000/api/search";
 
-async function fetchWordInfo(word, language, subtitle) {
+async function fetchWordInfo(word, language, subtitle, sourceLanguage) {
 
     const response = await fetch(WORD_INFO_API, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ word, language, subtitle })
+        body: JSON.stringify({ word, language, subtitle, sourceLanguage})
     });
 
     if (!response.ok) {
@@ -41,7 +41,7 @@ function buildPopupSkeleton(wordPopup) {
 
 // Nguyên
 
-function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle) {
+function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle, getSourceLanguage) {
 
     const { wordEl, ipaEl, audioEl, btnEl } = buildPopupSkeleton(wordPopup);
 
@@ -108,6 +108,7 @@ function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle) {
     async function loadWordInfo(word) {
 
         const subtitle = getCurrentSubtitle();
+        const sourceLanguage = getSourceLanguage();
 
         const currentRequestId = ++requestId;
 
@@ -120,7 +121,7 @@ function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle) {
 
         try {
 
-            const data = await fetchWordInfo(word, language, subtitle);
+            const data = await fetchWordInfo(word, language, subtitle, sourceLanguage);
 
             if (currentRequestId !== requestId) return;
 
