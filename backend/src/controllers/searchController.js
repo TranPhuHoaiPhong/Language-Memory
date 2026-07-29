@@ -5,8 +5,6 @@ exports.searchContr = async(req,res)=>{
         const { word, language, subtitle, sourceLanguage } = req.body;
 
         const result = await search.searchService(word, language, subtitle, sourceLanguage);
-
-        console.log("result", result)
         
         res.json({
             success:true,

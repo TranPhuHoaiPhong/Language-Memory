@@ -1,4 +1,5 @@
 const WORD_INFO_API = "http://localhost:3000/api/search";
+const SAVE_WORD_API = "http://localhost:3000/api/save";
 
 async function fetchWordInfo(word, language, subtitle, sourceLanguage) {
 
@@ -17,14 +18,32 @@ async function fetchWordInfo(word, language, subtitle, sourceLanguage) {
     return response.json();
 }
 
+async function saveWord(data) {
+
+    const response = await fetch(SAVE_WORD_API, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ data})
+    });
+
+    if (!response.ok) {
+        throw new Error("Request failed: " + response.status);
+    }
+
+    return response.json();
+}
+
 function buildPopupSkeleton(wordPopup) {
 
     wordPopup.innerHTML = `
         <div class="word-popup-word"></div>
         <div class="word-popup-ipa"></div>
+        <div class="word-popup-meaning"></div>
         <div class="container-word">
             <button class="word-popup-audio">
-            🔊
+            🔉
             </button>
             <button class="word-popup-btn">Save</button>
         </div>
@@ -34,8 +53,50 @@ function buildPopupSkeleton(wordPopup) {
     return {
         wordEl: wordPopup.querySelector(".word-popup-word"),
         ipaEl: wordPopup.querySelector(".word-popup-ipa"),
+        meaningEl: wordPopup.querySelector(".word-popup-meaning"),
         audioEl: wordPopup.querySelector(".word-popup-audio"),
         btnEl: wordPopup.querySelector(".word-popup-btn")
+    };
+}
+
+function showLoginModal() {
+    const modal = document.createElement("div");
+
+    modal.innerHTML = `
+        <div id="lm-overlay">
+            <div id="lm-modal">
+                <h2>🔒 Chưa đăng nhập</h2>
+
+                <p>
+                    Bạn cần đăng nhập để lưu từ vựng và đồng bộ dữ liệu giữa các thiết bị.
+                </p>
+
+                <div class="buttons">
+                    <button id="lm-login">
+                        Đăng nhập
+                    </button>
+
+                    <button id="lm-close">
+                        Để sau
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    document.getElementById("lm-login").onclick = () => {
+        window.open(
+            "https://language-memory.com/login",
+            "_blank"
+        );
+
+        modal.remove();
+    };
+
+    document.getElementById("lm-close").onclick = () => {
+        modal.remove();
     };
 }
 
@@ -43,13 +104,14 @@ function buildPopupSkeleton(wordPopup) {
 
 function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle, getSourceLanguage) {
 
-    const { wordEl, ipaEl, audioEl, btnEl } = buildPopupSkeleton(wordPopup);
+    const { wordEl, ipaEl,  meaningEl, audioEl, btnEl } = buildPopupSkeleton(wordPopup);
 
     let selectedText = "";
     let selectedRect = null;
     let requestId = 0;
     let currentAudioUrl = "";
     let audioPlayer = new Audio();
+    let currentWordData = null;
 
     function hidePopupSafe() {
         requestId++;
@@ -112,47 +174,105 @@ function initPopupEvents(wordPopup, getVideo, language, getCurrentSubtitle, getS
 
         const currentRequestId = ++requestId;
 
-        wordEl.textContent = word;
-        ipaEl.textContent = "Searching...";
-        ipaEl.classList.add("word-popup-loading");
+        wordEl.textContent = "Loading...";
+        ipaEl.textContent = "";
+        meaningEl.textContent = "";
+
+        audioEl.style.display = "none";
         btnEl.disabled = true;
+
+        wordPopup.classList.add("loading");
+
 
         positionPopup();
 
+
         try {
 
-            const data = await fetchWordInfo(word, language, subtitle, sourceLanguage);
+            const data = await fetchWordInfo(
+                word,
+                language,
+                subtitle,
+                sourceLanguage
+            );
+
 
             if (currentRequestId !== requestId) return;
 
-            ipaEl.classList.remove("word-popup-loading");
+
+            wordPopup.classList.remove("loading");
+
+
+            wordEl.textContent = data.data.word || word;
+
             ipaEl.textContent = data.data.ipa || "";
 
+            meaningEl.textContent = data.data.meaning || "";
+
             currentAudioUrl = data.data.audio || "";
+
+
+            audioEl.style.display = "block";
+
+            currentWordData = {
+                word: data.data.word || word,
+                ipa: data.data.ipa || "",
+                meaning: data.data.meaning || "",
+                subtitle: getCurrentSubtitle(),
+                language,
+                sourceLanguage,
+                audio: data.data.audio || ""
+            };
 
 
         } catch (err) {
 
             if (currentRequestId !== requestId) return;
 
-            ipaEl.classList.remove("word-popup-loading");
+
+            wordPopup.classList.remove("loading");
+
+            wordEl.textContent = "Failed";
+
             ipaEl.textContent = "";
-            audioEl.textContent = "Failed. Try again!";
+
+            meaningEl.textContent = "";
+
+            audioEl.style.display = "none";
+
 
         } finally {
 
             if (currentRequestId === requestId) {
+
                 btnEl.disabled = false;
+
                 positionPopup();
+
             }
         }
     }
 
-    btnEl.addEventListener("click", (e) => {
+    btnEl.addEventListener("click", async (e) => {
         e.stopPropagation();
-        alert("đã lưu")
 
+        if (!currentWordData) return;
 
+        try {
+            // btnEl.disabled = true;
+
+            // const result = await saveWord(currentWordData);
+            
+            // alert("Đã lưu");
+            window.open("https://facebook.com", "_blank");
+
+        } catch (err) {
+            console.error(err);
+
+            alert("Lưu thất bại");
+        } finally {
+            btnEl.disabled = false;
+        }
     });
 
     wordPopup.addEventListener("mousedown", (e) => {

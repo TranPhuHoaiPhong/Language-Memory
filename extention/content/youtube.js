@@ -211,9 +211,7 @@ async function loadTranscript() {
 
             } catch (err) {
 
-                lastError = err;
-
-                console.warn(`Retry ${i}/5 failed`, err);
+                lastError = err
 
                 if (i < 5) {
                     // Chờ 1 giây rồi thử lại

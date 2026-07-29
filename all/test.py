@@ -7,7 +7,7 @@ params = {
     "sl": "en",
     "tl": "vi",
     "dt": "t",
-    "q": "Staying in is [[always]] great"
+    "q": "I've never been organized"
 }
 
 r = requests.get(url, params=params)

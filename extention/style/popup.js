@@ -95,6 +95,23 @@ function injectPopup() {
             cursor: default;
         }
 
+        .word-popup.loading {
+            min-width: 120px;
+            text-align: center;
+        }
+
+
+        .word-popup.loading .container-word {
+            display: none;
+        }
+
+
+
+
+
+        // modal login
+        
+
     `;
 
     document.head.appendChild(style);
