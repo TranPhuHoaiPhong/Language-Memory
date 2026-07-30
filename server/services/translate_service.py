@@ -18,7 +18,10 @@ async def get_context_meaning(word: str, sentence: str, native: str, language: s
             del meaning_cache[key]
 
     pattern = r"\b" + re.escape(word) + r"\b"
-    marked = re.sub(pattern, f"[{word}]", sentence, count=1, flags=re.IGNORECASE)
+
+    marked = re.sub(pattern, f"<{word}>", sentence, count=1, flags=re.IGNORECASE)
+
+    # print(marked)
 
     url = "https://translate.googleapis.com/translate_a/single"
     params = {
@@ -33,7 +36,14 @@ async def get_context_meaning(word: str, sentence: str, native: str, language: s
         resp.raise_for_status()
         data = resp.json()
         translated = data[0][0][0]
-        match = re.search(r"\[(.*?)\]", translated)
+
+        # print(translated)
+
+        match = re.search(r"\<(.*?)\>", translated)
+
+
+
+
         result = match.group(1) if match else None
     except Exception:
         result = None

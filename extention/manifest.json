@@ -23,12 +23,8 @@
   },
 
   "web_accessible_resources": [{
-    "resources": [
-      "icons/*.png"
-    ],
-    "matches": [
-      "<all_urls>"
-    ]
+    "resources": ["icons/2.svg"],
+    "matches": ["https://www.youtube.com/*"]
   }],
 
   "permissions": [
