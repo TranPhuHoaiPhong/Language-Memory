@@ -1,0 +1,321 @@
+/* Toàn bộ style giữ nguyên từ bài trước, chỉ thêm phần OTP 6 ô */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-auth {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem 2rem 1.8rem;
+  width: 100%;
+  max-width: 440px;
+  height: 400px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  background: #f0f2f5;
+  padding: 4px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.modal-tabs button {
+  flex: 1;
+  padding: 0.6rem 0;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s;
+  color: #666;
+}
+.modal-tabs button.active {
+  background: #ffffff;
+  color: #1a73e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.modal-tabs button:hover:not(.active) {
+  color: #222;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.input-group {
+  position: relative;
+}
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fafafa;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+.password-group input {
+  padding-right: 3rem;
+}
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #999;
+  padding: 0;
+  transition: color 0.2s;
+}
+.toggle-password:hover {
+  color: #333;
+}
+
+.auth-form button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 0.2rem;
+}
+.auth-form button[type="submit"]:hover {
+  background: #1557b0;
+}
+.auth-form button[type="submit"]:active {
+  transform: scale(0.98);
+}
+.auth-form button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.switch-mode {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.8rem;
+  flex-shrink: 0;
+}
+.switch-mode button {
+  background: none;
+  border: none;
+  color: #1a73e8;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+.switch-mode button:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* Password validation */
+.input-group input.invalid {
+  border-color: #d93025;
+  background: #fef4f4;
+}
+.input-group input.invalid:focus {
+  border-color: #d93025;
+  box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.15);
+}
+.input-group input.valid {
+  border-color: #34a853;
+  background: #f4fef7;
+}
+.input-group input.valid:focus {
+  border-color: #34a853;
+  box-shadow: 0 0 0 3px rgba(52, 168, 83, 0.15);
+}
+
+.password-requirements {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.password-requirements div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.password-requirements .met {
+  color: #34a853;
+}
+.password-requirements .unmet {
+  color: #999;
+}
+
+/* OTP Section */
+.otp-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 0.3rem;
+}
+.otp-section h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0.1rem;
+  color: #1a1a1a;
+}
+.otp-section p {
+  color: #555;
+  margin-bottom: 0.2rem;
+  font-size: 0.95rem;
+}
+
+/* 6 ô OTP */
+.otp-input-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0.5rem 0 0.8rem;
+}
+
+.otp-input-box {
+  width: 48px;
+  height: 56px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  outline: none;
+}
+.otp-input-box:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+  background: #fff;
+  transform: scale(1.02);
+}
+.otp-input-box:not(:placeholder-shown) {
+  border-color: #1a73e8;
+  background: #f0f7ff;
+}
+
+/* OTP actions */
+.otp-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+.otp-actions button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.otp-actions button:hover {
+  background: #1557b0;
+}
+.otp-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.otp-actions .retry-btn {
+  background: #34a853;
+}
+.otp-actions .retry-btn:hover {
+  background: #2d8e47;
+}
+
+.countdown-text {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  padding: 0.5rem 0;
+}
+.countdown-text span {
+  font-weight: 700;
+  color: #1a73e8;
+  font-size: 1.1rem;
+}
+
+.otp-section .back-btn {
+  background: #e8eaed;
+  color: #333;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.3rem;
+}
+.otp-section .back-btn:hover {
+  background: #d5d8dd;
+}
+

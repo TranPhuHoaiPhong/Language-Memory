@@ -2,7 +2,7 @@ const fs = require("fs");
 
 
 // file json gốc
-const input = "backend/subtitle.json";
+const input = "transcript.json";
 
 
 // file sau khi format

@@ -189,42 +189,47 @@ function initPopupEvents(
     }
   });
 
+
+
+  document.addEventListener('mouseup', (e) => {
+  // Bỏ qua nếu click vào input, textarea, hoặc phần tử có thể chỉnh sửa
+  if (e.target.closest('input, textarea, [contenteditable="true"]')) return;
+
+  if (e.target.closest('#word-popup')) return;
+  const video = getVideo();
+  if (video && !video.paused) {
+    hidePopupSafe();
+    window.getSelection().removeAllRanges();
+    return;
+  }
+  const selection = window.getSelection();
+  if (!selection.rangeCount) {
+    hidePopupSafe();
+    return;
+  }
+  const text = selection.toString().trim();
+  if (!text) {
+    hidePopupSafe();
+    return;
+  }
+  const range = selection.getRangeAt(0);
+  const anchorNode = selection.anchorNode;
+  const anchorElement = anchorNode
+    ? (anchorNode.nodeType === 3 ? anchorNode.parentElement : anchorNode)
+    : null;
+  const subOriginalEl = anchorElement ? anchorElement.closest('.sub-original') : null;
+  if (!subOriginalEl) {
+    hidePopupSafe();
+    return;
+  }
+  selectedText = text;
+  selectedRect = range.getBoundingClientRect();
+  loadWordInfo(text);
+});
+
   // Prevent popup from losing focus
   wordPopup.addEventListener('mousedown', (e) => e.preventDefault());
 
-  // Mouseup selection handling
-  document.addEventListener('mouseup', (e) => {
-    if (e.target.closest('#word-popup')) return;
-    const video = getVideo();
-    if (video && !video.paused) {
-      hidePopupSafe();
-      window.getSelection().removeAllRanges();
-      return;
-    }
-    const selection = window.getSelection();
-    if (!selection.rangeCount) {
-      hidePopupSafe();
-      return;
-    }
-    const text = selection.toString().trim();
-    if (!text) {
-      hidePopupSafe();
-      return;
-    }
-    const range = selection.getRangeAt(0);
-    const anchorNode = selection.anchorNode;
-    const anchorElement = anchorNode
-      ? (anchorNode.nodeType === 3 ? anchorNode.parentElement : anchorNode)
-      : null;
-    const subOriginalEl = anchorElement ? anchorElement.closest('.sub-original') : null;
-    if (!subOriginalEl) {
-      hidePopupSafe();
-      return;
-    }
-    selectedText = text;
-    selectedRect = range.getBoundingClientRect();
-    loadWordInfo(text);
-  });
 
   // Selection change to hide popup if not on subtitle
   document.addEventListener('selectionchange', () => {
@@ -234,7 +239,11 @@ function initPopupEvents(
     const anchorElement = anchorNode
       ? (anchorNode.nodeType === 3 ? anchorNode.parentElement : anchorNode)
       : null;
+
+    // Bỏ qua nếu selection đang nằm trong input, textarea...
+    if (anchorElement && anchorElement.closest('input, textarea, [contenteditable="true"]')) return;
     if (anchorElement && anchorElement.closest('#word-popup')) return;
+
     if (!text) {
       hidePopupSafe();
       return;
@@ -251,6 +260,9 @@ function initPopupEvents(
 
   // Click outside to hide
   document.addEventListener('mousedown', (e) => {
+    // Bỏ qua nếu click vào input, textarea...
+    if (e.target.closest('input, textarea, [contenteditable="true"]')) return;
+
     if (!e.target.closest('#word-popup') && !e.target.closest('.sub-original')) {
       hidePopupSafe();
       window.getSelection().removeAllRanges();

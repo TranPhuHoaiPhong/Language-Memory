@@ -38,12 +38,10 @@
     "https://www.youtube.com/*"
   ],
 
-
   "content_scripts": [{
     "matches": [
-      "https://www.youtube.com/watch*"
+      "https://www.youtube.com/*"
     ],
-
     "js": [
       "utils/utils.js",
       "utils/popup.js",

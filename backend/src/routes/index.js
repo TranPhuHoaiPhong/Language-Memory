@@ -5,7 +5,9 @@ const {receiveId} = require("../controllers/idController");
 const {transcriptContr} = require("../controllers/baseUrlController");
 const {searchContr} = require("../controllers/searchController")
 const {saveContr} = require("../controllers/saveController")
+const {saveGoogleUser} = require("../controllers/authController")
 
+router.post("/auth/google", saveGoogleUser);
 router.post("/send-id", receiveId);
 router.post("/transcript", transcriptContr);
 router.post("/search", searchContr);
