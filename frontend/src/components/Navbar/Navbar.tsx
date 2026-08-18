@@ -45,17 +45,6 @@ const Navbar: React.FC<NavbarProps> = () => {
                     padding: 0,
                 }}
             >
-                <li>
-                    <Link
-                        to="/"
-                        style={{
-                            color: "white",
-                            textDecoration: "none",
-                        }}
-                    >
-                        Home
-                    </Link>
-                </li>
 
                 <li>
                     <Link

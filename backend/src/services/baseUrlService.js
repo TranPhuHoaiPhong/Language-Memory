@@ -36,15 +36,15 @@ exports.transcriptSer = async (data, language, lang, videoId) => {
 
         const subtitle = await translateTranscript(transcriptText, language, lang);
 
-        // await fs.writeFile(
-        //     "data/subtitle.json",
-        //     JSON.stringify(
-        //         subtitle,
-        //         null,
-        //         2
-        //     ),
-        //     "utf8"
-        // );
+        await fs.writeFile(
+            "data/subtitle.json",
+            JSON.stringify(
+                subtitle,
+                null,
+                2
+            ),
+            "utf8"
+        );
 
 
         const compressed = await brotliCompress(

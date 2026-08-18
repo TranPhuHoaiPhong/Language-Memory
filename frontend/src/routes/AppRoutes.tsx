@@ -9,6 +9,7 @@ import Vocabulary from "../pages/Vocabulary/Vocabulary";
 import Review from "../pages/Review/Review";
 import Settings from "../pages/Settings/Settings";
 import VideoHistory from "../pages/VideoHistory/VideoHistory";
+import Detail from "../pages/Detail/Detail";
 
 export default function AppRoutes() {
     return (
@@ -28,6 +29,8 @@ export default function AppRoutes() {
             <Route path="/settings" element={<Settings />} />
 
             <Route path="/video-history" element={<VideoHistory />} />
+
+            <Route path="/detail" element={<Detail />} />
 
         </Routes>
     );
