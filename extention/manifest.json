@@ -44,7 +44,7 @@
     ],
     "js": [
       "utils/utils.js",
-      "utils/popup.js",
+      "utils/api.js",
       "style/style.js",
       "content/youtube.js"
     ]

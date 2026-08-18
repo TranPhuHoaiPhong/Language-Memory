@@ -11,7 +11,7 @@ function injectCss() {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      width: 95%;
+      width: 85%;
       text-align: center;
       pointer-events: none;
       z-index: 40;
@@ -28,10 +28,11 @@ function injectCss() {
       pointer-events: auto;
       user-select: text;
       -webkit-user-select: text;
+      cursor: pointer;
     }
     #subtitle-translate .sub-translated {
       color: #fff;
-      margin-top: 0.5em;
+      margin-top: 0.2em;
       pointer-events: none;
     }
     #subtitle-translate .sub-line {

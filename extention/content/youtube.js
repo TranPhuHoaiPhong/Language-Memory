@@ -1,3 +1,5 @@
+// content/youtube.js
+
 // ===== DOM elements =====
 const wordPopup = document.createElement('div');
 wordPopup.id = 'word-popup';
@@ -43,7 +45,7 @@ contentDiv.style.userSelect = 'text';
 subtitleDiv.appendChild(contentDiv);
 
 // ===== Drag state =====
-let dragPosition = null;        // { topRatio }  -- tỷ lệ 0..1 theo chiều cao container
+let dragPosition = null;
 let isDragging = false;
 let dragData = null;
 
@@ -90,11 +92,9 @@ function updateSubtitlePosition() {
     subtitleDiv.style.fontSize = fontSize + 'px';
   }
 
-  // Ngang: luôn căn giữa, không cho chỉnh
   subtitleDiv.style.left = '50%';
   subtitleDiv.style.transform = 'translateX(-50%)';
 
-  // Dọc: nếu có vị trí đã lưu -> quy đổi theo tỷ lệ chiều cao container hiện tại
   if (dragPosition) {
     const containerHeight = container.clientHeight;
     const subHeight = subtitleDiv.offsetHeight;
@@ -189,15 +189,14 @@ async function loadTranscript() {
   showSubtitle([]);
 
   try {
-    const response = await fetch('http://localhost:3000/api/send-id', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: videoId, language: currentLanguage })
+    // Gọi hàm API mới để lấy dữ liệu
+    const result = await fetchTranscriptData(videoId, currentLanguage, (status) => {
+      // Có thể truyền callback để cập nhật UI nếu cần
     });
-    const data = await response.json();
-    sourceLanguage = data.lang;
 
-    if (data.dta === data.lang) {
+    sourceLanguage = result.sourceLanguage;
+
+    if (result.noTranslation) {
       loading = false;
       showSubtitle([]);
       showMessage('');
@@ -207,29 +206,13 @@ async function loadTranscript() {
       return;
     }
 
-    loading = true;
-    showSubtitle([]);
-    showMessage('Generating subtitles...');
-
-    let sub = null;
-    let lastError = null;
-    for (let attempt = 1; attempt <= 5; attempt++) {
-      try {
-        sub = await downloadTranscript(data.dta, currentLanguage, data.lang, videoId);
-        break;
-      } catch (err) {
-        lastError = err;
-        if (attempt < 5) await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-    }
-
+    // Nếu có dữ liệu phụ đề
     loading = false;
-    if (!sub) throw lastError;
-    showSubtitle(sub.data);
+    showSubtitle(result.subtitles);
   } catch (err) {
     loading = false;
     showSubtitle([]);
-    showMessage(err);
+    showMessage(err.message || 'Lỗi tải phụ đề');
   }
 }
 
@@ -266,7 +249,7 @@ updateLoop();
 })();
 
 // ============================================================
-// ===== DRAG SUBTITLE EVENTS (thêm sau cùng) =====
+// ===== DRAG SUBTITLE EVENTS =====
 // ============================================================
 
 dragHandle.addEventListener('mousedown', function(e) {
@@ -294,42 +277,11 @@ document.addEventListener('mousemove', function(e) {
   const maxTop = Math.max(0, containerRect.height - subHeight);
   newTop = Math.max(0, Math.min(newTop, maxTop));
 
-  dragPosition = { top: newTop };
-  subtitleDiv.style.top = newTop + 'px';
-  subtitleDiv.style.bottom = 'auto';
-  // left/transform giữ nguyên, không đụng vào
-});
-
-document.addEventListener('mousemove', function(e) {
-  if (!dragData) return;
-  const container = document.querySelector('#player');
-  if (!container) return;
-  const containerRect = container.getBoundingClientRect();
-
-  let newTop = e.clientY - containerRect.top - dragData.offsetY;
-
-  const subHeight = subtitleDiv.offsetHeight;
-  const maxTop = Math.max(0, containerRect.height - subHeight);
-  newTop = Math.max(0, Math.min(newTop, maxTop));
-
   dragPosition = { topRatio: newTop / containerRect.height };
 
   subtitleDiv.style.top = newTop + 'px';
   subtitleDiv.style.bottom = 'auto';
 });
-
-// ===== Sửa các sự kiện chọn từ để bỏ qua khi đang kéo =====
-// Lưu lại các listener cũ để override (do code trên đã định nghĩa, ta chỉ cần bổ sung kiểm tra)
-// Các listener này được định nghĩa trong initPopupEvents, nhưng ta có thể patch bằng cách
-// lưu lại các handler và thêm điều kiện isDragging.
-// Tuy nhiên, vì các listener được thêm trong initPopupEvents (gọi sau), ta sẽ thêm flag
-// ngay trong các handler đó bằng cách sử dụng closure.
-
-// Cách khác: override bằng cách thêm một listener ưu tiên cao hơn để chặn nếu isDragging.
-// Nhưng đơn giản hơn: ta sẽ sửa trực tiếp trong initPopupEvents ở file API endpoints.
-// Ở đây ta chỉ cần đảm bảo isDragging được chia sẻ.
-// Để tiện, ta sẽ patch các hàm trong initPopupEvents bằng cách truyền isDragging vào.
-// Vì initPopupEvents đã được gọi, ta sẽ không sửa lại mà thêm một lớp kiểm tra bên ngoài.
 
 document.addEventListener('mouseup', function(e) {
   if (dragData) {
@@ -349,7 +301,6 @@ document.addEventListener('mouseup', function(e) {
 
 document.addEventListener('selectionchange', function(e) {
   if (isDragging) {
-    // Ngăn không cho popup xuất hiện
     return;
   }
 }, true);
