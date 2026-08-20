@@ -1,0 +1,150 @@
+/* ===== Tổng thể modal ===== */
+.auth-modal .ant-modal-content {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+.auth-modal .ant-modal-body {
+    padding: 24px 24px 32px;
+    min-height: 460px;          /* Chiều cao tối thiểu ổn định */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Header ===== */
+.auth-modal-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.auth-title {
+    margin-bottom: 4px !important;
+    font-weight: 700;
+}
+
+.auth-subtitle {
+    font-size: 14px;
+}
+
+/* ===== Tabs ===== */
+.auth-tabs .ant-tabs-nav {
+    margin-bottom: 24px;
+}
+
+.auth-tabs .ant-tabs-tab {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+/* ===== Form ===== */
+.auth-modal .ant-form-item {
+    margin-bottom: 24px;        /* Khoảng cách đều giữa các item */
+}
+
+/* ===== Vùng hiển thị lỗi - luôn chiếm chỗ ===== */
+.auth-modal .ant-form-item-explain {
+    min-height: 24px;           /* Chiều cao tối thiểu cho 1 dòng lỗi */
+    display: block !important;  /* Ghi đè display:none của Ant Design */
+    visibility: hidden;         /* Ẩn nội dung khi trống */
+    font-size: 14px;
+    line-height: 24px;
+    transition: none;           /* Tránh hiệu ứng co giãn */
+}
+
+.auth-modal .ant-form-item-explain:not(:empty) {
+    visibility: visible;        /* Hiện khi có lỗi */
+}
+
+/* ===== Vùng yêu cầu mật khẩu ===== */
+.password-requirements-wrapper {
+    min-height: 30px;           /* Chiều cao vùng chứa yêu cầu (có hoặc không) */
+    margin-top: -8px;
+    margin-bottom: 8px;
+}
+
+.password-requirements {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 13px;
+}
+
+.password-requirements .met {
+    color: #52c41a;
+}
+
+.password-requirements .unmet {
+    color: #ff4d4f;
+}
+
+.password-requirements .anticon {
+    margin-right: 6px;
+}
+
+/* ===== OTP Section ===== */
+.otp-section {
+    min-height: 400px;          /* Đảm bảo chiều cao tương đương với form */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.otp-header {
+    margin-bottom: 32px;
+}
+
+.otp-icon {
+    font-size: 48px;
+    color: #1890ff;
+    margin-bottom: 8px;
+}
+
+.otp-input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.otp-input-box {
+    width: 44px !important;
+    height: 48px !important;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.otp-input-box input {
+    text-align: center;
+}
+
+.otp-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.countdown-text {
+    font-size: 14px;
+}
+
+/* ===== Responsive (tuỳ chỉnh) ===== */
+@media (max-width: 480px) {
+    .auth-modal .ant-modal-body {
+        padding: 16px;
+        min-height: 420px;
+    }
+
+    .otp-input-box {
+        width: 38px !important;
+        height: 42px !important;
+        font-size: 18px;
+    }
+}

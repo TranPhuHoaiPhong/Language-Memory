@@ -72,7 +72,7 @@ async function fetchTranscriptData(videoId, targetLanguage, onProgress) {
   // Bước 2: Lấy transcript từ URL (data.dta) và dịch
   const transcriptUrl = data.dta;
   const response = await fetch(transcriptUrl.toString());
-  if (!response.ok) throw new Error('Failed to fetch transcript');
+  if (!response.ok) throw new Error('Failed to load transcript');
   const transcriptText = await response.text();
 
   // Bước 3: Gửi transcript lên server để dịch

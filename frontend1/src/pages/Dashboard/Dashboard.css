@@ -1,0 +1,250 @@
+/* ========================================
+   DASHBOARD GLOBAL
+   ======================================== */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+/* ========================================
+   GREETING
+   ======================================== */
+.dashboard-greeting {
+    margin-bottom: 32px;
+}
+
+.greeting-title {
+    margin-bottom: 4px !important;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.greeting-sub {
+    font-size: 15px;
+}
+
+/* ========================================
+   STATS CARDS
+   ======================================== */
+.stats-row {
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.stat-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover .stat-icon-wrapper {
+    transform: scale(1.05);
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8c8c8c;
+}
+
+/* ========================================
+   SECTION CARDS (Weekly, Videos, Vocab)
+   ======================================== */
+.dashboard-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+}
+
+/* ========================================
+   WEEKLY CHART
+   ======================================== */
+.weekly-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 200px;
+    padding: 8px 0 4px;
+    gap: 8px;
+}
+
+.bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 6px;
+}
+
+.bar-container {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #fafafa;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.bar {
+    width: 60%;
+    background: linear-gradient(180deg, #bae7ff 0%, #1890ff 100%);
+    border-radius: 6px 6px 0 0;
+    transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    min-height: 4px;
+}
+
+.bar-today {
+    width: 70%;
+    background: linear-gradient(180deg, #ffd591 0%, #fa8c16 100%);
+    box-shadow: 0 2px 8px rgba(250, 140, 22, 0.3);
+}
+
+.bar-label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.bar-value {
+    font-size: 12px;
+    margin-top: -2px;
+}
+
+/* ========================================
+   RECENT VIDEOS LIST
+   ======================================== */
+.video-item {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+    transition: background 0.2s;
+}
+
+.video-item:hover {
+    background: #fafafa;
+    border-radius: 8px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.video-emoji {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.word-count {
+    font-weight: 500;
+    color: #8c8c8c;
+    background: #f5f5f5;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* ========================================
+   VOCABULARY LIST
+   ======================================== */
+.word-item {
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.word-status {
+    font-size: 18px;
+    width: 32px;
+    text-align: center;
+}
+
+.word-progress {
+    margin-left: auto;
+}
+
+/* ========================================
+   RESPONSIVE TWEAKS
+   ======================================== */
+@media (max-width: 576px) {
+    .dashboard {
+        padding: 16px 12px;
+    }
+
+    .greeting-title {
+        font-size: 22px !important;
+    }
+
+    .stat-card .ant-statistic-content {
+        font-size: 20px !important;
+    }
+
+    .weekly-chart {
+        height: 160px;
+        gap: 4px;
+    }
+
+    .bar-container {
+        height: 110px;
+    }
+
+    .bar {
+        width: 50%;
+    }
+
+    .bar-today {
+        width: 60%;
+    }
+
+    .video-item {
+        flex-wrap: wrap;
+    }
+
+    .word-count {
+        margin-top: 4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .dashboard {
+        padding: 32px 24px;
+    }
+}

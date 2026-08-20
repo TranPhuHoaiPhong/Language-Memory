@@ -212,7 +212,7 @@ async function loadTranscript() {
   } catch (err) {
     loading = false;
     showSubtitle([]);
-    showMessage(err.message || 'Lỗi tải phụ đề');
+    showMessage('');
   }
 }
 

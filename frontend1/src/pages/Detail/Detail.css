@@ -1,0 +1,314 @@
+
+.vocabulary-page {
+    min-height: 100vh;
+    padding: 24px;
+    background: #f5f7fa;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button-wrapper {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+}
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.vocabulary-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+/* =========================
+   LEFT COLUMN
+========================= */
+
+.video-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-card {
+    overflow: hidden;
+}
+
+.video-wrapper {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+#youtube-player {
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   REPLAY
+========================= */
+
+.replay-btn {
+    height: 46px;
+}
+
+/* =========================
+   WORD CARD
+========================= */
+
+.word-card {
+    border-radius: 12px;
+}
+
+.word-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 6px;
+}
+
+.word-main {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.ipa {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 16px;
+}
+
+/* =========================
+   TRANSCRIPT
+========================= */
+
+.transcript-container {
+    min-width: 0;
+}
+
+.transcript-card {
+    overflow: hidden;
+}
+
+.transcript-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* =========================
+   TRANSCRIPT LIST
+========================= */
+
+.transcript-list {
+    height: calc(100vh - 170px);
+
+    min-height: 500px;
+
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
+}
+
+/* scrollbar */
+
+.transcript-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.transcript-list::-webkit-scrollbar-thumb {
+    background: #d9d9d9;
+    border-radius: 10px;
+}
+
+.transcript-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* =========================
+   TRANSCRIPT ITEM
+========================= */
+
+.transcript-item {
+    position: relative;
+
+    padding: 16px 20px 16px 24px;
+
+    border-bottom: 1px solid #f0f0f0;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.transcript-item:hover {
+    background: #fafafa;
+}
+
+/* active subtitle */
+
+.transcript-item.active {
+    background: #e6f4ff;
+
+    border-left: 4px solid #1677ff;
+
+    padding-left: 20px;
+}
+
+.transcript-item.active .en {
+    color: #1677ff;
+
+    font-weight: 600;
+}
+
+/* =========================
+   TIME
+========================= */
+
+.time {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    padding: 2px 8px;
+
+    border-radius: 5px;
+
+    background: #f5f5f5;
+
+    color: #8c8c8c;
+
+    font-size: 12px;
+}
+
+.transcript-item.active .time {
+    background: #1677ff;
+    color: white;
+}
+
+/* =========================
+   ENGLISH
+========================= */
+
+.en {
+    color: #262626;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   VIETNAMESE
+========================= */
+
+.vi {
+    margin-top: 6px;
+
+    color: #8c8c8c;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+    .vocabulary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .transcript-list {
+        height: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .vocabulary-page {
+        padding: 12px;
+    }
+
+    .transcript-header {
+        padding: 16px;
+    }
+
+    .transcript-item {
+        padding: 14px 16px;
+    }
+
+    .transcript-item.active {
+        padding-left: 12px;
+    }
+
+    .word-main {
+        font-size: 26px;
+    }
+}
+
+/* Back button */
+.back-button-wrapper {
+    margin-bottom: 20px;
+    width: 8%;
+}
+
+.back-btn {
+    background: none;
+    border: 1px solid #e2e8f0;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.back-btn:hover {
+    background: #f1f4f9;
+    border-color: #b3c7ff;
+}
