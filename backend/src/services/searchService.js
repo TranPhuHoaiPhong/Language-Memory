@@ -15,10 +15,13 @@ exports.searchService = async (word, language, subtitle, sourceLanguage) => {
             "native": language
 
         });
+
+        console.log("Data from Python API:", data);  
         
         return {
             word: data.word,
             ipa: data.ipa,
+            pos: data.pos,
             meaning: data.meaning,
             audio: data.audio
         };

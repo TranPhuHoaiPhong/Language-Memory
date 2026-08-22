@@ -1,28 +1,20 @@
 // utils/api.js
-// ===== API Configuration =====
-const API_BASE = 'http://localhost:3000/api';
 
-/**
- * Hàm gọi API chung
- */
 async function apiRequest(endpoint, options = {}) {
-  const url = `${API_BASE}/${endpoint}`;
-  const config = {
-    headers: { 'Content-Type': 'application/json' },
-    ...options,
-  };
-  if (options.body) {
-    config.body = JSON.stringify(options.body);
+  const response = await chrome.runtime.sendMessage({
+    type: 'API_REQUEST',
+    payload: { endpoint, options }
+  });
+
+  if (!response) {
+    throw new Error('Không nhận được phản hồi từ background script');
   }
-  const response = await fetch(url, config);
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`API Error (${response.status}): ${errorText}`);
+    throw new Error(response.error || 'API request failed');
   }
-  return response.json();
+  return response.data;
 }
 
-// ===== Các hàm gọi API cụ thể =====
 async function fetchWordInfo(word, language, subtitle, sourceLanguage) {
   return apiRequest('search', {
     method: 'POST',
@@ -51,31 +43,19 @@ async function sendTranscript(transcriptText, language, lang, videoId) {
   });
 }
 
-// ===== Hàm xử lý toàn bộ quy trình lấy và dịch transcript =====
-/**
- * Gửi video ID, lấy transcript, dịch và trả về dữ liệu phụ đề.
- * @param {string} videoId - ID của video YouTube
- * @param {string} targetLanguage - Ngôn ngữ đích (ví dụ 'vi')
- * @param {Function} onProgress - Callback để cập nhật trạng thái (tùy chọn)
- * @returns {Promise<{ subtitles: Array, sourceLanguage: string }>}
- */
 async function fetchTranscriptData(videoId, targetLanguage, onProgress) {
-  // Bước 1: Gửi ID video và lấy thông tin ngôn ngữ nguồn
   const data = await sendVideoId(videoId, targetLanguage);
   const sourceLanguage = data.lang;
 
-  // Nếu ngôn ngữ nguồn trùng với ngôn ngữ đích -> không cần dịch
   if (data.dta === sourceLanguage) {
     return { subtitles: [], sourceLanguage, noTranslation: true };
   }
 
-  // Bước 2: Lấy transcript từ URL (data.dta) và dịch
   const transcriptUrl = data.dta;
   const response = await fetch(transcriptUrl.toString());
   if (!response.ok) throw new Error('Failed to load transcript');
   const transcriptText = await response.text();
 
-  // Bước 3: Gửi transcript lên server để dịch
   const result = await sendTranscript(transcriptText, targetLanguage, sourceLanguage, videoId);
   return { subtitles: result.data, sourceLanguage, noTranslation: false };
 }

@@ -212,7 +212,7 @@ async function loadTranscript() {
   } catch (err) {
     loading = false;
     showSubtitle([]);
-    showMessage('');
+    showMessage(err.message || 'Error loading transcript');
   }
 }
 

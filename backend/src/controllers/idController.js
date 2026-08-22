@@ -4,7 +4,7 @@ exports.receiveId = async(req,res)=>{
     try{
         const {id, language} = req.body;
 
-        console.log("Received ID:", id);
+        // console.log("Received ID:", id);
 
         const { dta, lang } = await idService.processId(id, language);
 

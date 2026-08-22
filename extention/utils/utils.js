@@ -31,6 +31,8 @@ function buildPopupSkeleton(wordPopup) {
       <div class="popup-content">
         <div class="word-popup-word"></div>
         <div class="word-popup-ipa"></div>
+        <div class="word-popup-pos"></div>
+        <div class="word-popup-space"></div>
         <div class="word-popup-meaning"></div>
       </div>
       <div class="container-word">
@@ -52,6 +54,7 @@ function buildPopupSkeleton(wordPopup) {
   return {
     wordEl: wordPopup.querySelector('.word-popup-word'),
     ipaEl: wordPopup.querySelector('.word-popup-ipa'),
+    posEl: wordPopup.querySelector('.word-popup-pos'),
     meaningEl: wordPopup.querySelector('.word-popup-meaning'),
     audioEl: wordPopup.querySelector('.word-popup-audio'),
     btnEl: wordPopup.querySelector('.word-popup-btn')
@@ -66,7 +69,7 @@ function initPopupEvents(
   getCurrentSubtitle,
   getSourceLanguage
 ) {
-  const { wordEl, ipaEl, meaningEl, audioEl, btnEl } = buildPopupSkeleton(wordPopup);
+  const { wordEl, ipaEl, posEl, meaningEl, audioEl, btnEl } = buildPopupSkeleton(wordPopup);
   let selectedText = '';
   let selectedRect = null;
   let requestId = 0;
@@ -129,24 +132,47 @@ function initPopupEvents(
 
     wordEl.textContent = 'Loading...';
     ipaEl.textContent = '';
+    posEl.textContent = '';
     meaningEl.textContent = '';
     audioEl.style.display = 'none';
     btnEl.disabled = true;
-    wordPopup.classList.add('loading');
+    wordPopup.classList.add('Loading');
     positionPopup();
 
     try {
       const data = await fetchWordInfo(word, language, subtitle, sourceLanguage);
+
       if (currentRequestId !== requestId) return;
-      wordPopup.classList.remove('loading');
+
+      wordPopup.classList.remove('Loading');
       wordEl.textContent = data.data.word || word;
-      ipaEl.textContent = data.data.ipa || '';
+
+      const ipa = data.data.ipa || '';
+      ipaEl.textContent = ipa ? `/${ipa}/` : '';
+
+      const pos = data.data.pos || '';
+
+      posEl.textContent = pos ? `[${pos}]` : '';
+      posEl.className = 'word-popup-pos';
+
+      if (pos) {
+        posEl.classList.add(`pos-${pos.toLowerCase()}`);
+        posEl.style.display = 'block';
+      } else {
+        posEl.style.display = 'none';
+      }
+      
+
+      if (pos) {
+        posEl.classList.add(`pos-${pos.toLowerCase()}`);
+      }
       meaningEl.textContent = data.data.meaning || '';
       currentAudioUrl = data.data.audio || '';
       audioEl.style.display = 'block';
       currentWordData = {
         word: data.data.word || word,
         ipa: data.data.ipa || '',
+        pos: data.data.pos || '',
         meaning: data.data.meaning || '',
         subtitle: getCurrentSubtitle(),
         language,
@@ -158,6 +184,7 @@ function initPopupEvents(
       wordPopup.classList.remove('loading');
       wordEl.textContent = 'Failed';
       ipaEl.textContent = '';
+      posEl.textContent = '';
       meaningEl.textContent = '';
       audioEl.style.display = 'none';
     } finally {

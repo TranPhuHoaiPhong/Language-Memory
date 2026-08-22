@@ -1,6 +1,8 @@
 # Node
 node_modules/
 
+all/audio
+
 # Python virtual environment
 server/env/
 server/venv/

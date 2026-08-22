@@ -88,23 +88,23 @@ function injectCss() {
     }
 
     .popup-content {
-    max-height: 200px;
-    overflow-y: auto;
+        max-height: 200px;
+        overflow-y: auto;
 
-    /* Cuộn mượt */
-    scroll-behavior: smooth;
+        /* Cuộn mượt */
+        scroll-behavior: smooth;
 
-    /* iOS / touchpad */
-    -webkit-overflow-scrolling: touch;
+        /* iOS / touchpad */
+        -webkit-overflow-scrolling: touch;
 
-    /* Ẩn scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
+        /* Ẩn scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
 
-.popup-content::-webkit-scrollbar {
-    display: none;
-}
+    .popup-content::-webkit-scrollbar {
+        display: none;
+    }
 
     #word-popup::after {
       content: "";
@@ -145,10 +145,99 @@ function injectCss() {
       color: #222;
       font-size: 0.9em;
       line-height: 1.4;
+      margin-top: 0.8em;
       margin-bottom: 0.6em;
       min-height: 1.2em;
       text-align: center;
     }
+
+    .word-popup-pos {
+      font-size: 0.7em;
+      margin-bottom: 0.8em;
+      min-height: 1.2em;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Danh từ */
+    .word-popup-pos.pos-noun {
+      color: #2563eb;
+    }
+
+    /* Động từ */
+    .word-popup-pos.pos-verb {
+      color: #dc2626;
+    }
+
+    /* Tính từ */
+    .word-popup-pos.pos-adj {
+      color: #16a34a;
+    }
+
+    /* Trạng từ */
+    .word-popup-pos.pos-adv {
+      color: #9333ea;
+    }
+
+    /* Đại từ */
+    .word-popup-pos.pos-pron {
+      color: #ea580c;
+    }
+
+    /* Giới từ */
+    .word-popup-pos.pos-adp {
+      color: #0891b2;
+    }
+
+    /* Mạo từ / Determiner */
+    .word-popup-pos.pos-det {
+      color: #ca8a04;
+    }
+
+    /* Trợ động từ */
+    .word-popup-pos.pos-aux {
+      color: #db2777;
+    }
+
+    /* Liên từ */
+    .word-popup-pos.pos-cconj,
+    .word-popup-pos.pos-sconj {
+      color: #64748b;
+    }
+
+    /* Danh từ riêng */
+    .word-popup-pos.pos-propn {
+      color: #4f46e5;
+    }
+
+    /* Số */
+    .word-popup-pos.pos-num {
+      color: #0f766e;
+    }
+
+    /* Trợ từ */
+    .word-popup-pos.pos-part {
+      color: #7c3aed;
+    }
+
+    /* Thán từ */
+    .word-popup-pos.pos-intj {
+      color: #f97316;
+    }
+
+    /* Dấu câu */
+    .word-popup-pos.pos-punct {
+      color: #6b7280;
+    }
+
+    /* Khác */
+    .word-popup-pos.pos-x {
+      color: #6b7280;
+    }
+
+
+
+
 
     /* Container chính (audio + save) */
     .container-word {
@@ -159,6 +248,9 @@ function injectCss() {
       padding-top: 5px;
       border-top: 1px solid #f3f4f6;
     }
+
+
+
 
     /* Wrapper nút audio – hình tròn, co giãn */
     .inside-word-audio {
@@ -187,6 +279,11 @@ function injectCss() {
     .inside-word-audio:active {
         transform: scale(0.9);
     }
+
+
+
+
+
 
 
     /* Nút audio bên trong */
