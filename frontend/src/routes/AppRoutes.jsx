@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home/Home";
 // import Login from "../pages/Login/Login";
 // import Register from "../pages/Register/Register";
-// import Dashboard from "../pages/Dashboard/Dashboard";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import Vocabulary from "../pages/Vocabulary/Vocabulary";
+import Detail from "../pages/Detail/Detail";
+import ScrollToTop from "../utils/ScrollToTop";
 // import Lessons from "../pages/Lessons/Lessons";
 // import LessonDetail from "../pages/LessonDetail/LessonDetail";
 // import Listening from "../pages/Listening/Listening";
@@ -21,15 +23,18 @@ import Vocabulary from "../pages/Vocabulary/Vocabulary";
 function AppRoutes() {
     return (
         <BrowserRouter>
+        <ScrollToTop />
             <Routes>
                 <Route path="/" element={<Home />} />
 
                 {/* <Route path="/login" element={<Login />} /> */}
                 {/* <Route path="/register" element={<Register />} /> */}
 
-                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+                <Route path="/dashboard" element={<Dashboard />} />
 
                 <Route path="/vocabulary" element={<Vocabulary />} />
+
+                <Route path="/detail/:word" element={<Detail />} />
 
                 {/* <Route path="/lessons" element={<Lessons />} /> */}
                 {/* <Route path="/lessons/:id" element={<LessonDetail />} /> */}

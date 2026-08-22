@@ -7,6 +7,8 @@ import {
     ArrowRightOutlined,
 } from "@ant-design/icons";
 
+import { useLayoutEffect } from "react";
+
 import "./Home.css";
 
 const features = [
@@ -58,6 +60,47 @@ const steps = [
 ];
 
 function Home() {
+    
+    useLayoutEffect(() => {
+        // Tắt tự động restore của trình duyệt cho trang này
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        // Hàm cuộn lên đầu
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        };
+
+        // Gọi ngay lập tức
+        scrollToTop();
+
+        // Dùng requestAnimationFrame để đảm bảo sau khi render
+        requestAnimationFrame(() => {
+            scrollToTop();
+        });
+
+        // Dùng setTimeout để chắc chắn sau khi trình duyệt xử lý xong
+        const timeoutId = setTimeout(() => {
+            scrollToTop();
+        }, 100);
+
+        // Dùng thêm một lần nữa sau khi mọi thứ đã load
+        const handleLoad = () => {
+            scrollToTop();
+        };
+        window.addEventListener('load', handleLoad);
+
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener('load', handleLoad);
+            // Reset lại scrollRestoration khi rời trang
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'auto';
+            }
+        };
+    }, []);
+
     return (
         <div className="home">
             {/* ================= NAVBAR ================= */}

@@ -1,630 +1,428 @@
 .vocabulary-page {
-    min-height: calc(100vh - 72px);
-    background: #f8fafc;
-    padding: 50px 0 80px;
+    min-height: 100vh;
+    background: #f7f8fa;
+    padding: 40px 24px;
 }
 
 .vocabulary-container {
-    width: min(1280px, calc(100% - 48px));
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-/* ================= HEADER ================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .vocabulary-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 30px;
+    gap: 24px;
     margin-bottom: 32px;
 }
 
 .page-label {
+    display: block;
     margin-bottom: 8px;
-    color: #6366f1;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
+    color: #8c8c8c;
 }
 
-.vocabulary-header h1 {
-    margin: 0;
-    color: #111827;
-    font-size: 40px;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
+.vocabulary-title {
+    margin: 0 0 8px !important;
 }
 
-.vocabulary-header p {
-    max-width: 650px;
-    margin: 10px 0 0;
-    color: #6b7280;
-    font-size: 14px;
+.vocabulary-description {
+    max-width: 620px;
+    margin-bottom: 0 !important;
+    font-size: 15px;
 }
 
-.review-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 11px 17px;
-    border: none;
-    border-radius: 9px;
-    background: #111827;
-    color: #ffffff;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.review-button:hover {
-    background: #000000;
-    transform: translateY(-1px);
-}
-
-/* ================= STATS ================= */
+/* =========================================================
+   STATS
+========================================================= */
 
 .vocabulary-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
-.vocabulary-stat-card {
+.stat-card {
+    height: 100%;
+}
+
+.stat-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+}
+
+.stat-icon.total {
+    background: #f0f5ff;
+    color: #1677ff;
+}
+
+.stat-icon.mastered {
+    background: #f6ffed;
+    color: #52c41a;
+}
+
+.stat-icon.learning {
+    background: #fffbe6;
+    color: #faad14;
+}
+
+.stat-icon.favorite {
+    background: #fff1f0;
+    color: #ff4d4f;
+}
+
+.stat-number {
+    margin-top: 2px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.vocabulary-toolbar {
+    margin-bottom: 16px;
+}
+
+.toolbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.search-input {
+    width: 360px;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.vocabulary-table-card {
+    overflow: hidden;
+}
+
+.vocabulary-table-card .ant-table {
+    background: transparent;
+}
+
+.vocabulary-table-card .ant-table-thead > tr > th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #8c8c8c;
+}
+
+.vocabulary-table-card .ant-table-tbody > tr > td {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+/* =========================================================
+   WORD
+========================================================= */
+
+.word-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.word-info {
+    min-width: 0;
+}
+
+.word-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1f1f1f;
+}
+
+.word-ipa {
+    margin: 2px 0 4px;
+    font-size: 13px;
+    color: #8c8c8c;
+}
+
+/* =========================================================
+   EXAMPLE
+========================================================= */
+
+.example-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   DETAIL MODAL
+========================================================= */
+
+.word-detail {
+    padding: 4px;
+}
+
+.detail-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.detail-word {
+    margin: 8px 0 2px !important;
+}
+
+.detail-card {
+    margin-top: 20px;
+}
+
+.detail-card .ant-card-head {
+    min-height: 42px;
+}
+
+.detail-card .ant-card-head-title {
+    font-size: 13px;
+}
+
+.detail-card .ant-typography {
+    margin-bottom: 0;
+}
+
+.detail-meta {
+    margin-top: 20px;
+}
+
+.detail-meta > .ant-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detail-date {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.clickable-word {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.clickable-word:hover {
+    color: #1677ff;
+}
+
+/* =========================================================
+   CLICKABLE TABLE ROW
+========================================================= */
+
+.vocabulary-table-card
+    .ant-table-tbody
+    > tr {
+    cursor: pointer;
+}
+
+/* Hover row */
+
+.vocabulary-table-card
+    .ant-table-tbody
+    > tr:hover
+    > td {
+    cursor: pointer;
+}
+
+/* Smooth transition */
+
+.vocabulary-table-card
+    .ant-table-tbody
+    > tr
+    > td {
+    transition: background-color 0.2s ease;
+}
+
+/* =========================================================
+   TABLE ROW
+========================================================= */
+
+.vocabulary-table-card
+    .ant-table-tbody
+    > tr {
+    cursor: pointer;
+}
+
+.vocabulary-table-card
+    .ant-table-tbody
+    > tr:hover
+    > td {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   WORD
+========================================================= */
+
+.word-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.word-info {
+    min-width: 0;
+}
+
+.word-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.word-ipa {
+    margin-top: 2px;
+    font-size: 13px;
+    color: #8c8c8c;
+}
+
+
+/* =========================================================
+   EXAMPLE
+========================================================= */
+
+.example-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+/* =========================================================
+   STAT
+========================================================= */
+
+.stat-content {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 20px;
-    border: 1px solid #e5e7eb;
-    border-radius: 13px;
-    background: #ffffff;
+}
+
+.stat-number {
+    margin-top: 4px;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .stat-icon {
     width: 42px;
     height: 42px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+
     border-radius: 10px;
-    font-size: 17px;
+
+    font-size: 20px;
 }
 
-.stat-icon.total {
-    background: #eef2ff;
-    color: #6366f1;
-}
 
-.stat-icon.mastered {
-    background: #ecfdf5;
-    color: #10b981;
-}
+/* =========================================================
+   TOOLBAR
+========================================================= */
 
-.stat-icon.learning {
-    background: #fff7ed;
-    color: #f97316;
-}
-
-.stat-icon.favorite {
-    background: #fef2f2;
-    color: #ef4444;
-}
-
-.vocabulary-stat-card span,
-.vocabulary-stat-card strong {
-    display: block;
-}
-
-.vocabulary-stat-card span {
-    color: #9ca3af;
-    font-size: 11px;
-}
-
-.vocabulary-stat-card strong {
-    margin-top: 4px;
-    color: #111827;
-    font-size: 24px;
-}
-
-/* ================= TOOLBAR ================= */
-
-.vocabulary-toolbar {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.search-box {
-    width: 400px;
-    height: 44px;
+.toolbar-content {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 0 14px;
-    border: 1px solid #e5e7eb;
-    border-radius: 9px;
-    background: #ffffff;
-    color: #9ca3af;
+    justify-content: space-between;
+    gap: 16px;
 }
 
-.search-box:focus-within {
-    border-color: #a5b4fc;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
-}
-
-.search-box input {
-    width: 100%;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #111827;
-    font-size: 13px;
-}
-
-.search-box input::placeholder {
-    color: #9ca3af;
-}
-
-.filter-group {
-    display: flex;
-    gap: 10px;
+.search-input {
+    max-width: 420px;
 }
 
 .filter-select {
-    height: 44px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 12px;
-    border: 1px solid #e5e7eb;
-    border-radius: 9px;
-    background: #ffffff;
-    color: #6b7280;
+    min-width: 140px;
 }
 
-.filter-select select {
-    min-width: 105px;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #374151;
-    font-size: 13px;
-    cursor: pointer;
-}
 
-/* ================= LIST ================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
-.vocabulary-list {
-    overflow: hidden;
-    border: 1px solid #e5e7eb;
-    border-radius: 13px;
-    background: #ffffff;
-}
-
-.vocabulary-list-header,
-.vocabulary-row {
-    display: grid;
-    grid-template-columns:
-        minmax(180px, 1.2fr)
-        minmax(130px, 0.8fr)
-        minmax(230px, 1.5fr)
-        70px
-        105px
-        75px;
-    gap: 20px;
-    align-items: center;
-}
-
-.vocabulary-list-header {
-    min-height: 44px;
-    padding: 0 22px;
-    border-bottom: 1px solid #f0f0f0;
-    background: #fafafa;
-    color: #9ca3af;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-}
-
-.vocabulary-row {
-    min-height: 105px;
-    padding: 16px 22px;
-    border-bottom: 1px solid #f3f4f6;
-    transition: background 0.15s;
-}
-
-.vocabulary-row:last-child {
-    border-bottom: none;
-}
-
-.vocabulary-row:hover {
-    background: #fafafa;
-}
-
-/* ================= WORD ================= */
-
-.word-main {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.word-main strong {
-    display: block;
-    color: #111827;
-    font-size: 15px;
-}
-
-.ipa {
-    display: block;
-    margin-top: 3px;
-    color: #9ca3af;
-    font-size: 11px;
-}
-
-.sound-button {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 8px;
-    background: #f3f4f6;
-    color: #6366f1;
-    cursor: pointer;
-    transition: 0.15s;
-}
-
-.sound-button:hover {
-    background: #eef2ff;
-}
-
-.word-type {
-    display: inline-block;
-    margin-top: 7px;
-    color: #9ca3af;
-    font-size: 10px;
-}
-
-/* ================= MEANING ================= */
-
-.meaning-cell {
-    color: #374151;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-/* ================= EXAMPLE ================= */
-
-.example-cell {
-    min-width: 0;
-}
-
-.example-cell span {
-    display: block;
-    overflow: hidden;
-    color: #4b5563;
-    font-size: 12px;
-    line-height: 1.5;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.example-cell small {
-    display: block;
-    overflow: hidden;
-    margin-top: 4px;
-    color: #9ca3af;
-    font-size: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/* ================= LEVEL ================= */
-
-.level-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 34px;
-    padding: 5px 8px;
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 700;
-}
-
-.level-a1,
-.level-a2 {
-    background: #ecfdf5;
-    color: #059669;
-}
-
-.level-b1,
-.level-b2 {
-    background: #eff6ff;
-    color: #2563eb;
-}
-
-.level-c1,
-.level-c2 {
-    background: #f5f3ff;
-    color: #7c3aed;
-}
-
-/* ================= STATUS ================= */
-
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
-    padding: 5px 9px;
-    border-radius: 999px;
-    font-size: 9px;
-    font-weight: 600;
-}
-
-.status-badge.mastered {
-    background: #ecfdf5;
-    color: #059669;
-}
-
-.status-badge.learning {
-    background: #fff7ed;
-    color: #ea580c;
-}
-
-.status-badge.new {
-    background: #f3f4f6;
-    color: #6b7280;
-}
-
-/* ================= ACTIONS ================= */
-
-.row-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 3px;
-}
-
-.favorite-button,
-.more-button {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 7px;
-    background: transparent;
-    color: #9ca3af;
-    cursor: pointer;
-}
-
-.favorite-button:hover,
-.more-button:hover {
-    background: #f3f4f6;
-}
-
-.favorite-button .anticon-star {
-    color: #f59e0b;
-}
-
-/* ================= EMPTY ================= */
-
-.empty-state {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.empty-state > .anticon {
-    color: #d1d5db;
-    font-size: 36px;
-}
-
-.empty-state h3 {
-    margin: 14px 0 5px;
-    font-size: 16px;
-}
-
-.empty-state p {
-    margin: 0;
-    color: #9ca3af;
-    font-size: 13px;
-}
-
-/* ================= FOOTER ================= */
-
-.vocabulary-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 18px 5px;
-    color: #9ca3af;
-    font-size: 11px;
-}
-
-.vocabulary-footer strong {
-    color: #4b5563;
-}
-
-/* ================= MODAL ================= */
-
-.word-detail {
-    padding: 10px 5px;
-}
-
-.detail-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.detail-type {
-    color: #6366f1;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.detail-top h2 {
-    margin: 7px 0 3px;
-    color: #111827;
-    font-size: 34px;
-}
-
-.detail-ipa {
-    color: #9ca3af;
-    font-size: 13px;
-}
-
-.detail-sound {
-    width: 46px;
-    height: 46px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 12px;
-    background: #eef2ff;
-    color: #6366f1;
-    font-size: 19px;
-    cursor: pointer;
-}
-
-.detail-meaning,
-.detail-example {
-    padding: 18px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.detail-meaning span,
-.detail-example > span {
-    display: block;
-    margin-bottom: 7px;
-    color: #9ca3af;
-    font-size: 11px;
-    text-transform: uppercase;
-}
-
-.detail-meaning strong {
-    color: #111827;
-    font-size: 16px;
-}
-
-.detail-example p {
-    margin: 0;
-    color: #374151;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.detail-example small {
-    display: block;
-    margin-top: 7px;
-    color: #9ca3af;
-    line-height: 1.5;
-}
-
-.detail-meta {
-    display: grid;
-    grid-template-columns: 80px 100px 1fr;
-    gap: 15px;
-    padding-top: 18px;
-}
-
-.detail-meta div > span {
-    display: block;
-    margin-bottom: 7px;
-    color: #9ca3af;
-    font-size: 10px;
-}
-
-.detail-meta strong {
-    color: #374151;
-    font-size: 12px;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1100px) {
-    .vocabulary-list-header,
-    .vocabulary-row {
-        grid-template-columns:
-            1.2fr
-            0.8fr
-            1.4fr
-            60px
-            95px
-            65px;
-        gap: 12px;
-    }
-
-    .vocabulary-container {
-        width: min(100% - 30px, 1280px);
-    }
-}
-
-@media (max-width: 850px) {
-    .vocabulary-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .vocabulary-toolbar {
+@media (max-width: 768px) {
+    .toolbar-content {
         flex-direction: column;
+        align-items: stretch;
     }
 
-    .search-box {
-        width: 100%;
-    }
-
-    .filter-group {
-        width: 100%;
-    }
-
-    .filter-select {
-        flex: 1;
+    .search-input {
+        max-width: none;
     }
 }
 
-@media (max-width: 700px) {
-    .vocabulary-page {
-        padding-top: 30px;
-    }
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
+@media (max-width: 900px) {
     .vocabulary-header {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .vocabulary-header h1 {
-        font-size: 32px;
-    }
-
-    .vocabulary-stats {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .vocabulary-list {
-        overflow-x: auto;
-    }
-
-    .vocabulary-list-header,
-    .vocabulary-row {
-        min-width: 900px;
-    }
-
-    .vocabulary-footer {
+    .toolbar-content {
+        align-items: stretch;
         flex-direction: column;
-        align-items: flex-start;
     }
 
-    .filter-group {
-        flex-direction: column;
+    .search-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .vocabulary-page {
+        padding: 24px 12px;
+    }
+
+    .vocabulary-header {
+        margin-bottom: 24px;
+    }
+
+    .vocabulary-header .ant-btn {
+        width: 100%;
+    }
+
+    .detail-meta .ant-col {
+        width: 50%;
     }
 }
