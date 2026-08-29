@@ -11,14 +11,12 @@ import { useNavigate } from "react-router-dom";
 import {
     Button,
     Card,
-    Divider,
     Dropdown,
     Form,
     Input,
     Modal,
     Select,
     Space,
-    Tag,
     Tooltip,
     Typography,
     message,
@@ -45,7 +43,6 @@ import Navbar from "../../components/Navbar/Navbar";
 const {
     Title,
     Text,
-    Paragraph,
 } = Typography;
 
 const Detail = () => {
@@ -59,6 +56,9 @@ const Detail = () => {
     const transcriptRefs = useRef({});
     const listRef = useRef(null);
     const timerRef = useRef(null);
+
+    // Dùng để phân biệt single click và double click
+    const clickTimerRef = useRef(null);
 
     // =========================================================
     // MESSAGE
@@ -84,11 +84,16 @@ const Detail = () => {
         useState(null);
 
     // =========================================================
-    // WORD STATE
+    // VOCABULARY STATE
     // =========================================================
 
-    const [wordInfo, setWordInfo] =
-        useState({
+    const [
+        vocabularyWords,
+        setVocabularyWords,
+    ] = useState([
+        {
+            id: 1,
+
             word: "Boredom",
 
             ipa: "/ˈbɔː.dəm/",
@@ -99,10 +104,10 @@ const Detail = () => {
                 "sự nhàm chán, sự buồn tẻ",
 
             example:
-                "Over the past few weeks, months, years, I felt a little foggy. No focus. My mind was always occupied. Why was that? Because I lost boredom.",
+                "Because I lost boredom.",
 
             exampleVi:
-                "Trong vài tuần, vài tháng, vài năm qua, tôi cảm thấy hơi mơ hồ. Không tập trung. Đầu óc tôi luôn bận rộn. Tại sao vậy? Bởi vì tôi đã đánh mất sự nhàm chán.",
+                "Bởi vì tôi đã đánh mất sự nhàm chán.",
 
             savedAt:
                 "Aug 20, 2026",
@@ -112,7 +117,21 @@ const Detail = () => {
             ],
 
             notes: "",
-        });
+        },
+    ]);
+
+    // =========================================================
+    // EDIT MODAL
+    // =========================================================
+
+    const [editModalOpen, setEditModalOpen] =
+        useState(false);
+
+    const [editingWord, setEditingWord] =
+        useState(null);
+
+    const [editForm] =
+        Form.useForm();
 
     // =========================================================
     // FOLDERS
@@ -137,19 +156,6 @@ const Detail = () => {
                 name: "To Review",
             },
         ]);
-
-    // =========================================================
-    // EDIT MODAL
-    // =========================================================
-
-    const [editModalOpen, setEditModalOpen] =
-        useState(false);
-
-    const [editingWord, setEditingWord] =
-        useState(null);
-
-    const [editForm] =
-        Form.useForm();
 
     // =========================================================
     // MOVE FOLDER MODAL
@@ -194,7 +200,8 @@ const Detail = () => {
 
     useLayoutEffect(() => {
         if ("scrollRestoration" in history) {
-            history.scrollRestoration = "manual";
+            history.scrollRestoration =
+                "manual";
         }
 
         const scrollToTop = () => {
@@ -225,7 +232,8 @@ const Detail = () => {
             clearTimeout(timeoutId);
 
             if ("scrollRestoration" in history) {
-                history.scrollRestoration = "auto";
+                history.scrollRestoration =
+                    "auto";
             }
         };
     }, []);
@@ -407,6 +415,12 @@ const Detail = () => {
         return () => {
             stopTracking();
 
+            if (clickTimerRef.current) {
+                clearTimeout(
+                    clickTimerRef.current
+                );
+            }
+
             if (playerRef.current) {
                 playerRef.current.destroy();
 
@@ -494,6 +508,23 @@ const Detail = () => {
         }, []);
 
     // =========================================================
+    // PAUSE VIDEO
+    // =========================================================
+
+    const pauseVideo =
+        useCallback(() => {
+            if (!playerRef.current) {
+                return;
+            }
+
+            playerRef.current.pauseVideo();
+
+            setIsPlaying(false);
+
+            stopTracking();
+        }, [stopTracking]);
+
+    // =========================================================
     // PLAY SUBTITLE
     // =========================================================
 
@@ -516,6 +547,256 @@ const Detail = () => {
                 );
             },
             []
+        );
+
+    // =========================================================
+    // GET SELECTED TEXT
+    // =========================================================
+
+    const getSelectedText =
+        useCallback(() => {
+            const selection =
+                window.getSelection();
+
+            if (!selection) {
+                return "";
+            }
+
+            return selection
+                .toString()
+                .trim();
+        }, []);
+
+    // =========================================================
+    // CLEAN WORD
+    // =========================================================
+
+    const cleanSelectedWord =
+        useCallback(
+            (text) => {
+                return text
+                    .replace(
+                        /^[.,!?;:"'()[\]{}]+/,
+                        ""
+                    )
+                    .replace(
+                        /[.,!?;:"'()[\]{}]+$/,
+                        ""
+                    )
+                    .trim();
+            },
+            []
+        );
+
+    // =========================================================
+    // CREATE SAMPLE WORD
+    // =========================================================
+
+    const createSampleWord =
+        useCallback(
+            (selectedText, subtitle) => {
+                const cleanWord =
+                    cleanSelectedWord(
+                        selectedText
+                    );
+
+                if (!cleanWord) {
+                    return;
+                }
+
+                const newWord = {
+                    id:
+                        `${Date.now()}-${Math.random()}`,
+
+                    word:
+                        cleanWord,
+
+                    ipa:
+                        "/sample/",
+
+                    type:
+                        "Unknown",
+
+                    meaning:
+                        `Sample meaning for "${cleanWord}"`,
+
+                    example:
+                        subtitle?.text || "",
+
+                    exampleVi:
+                        subtitle?.translation || "",
+
+                    savedAt:
+                        new Date()
+                            .toLocaleDateString(
+                                "en-US",
+                                {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                }
+                            ),
+
+                    folders: [],
+
+                    notes: "",
+                };
+
+                setVocabularyWords(
+                    (current) => {
+                        const exists =
+                            current.some(
+                                (item) =>
+                                    item.word
+                                        .toLowerCase()
+                                        .trim() ===
+                                    newWord.word
+                                        .toLowerCase()
+                                        .trim()
+                            );
+
+                        if (exists) {
+                            return current;
+                        }
+
+                        return [
+                            newWord,
+                            ...current,
+                        ];
+                    }
+                );
+            },
+            [cleanSelectedWord]
+        );
+
+    // =========================================================
+    // HANDLE TEXT SELECTION
+    // =========================================================
+
+    const handleTextSelection =
+        useCallback(
+            (subtitle) => {
+                setTimeout(() => {
+                    const selectedText =
+                        getSelectedText();
+
+                    if (!selectedText) {
+                        return;
+                    }
+
+                    // Có text được bôi đen
+                    // => dừng video
+                    pauseVideo();
+
+                    // Tạo dữ liệu mẫu
+                    createSampleWord(
+                        selectedText,
+                        subtitle
+                    );
+
+                    // Hủy click timer
+                    if (
+                        clickTimerRef.current
+                    ) {
+                        clearTimeout(
+                            clickTimerRef.current
+                        );
+
+                        clickTimerRef.current =
+                            null;
+                    }
+                }, 0);
+            },
+            [
+                getSelectedText,
+                pauseVideo,
+                createSampleWord,
+            ]
+        );
+
+    // =========================================================
+    // HANDLE SINGLE CLICK
+    // =========================================================
+
+    const handleSingleClick =
+        useCallback(
+            (subtitle) => {
+                if (
+                    clickTimerRef.current
+                ) {
+                    return;
+                }
+
+                clickTimerRef.current =
+                    setTimeout(() => {
+                        const selectedText =
+                            getSelectedText();
+
+                        // Nếu đang chọn text
+                        // thì không tua video
+                        if (selectedText) {
+                            clickTimerRef.current =
+                                null;
+
+                            return;
+                        }
+
+                        // Click bình thường
+                        // => tua video
+                        playSubtitle(
+                            subtitle
+                        );
+
+                        clickTimerRef.current =
+                            null;
+                    }, 250);
+            },
+            [
+                getSelectedText,
+                playSubtitle,
+            ]
+        );
+
+    // =========================================================
+    // HANDLE DOUBLE CLICK
+    // =========================================================
+
+    const handleDoubleClick =
+        useCallback(
+            (event, subtitle) => {
+                // Hủy single click
+                if (
+                    clickTimerRef.current
+                ) {
+                    clearTimeout(
+                        clickTimerRef.current
+                    );
+
+                    clickTimerRef.current =
+                        null;
+                }
+
+                // Đợi browser chọn text
+                setTimeout(() => {
+                    const selectedText =
+                        getSelectedText();
+
+                    // Double click luôn pause
+                    pauseVideo();
+
+                    if (selectedText) {
+                        createSampleWord(
+                            selectedText,
+                            subtitle
+                        );
+                    }
+                }, 0);
+            },
+            [
+                getSelectedText,
+                pauseVideo,
+                createSampleWord,
+            ]
         );
 
     // =========================================================
@@ -573,33 +854,36 @@ const Detail = () => {
     // =========================================================
 
     const handlePronounce =
-        useCallback(() => {
-            if (
-                !(
-                    "speechSynthesis" in
-                    window
-                )
-            ) {
-                return;
-            }
+        useCallback(
+            (word) => {
+                if (
+                    !(
+                        "speechSynthesis" in
+                        window
+                    )
+                ) {
+                    return;
+                }
 
-            const utterance =
-                new SpeechSynthesisUtterance(
-                    wordInfo.word
+                const utterance =
+                    new SpeechSynthesisUtterance(
+                        word
+                    );
+
+                utterance.lang =
+                    "en-US";
+
+                utterance.rate =
+                    0.8;
+
+                window.speechSynthesis.cancel();
+
+                window.speechSynthesis.speak(
+                    utterance
                 );
-
-            utterance.lang =
-                "en-US";
-
-            utterance.rate =
-                0.8;
-
-            window.speechSynthesis.cancel();
-
-            window.speechSynthesis.speak(
-                utterance
-            );
-        }, [wordInfo.word]);
+            },
+            []
+        );
 
     // =========================================================
     // FOLDER OPTIONS
@@ -618,31 +902,19 @@ const Detail = () => {
     // =========================================================
 
     const openEditModal =
-        () => {
-            setEditingWord(
-                wordInfo
-            );
+        (word) => {
+            setEditingWord(word);
 
             editForm.setFieldsValue({
-                word:
-                    wordInfo.word,
-
-                ipa:
-                    wordInfo.ipa,
-
+                word: word.word,
+                ipa: word.ipa,
                 meaning:
-                    wordInfo.meaning,
-
-                type:
-                    wordInfo.type,
-
-                notes:
-                    wordInfo.notes,
+                    word.meaning,
+                type: word.type,
+                notes: word.notes,
             });
 
-            setEditModalOpen(
-                true
-            );
+            setEditModalOpen(true);
         };
 
     // =========================================================
@@ -651,38 +923,51 @@ const Detail = () => {
 
     const handleEditWord =
         async () => {
+            if (!editingWord) {
+                return;
+            }
+
             try {
                 const values =
                     await editForm.validateFields();
 
-                setWordInfo(
-                    (current) => ({
-                        ...current,
+                setVocabularyWords(
+                    (current) =>
+                        current.map(
+                            (word) => {
+                                if (
+                                    word.id !==
+                                    editingWord.id
+                                ) {
+                                    return word;
+                                }
 
-                        word:
-                            values.word,
+                                return {
+                                    ...word,
 
-                        ipa:
-                            values.ipa,
+                                    word:
+                                        values.word,
 
-                        meaning:
-                            values.meaning,
+                                    ipa:
+                                        values.ipa,
 
-                        type:
-                            values.type,
+                                    meaning:
+                                        values.meaning,
 
-                        notes:
-                            values.notes || "",
-                    })
+                                    type:
+                                        values.type,
+
+                                    notes:
+                                        values.notes ||
+                                        "",
+                                };
+                            }
+                        )
                 );
 
-                setEditModalOpen(
-                    false
-                );
+                setEditModalOpen(false);
 
-                setEditingWord(
-                    null
-                );
+                setEditingWord(null);
 
                 messageApi.success(
                     "Word updated successfully."
@@ -702,18 +987,14 @@ const Detail = () => {
     // =========================================================
 
     const openMoveModal =
-        () => {
-            setMovingWord(
-                wordInfo
-            );
+        (word) => {
+            setMovingWord(word);
 
             setSelectedMoveFolders(
-                wordInfo.folders || []
+                word.folders || []
             );
 
-            setMoveModalOpen(
-                true
-            );
+            setMoveModalOpen(true);
         };
 
     // =========================================================
@@ -726,22 +1007,30 @@ const Detail = () => {
                 return;
             }
 
-            setWordInfo(
-                (current) => ({
-                    ...current,
+            setVocabularyWords(
+                (current) =>
+                    current.map(
+                        (word) => {
+                            if (
+                                word.id !==
+                                movingWord.id
+                            ) {
+                                return word;
+                            }
 
-                    folders:
-                        selectedMoveFolders,
-                })
+                            return {
+                                ...word,
+
+                                folders:
+                                    selectedMoveFolders,
+                            };
+                        }
+                    )
             );
 
-            setMoveModalOpen(
-                false
-            );
+            setMoveModalOpen(false);
 
-            setMovingWord(
-                null
-            );
+            setMovingWord(null);
 
             messageApi.success(
                 "Word folders updated successfully."
@@ -768,7 +1057,8 @@ const Detail = () => {
             const exists =
                 folders.some(
                     (folder) =>
-                        folder.name.toLowerCase() ===
+                        folder.name
+                            .toLowerCase() ===
                         name.toLowerCase()
                 );
 
@@ -810,10 +1100,10 @@ const Detail = () => {
     // =========================================================
 
     const removeWord =
-        () => {
+        (word) => {
             Modal.confirm({
                 title:
-                    "Remove this word?",
+                    `Remove "${word.word}"?`,
 
                 content:
                     "This word will be removed from your vocabulary.",
@@ -829,66 +1119,74 @@ const Detail = () => {
                 },
 
                 onOk: () => {
+                    setVocabularyWords(
+                        (current) =>
+                            current.filter(
+                                (item) =>
+                                    item.id !==
+                                    word.id
+                            )
+                    );
+
                     messageApi.success(
                         "Word removed from your vocabulary."
                     );
-
-                    navigate(-1);
                 },
             });
         };
 
     // =========================================================
-    // DROPDOWN MENU
+    // CREATE DROPDOWN MENU
     // =========================================================
 
-    const menuItems = [
-        {
-            key: "edit",
+    const getMenuItems =
+        (word) => [
+            {
+                key: "edit",
 
-            icon:
-                <EditOutlined />,
+                icon:
+                    <EditOutlined />,
 
-            label:
-                "Edit word",
+                label:
+                    "Edit word",
 
-            onClick:
-                openEditModal,
-        },
+                onClick: () =>
+                    openEditModal(word),
+            },
 
-        {
-            key: "move",
+            {
+                key: "move",
 
-            icon:
-                <FolderOutlined />,
+                icon:
+                    <FolderOutlined />,
 
-            label:
-                "Move to folder",
+                label:
+                    "Move to folder",
 
-            onClick:
-                openMoveModal,
-        },
+                onClick: () =>
+                    openMoveModal(word),
+            },
 
-        {
-            type:
-                "divider",
-        },
+            {
+                type:
+                    "divider",
+            },
 
-        {
-            key: "delete",
+            {
+                key: "delete",
 
-            danger: true,
+                danger: true,
 
-            icon:
-                <DeleteOutlined />,
+                icon:
+                    <DeleteOutlined />,
 
-            label:
-                "Remove from vocabulary",
+                label:
+                    "Remove from vocabulary",
 
-            onClick:
-                removeWord,
-        },
-    ];
+                onClick: () =>
+                    removeWord(word),
+            },
+        ];
 
     // =========================================================
     // RENDER
@@ -906,9 +1204,7 @@ const Detail = () => {
 
                     <div className="detail-container">
 
-                        {/* =================================================
-                        BACK
-                        ================================================= */}
+                        {/* BACK */}
 
                         <div className="back-button-wrapper">
 
@@ -925,15 +1221,11 @@ const Detail = () => {
 
                         </div>
 
-                        {/* =================================================
-                        VIDEO + TRANSCRIPT
-                        ================================================= */}
+                        {/* VIDEO + TRANSCRIPT */}
 
                         <div className="detail-content">
 
-                            {/* =================================================
-                            VIDEO
-                            ================================================= */}
+                            {/* VIDEO */}
 
                             <div className="video-section">
 
@@ -974,9 +1266,7 @@ const Detail = () => {
 
                             </div>
 
-                            {/* =================================================
-                            TRANSCRIPT
-                            ================================================= */}
+                            {/* TRANSCRIPT */}
 
                             <div className="transcript-section">
 
@@ -1009,8 +1299,12 @@ const Detail = () => {
                                                     shape="circle"
                                                     icon={
                                                         isPlaying
-                                                            ? <PauseCircleOutlined />
-                                                            : <PlayCircleOutlined />
+                                                            ? (
+                                                                <PauseCircleOutlined />
+                                                            )
+                                                            : (
+                                                                <PlayCircleOutlined />
+                                                            )
                                                     }
                                                     onClick={
                                                         togglePlay
@@ -1034,14 +1328,13 @@ const Detail = () => {
 
                                     <div
                                         className="transcript-list"
-                                        ref={
-                                            listRef
-                                        }
+                                        ref={listRef}
                                     >
 
                                         {subtitlesData.map(
-                                            (subtitle) => {
-
+                                            (
+                                                subtitle
+                                            ) => {
                                                 const active =
                                                     activeSubtitle ===
                                                     subtitle.id;
@@ -1052,7 +1345,9 @@ const Detail = () => {
                                                             subtitle.id
                                                         }
 
-                                                        ref={(element) => {
+                                                        ref={(
+                                                            element
+                                                        ) => {
                                                             transcriptRefs.current[
                                                                 subtitle.id
                                                             ] =
@@ -1067,29 +1362,50 @@ const Detail = () => {
                                                             }`
                                                         }
 
+                                                        onMouseUp={() =>
+                                                            handleTextSelection(
+                                                                subtitle
+                                                            )
+                                                        }
+
                                                         onClick={() =>
-                                                            playSubtitle(
+                                                            handleSingleClick(
+                                                                subtitle
+                                                            )
+                                                        }
+
+                                                        onDoubleClick={(
+                                                            event
+                                                        ) =>
+                                                            handleDoubleClick(
+                                                                event,
                                                                 subtitle
                                                             )
                                                         }
                                                     >
 
                                                         <div className="time">
+
                                                             {formatTime(
                                                                 subtitle.start
                                                             )}
+
                                                         </div>
 
                                                         <div className="en">
+
                                                             {
                                                                 subtitle.text
                                                             }
+
                                                         </div>
 
                                                         <div className="vi">
+
                                                             {
                                                                 subtitle.translation
                                                             }
+
                                                         </div>
 
                                                     </div>
@@ -1105,15 +1421,11 @@ const Detail = () => {
 
                         </div>
 
-                        {/* =================================================
-                        VOCABULARY TABLE
-                        ================================================= */}
+                        {/* VOCABULARY TABLE */}
 
                         <div className="vocabulary-table">
 
-                            {/* =================================================
-                            TABLE HEADER
-                            ================================================= */}
+                            {/* HEADER */}
 
                             <div className="vocabulary-table-header">
 
@@ -1138,142 +1450,157 @@ const Detail = () => {
 
                             </div>
 
-                            {/* =================================================
-                            TABLE ROW
-                            ================================================= */}
+                            {/* WORDS */}
 
-                            <div className="vocabulary-table-row">
+                            {vocabularyWords.map(
+                                (word) => (
+                                    <div
+                                        className="vocabulary-table-row"
+                                        key={word.id}
+                                    >
 
-                                {/* =================================================
-                                WORD
-                                ================================================= */}
+                                        {/* WORD */}
 
-                                <div className="table-column word-column">
+                                        <div className="table-column word-column">
 
-                                    <div className="word-content">
+                                            <div className="word-content">
 
-                                        <Tooltip title="Pronounce">
-                                            <Button
-                                                type="text"
-                                                size="small"
-                                                className="word-sound-button"
-                                                icon={
-                                                    <SoundOutlined />
-                                                }
-                                                onClick={
-                                                    handlePronounce
-                                                }
-                                            />
-                                        </Tooltip>
+                                                <Tooltip title="Pronounce">
 
-                                        <div className="word-info">
+                                                    <Button
+                                                        type="text"
+                                                        size="small"
+                                                        className="word-sound-button"
+                                                        icon={
+                                                            <SoundOutlined />
+                                                        }
+                                                        onClick={() =>
+                                                            handlePronounce(
+                                                                word.word
+                                                            )
+                                                        }
+                                                    />
 
-                                            <div className="word-title">
-                                                {
-                                                    wordInfo.word
-                                                }
-                                            </div>
+                                                </Tooltip>
 
-                                            <div className="word-ipa">
-                                                {
-                                                    wordInfo.ipa
-                                                }
-                                            </div>
+                                                <div className="word-info">
 
-                                            <div className="word-type">
-                                                {
-                                                    wordInfo.type
-                                                }
+                                                    <div className="word-title">
+
+                                                        {
+                                                            word.word
+                                                        }
+
+                                                    </div>
+
+                                                    <div className="word-ipa">
+
+                                                        {
+                                                            word.ipa
+                                                        }
+
+                                                    </div>
+
+                                                    <div className="word-type">
+
+                                                        {
+                                                            word.type
+                                                        }
+
+                                                    </div>
+
+                                                </div>
+
                                             </div>
 
                                         </div>
 
-                                    </div>
+                                        {/* MEANING */}
 
-                                </div>
+                                        <div className="table-column meaning-column">
 
-                                {/* =================================================
-                                MEANING
-                                ================================================= */}
+                                            <div className="meaning-text">
 
-                                <div className="table-column meaning-column">
-
-                                    <div className="meaning-text">
-                                        {
-                                            wordInfo.meaning
-                                        }
-                                    </div>
-
-                                </div>
-
-                                {/* =================================================
-                                EXAMPLE
-                                ================================================= */}
-
-                                <div className="table-column example-column">
-
-                                    <div className="example-en">
-                                        {
-                                            wordInfo.example
-                                        }
-                                    </div>
-
-                                    <div className="example-vi">
-                                        {
-                                            wordInfo.exampleVi
-                                        }
-                                    </div>
-
-                                </div>
-
-                                {/* =================================================
-                                SAVED
-                                ================================================= */}
-
-                                <div className="table-column saved-column">
-
-                                    <div className="saved-text">
-                                        {
-                                            wordInfo.savedAt
-                                        }
-                                    </div>
-
-                                </div>
-
-                                {/* =================================================
-                                ACTIONS
-                                ================================================= */}
-
-                                <div className="table-column actions-column">
-
-                                    <Tooltip title="More actions">
-
-                                        <Dropdown
-                                            menu={{
-                                                items:
-                                                    menuItems,
-                                            }}
-                                            trigger={[
-                                                "click",
-                                            ]}
-                                            placement="bottomRight"
-                                        >
-
-                                            <Button
-                                                type="text"
-                                                className="more-button"
-                                                icon={
-                                                    <MoreOutlined />
+                                                {
+                                                    word.meaning
                                                 }
-                                            />
 
-                                        </Dropdown>
+                                            </div>
 
-                                    </Tooltip>
+                                        </div>
 
-                                </div>
+                                        {/* EXAMPLE */}
 
-                            </div>
+                                        <div className="table-column example-column">
+
+                                            <div className="example-en">
+
+                                                {
+                                                    word.example
+                                                }
+
+                                            </div>
+
+                                            <div className="example-vi">
+
+                                                {
+                                                    word.exampleVi
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                        {/* SAVED */}
+
+                                        <div className="table-column saved-column">
+
+                                            <div className="saved-text">
+
+                                                {
+                                                    word.savedAt
+                                                }
+
+                                            </div>
+
+                                        </div>
+
+                                        {/* ACTIONS */}
+
+                                        <div className="table-column actions-column">
+
+                                            <Tooltip title="More actions">
+
+                                                <Dropdown
+                                                    menu={{
+                                                        items:
+                                                            getMenuItems(
+                                                                word
+                                                            ),
+                                                    }}
+                                                    trigger={[
+                                                        "click",
+                                                    ]}
+                                                    placement="bottomRight"
+                                                >
+
+                                                    <Button
+                                                        type="text"
+                                                        className="more-button"
+                                                        icon={
+                                                            <MoreOutlined />
+                                                        }
+                                                    />
+
+                                                </Dropdown>
+
+                                            </Tooltip>
+
+                                        </div>
+
+                                    </div>
+                                )
+                            )}
 
                         </div>
 
@@ -1281,42 +1608,23 @@ const Detail = () => {
 
                 </div>
 
-                {/* =================================================
-                EDIT WORD MODAL
-                ================================================= */}
+                {/* EDIT WORD MODAL */}
 
                 <Modal
-                    open={
-                        editModalOpen
-                    }
-
+                    open={editModalOpen}
                     title="Edit word"
-
                     okText="Save"
-
                     cancelText="Cancel"
-
                     onCancel={() => {
-                        setEditModalOpen(
-                            false
-                        );
-
-                        setEditingWord(
-                            null
-                        );
+                        setEditModalOpen(false);
+                        setEditingWord(null);
                     }}
-
-                    onOk={
-                        handleEditWord
-                    }
-
+                    onOk={handleEditWord}
                     destroyOnClose
                 >
 
                     <Form
-                        form={
-                            editForm
-                        }
+                        form={editForm}
                         layout="vertical"
                     >
 
@@ -1331,14 +1639,18 @@ const Detail = () => {
                                 },
                             ]}
                         >
+
                             <Input />
+
                         </Form.Item>
 
                         <Form.Item
                             label="IPA"
                             name="ipa"
                         >
+
                             <Input />
+
                         </Form.Item>
 
                         <Form.Item
@@ -1352,7 +1664,9 @@ const Detail = () => {
                                 },
                             ]}
                         >
+
                             <Input />
+
                         </Form.Item>
 
                         <Form.Item
@@ -1363,52 +1677,36 @@ const Detail = () => {
                             <Select
                                 options={[
                                     {
-                                        value:
-                                            "Noun",
-                                        label:
-                                            "Noun",
+                                        value: "Noun",
+                                        label: "Noun",
                                     },
                                     {
-                                        value:
-                                            "Verb",
-                                        label:
-                                            "Verb",
+                                        value: "Verb",
+                                        label: "Verb",
                                     },
                                     {
-                                        value:
-                                            "Adjective",
-                                        label:
-                                            "Adjective",
+                                        value: "Adjective",
+                                        label: "Adjective",
                                     },
                                     {
-                                        value:
-                                            "Adverb",
-                                        label:
-                                            "Adverb",
+                                        value: "Adverb",
+                                        label: "Adverb",
                                     },
                                     {
-                                        value:
-                                            "Pronoun",
-                                        label:
-                                            "Pronoun",
+                                        value: "Pronoun",
+                                        label: "Pronoun",
                                     },
                                     {
-                                        value:
-                                            "Preposition",
-                                        label:
-                                            "Preposition",
+                                        value: "Preposition",
+                                        label: "Preposition",
                                     },
                                     {
-                                        value:
-                                            "Conjunction",
-                                        label:
-                                            "Conjunction",
+                                        value: "Conjunction",
+                                        label: "Conjunction",
                                     },
                                     {
-                                        value:
-                                            "Other",
-                                        label:
-                                            "Other",
+                                        value: "Other",
+                                        label: "Other",
                                     },
                                 ]}
                             />
@@ -1431,46 +1729,28 @@ const Detail = () => {
 
                 </Modal>
 
-                {/* =================================================
-                MOVE TO FOLDER MODAL
-                ================================================= */}
+                {/* MOVE FOLDER MODAL */}
 
                 <Modal
-                    open={
-                        moveModalOpen
-                    }
-
+                    open={moveModalOpen}
                     title={
                         movingWord
                             ? `Move "${movingWord.word}"`
                             : "Move to folder"
                     }
-
                     okText="Save"
-
                     cancelText="Cancel"
-
                     onCancel={() => {
-                        setMoveModalOpen(
-                            false
-                        );
-
-                        setMovingWord(
-                            null
-                        );
+                        setMoveModalOpen(false);
+                        setMovingWord(null);
                     }}
-
-                    onOk={
-                        handleMoveWord
-                    }
-
+                    onOk={handleMoveWord}
                     destroyOnClose
                 >
 
                     <div
                         style={{
-                            marginBottom:
-                                16,
+                            marginBottom: 16,
                         }}
                     >
 
@@ -1483,9 +1763,7 @@ const Detail = () => {
 
                     <Select
                         mode="multiple"
-                        value={
-                            selectedMoveFolders
-                        }
+                        value={selectedMoveFolders}
                         onChange={
                             setSelectedMoveFolders
                         }
@@ -1493,9 +1771,7 @@ const Detail = () => {
                             width: "100%",
                         }}
                         placeholder="Select folders"
-                        options={
-                            folderOptions
-                        }
+                        options={folderOptions}
                     />
 
                     <Button
@@ -1518,21 +1794,13 @@ const Detail = () => {
 
                 </Modal>
 
-                {/* =================================================
-                CREATE FOLDER MODAL
-                ================================================= */}
+                {/* CREATE FOLDER MODAL */}
 
                 <Modal
-                    open={
-                        createFolderModalOpen
-                    }
-
+                    open={createFolderModalOpen}
                     title="Create new folder"
-
                     okText="Create"
-
                     cancelText="Cancel"
-
                     onCancel={() => {
                         setCreateFolderModalOpen(
                             false
@@ -1540,19 +1808,13 @@ const Detail = () => {
 
                         setNewFolderName("");
                     }}
-
-                    onOk={
-                        createFolder
-                    }
-
+                    onOk={createFolder}
                     destroyOnClose
                 >
 
                     <Input
                         autoFocus
-                        value={
-                            newFolderName
-                        }
+                        value={newFolderName}
                         placeholder="e.g. Travel English"
                         onChange={(e) => {
                             setNewFolderName(
@@ -1567,9 +1829,6 @@ const Detail = () => {
                 </Modal>
 
             </div>
-
-            
-
         </>
     );
 };

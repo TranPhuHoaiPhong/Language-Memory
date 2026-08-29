@@ -7,7 +7,7 @@ const httpsAgent = new https.Agent({
     maxFreeSockets: 20
 });
 
-const CONCURRENCY = 40;
+const CONCURRENCY = 3;
 const AMOUNT = 10;
 
 async function translate(texts, sourceLanguage, targetLanguage) {
@@ -54,7 +54,6 @@ async function translate(texts, sourceLanguage, targetLanguage) {
     }
 
     return result;
-
 }
 
 function timeToSeconds(time) {
@@ -66,7 +65,6 @@ function timeToSeconds(time) {
         Number(m) * 60 +
         Number(s)
     );
-
 }
 
 async function translateTranscript(
@@ -81,9 +79,11 @@ async function translateTranscript(
         .filter(Boolean);
 
     const parsed = lines
-        .map(line => {  
+        .map(line => {
 
-            const match = line.match(/^(\d{2}:\d{2}:\d{2}\.\d{3})\s+(.+)$/);
+            const match = line.match(
+                /^(\d{2}:\d{2}:\d{2}\.\d{3})\s+(.+)$/
+            );
 
             if (!match)
                 return null;
@@ -99,13 +99,31 @@ async function translateTranscript(
     const translatedItems = new Array(parsed.length);
 
     let nextIndex = 0;
+    let completed = 0;
+    let batchNumber = 0;
+
+    const totalBatches = Math.ceil(
+        parsed.length / AMOUNT
+    );
+
+    console.log("");
+    console.log("========================================");
+    console.log("START TRANSLATION");
+    console.log("========================================");
+    console.log(`Total sentences : ${parsed.length}`);
+    console.log(`Batch size      : ${AMOUNT}`);
+    console.log(`Total batches   : ${totalBatches}`);
+    console.log(`Concurrency     : ${CONCURRENCY}`);
+    console.log(`From            : ${lang}`);
+    console.log(`To              : ${language}`);
+    console.log("========================================");
+    console.log("");
 
     async function worker(workerId) {
 
         while (true) {
 
             const current = nextIndex;
-
             nextIndex += AMOUNT;
 
             if (current >= parsed.length)
@@ -116,6 +134,20 @@ async function translateTranscript(
                     current,
                     current + AMOUNT
                 );
+
+            const currentBatch =
+                Math.floor(current / AMOUNT) + 1;
+
+            batchNumber++;
+
+            const startTime = Date.now();
+
+            console.log(
+                `[START] worker=${workerId} ` +
+                `batch=${currentBatch}/${totalBatches} ` +
+                `sentences=${items.length} ` +
+                `range=${current + 1}-${current + items.length}`
+            );
 
             try {
 
@@ -142,9 +174,50 @@ async function translateTranscript(
 
                 });
 
+                completed += items.length;
+
+                const elapsed =
+                    ((Date.now() - startTime) / 1000)
+                        .toFixed(2);
+
+                const percent =
+                    ((completed / parsed.length) * 100)
+                        .toFixed(1);
+
+                console.log(
+                    `[SUCCESS] worker=${workerId} ` +
+                    `batch=${currentBatch}/${totalBatches} ` +
+                    `count=${items.length} ` +
+                    `time=${elapsed}s ` +
+                    `progress=${completed}/${parsed.length} ` +
+                    `(${percent}%)`
+                );
+
             }
 
             catch (err) {
+
+                const elapsed =
+                    ((Date.now() - startTime) / 1000)
+                        .toFixed(2);
+
+                console.error(
+                    `[ERROR] worker=${workerId} ` +
+                    `batch=${currentBatch}/${totalBatches} ` +
+                    `time=${elapsed}s`
+                );
+
+                console.error(
+                    `  message=${err.message}`
+                );
+
+                if (err.response) {
+
+                    console.error(
+                        `  status=${err.response.status}`
+                    );
+
+                }
 
                 items.forEach((item, index) => {
 
@@ -159,6 +232,19 @@ async function translateTranscript(
                     };
 
                 });
+
+                completed += items.length;
+
+                const percent =
+                    ((completed / parsed.length) * 100)
+                        .toFixed(1);
+
+                console.log(
+                    `[FAILED] worker=${workerId} ` +
+                    `batch=${currentBatch} ` +
+                    `progress=${completed}/${parsed.length} ` +
+                    `(${percent}%)`
+                );
 
             }
 
@@ -176,30 +262,34 @@ async function translateTranscript(
                 )
             },
 
-            (_, i) => worker(i + 1)
+            (_, i) =>
+                worker(i + 1)
 
         )
 
     );
 
+    console.log("");
+    console.log("========================================");
+    console.log("TRANSLATION FINISHED");
+    console.log("========================================");
+    console.log(`Total sentences : ${parsed.length}`);
+    console.log(`Total batches   : ${totalBatches}`);
+    console.log("========================================");
+    console.log("");
+
     return translatedItems.map(
 
         (item, index) => {
 
-            const start = timeToSeconds(item.time);
+            const start =
+                timeToSeconds(item.time);
 
             const end =
-
-                index <
-
-                translatedItems.length - 1
-
+                index < translatedItems.length - 1
                     ? timeToSeconds(
-
                         translatedItems[index + 1].time
-
                     )
-
                     : start;
 
             return {
@@ -217,4 +307,4 @@ async function translateTranscript(
 
 module.exports = {
     translateTranscript
-}; 
+};

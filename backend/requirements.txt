@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pymongo
+python-dotenv
+pydantic
+httpx
+brotli
+yt-dlp
+eng-to-ipa
