@@ -15,7 +15,7 @@ from transformers import (
 # ==========================
 
 MODEL_NAME = "Helsinki-NLP/opus-mt-en-vi"
-VIDEO_ID = "RfhJAi7XLYg"
+VIDEO_ID = "Bg_CoPj5B7g"
 BATCH_SIZE = FIRST_BATCH = 10
 
 # ==========================

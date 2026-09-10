@@ -1,7 +1,6 @@
 import asyncio
 import re
 import random
-from functools import partial
 from pathlib import Path
 
 from deep_translator import GoogleTranslator
@@ -78,21 +77,12 @@ async def translate_batch_joined(
                 if parts is not None:
                     return parts
 
-                # Số câu không khớp sau khi tách -> fallback dịch từng câu
-                # print(
-                #     f"[SPLIT MISMATCH] expected={len(texts)} "
-                #     f"-> falling back to per-sentence translation"
-                # )
                 return await translate_each_individually(
                     texts, source_language, target_language, semaphore
                 )
 
         except Exception as e:
             if attempt == retries - 1:
-                # print(
-                #     f"[BATCH FAILED] falling back to per-sentence "
-                #     f"translation: {e}"
-                # )
                 return await translate_each_individually(
                     texts, source_language, target_language, semaphore
                 )
@@ -101,11 +91,6 @@ async def translate_batch_joined(
                 BASE_DELAY * (2 ** attempt)
                 + random.uniform(0, 0.5)
             )
-
-            # print(
-            #     f"[RETRY] batch attempt={attempt + 1}/{retries} "
-            #     f"size={len(texts)} delay={delay:.2f}s"
-            # )
 
             await asyncio.sleep(delay)
 
@@ -143,7 +128,6 @@ async def translate_each_individually(
 
             except Exception as e:
                 if attempt == retries - 1:
-                    # print(f"[FALLBACK FAILED] '{text[:40]}...': {e}")
                     return text  # dùng lại bản gốc nếu vẫn lỗi
 
                 delay = BASE_DELAY * (2 ** attempt) + random.uniform(0, 0.5)
@@ -158,35 +142,13 @@ def time_to_seconds(time):
     return int(h) * 3600 + int(m) * 60 + float(s)
 
 
-def save_original_transcript(parsed, output_file):
-    with open(output_file, "w", encoding="utf-8") as f:
-        for item in parsed:
-            f.write(f"{item['time']}\t{item['english']}\n")
-    # print(f"[FILE] Original: {output_file}")
-
-
-def save_translated_transcript(result, output_file):
-    with open(output_file, "w", encoding="utf-8") as f:
-        for item in result:
-            f.write(f"START: {item['start']}\n")
-            f.write(f"END: {item['end']}\n")
-            f.write(f"Original: {item['original']}\n")
-            f.write(f"Translated: {item['translated']}\n")
-            f.write("\n")
-            f.write("----------------------------------------\n")
-            f.write("\n")
-    # print(f"[FILE] Translated: {output_file}")
-
-
 async def translate_transcript(
     transcript_text,
-    language,
-    lang
+    target_language,
+    native_language
 ):
-    source_language = lang.lower().split("-")[0]
-    target_language = language.lower().split("-")[0]
-
-    print(f"[TRANSLATE] {source_language} -> {target_language}")
+    source_language = target_language.lower().split("-")[0]   # ngôn ngữ phụ đề tìm được = nguồn
+    target_language = native_language.lower().split("-")[0]    # ngôn ngữ người dùng muốn = đích
 
     lines = [
         line.strip()
@@ -209,14 +171,6 @@ async def translate_transcript(
     if not parsed:
         return []
 
-    output_dir = Path("translation_output")
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    original_file = output_dir / "transcript_original.txt"
-    translated_file = output_dir / "transcript_translated.txt"
-
-    save_original_transcript(parsed, original_file)
-
     if source_language == target_language:
         result = []
         for index, item in enumerate(parsed):
@@ -231,7 +185,6 @@ async def translate_transcript(
                 "original": item["english"],
                 "translated": item["english"]
             })
-        # save_translated_transcript(result, translated_file)
         return result
 
     translated_items = [None] * len(parsed)
@@ -252,11 +205,6 @@ async def translate_transcript(
 
             items = parsed[current:current + AMOUNT]
             texts = [item["english"] for item in items]
-
-            # print(
-            #     f"[BATCH] worker={worker_id} "
-            #     f"batch={current} size={len(items)}"
-            # )
 
             translated = await translate_batch_joined(
                 texts, source_language, target_language, semaphore
@@ -289,9 +237,5 @@ async def translate_transcript(
             "original": item["english"],
             "translated": item["translated"]
         })
-
-    # save_translated_transcript(result, translated_file)
-
-    # print(f"[DONE] Translated {len(result)} sentences")
 
     return result

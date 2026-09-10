@@ -36,23 +36,23 @@ async def transcript_service(
         # CACHE
         # =================================================
 
-        # cache = subtitle_cache_collection.find_one({
-        #     "videoId": video_id,
-        #     "sourceLanguage": lang,
-        #     "language": language
-        # })
+        cache = subtitle_cache_collection.find_one({
+            "videoId": video_id,
+            "sourceLanguage": lang,
+            "language": language
+        })
 
-        # if cache:
+        if cache:
 
-        #     compressed = cache["subtitle"]
+            compressed = cache["subtitle"]
 
-        #     decompressed = brotli.decompress(
-        #         compressed
-        #     )
+            decompressed = brotli.decompress(
+                compressed
+            )
 
-        #     return json.loads(
-        #         decompressed.decode("utf-8")
-        #     )
+            return json.loads(
+                decompressed.decode("utf-8")
+            )
 
         # =================================================
         # CONVERT

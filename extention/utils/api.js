@@ -29,33 +29,24 @@ async function saveWord(data) {
   });
 }
 
-async function sendVideoId(videoId, language) {
+async function sendVideoId(videoId, target_language, native_language) {
   return apiRequest('send-id', {
     method: 'POST',
-    body: { id: videoId, language }
+    body: {
+      id: videoId,
+      target_language,
+      native_language
+    }
   });
 }
 
-async function sendTranscript(transcriptText, language, lang, videoId) {
-  return apiRequest('transcript', {
-    method: 'POST',
-    body: { transcript: transcriptText, language, lang, videoId }
-  });
-}
+async function fetchTranscriptData(videoId, target_language, native_language, onProgress) {
+  const data = await sendVideoId(videoId, target_language, native_language);
 
-async function fetchTranscriptData(videoId, targetLanguage, onProgress) {
-  const data = await sendVideoId(videoId, targetLanguage);
-  const sourceLanguage = data.lang;
-
-  if (data.dta === sourceLanguage) {
-    return { subtitles: [], sourceLanguage, noTranslation: true };
-  }
-
-  const transcriptUrl = data.dta;
-  const response = await fetch(transcriptUrl.toString());
-  if (!response.ok) throw new Error('Failed to load transcript');
-  const transcriptText = await response.text();
-
-  const result = await sendTranscript(transcriptText, targetLanguage, sourceLanguage, videoId);
-  return { subtitles: result.data, sourceLanguage, noTranslation: false };
+  return {
+    subtitles: data.subtitle,
+    sourceLanguage: data.target_language,   // ngôn ngữ phụ đề gốc
+    nativeLanguage: data.native_language,
+    noTranslation: data.no_translation || false
+  };
 }

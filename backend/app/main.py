@@ -11,7 +11,7 @@ from app.routes.transcript import router as transcript_router
 
 
 app = FastAPI(
-    title="Language Memory API",
+    title="LINGO MEMORY API",
     version="1.0.0"
 )
 
@@ -82,5 +82,5 @@ app.include_router(
 async def root():
     return {
         "success": True,
-        "message": "Language Memory API"
+        "message": "LINGO MEMORY API is running"
     }

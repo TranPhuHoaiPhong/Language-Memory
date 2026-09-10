@@ -7,6 +7,10 @@ from app.database.mongodb import (
 
 async def save_vocabulary(data):
 
+    print(
+        "Saving vocabulary data: ", data
+    )
+
     document = {
         "data": data,
         "createdAt": datetime.now(

@@ -12,11 +12,11 @@
     width: calc(100% - 48px);
     max-width: 1400px;
 
-    min-height: 100vh;
 
     margin: 0 auto;
 
     overflow: visible;
+    padding-bottom: 50px;
 }
 
 
@@ -251,8 +251,7 @@
     grid-template-columns:
         minmax(250px, 1.15fr)
         minmax(220px, 1fr)
-        minmax(420px, 2fr)
-        minmax(130px, 0.7fr)
+        minmax(420px, 2.7fr)
         52px;
 
     min-height: 50px;
@@ -273,8 +272,7 @@
     grid-template-columns:
         minmax(250px, 1.15fr)
         minmax(220px, 1fr)
-        minmax(420px, 2fr)
-        minmax(130px, 0.7fr)
+        minmax(420px, 2.7fr)
         52px;
 
     min-height: 110px;
@@ -552,4 +550,136 @@
 .vocabulary-table-header {
     border-top: none !important;
     border-bottom: none !important;
+}
+
+/* =========================================================
+   BACK + VIDEO SELECTOR
+========================================================= */
+
+.back-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.back-and-select {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Container chứa Back + Select */
+.back-and-select {
+    position: relative;          /* để nút Back absolute dựa vào đây */
+    display: flex;
+    align-items: center;
+    justify-content: center;     /* căn giữa các item (chỉ có Select) */
+    min-height: 40px;
+    width: 100%;
+}
+
+/* Nút Back – nằm cố định bên trái */
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;                  /* đảm bảo nút không bị che */
+}
+
+/* Select video – nằm giữa, độ rộng linh hoạt */
+.video-select {
+    margin: 0 auto;              /* căn giữa */
+    width: 60%;
+    /* max-width: 560px;
+    min-width: 260px; */
+    flex-shrink: 0;              /* không bị co lại */
+}
+
+.video-select .ant-select-content {
+    justify-content: center;
+    text-align: center;
+}
+
+.video-option {
+    display: flex;
+    align-items: center;    /* căn giữa các item theo chiều dọc */
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;       /* đảm bảo chiều cao tối thiểu đồng đều */
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    width: 56px;            /* thay vì 4vw (dễ bị co giãn) */
+    height: 40px;           /* chiều cao cố định */
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e8e8e8;
+    flex-shrink: 0;         /* không co lại */
+}
+
+.video-title {
+    margin-left: 60px;          
+    flex: 1;
+    /* width: 85%; */
+    font-weight: 500;
+    font-size: 14px;
+    color: #1f1f1f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* không cần margin-left vì đã có gap */
+    line-height: 1.4;       /* giúp text căn giữa tốt hơn */
+    display: flex;          /* nếu cần căn riêng bên trong */
+    align-items: center;    /* căn giữa nội dung text */
+}
+
+/* =========================================================
+   TRANSCRIPT SEARCH
+========================================================= */
+
+.transcript-search {
+    width: 21vw;
+}
+
+.transcript-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: #bfbfbf;
+}
+
+/* Điều chỉnh trên màn hình nhỏ */
+@media (max-width: 700px) {
+    .back-button-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .back-and-select {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .video-select {
+        min-width: 100%;
+    }
+    .transcript-search {
+        width: 140px;
+    }
+}
+
+/* =========================================================
+   HIGHLIGHT KEYWORD
+========================================================= */
+
+.highlight {
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: 500;
 }

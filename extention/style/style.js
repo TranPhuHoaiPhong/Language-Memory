@@ -29,11 +29,12 @@ function injectCss() {
       user-select: text;
       -webkit-user-select: text;
       cursor: pointer;
+      pointer-events: auto !important; 
     }
     #subtitle-translate .sub-translated {
       color: #fff;
       margin-top: 0.2em;
-      pointer-events: none;
+      pointer-events: none !important; 
     }
     #subtitle-translate .sub-line {
       display: table;

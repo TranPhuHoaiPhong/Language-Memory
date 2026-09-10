@@ -8,7 +8,7 @@ document.body.appendChild(wordPopup);
 const subtitleDiv = document.createElement('div');
 subtitleDiv.id = 'subtitle-translate';
 subtitleDiv.style.position = 'absolute';
-subtitleDiv.style.pointerEvents = 'auto';
+subtitleDiv.style.pointerEvents = 'none';
 subtitleDiv.style.userSelect = 'none';
 
 // ---- Drag handle ----
@@ -31,11 +31,14 @@ dragHandle.style.cssText = `
   text-align: center;
   color: rgba(255,255,255,0.9);
   user-select: none;
-  opacity: 0.5;
+  opacity: 0;
+  pointer-events: auto;
   transition: opacity 0.2s;
 `;
 dragHandle.addEventListener('mouseenter', () => dragHandle.style.opacity = '1');
-dragHandle.addEventListener('mouseleave', () => dragHandle.style.opacity = '0.5');
+dragHandle.addEventListener('mouseleave', () => {
+  if (!isDragging) dragHandle.style.opacity = '0';
+});
 subtitleDiv.appendChild(dragHandle);
 
 // ---- Content container (giữ nội dung phụ đề) ----
@@ -43,6 +46,16 @@ const contentDiv = document.createElement('div');
 contentDiv.className = 'subtitle-content';
 contentDiv.style.userSelect = 'text';
 subtitleDiv.appendChild(contentDiv);
+
+// ---- Hover trên toàn bộ subtitleDiv để hiện/ẩn nút kéo ----
+subtitleDiv.addEventListener('mouseenter', () => {
+  dragHandle.style.opacity = '0.5';
+});
+subtitleDiv.addEventListener('mouseleave', () => {
+  if (!isDragging) {
+    dragHandle.style.opacity = '0';
+  }
+});
 
 // ===== Drag state =====
 let dragPosition = null;
@@ -67,12 +80,14 @@ let lastSubtitle = null;
 let currentIndex = 0;
 let loading = false;
 let currentVideoId = null;
-let currentLanguage = 'en';
 let sourceLanguage = '';
+
+let targetLanguage = 'en';   
+let nativeLanguage = 'en'; 
 
 // ===== DOM helpers =====
 function attachSubtitle() {
-  const container = document.querySelector('#player');
+  const container = document.querySelector('.html5-video-player');
   if (!container) return false;
   if (!container.contains(subtitleDiv)) {
     container.appendChild(subtitleDiv);
@@ -83,7 +98,7 @@ function attachSubtitle() {
 function updateSubtitlePosition() {
   const video = getVideo();
   if (!video) return;
-  const container = document.querySelector('#player');
+  const container = document.querySelector('.html5-video-player');
   if (!container) return;
 
   if (video.clientHeight !== lastHeight) {
@@ -121,10 +136,10 @@ function showSubtitle(subtitles) {
 function showMessage(message) {
   attachSubtitle();
   updateSubtitlePosition();
+  const text = message || 'Loading';
   contentDiv.innerHTML = `
-    <div class="sub-original">
-      <div class="sub-line">${message}</div>
-    </div>
+    <div class="sub-original">${text}</div>
+    <div class="sub-translated">${text}</div>
   `;
 }
 
@@ -175,24 +190,40 @@ function updateLoop() {
 }
 
 // ===== Transcript loading =====
+
 async function loadLanguage() {
-  const { language = 'en' } = await new Promise(resolve => {
-    chrome.storage.sync.get('language', resolve);
+  const stored = await new Promise(resolve => {
+    chrome.storage.sync.get(
+      ['target_language', 'native_language'],
+      resolve
+    );
   });
-  currentLanguage = language;
+
+  targetLanguage = stored.target_language || 'en';
+  nativeLanguage = stored.native_language || 'en';
 }
 
 async function loadTranscript() {
   const videoId = new URL(location.href).searchParams.get('v');
   if (!videoId || videoId === currentVideoId) return;
+
   currentVideoId = videoId;
   showSubtitle([]);
 
+  // Hiện trạng thái đang tạo subtitle
+  loading = true;
+  showMessage('Generating');
+
   try {
     // Gọi hàm API mới để lấy dữ liệu
-    const result = await fetchTranscriptData(videoId, currentLanguage, (status) => {
-      // Có thể truyền callback để cập nhật UI nếu cần
-    });
+    const result = await fetchTranscriptData(
+      videoId,
+      targetLanguage,
+      nativeLanguage,
+      (status) => {
+        // Có thể truyền callback để cập nhật UI nếu cần
+      }
+    );
 
     sourceLanguage = result.sourceLanguage;
 
@@ -230,7 +261,7 @@ if (video) {
     window.getSelection().removeAllRanges();
   });
 }
-const playerContainer = document.querySelector('#player');
+const playerContainer = document.querySelector('.html5-video-player');
 if (playerContainer) {
   observer.observe(playerContainer);
 }
@@ -244,7 +275,14 @@ updateLoop();
 
 (async () => {
   await loadLanguage();
-  initPopupEvents(wordPopup, getVideo, currentLanguage, () => lastSubtitle, () => sourceLanguage);
+
+  initPopupEvents(
+  wordPopup,
+  getVideo,
+  nativeLanguage,          
+  () => lastSubtitle,
+  () => targetLanguage    
+);
   loadTranscript();
 })();
 
@@ -255,7 +293,7 @@ updateLoop();
 dragHandle.addEventListener('mousedown', function(e) {
   e.preventDefault();
   e.stopPropagation();
-  const container = document.querySelector('#player');
+  const container = document.querySelector('.html5-video-player');
   if (!container) return;
   const subRect = subtitleDiv.getBoundingClientRect();
   const offsetY = e.clientY - subRect.top;
@@ -267,7 +305,7 @@ dragHandle.addEventListener('mousedown', function(e) {
 
 document.addEventListener('mousemove', function(e) {
   if (!dragData) return;
-  const container = document.querySelector('#player');
+  const container = document.querySelector('.html5-video-player');
   if (!container) return;
   const containerRect = container.getBoundingClientRect();
 
@@ -295,6 +333,11 @@ document.addEventListener('mouseup', function(e) {
 
     if (dragPosition) {
       localStorage.setItem('subtitlePosition', JSON.stringify(dragPosition));
+    }
+
+    // Ẩn lại nút kéo nếu chuột không còn hover trên subtitle lẫn trên chính nút
+    if (!subtitleDiv.matches(':hover') && !dragHandle.matches(':hover')) {
+      dragHandle.style.opacity = '0';
     }
   }
 }, true);

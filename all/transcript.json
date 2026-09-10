@@ -1,1 +1,1747 @@
-"{\n  \"wireMagic\": \"pb3\",\n  \"pens\": [ {\n  \n  } ],\n  \"wsWinStyles\": [ {\n  \n  }, {\n    \"mhModeHint\": 2,\n    \"juJustifCode\": 0,\n    \"sdScrollDir\": 3\n  } ],\n  \"wpWinPositions\": [ {\n  \n  }, {\n    \"apPoint\": 6,\n    \"ahHorPos\": 20,\n    \"avVerPos\": 100,\n    \"rcRows\": 2,\n    \"ccCols\": 40\n  } ],\n  \"events\": [ {\n    \"tStartMs\": 0,\n    \"dDurationMs\": 522039,\n    \"id\": 1,\n    \"wpWinPosId\": 1,\n    \"wsWinStyleId\": 1\n  }, {\n    \"tStartMs\": 160,\n    \"dDurationMs\": 5000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Let's\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" test\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" your\",\n      \"tOffsetMs\": 559,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronunciation\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 2080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" today's\",\n      \"tOffsetMs\": 2239,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 2790,\n    \"dDurationMs\": 2370,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 2800,\n    \"dDurationMs\": 4599,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"video\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we're\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" going\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" look\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" at\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" 10\",\n      \"tOffsetMs\": 1240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" common\",\n      \"tOffsetMs\": 1959,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 5150,\n    \"dDurationMs\": 2249,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 5160,\n    \"dDurationMs\": 4559,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"words\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 639,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" language\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 7389,\n    \"dDurationMs\": 2330,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 7399,\n    \"dDurationMs\": 4400,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"students\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" often\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 881,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 9709,\n    \"dDurationMs\": 2090,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 9719,\n    \"dDurationMs\": 4241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"incorrectly\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" so\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 1441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 1641,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 11789,\n    \"dDurationMs\": 2171,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 11799,\n    \"dDurationMs\": 4761,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"these\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" words\",\n      \"tOffsetMs\": 161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" correctly\",\n      \"tOffsetMs\": 521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" your\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 13950,\n    \"dDurationMs\": 2610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 13960,\n    \"dDurationMs\": 4520,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pronunciation\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 879,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" very\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" good\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" let's\",\n      \"tOffsetMs\": 2200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" get\",\n      \"tOffsetMs\": 2399,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 16550,\n    \"dDurationMs\": 1930,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 16560,\n    \"dDurationMs\": 5200,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"right\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" into\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" video\",\n      \"tOffsetMs\": 559,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" start\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1719,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 18470,\n    \"dDurationMs\": 3290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 18480,\n    \"dDurationMs\": 7199,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"first\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" which\",\n      \"tOffsetMs\": 1520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 21750,\n    \"dDurationMs\": 3929,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 21760,\n    \"dDurationMs\": 6320,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" do\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1839,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 25669,\n    \"dDurationMs\": 2411,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 25679,\n    \"dDurationMs\": 5121,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1201,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 28070,\n    \"dDurationMs\": 2730,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 28080,\n    \"dDurationMs\": 5720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" there\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" are\",\n      \"tOffsetMs\": 1119,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" three\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 30790,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 30800,\n    \"dDurationMs\": 3000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"syllables\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 33830,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 33840,\n    \"dDurationMs\": 3280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comforable\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 35470,\n    \"dDurationMs\": 1650,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 35480,\n    \"dDurationMs\": 5399,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 37110,\n    \"dDurationMs\": 3769,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 37120,\n    \"dDurationMs\": 5680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" comfortable\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 2240,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 40869,\n    \"dDurationMs\": 1931,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 40879,\n    \"dDurationMs\": 5200,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 42790,\n    \"dDurationMs\": 3289,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 42800,\n    \"dDurationMs\": 6800,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 2360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" like\",\n      \"tOffsetMs\": 2520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" wear\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 46069,\n    \"dDurationMs\": 3531,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 46079,\n    \"dDurationMs\": 7320,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"comfortable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" clothes\",\n      \"tOffsetMs\": 1081,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" when\",\n      \"tOffsetMs\": 2081,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I'm\",\n      \"tOffsetMs\": 2281,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" at\",\n      \"tOffsetMs\": 2480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" home\",\n      \"tOffsetMs\": 2681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 3401,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 49590,\n    \"dDurationMs\": 3809,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 49600,\n    \"dDurationMs\": 6799,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"next\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 439,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" our\",\n      \"tOffsetMs\": 599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" list\",\n      \"tOffsetMs\": 799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1119,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 1479,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 53389,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 53399,\n    \"dDurationMs\": 3000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"definitely\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 56549,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 56559,\n    \"dDurationMs\": 5201,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"definitely\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 58470,\n    \"dDurationMs\": 3290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 58480,\n    \"dDurationMs\": 4880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"definitely\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" be\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" care\",\n      \"tOffsetMs\": 1239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" careful\",\n      \"tOffsetMs\": 1559,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" do\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 61750,\n    \"dDurationMs\": 1610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 61760,\n    \"dDurationMs\": 5999,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"say\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 63350,\n    \"dDurationMs\": 4409,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 63360,\n    \"dDurationMs\": 6119,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"defiantly\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that's\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1159,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" different\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 2880,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 67749,\n    \"dDurationMs\": 1730,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 67759,\n    \"dDurationMs\": 5360,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"definitely\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 69469,\n    \"dDurationMs\": 3650,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 69479,\n    \"dDurationMs\": 7640,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"definitely\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 1201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 1960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" will\",\n      \"tOffsetMs\": 2041,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" definitely\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 73109,\n    \"dDurationMs\": 4010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 73119,\n    \"dDurationMs\": 7841,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"do\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" my\",\n      \"tOffsetMs\": 241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" homework\",\n      \"tOffsetMs\": 441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" or\",\n      \"tOffsetMs\": 1441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 1841,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" will\",\n      \"tOffsetMs\": 1921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" definitely\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" come\",\n      \"tOffsetMs\": 3640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 77109,\n    \"dDurationMs\": 3851,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 77119,\n    \"dDurationMs\": 6841,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"to\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" concert\",\n      \"tOffsetMs\": 401,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" tomorrow\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" definitely\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" those\",\n      \"tOffsetMs\": 3640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 80950,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 80960,\n    \"dDurationMs\": 5839,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"first\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" two\",\n      \"tOffsetMs\": 240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" words\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pretty\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" easy\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 83950,\n    \"dDurationMs\": 2849,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 83960,\n    \"dDurationMs\": 4960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"next\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" our\",\n      \"tOffsetMs\": 640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" list\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bit\",\n      \"tOffsetMs\": 1519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" more\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 86789,\n    \"dDurationMs\": 2131,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 86799,\n    \"dDurationMs\": 5241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"difficult\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 88910,\n    \"dDurationMs\": 3130,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 88920,\n    \"dDurationMs\": 5519,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"kernel\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" kernel\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 92030,\n    \"dDurationMs\": 2409,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 92040,\n    \"dDurationMs\": 6880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"colonal\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 94429,\n    \"dDurationMs\": 4491,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 94439,\n    \"dDurationMs\": 8561,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"kernel\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" kernel\",\n      \"tOffsetMs\": 1201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1761,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" rank\",\n      \"tOffsetMs\": 2201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 3201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 3441,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 98910,\n    \"dDurationMs\": 4090,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 98920,\n    \"dDurationMs\": 8239,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"military\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" kernel\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" there's\",\n      \"tOffsetMs\": 2080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" actually\",\n      \"tOffsetMs\": 2320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" no\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" R\",\n      \"tOffsetMs\": 3080,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 102990,\n    \"dDurationMs\": 4169,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 103000,\n    \"dDurationMs\": 7399,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"but\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" kernel\",\n      \"tOffsetMs\": 2240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 3240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 3439,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 107149,\n    \"dDurationMs\": 3250,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 107159,\n    \"dDurationMs\": 7240,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"after\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" many\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" years\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 881,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" service\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" colonel\",\n      \"tOffsetMs\": 2481,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 110389,\n    \"dDurationMs\": 4010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 110399,\n    \"dDurationMs\": 6680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"received\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" medal\",\n      \"tOffsetMs\": 521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" honor\",\n      \"tOffsetMs\": 1641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Colonel\",\n      \"tOffsetMs\": 2720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" next\",\n      \"tOffsetMs\": 3720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 114389,\n    \"dDurationMs\": 2690,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 114399,\n    \"dDurationMs\": 6680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"up\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 561,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 117069,\n    \"dDurationMs\": 4010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 117079,\n    \"dDurationMs\": 4000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pseudonim\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" ponim\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 121109,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 121119,\n    \"dDurationMs\": 6441,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"a\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pseudonym\",\n      \"tOffsetMs\": 161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" fake\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" name\",\n      \"tOffsetMs\": 2441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 3201,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 124510,\n    \"dDurationMs\": 3050,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 124520,\n    \"dDurationMs\": 6519,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pseudonyms\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" are\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" commonly\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" used\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" by\",\n      \"tOffsetMs\": 2160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" authors\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 127550,\n    \"dDurationMs\": 3489,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 127560,\n    \"dDurationMs\": 7280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"or\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" artists\",\n      \"tOffsetMs\": 479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" artist\",\n      \"tOffsetMs\": 2559,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 131029,\n    \"dDurationMs\": 3811,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 131039,\n    \"dDurationMs\": 4961,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"decided\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" use\",\n      \"tOffsetMs\": 801,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pseudonym\",\n      \"tOffsetMs\": 1840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" hide\",\n      \"tOffsetMs\": 3121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" their\",\n      \"tOffsetMs\": 3521,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 134830,\n    \"dDurationMs\": 1170,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 134840,\n    \"dDurationMs\": 4000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"real\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 135990,\n    \"dDurationMs\": 2850,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 136000,\n    \"dDurationMs\": 3879,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"identity\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" they\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" used\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" fake\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" name\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" they\",\n      \"tOffsetMs\": 2360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" used\",\n      \"tOffsetMs\": 2519,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 138830,\n    \"dDurationMs\": 1049,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 138840,\n    \"dDurationMs\": 5240,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"a\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 139869,\n    \"dDurationMs\": 4211,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 139879,\n    \"dDurationMs\": 7401,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pseudonym\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" p\",\n      \"tOffsetMs\": 1681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 2121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" silent\",\n      \"tOffsetMs\": 2681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 3681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" don't\",\n      \"tOffsetMs\": 3801,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 144070,\n    \"dDurationMs\": 3210,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 144080,\n    \"dDurationMs\": 6360,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"say\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" puu\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 147270,\n    \"dDurationMs\": 3170,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 147280,\n    \"dDurationMs\": 6440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Sue\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" SU\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 150430,\n    \"dDurationMs\": 3290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 150440,\n    \"dDurationMs\": 4840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"nimm\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pseudonym\",\n      \"tOffsetMs\": 1240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 2240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2439,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" course\",\n      \"tOffsetMs\": 2600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 2960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 3159,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 153710,\n    \"dDurationMs\": 1570,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 153720,\n    \"dDurationMs\": 3440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"word\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 155270,\n    \"dDurationMs\": 1890,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 155280,\n    \"dDurationMs\": 5640,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliche\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 157150,\n    \"dDurationMs\": 3770,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 157160,\n    \"dDurationMs\": 7040,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliche\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" when\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" something\",\n      \"tOffsetMs\": 1159,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 3040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" means\",\n      \"tOffsetMs\": 3200,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 160910,\n    \"dDurationMs\": 3290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 160920,\n    \"dDurationMs\": 6720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"it's\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" been\",\n      \"tOffsetMs\": 239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" done\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" so\",\n      \"tOffsetMs\": 1319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" many\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" times\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 2920,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 164190,\n    \"dDurationMs\": 3450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 164200,\n    \"dDurationMs\": 6119,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"unoriginal\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" boring\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 2280,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 167630,\n    \"dDurationMs\": 2689,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 167640,\n    \"dDurationMs\": 5760,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"overused\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 170309,\n    \"dDurationMs\": 3091,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 170319,\n    \"dDurationMs\": 5041,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliche\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" French\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 2920,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 173390,\n    \"dDurationMs\": 1970,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 173400,\n    \"dDurationMs\": 4240,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"speak\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" French\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" probably\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" know\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1559,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 175350,\n    \"dDurationMs\": 2290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 175360,\n    \"dDurationMs\": 4560,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"you\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" probably\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" correctly\",\n      \"tOffsetMs\": 1239,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 177630,\n    \"dDurationMs\": 2290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 177640,\n    \"dDurationMs\": 3280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"already\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" those\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 1519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" who\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" do\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 179910,\n    \"dDurationMs\": 1010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 179920,\n    \"dDurationMs\": 6160,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"not\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" speak\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 180910,\n    \"dDurationMs\": 5170,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 180920,\n    \"dDurationMs\": 8959,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"French\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 3640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" clich\",\n      \"tOffsetMs\": 4160,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 186070,\n    \"dDurationMs\": 3809,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 186080,\n    \"dDurationMs\": 5480,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"but\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 719,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1719,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 1879,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" speech\",\n      \"tOffsetMs\": 2879,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" was\",\n      \"tOffsetMs\": 3519,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 189869,\n    \"dDurationMs\": 1691,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 189879,\n    \"dDurationMs\": 4561,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"full\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 401,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 191550,\n    \"dDurationMs\": 2890,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 191560,\n    \"dDurationMs\": 6480,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliches\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 1200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" found\",\n      \"tOffsetMs\": 1319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" difficult\",\n      \"tOffsetMs\": 2039,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" take\",\n      \"tOffsetMs\": 2599,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 194430,\n    \"dDurationMs\": 3610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 194440,\n    \"dDurationMs\": 6640,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"seriously\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" was\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" full\",\n      \"tOffsetMs\": 1359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliches\",\n      \"tOffsetMs\": 2480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 3480,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 198030,\n    \"dDurationMs\": 3050,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 198040,\n    \"dDurationMs\": 5680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"could\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" also\",\n      \"tOffsetMs\": 199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" good\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" idea\",\n      \"tOffsetMs\": 2119,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 201070,\n    \"dDurationMs\": 2650,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 201080,\n    \"dDurationMs\": 4640,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"avoid\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" using\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 203710,\n    \"dDurationMs\": 2010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 203720,\n    \"dDurationMs\": 5320,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliches\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" your\",\n      \"tOffsetMs\": 1159,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 205710,\n    \"dDurationMs\": 3330,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 205720,\n    \"dDurationMs\": 4719,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"writing\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" common\",\n      \"tOffsetMs\": 1200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 2519,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 209030,\n    \"dDurationMs\": 1409,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 209040,\n    \"dDurationMs\": 4360,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"would\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" be\",\n      \"tOffsetMs\": 199,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 210429,\n    \"dDurationMs\": 2971,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 210439,\n    \"dDurationMs\": 5601,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Once\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Upon\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Time\",\n      \"tOffsetMs\": 921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you've\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" ever\",\n      \"tOffsetMs\": 2241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" read\",\n      \"tOffsetMs\": 2520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2761,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 213390,\n    \"dDurationMs\": 2650,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 213400,\n    \"dDurationMs\": 5960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"fairy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" tale\",\n      \"tOffsetMs\": 360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you'll\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" know\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 1800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" most\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" fairy\",\n      \"tOffsetMs\": 2320,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 216030,\n    \"dDurationMs\": 3330,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 216040,\n    \"dDurationMs\": 6720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"tales\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" start\",\n      \"tOffsetMs\": 640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1839,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" sentence\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Once\",\n      \"tOffsetMs\": 2680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Upon\",\n      \"tOffsetMs\": 3080,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 219350,\n    \"dDurationMs\": 3410,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 219360,\n    \"dDurationMs\": 6400,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"a\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Time\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1439,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 1799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 2720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 2959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" would\",\n      \"tOffsetMs\": 3079,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 222750,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 222760,\n    \"dDurationMs\": 4520,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"recommend\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" writing\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2679,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 225750,\n    \"dDurationMs\": 1530,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 225760,\n    \"dDurationMs\": 5280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"accent\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" over\",\n      \"tOffsetMs\": 479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 227270,\n    \"dDurationMs\": 3770,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 227280,\n    \"dDurationMs\": 6799,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"E\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" French\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 3159,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 3360,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 231030,\n    \"dDurationMs\": 3049,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 231040,\n    \"dDurationMs\": 5279,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"we\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" technically\",\n      \"tOffsetMs\": 240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" don't\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" letter\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 2880,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 234069,\n    \"dDurationMs\": 2250,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 234079,\n    \"dDurationMs\": 5160,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"our\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" alphabet\",\n      \"tOffsetMs\": 481,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" don't\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1561,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" accent\",\n      \"tOffsetMs\": 1841,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 236309,\n    \"dDurationMs\": 2930,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 236319,\n    \"dDurationMs\": 6521,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"over\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" e\",\n      \"tOffsetMs\": 361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we've\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" taken\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lot\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2721,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 239229,\n    \"dDurationMs\": 3611,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 239239,\n    \"dDurationMs\": 5241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"words\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" from\",\n      \"tOffsetMs\": 601,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" French\",\n      \"tOffsetMs\": 881,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 242830,\n    \"dDurationMs\": 1650,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 242840,\n    \"dDurationMs\": 4399,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Cafe\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 244470,\n    \"dDurationMs\": 2769,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 244480,\n    \"dDurationMs\": 5679,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"cliche\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we've\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" brought\",\n      \"tOffsetMs\": 1520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" them\",\n      \"tOffsetMs\": 1800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" into\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 247229,\n    \"dDurationMs\": 2930,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 247239,\n    \"dDurationMs\": 7321,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"English\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" when\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1401,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" spell\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" them\",\n      \"tOffsetMs\": 1881,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" often\",\n      \"tOffsetMs\": 2360,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 250149,\n    \"dDurationMs\": 4411,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 250159,\n    \"dDurationMs\": 6600,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"use\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" accent\",\n      \"tOffsetMs\": 1561,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cliche\",\n      \"tOffsetMs\": 2800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" okay\",\n      \"tOffsetMs\": 3800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" before\",\n      \"tOffsetMs\": 4041,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 4241,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 254550,\n    \"dDurationMs\": 2209,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 254560,\n    \"dDurationMs\": 4000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"continue\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" video\",\n      \"tOffsetMs\": 519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" make\",\n      \"tOffsetMs\": 1399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" sure\",\n      \"tOffsetMs\": 1519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" leave\",\n      \"tOffsetMs\": 1840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 256749,\n    \"dDurationMs\": 1811,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 256759,\n    \"dDurationMs\": 5081,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"like\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 281,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" let\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" me\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" know\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1081,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" comments\",\n      \"tOffsetMs\": 1281,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 258550,\n    \"dDurationMs\": 3290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 258560,\n    \"dDurationMs\": 5079,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"you're\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" finding\",\n      \"tOffsetMs\": 199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lesson\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" useful\",\n      \"tOffsetMs\": 2280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we've\",\n      \"tOffsetMs\": 3079,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 261830,\n    \"dDurationMs\": 1809,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 261840,\n    \"dDurationMs\": 4440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"looked\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" at\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" first\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" five\",\n      \"tOffsetMs\": 840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" words\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" our\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 263629,\n    \"dDurationMs\": 2651,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 263639,\n    \"dDurationMs\": 6201,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"list\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" so\",\n      \"tOffsetMs\": 840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" let\",\n      \"tOffsetMs\": 1161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" me\",\n      \"tOffsetMs\": 1321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" know\",\n      \"tOffsetMs\": 1481,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1721,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 1921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" able\",\n      \"tOffsetMs\": 2161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2401,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 266270,\n    \"dDurationMs\": 3570,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 266280,\n    \"dDurationMs\": 5840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pronounce\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" them\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" they\",\n      \"tOffsetMs\": 1359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 1479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" difficult\",\n      \"tOffsetMs\": 1960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" or\",\n      \"tOffsetMs\": 2919,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 269830,\n    \"dDurationMs\": 2290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 269840,\n    \"dDurationMs\": 4199,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"if\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" they\",\n      \"tOffsetMs\": 120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" new\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 639,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" some\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" fashion\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 272110,\n    \"dDurationMs\": 1929,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 272120,\n    \"dDurationMs\": 4120,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"if\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 79,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" want\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" learn\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" me\",\n      \"tOffsetMs\": 1240,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 274029,\n    \"dDurationMs\": 2211,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 274039,\n    \"dDurationMs\": 4281,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"don't\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" forget\",\n      \"tOffsetMs\": 241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" subscribe\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2041,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 276230,\n    \"dDurationMs\": 2090,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 276240,\n    \"dDurationMs\": 4000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"ready\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" here\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" YouTube\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" course\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 278310,\n    \"dDurationMs\": 1930,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 278320,\n    \"dDurationMs\": 4159,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"click\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" link\",\n      \"tOffsetMs\": 439,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 879,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" description\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" below\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 280230,\n    \"dDurationMs\": 2249,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 280240,\n    \"dDurationMs\": 5120,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"to\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" learn\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" more\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" about\",\n      \"tOffsetMs\": 799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" how\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" help\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 282469,\n    \"dDurationMs\": 2891,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 282479,\n    \"dDurationMs\": 5000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"start\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" speaking\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 1041,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" fluently\",\n      \"tOffsetMs\": 1761,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 2641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 2761,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 285350,\n    \"dDurationMs\": 2129,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 285360,\n    \"dDurationMs\": 3800,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"lots\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" programs\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" resources\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" available\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 287469,\n    \"dDurationMs\": 1691,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 287479,\n    \"dDurationMs\": 4241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"to\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" help\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" start\",\n      \"tOffsetMs\": 560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" communicating\",\n      \"tOffsetMs\": 921,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 289150,\n    \"dDurationMs\": 2570,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 289160,\n    \"dDurationMs\": 4960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"confidently\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1759,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 1960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" said\",\n      \"tOffsetMs\": 2160,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 291710,\n    \"dDurationMs\": 2410,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 291720,\n    \"dDurationMs\": 6680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"let's\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" get\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" back\",\n      \"tOffsetMs\": 479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" into\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" video\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" look\",\n      \"tOffsetMs\": 2199,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 294110,\n    \"dDurationMs\": 4290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 294120,\n    \"dDurationMs\": 8320,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"at\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" next\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" our\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" list\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" which\",\n      \"tOffsetMs\": 2480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 298390,\n    \"dDurationMs\": 4050,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 298400,\n    \"dDurationMs\": 6120,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"squirrel\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" cute\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" little\",\n      \"tOffsetMs\": 1639,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" animal\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 2600,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 302430,\n    \"dDurationMs\": 2090,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 302440,\n    \"dDurationMs\": 5280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"squirrel\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 304510,\n    \"dDurationMs\": 3210,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 304520,\n    \"dDurationMs\": 6000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"SEL\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 307710,\n    \"dDurationMs\": 2810,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 307720,\n    \"dDurationMs\": 6880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"squir\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 310510,\n    \"dDurationMs\": 4090,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 310520,\n    \"dDurationMs\": 5760,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"squir\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" repeat\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" after\",\n      \"tOffsetMs\": 1360,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" me\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" squirrel\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lots\",\n      \"tOffsetMs\": 3760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 3959,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 314590,\n    \"dDurationMs\": 1690,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 314600,\n    \"dDurationMs\": 3120,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"students\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" also\",\n      \"tOffsetMs\": 439,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" problems\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 316270,\n    \"dDurationMs\": 1450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 316280,\n    \"dDurationMs\": 6639,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"word\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 317710,\n    \"dDurationMs\": 5209,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 317720,\n    \"dDurationMs\": 8000,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"epitome\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" epitome\",\n      \"tOffsetMs\": 1960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 2960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" epitome\",\n      \"tOffsetMs\": 3880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" an\",\n      \"tOffsetMs\": 4800,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 322909,\n    \"dDurationMs\": 2811,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 322919,\n    \"dDurationMs\": 5400,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"epitome\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" perfect\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 2081,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 325710,\n    \"dDurationMs\": 2609,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 325720,\n    \"dDurationMs\": 4479,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"something\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" embodiment\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2400,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 328309,\n    \"dDurationMs\": 1890,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 328319,\n    \"dDurationMs\": 6201,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"particular\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" quality\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 330189,\n    \"dDurationMs\": 4331,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 330199,\n    \"dDurationMs\": 8081,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"character\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" or\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" type\",\n      \"tOffsetMs\": 1361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 2120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 2321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" she\",\n      \"tOffsetMs\": 3321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 3641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 4000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 334510,\n    \"dDurationMs\": 3770,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 334520,\n    \"dDurationMs\": 7200,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"epitome\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" kindness\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" she\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" always\",\n      \"tOffsetMs\": 2959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" helps\",\n      \"tOffsetMs\": 3399,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 338270,\n    \"dDurationMs\": 3450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 338280,\n    \"dDurationMs\": 7680,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"others\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" out\",\n      \"tOffsetMs\": 320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" or\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" could\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Albert\",\n      \"tOffsetMs\": 2320,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 341710,\n    \"dDurationMs\": 4250,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 341720,\n    \"dDurationMs\": 6759,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Einstein\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" was\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" epitome\",\n      \"tOffsetMs\": 1520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" intelligence\",\n      \"tOffsetMs\": 2880,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 345950,\n    \"dDurationMs\": 2529,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 345960,\n    \"dDurationMs\": 5239,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"epitome\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" stress\",\n      \"tOffsetMs\": 1200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" second\",\n      \"tOffsetMs\": 1959,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 348469,\n    \"dDurationMs\": 2730,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 348479,\n    \"dDurationMs\": 5801,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"syllable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" epitome\",\n      \"tOffsetMs\": 961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 1961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 2121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you've\",\n      \"tOffsetMs\": 2201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" ever\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 351189,\n    \"dDurationMs\": 3091,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 351199,\n    \"dDurationMs\": 7481,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"dealt\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" paperwork\",\n      \"tOffsetMs\": 1041,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" if\",\n      \"tOffsetMs\": 1881,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you've\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" ever\",\n      \"tOffsetMs\": 2201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" had\",\n      \"tOffsetMs\": 2921,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 354270,\n    \"dDurationMs\": 4410,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 354280,\n    \"dDurationMs\": 7880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"to\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" apply\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 1240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" passport\",\n      \"tOffsetMs\": 2039,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" maybe\",\n      \"tOffsetMs\": 3039,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 3280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 3440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" job\",\n      \"tOffsetMs\": 3720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 358670,\n    \"dDurationMs\": 3490,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 358680,\n    \"dDurationMs\": 5160,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"then\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" might\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" dealt\",\n      \"tOffsetMs\": 1079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" with\",\n      \"tOffsetMs\": 1480,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 362150,\n    \"dDurationMs\": 1690,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 362160,\n    \"dDurationMs\": 4599,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 363830,\n    \"dDurationMs\": 2929,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 363840,\n    \"dDurationMs\": 5440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bureaucracy\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" system\",\n      \"tOffsetMs\": 2320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2680,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 366749,\n    \"dDurationMs\": 2531,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 366759,\n    \"dDurationMs\": 5840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"government\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" where\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" everything\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" managed\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 369270,\n    \"dDurationMs\": 3329,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 369280,\n    \"dDurationMs\": 6919,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"by\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" state\",\n      \"tOffsetMs\": 359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" officials\",\n      \"tOffsetMs\": 1319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 2120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 2280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" often\",\n      \"tOffsetMs\": 2479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" use\",\n      \"tOffsetMs\": 2759,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 3120,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 372589,\n    \"dDurationMs\": 3610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 372599,\n    \"dDurationMs\": 6801,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"word\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" describe\",\n      \"tOffsetMs\": 961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" something\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 2121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 2401,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 376189,\n    \"dDurationMs\": 3211,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 376199,\n    \"dDurationMs\": 6681,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"complicated\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that's\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lengthy\",\n      \"tOffsetMs\": 1681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that's\",\n      \"tOffsetMs\": 2321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" drawn\",\n      \"tOffsetMs\": 2681,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 379390,\n    \"dDurationMs\": 3490,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 379400,\n    \"dDurationMs\": 4960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"out\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 1320,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bureaucratic\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 2919,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 382870,\n    \"dDurationMs\": 1490,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 382880,\n    \"dDurationMs\": 4319,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"navigating\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" through\",\n      \"tOffsetMs\": 599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" government\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 384350,\n    \"dDurationMs\": 2849,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 384360,\n    \"dDurationMs\": 7200,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" be\",\n      \"tOffsetMs\": 959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" frustrating\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" due\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 2640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 387189,\n    \"dDurationMs\": 4371,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 387199,\n    \"dDurationMs\": 4361,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"all\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" paperwork\",\n      \"tOffsetMs\": 361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1361,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 391790,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 391800,\n    \"dDurationMs\": 4200,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 393870,\n    \"dDurationMs\": 2130,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 393880,\n    \"dDurationMs\": 5520,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 395990,\n    \"dDurationMs\": 3410,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 396000,\n    \"dDurationMs\": 6039,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"bureaucracy\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" stress\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" on\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" second\",\n      \"tOffsetMs\": 2120,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 399390,\n    \"dDurationMs\": 2649,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 399400,\n    \"dDurationMs\": 5639,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"syllable\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bureaucracy\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 1919,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" next\",\n      \"tOffsetMs\": 2199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 2400,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 402029,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 402039,\n    \"dDurationMs\": 7440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"on\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" our\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" list\",\n      \"tOffsetMs\": 401,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 405029,\n    \"dDurationMs\": 4450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 405039,\n    \"dDurationMs\": 7121,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"yacht\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1801,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 2401,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" normally\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 3321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" boat\",\n      \"tOffsetMs\": 3521,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 409469,\n    \"dDurationMs\": 2691,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 409479,\n    \"dDurationMs\": 5401,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"it\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" might\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" be\",\n      \"tOffsetMs\": 321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" privately\",\n      \"tOffsetMs\": 601,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" owned\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 2241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 2361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 2521,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 412150,\n    \"dDurationMs\": 2730,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 412160,\n    \"dDurationMs\": 4879,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"a\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" small\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" big\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 414870,\n    \"dDurationMs\": 2169,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 414880,\n    \"dDurationMs\": 4840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"but\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" most\",\n      \"tOffsetMs\": 240,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" importantly\",\n      \"tOffsetMs\": 480,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1080,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 417029,\n    \"dDurationMs\": 2691,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 417039,\n    \"dDurationMs\": 7720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"like\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 419710,\n    \"dDurationMs\": 5049,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 419720,\n    \"dDurationMs\": 8640,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"not\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yaked\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" but\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Yacht\",\n      \"tOffsetMs\": 2720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 3720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" example\",\n      \"tOffsetMs\": 3919,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 4840,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 424749,\n    \"dDurationMs\": 3611,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 424759,\n    \"dDurationMs\": 7201,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"millionaire\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" owned\",\n      \"tOffsetMs\": 921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1401,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" yacht\",\n      \"tOffsetMs\": 1641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 2641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" could\",\n      \"tOffsetMs\": 2921,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 428350,\n    \"dDurationMs\": 3610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 428360,\n    \"dDurationMs\": 7119,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"accommodate\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" dozens\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 1519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" guests\",\n      \"tOffsetMs\": 1920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 2920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" last\",\n      \"tOffsetMs\": 3320,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 431950,\n    \"dDurationMs\": 3529,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 431960,\n    \"dDurationMs\": 5560,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"but\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" not\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" least\",\n      \"tOffsetMs\": 400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" British\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 2519,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 435469,\n    \"dDurationMs\": 2051,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 435479,\n    \"dDurationMs\": 6120,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"which\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" looks\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bit\",\n      \"tOffsetMs\": 881,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" more\",\n      \"tOffsetMs\": 1041,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" complicated\",\n      \"tOffsetMs\": 1321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" than\",\n      \"tOffsetMs\": 1921,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 437510,\n    \"dDurationMs\": 4089,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 437520,\n    \"dDurationMs\": 7040,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"it\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" actually\",\n      \"tOffsetMs\": 239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" word\",\n      \"tOffsetMs\": 2160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" q\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 3679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" don't\",\n      \"tOffsetMs\": 3799,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 441589,\n    \"dDurationMs\": 2971,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 441599,\n    \"dDurationMs\": 8880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"say\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" qy\",\n      \"tOffsetMs\": 521,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" or\",\n      \"tOffsetMs\": 1481,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 444550,\n    \"dDurationMs\": 5929,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 444560,\n    \"dDurationMs\": 9880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"Q\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" we\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" just\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" say\",\n      \"tOffsetMs\": 1359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Q\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" like\",\n      \"tOffsetMs\": 2880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 3039,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" letter\",\n      \"tOffsetMs\": 3319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" q\",\n      \"tOffsetMs\": 4319,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 450469,\n    \"dDurationMs\": 3971,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 450479,\n    \"dDurationMs\": 7321,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"simple\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" q\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 1961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" just\",\n      \"tOffsetMs\": 2280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" line\",\n      \"tOffsetMs\": 2840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 3761,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 454430,\n    \"dDurationMs\": 3370,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 454440,\n    \"dDurationMs\": 6960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"example\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 479,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" might\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" wait\",\n      \"tOffsetMs\": 920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" long\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Q\",\n      \"tOffsetMs\": 2199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" at\",\n      \"tOffsetMs\": 3199,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 457790,\n    \"dDurationMs\": 3610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 457800,\n    \"dDurationMs\": 6280,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"the\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" grocery\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" store\",\n      \"tOffsetMs\": 1079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" it's\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 2239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" synonym\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" for\",\n      \"tOffsetMs\": 3040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 461390,\n    \"dDurationMs\": 2690,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 461400,\n    \"dDurationMs\": 6160,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"line\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 960,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" wait\",\n      \"tOffsetMs\": 1199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 1519,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" line\",\n      \"tOffsetMs\": 1720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 2199,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" wait\",\n      \"tOffsetMs\": 2400,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 464070,\n    \"dDurationMs\": 3490,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 464080,\n    \"dDurationMs\": 7720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"in\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 119,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" q\",\n      \"tOffsetMs\": 399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" only\",\n      \"tOffsetMs\": 1559,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" difference\",\n      \"tOffsetMs\": 1799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 2239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" that\",\n      \"tOffsetMs\": 2440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" Q\",\n      \"tOffsetMs\": 2720,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" is\",\n      \"tOffsetMs\": 3280,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 467550,\n    \"dDurationMs\": 4250,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 467560,\n    \"dDurationMs\": 7840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"a\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" bit\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" more\",\n      \"tOffsetMs\": 319,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" common\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" British\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 3000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" now\",\n      \"tOffsetMs\": 4000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 471790,\n    \"dDurationMs\": 3610,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 471800,\n    \"dDurationMs\": 6799,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"we've\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" come\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 679,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" end\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" today's\",\n      \"tOffsetMs\": 1799,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lesson\",\n      \"tOffsetMs\": 2600,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 475390,\n    \"dDurationMs\": 3209,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 475400,\n    \"dDurationMs\": 6960,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"today's\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronunciation\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" challenge\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 2880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" hope\",\n      \"tOffsetMs\": 3040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 478589,\n    \"dDurationMs\": 3771,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 478599,\n    \"dDurationMs\": 5201,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"you\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 121,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" able\",\n      \"tOffsetMs\": 361,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" learn\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" something\",\n      \"tOffsetMs\": 2040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" new\",\n      \"tOffsetMs\": 2560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 3560,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 482350,\n    \"dDurationMs\": 1450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 482360,\n    \"dDurationMs\": 4679,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"improve\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" your\",\n      \"tOffsetMs\": 360,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 483790,\n    \"dDurationMs\": 3249,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 483800,\n    \"dDurationMs\": 6239,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"pronunciation\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" maybe\",\n      \"tOffsetMs\": 1399,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" test\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" how\",\n      \"tOffsetMs\": 2760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" well\",\n      \"tOffsetMs\": 3000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 487029,\n    \"dDurationMs\": 3010,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 487039,\n    \"dDurationMs\": 5241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"you\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" could\",\n      \"tOffsetMs\": 120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" actually\",\n      \"tOffsetMs\": 481,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronounce\",\n      \"tOffsetMs\": 921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" these\",\n      \"tOffsetMs\": 1481,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" words\",\n      \"tOffsetMs\": 2000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 490029,\n    \"dDurationMs\": 2251,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 490039,\n    \"dDurationMs\": 4840,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"let\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" me\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" know\",\n      \"tOffsetMs\": 321,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" how\",\n      \"tOffsetMs\": 560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 681,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" did\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" comments\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 492270,\n    \"dDurationMs\": 2609,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 492280,\n    \"dDurationMs\": 3879,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"if\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" any\",\n      \"tOffsetMs\": 160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" these\",\n      \"tOffsetMs\": 520,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" words\",\n      \"tOffsetMs\": 680,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 919,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" new\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1400,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1599,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 494869,\n    \"dDurationMs\": 1290,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 494879,\n    \"dDurationMs\": 3720,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"maybe\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" were\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" pronouncing\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" them\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 496149,\n    \"dDurationMs\": 2450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 496159,\n    \"dDurationMs\": 4241,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"incorrectly\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 921,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" past\",\n      \"tOffsetMs\": 1160,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1961,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" of\",\n      \"tOffsetMs\": 2081,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" course\",\n      \"tOffsetMs\": 2241,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 498589,\n    \"dDurationMs\": 1811,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 498599,\n    \"dDurationMs\": 3481,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"don't\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" forget\",\n      \"tOffsetMs\": 201,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 481,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" leave\",\n      \"tOffsetMs\": 641,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" a\",\n      \"tOffsetMs\": 841,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" like\",\n      \"tOffsetMs\": 1040,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" And\",\n      \"tOffsetMs\": 1521,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 500390,\n    \"dDurationMs\": 1690,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 500400,\n    \"dDurationMs\": 4560,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"subscribe\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" at\",\n      \"tOffsetMs\": 919,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" ready\",\n      \"tOffsetMs\": 1239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" here\",\n      \"tOffsetMs\": 1560,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 502070,\n    \"dDurationMs\": 2890,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 502080,\n    \"dDurationMs\": 5040,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"on\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" YouTube\",\n      \"tOffsetMs\": 239,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" also\",\n      \"tOffsetMs\": 1119,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" have\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" several\",\n      \"tOffsetMs\": 1640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" useful\",\n      \"tOffsetMs\": 2160,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 504950,\n    \"dDurationMs\": 2170,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 504960,\n    \"dDurationMs\": 3880,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"and\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" practical\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" programs\",\n      \"tOffsetMs\": 959,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" to\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" help\",\n      \"tOffsetMs\": 1760,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 1959,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 507110,\n    \"dDurationMs\": 1730,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 507120,\n    \"dDurationMs\": 4079,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"improve\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" your\",\n      \"tOffsetMs\": 359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" English\",\n      \"tOffsetMs\": 560,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" communication\",\n      \"tOffsetMs\": 1000,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 508830,\n    \"dDurationMs\": 2369,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 508840,\n    \"dDurationMs\": 4360,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"skills\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 840,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" can\",\n      \"tOffsetMs\": 919,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" find\",\n      \"tOffsetMs\": 1120,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" all\",\n      \"tOffsetMs\": 1440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1600,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" details\",\n      \"tOffsetMs\": 1799,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 511189,\n    \"dDurationMs\": 2011,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 511199,\n    \"dDurationMs\": 5161,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"about\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" these\",\n      \"tOffsetMs\": 280,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" programs\",\n      \"tOffsetMs\": 601,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" by\",\n      \"tOffsetMs\": 1241,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" clicking\",\n      \"tOffsetMs\": 1441,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 1801,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 513190,\n    \"dDurationMs\": 3170,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 513200,\n    \"dDurationMs\": 5399,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"link\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 719,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" description\",\n      \"tOffsetMs\": 1079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" below\",\n      \"tOffsetMs\": 2079,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I\",\n      \"tOffsetMs\": 2800,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" hope\",\n      \"tOffsetMs\": 2920,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" you\",\n      \"tOffsetMs\": 3040,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 516350,\n    \"dDurationMs\": 2249,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 516360,\n    \"dDurationMs\": 5679,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"found\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" this\",\n      \"tOffsetMs\": 200,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" lesson\",\n      \"tOffsetMs\": 359,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" useful\",\n      \"tOffsetMs\": 640,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" and\",\n      \"tOffsetMs\": 1599,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" I'll\",\n      \"tOffsetMs\": 1880,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" see\",\n      \"tOffsetMs\": 2080,\n      \"acAsrConf\": 0\n    } ]\n  }, {\n    \"tStartMs\": 518589,\n    \"dDurationMs\": 3450,\n    \"wWinId\": 1,\n    \"aAppend\": 1,\n    \"segs\": [ {\n      \"utf8\": \"\\n\"\n    } ]\n  }, {\n    \"tStartMs\": 518599,\n    \"dDurationMs\": 3440,\n    \"wWinId\": 1,\n    \"segs\": [ {\n      \"utf8\": \"you\",\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" in\",\n      \"tOffsetMs\": 161,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" the\",\n      \"tOffsetMs\": 281,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" next\",\n      \"tOffsetMs\": 440,\n      \"acAsrConf\": 0\n    }, {\n      \"utf8\": \" video\",\n      \"tOffsetMs\": 761,\n      \"acAsrConf\": 0\n    } ]\n  } ]\n}\n"
+[
+  {
+    "text": "This is my dog. Her name is Clover.",
+    "start": 0,
+    "end": 3840
+  },
+  {
+    "text": "She has tons of energy, so we have a ton",
+    "start": 3840,
+    "end": 5800
+  },
+  {
+    "text": "to do today.",
+    "start": 5800,
+    "end": 7480
+  },
+  {
+    "text": "Good morning, Clover.",
+    "start": 7480,
+    "end": 10320
+  },
+  {
+    "text": "Hi.",
+    "start": 10320,
+    "end": 11600
+  },
+  {
+    "text": "First, I need to feed her because it's",
+    "start": 11600,
+    "end": 13680
+  },
+  {
+    "text": "morning right now, and she has not eaten",
+    "start": 13680,
+    "end": 15840
+  },
+  {
+    "text": "yet. Watch, this is how much she loves",
+    "start": 15840,
+    "end": 18320
+  },
+  {
+    "text": "food. Clover.",
+    "start": 18320,
+    "end": 20840
+  },
+  {
+    "text": "Do you want some food?",
+    "start": 20840,
+    "end": 23080
+  },
+  {
+    "text": "She gets right up. Come on.",
+    "start": 23080,
+    "end": 26760
+  },
+  {
+    "text": "Okay, so over here is where her food is.",
+    "start": 26760,
+    "end": 30440
+  },
+  {
+    "text": "It's right here. She's waiting patiently",
+    "start": 30440,
+    "end": 32840
+  },
+  {
+    "text": "over there.",
+    "start": 32840,
+    "end": 37320
+  },
+  {
+    "text": "She always gets 1 and 1/2 scoops of",
+    "start": 37320,
+    "end": 40040
+  },
+  {
+    "text": "food. So, that was one scoop, and I",
+    "start": 40040,
+    "end": 42800
+  },
+  {
+    "text": "filled this one halfway.",
+    "start": 42800,
+    "end": 45200
+  },
+  {
+    "text": "Now, because she's a good dog, she waits",
+    "start": 45200,
+    "end": 48000
+  },
+  {
+    "text": "over here until I say it's okay. All",
+    "start": 48000,
+    "end": 50760
+  },
+  {
+    "text": "right, sit.",
+    "start": 50760,
+    "end": 52680
+  },
+  {
+    "text": "High five.",
+    "start": 52680,
+    "end": 53840
+  },
+  {
+    "text": "Okay.",
+    "start": 53840,
+    "end": 58295
+  },
+  {
+    "text": ">> [music]",
+    "start": 58295,
+    "end": 59200
+  },
+  {
+    "text": ">> Are you hungry this morning, Clover?",
+    "start": 59200,
+    "end": 61680
+  },
+  {
+    "text": "She's super hungry. She's so happy. This",
+    "start": 61680,
+    "end": 64720
+  },
+  {
+    "text": "is called wagging her tail. So, this is",
+    "start": 64720,
+    "end": 67080
+  },
+  {
+    "text": "her tail, and it's wagging right now",
+    "start": 67080,
+    "end": 69360
+  },
+  {
+    "text": "because she's really happy. Do you like",
+    "start": 69360,
+    "end": 71120
+  },
+  {
+    "text": "being on camera, Clover?",
+    "start": 71120,
+    "end": 73800
+  },
+  {
+    "text": "Do you like when people record you? Now,",
+    "start": 73800,
+    "end": 75960
+  },
+  {
+    "text": "while she's eating over there,",
+    "start": 75960,
+    "end": 79120
+  },
+  {
+    "text": "I'm going to take you guys in here.",
+    "start": 79120,
+    "end": 81800
+  },
+  {
+    "text": "Next, we're going to take her on a walk,",
+    "start": 81800,
+    "end": 84640
+  },
+  {
+    "text": "but I can't say that to her because she",
+    "start": 84640,
+    "end": 87360
+  },
+  {
+    "text": "knows what that means, and she will go",
+    "start": 87360,
+    "end": 89280
+  },
+  {
+    "text": "crazy. She really, really loves going on",
+    "start": 89280,
+    "end": 92560
+  },
+  {
+    "text": "walks. Okay, she's done with her food",
+    "start": 92560,
+    "end": 95120
+  },
+  {
+    "text": "now, so I can ask her if she wants to",
+    "start": 95120,
+    "end": 97320
+  },
+  {
+    "text": "go. Clover,",
+    "start": 97320,
+    "end": 99120
+  },
+  {
+    "text": "do you want to go on a walk? Yeah, you",
+    "start": 99120,
+    "end": 101280
+  },
+  {
+    "text": "do.",
+    "start": 101280,
+    "end": 102600
+  },
+  {
+    "text": "I know you do. Well, she usually goes",
+    "start": 102600,
+    "end": 105400
+  },
+  {
+    "text": "crazy. Maybe it's too early, and she",
+    "start": 105400,
+    "end": 107480
+  },
+  {
+    "text": "doesn't want to go that bad, but she has",
+    "start": 107480,
+    "end": 109600
+  },
+  {
+    "text": "to go anyways. Clover, we're going to go",
+    "start": 109600,
+    "end": 111480
+  },
+  {
+    "text": "on a walk.",
+    "start": 111480,
+    "end": 112760
+  },
+  {
+    "text": "She does want to go. Now, over here in",
+    "start": 112760,
+    "end": 115480
+  },
+  {
+    "text": "the mudroom,",
+    "start": 115480,
+    "end": 117080
+  },
+  {
+    "text": "she's following me because she knows",
+    "start": 117080,
+    "end": 118840
+  },
+  {
+    "text": "that we're going to go.",
+    "start": 118840,
+    "end": 120600
+  },
+  {
+    "text": "Over here",
+    "start": 120600,
+    "end": 121800
+  },
+  {
+    "text": "is her leash",
+    "start": 121800,
+    "end": 123720
+  },
+  {
+    "text": "and her harness.",
+    "start": 123720,
+    "end": 125106
+  },
+  {
+    "text": ">> [music]",
+    "start": 125106,
+    "end": 125320
+  },
+  {
+    "text": ">> She's really scared of putting on her",
+    "start": 125320,
+    "end": 127440
+  },
+  {
+    "text": "harness, so watch this. She's going to",
+    "start": 127440,
+    "end": 129720
+  },
+  {
+    "text": "run away.",
+    "start": 129720,
+    "end": 132880
+  },
+  {
+    "text": "No.",
+    "start": 132880,
+    "end": 134880
+  },
+  {
+    "text": "I thought she was going to let me do it",
+    "start": 134880,
+    "end": 136120
+  },
+  {
+    "text": "this time.",
+    "start": 136120,
+    "end": 137480
+  },
+  {
+    "text": "She always hides. See, she's hiding",
+    "start": 137480,
+    "end": 140160
+  },
+  {
+    "text": "underneath the table.",
+    "start": 140160,
+    "end": 142040
+  },
+  {
+    "text": "Clover, don't you want to go on a walk?",
+    "start": 142040,
+    "end": 144760
+  },
+  {
+    "text": "Come on.",
+    "start": 144760,
+    "end": 145800
+  },
+  {
+    "text": "She's not coming. Clover, come here.",
+    "start": 145800,
+    "end": 148920
+  },
+  {
+    "text": "Good girl.",
+    "start": 148920,
+    "end": 151080
+  },
+  {
+    "text": "She's giving me a hug. She likes to do",
+    "start": 151080,
+    "end": 153160
+  },
+  {
+    "text": "this sometimes, and she basically just",
+    "start": 153160,
+    "end": 155320
+  },
+  {
+    "text": "likes giving people hugs. See, this is",
+    "start": 155320,
+    "end": 157480
+  },
+  {
+    "text": "like a hug from a dog.",
+    "start": 157480,
+    "end": 160520
+  },
+  {
+    "text": "There you go. We got it on.",
+    "start": 160520,
+    "end": 164600
+  },
+  {
+    "text": "Okay, so now that she has her harness",
+    "start": 164600,
+    "end": 166360
+  },
+  {
+    "text": "on, we just need to grab the leash.",
+    "start": 166360,
+    "end": 170440
+  },
+  {
+    "text": "So, now we just have to put this on her.",
+    "start": 170440,
+    "end": 173240
+  },
+  {
+    "text": "She's ready to go.",
+    "start": 173240,
+    "end": 178360
+  },
+  {
+    "text": "We also need to open this drawer",
+    "start": 178360,
+    "end": 182080
+  },
+  {
+    "text": "because it has bags.",
+    "start": 182080,
+    "end": 185519
+  },
+  {
+    "text": "These bags.",
+    "start": 185519,
+    "end": 187760
+  },
+  {
+    "text": "These are for",
+    "start": 187760,
+    "end": 189320
+  },
+  {
+    "text": "well,",
+    "start": 189320,
+    "end": 190600
+  },
+  {
+    "text": "you know. Okay, sit.",
+    "start": 190600,
+    "end": 192720
+  },
+  {
+    "text": "I have to unlock the door,",
+    "start": 192720,
+    "end": 194720
+  },
+  {
+    "text": "and now we're ready to go.",
+    "start": 194720,
+    "end": 197720
+  },
+  {
+    "text": "She always",
+    "start": 197720,
+    "end": 199640
+  },
+  {
+    "text": "loves going on walks. She's sniffing",
+    "start": 199640,
+    "end": 201920
+  },
+  {
+    "text": "right now. She's sniffing the ground.",
+    "start": 201920,
+    "end": 204000
+  },
+  {
+    "text": "Dogs love to sniff. They love to smell",
+    "start": 204000,
+    "end": 207800
+  },
+  {
+    "text": "around like this. What are you smelling,",
+    "start": 207800,
+    "end": 209840
+  },
+  {
+    "text": "Clover?",
+    "start": 209840,
+    "end": 211239
+  },
+  {
+    "text": "The sun is shining bright. If you guys",
+    "start": 211239,
+    "end": 214400
+  },
+  {
+    "text": "remember, just a few weeks ago, it was",
+    "start": 214400,
+    "end": 217120
+  },
+  {
+    "text": "super cold here, and we went and filmed",
+    "start": 217120,
+    "end": 219720
+  },
+  {
+    "text": "that sledding video,",
+    "start": 219720,
+    "end": 221840
+  },
+  {
+    "text": "but now",
+    "start": 221840,
+    "end": 223320
+  },
+  {
+    "text": "it's really, really hot. I don't know",
+    "start": 223320,
+    "end": 225160
+  },
+  {
+    "text": "how. Here in Virginia, where I live,",
+    "start": 225160,
+    "end": 227920
+  },
+  {
+    "text": "it'll go from being really cold one week",
+    "start": 227920,
+    "end": 231080
+  },
+  {
+    "text": "to all of the sudden being really hot",
+    "start": 231080,
+    "end": 233320
+  },
+  {
+    "text": "the next. It's crazy. Now, Clover",
+    "start": 233320,
+    "end": 235600
+  },
+  {
+    "text": "doesn't know this, but right now we are",
+    "start": 235600,
+    "end": 237767
+  },
+  {
+    "text": "[music] walking to her favorite place.",
+    "start": 237767,
+    "end": 239960
+  },
+  {
+    "text": "She has no idea that she's going to her",
+    "start": 239960,
+    "end": 242320
+  },
+  {
+    "text": "favorite place on Earth.",
+    "start": 242320,
+    "end": 247592
+  },
+  {
+    "text": ">> [music]",
+    "start": 247592,
+    "end": 253080
+  },
+  {
+    "text": ">> Now, that's a line of rocks over there.",
+    "start": 253080,
+    "end": 256400
+  },
+  {
+    "text": "Clover,",
+    "start": 256400,
+    "end": 257440
+  },
+  {
+    "text": "do you want to jump over that line of",
+    "start": 257440,
+    "end": 258680
+  },
+  {
+    "text": "rocks?",
+    "start": 258680,
+    "end": 260000
+  },
+  {
+    "text": "Let's go.",
+    "start": 260000,
+    "end": 261120
+  },
+  {
+    "text": "Yeah.",
+    "start": 261120,
+    "end": 262280
+  },
+  {
+    "text": "Oh, this line. Go. Yeah. Oh.",
+    "start": 262280,
+    "end": 265600
+  },
+  {
+    "text": "She has so much energy.",
+    "start": 265600,
+    "end": 267960
+  },
+  {
+    "text": "This dog could run for miles and miles.",
+    "start": 267960,
+    "end": 271360
+  },
+  {
+    "text": "We're coming up to her favorite place.",
+    "start": 271360,
+    "end": 273880
+  },
+  {
+    "text": "Up along this path, this is a path that",
+    "start": 273880,
+    "end": 276640
+  },
+  {
+    "text": "my neighborhood paved.",
+    "start": 276640,
+    "end": 278640
+  },
+  {
+    "text": "And up there, alongside the path,",
+    "start": 278640,
+    "end": 282600
+  },
+  {
+    "text": "is the dog park. Now, usually we walk",
+    "start": 282600,
+    "end": 285800
+  },
+  {
+    "text": "past the dog park, but this time we're",
+    "start": 285800,
+    "end": 288360
+  },
+  {
+    "text": "going to go in",
+    "start": 288360,
+    "end": 289840
+  },
+  {
+    "text": "and she's going to be so happy. Clover,",
+    "start": 289840,
+    "end": 291919
+  },
+  {
+    "text": "you want to go to the dog park? You want",
+    "start": 291919,
+    "end": 293560
+  },
+  {
+    "text": "to go to the dog park? Oh, yeah, she",
+    "start": 293560,
+    "end": 295200
+  },
+  {
+    "text": "does. Oh, yeah. You always have to make",
+    "start": 295200,
+    "end": 297440
+  },
+  {
+    "text": "sure to close this gate so that she",
+    "start": 297440,
+    "end": 300560
+  },
+  {
+    "text": "doesn't escape. And she is already",
+    "start": 300560,
+    "end": 302760
+  },
+  {
+    "text": "walking around and sniffing everything.",
+    "start": 302760,
+    "end": 305720
+  },
+  {
+    "text": "Even though her leash is dragging",
+    "start": 305720,
+    "end": 307360
+  },
+  {
+    "text": "behind. Clover, Clover, I got to get",
+    "start": 307360,
+    "end": 309360
+  },
+  {
+    "text": "your leash.",
+    "start": 309360,
+    "end": 311560
+  },
+  {
+    "text": "Go. Go free.",
+    "start": 311560,
+    "end": 315800
+  },
+  {
+    "text": "She loves it. She already found a ball.",
+    "start": 315800,
+    "end": 319240
+  },
+  {
+    "text": "What is it, Clover?",
+    "start": 319240,
+    "end": 321919
+  },
+  {
+    "text": "She found another ball. Clover, get the",
+    "start": 321919,
+    "end": 324320
+  },
+  {
+    "text": "ball. Good girl.",
+    "start": 324320,
+    "end": 326360
+  },
+  {
+    "text": "Yeah. Did you get a ball?",
+    "start": 326360,
+    "end": 329680
+  },
+  {
+    "text": "She got a ball. She's guarding [music]",
+    "start": 329680,
+    "end": 331560
+  },
+  {
+    "text": "it. She's putting her head down. Good",
+    "start": 331560,
+    "end": 332960
+  },
+  {
+    "text": "girl. Now, what in the world is she",
+    "start": 332960,
+    "end": 335240
+  },
+  {
+    "text": "doing?",
+    "start": 335240,
+    "end": 336440
+  },
+  {
+    "text": "She's eating",
+    "start": 336440,
+    "end": 338040
+  },
+  {
+    "text": "this hay. These are like weeds.",
+    "start": 338040,
+    "end": 341160
+  },
+  {
+    "text": "Why are you eating weeds, Clover? Does",
+    "start": 341160,
+    "end": 344520
+  },
+  {
+    "text": "this stuff look good to you guys?",
+    "start": 344520,
+    "end": 347440
+  },
+  {
+    "text": "Really?",
+    "start": 347440,
+    "end": 348600
+  },
+  {
+    "text": "You're going to lie down right here",
+    "start": 348600,
+    "end": 351320
+  },
+  {
+    "text": "when you have this entire place to",
+    "start": 351320,
+    "end": 353480
+  },
+  {
+    "text": "yourself",
+    "start": 353480,
+    "end": 355080
+  },
+  {
+    "text": "and you're just going to eat weeds?",
+    "start": 355080,
+    "end": 357960
+  },
+  {
+    "text": "I don't understand this dog. Now, while",
+    "start": 357960,
+    "end": 359920
+  },
+  {
+    "text": "she's over here,",
+    "start": 359920,
+    "end": 361800
+  },
+  {
+    "text": "I'm going to go over here",
+    "start": 361800,
+    "end": 364040
+  },
+  {
+    "text": "and I'm going to grab this ball and make",
+    "start": 364040,
+    "end": 366720
+  },
+  {
+    "text": "her want it. Look what I got. She",
+    "start": 366720,
+    "end": 369520
+  },
+  {
+    "text": "doesn't want hers anymore. You want my",
+    "start": 369520,
+    "end": 371400
+  },
+  {
+    "text": "ball, don't you? Yeah, sit. Sit.",
+    "start": 371400,
+    "end": 374440
+  },
+  {
+    "text": "Sit.",
+    "start": 374440,
+    "end": 375520
+  },
+  {
+    "text": "Okay.",
+    "start": 375520,
+    "end": 382520
+  },
+  {
+    "text": "Clover!",
+    "start": 382520,
+    "end": 384440
+  },
+  {
+    "text": "She's running as fast as she can. You",
+    "start": 384440,
+    "end": 386720
+  },
+  {
+    "text": "got it. Good girl. And now [music] that",
+    "start": 386720,
+    "end": 389960
+  },
+  {
+    "text": "she has that ball,",
+    "start": 389960,
+    "end": 392160
+  },
+  {
+    "text": "she's going to want this ball once I",
+    "start": 392160,
+    "end": 394120
+  },
+  {
+    "text": "grab it.",
+    "start": 394120,
+    "end": 395520
+  },
+  {
+    "text": "You want this one now, don't you? Yeah,",
+    "start": 395520,
+    "end": 397640
+  },
+  {
+    "text": "okay.",
+    "start": 397640,
+    "end": 399160
+  },
+  {
+    "text": "And this [music] is an endless cycle. I",
+    "start": 399160,
+    "end": 402040
+  },
+  {
+    "text": "can do this as many times as I want.",
+    "start": 402040,
+    "end": 404280
+  },
+  {
+    "text": "Which one do you want, Clover?",
+    "start": 404280,
+    "end": 407480
+  },
+  {
+    "text": "Do you want that one?",
+    "start": 407480,
+    "end": 409600
+  },
+  {
+    "text": "Is that your ball?",
+    "start": 409600,
+    "end": 411120
+  },
+  {
+    "text": "Or is this your ball?",
+    "start": 411120,
+    "end": 414320
+  },
+  {
+    "text": "Oh, you want this one.",
+    "start": 414320,
+    "end": 417360
+  },
+  {
+    "text": "She literally [music] wants whichever",
+    "start": 417360,
+    "end": 418840
+  },
+  {
+    "text": "one I grab.",
+    "start": 418840,
+    "end": 420360
+  },
+  {
+    "text": "Now that I have this one,",
+    "start": 420360,
+    "end": 422680
+  },
+  {
+    "text": "she's going to come and drop that one",
+    "start": 422680,
+    "end": 424680
+  },
+  {
+    "text": "immediately.",
+    "start": 424680,
+    "end": 429680
+  },
+  {
+    "text": "She could do this all day. Are you",
+    "start": 429680,
+    "end": 432040
+  },
+  {
+    "text": "getting [music] tired, Clover?",
+    "start": 432040,
+    "end": 441919
+  },
+  {
+    "text": "Now you can see she's starting to get",
+    "start": 441919,
+    "end": 444120
+  },
+  {
+    "text": "hot. She's panting.",
+    "start": 444120,
+    "end": 446320
+  },
+  {
+    "text": "When a dog sticks their tongue out like",
+    "start": 446320,
+    "end": 448080
+  },
+  {
+    "text": "that, like this,",
+    "start": 448080,
+    "end": 450360
+  },
+  {
+    "text": "it's called panting. She is panting.",
+    "start": 450360,
+    "end": 453960
+  },
+  {
+    "text": "We're going to have to go back soon so",
+    "start": 453960,
+    "end": 455440
+  },
+  {
+    "text": "she doesn't get too hot,",
+    "start": 455440,
+    "end": 457240
+  },
+  {
+    "text": "but I have to do this one more time.",
+    "start": 457240,
+    "end": 459880
+  },
+  {
+    "text": "Clover!",
+    "start": 459880,
+    "end": 466560
+  },
+  {
+    "text": "Now, I'm going to bounce the ball off",
+    "start": 466560,
+    "end": 468840
+  },
+  {
+    "text": "the ground and see if Clover can go and",
+    "start": 468840,
+    "end": 471160
+  },
+  {
+    "text": "get it.",
+    "start": 471160,
+    "end": 472840
+  },
+  {
+    "text": "Go get it.",
+    "start": 472840,
+    "end": 475320
+  },
+  {
+    "text": "That didn't work.",
+    "start": 475320,
+    "end": 480560
+  },
+  {
+    "text": "Oh, did you see that? She jumped up into",
+    "start": 480560,
+    "end": 484040
+  },
+  {
+    "text": "the air and caught the ball in her",
+    "start": 484040,
+    "end": 486000
+  },
+  {
+    "text": "mouth. Okay, now it's really, really hot",
+    "start": 486000,
+    "end": 488160
+  },
+  {
+    "text": "out here. The sun is shining bright. I",
+    "start": 488160,
+    "end": 490440
+  },
+  {
+    "text": "have no idea why I'm wearing a",
+    "start": 490440,
+    "end": 492520
+  },
+  {
+    "text": "long-sleeve shirt, and I think it's time",
+    "start": 492520,
+    "end": 494760
+  },
+  {
+    "text": "to go home.",
+    "start": 494760,
+    "end": 496000
+  },
+  {
+    "text": "What do you think, Clover?",
+    "start": 496000,
+    "end": 497800
+  },
+  {
+    "text": "Yeah, she's laying down. I think it's",
+    "start": 497800,
+    "end": 499160
+  },
+  {
+    "text": "time to go home. But, not without one",
+    "start": 499160,
+    "end": 501400
+  },
+  {
+    "text": "more ball throw.",
+    "start": 501400,
+    "end": 506760
+  },
+  {
+    "text": "Look how fast she is.",
+    "start": 506760,
+    "end": 508560
+  },
+  {
+    "text": "She is so fast, but she's not coming",
+    "start": 508560,
+    "end": 510960
+  },
+  {
+    "text": "back as fast as she was before because",
+    "start": 510960,
+    "end": 513360
+  },
+  {
+    "text": "she's really tired.",
+    "start": 513360,
+    "end": 517280
+  },
+  {
+    "text": "Okay, I have to grab her leash. I hung",
+    "start": 517280,
+    "end": 519840
+  },
+  {
+    "text": "it up on this fence earlier, but now I",
+    "start": 519840,
+    "end": 522719
+  },
+  {
+    "text": "have to grab it so I can put it back on",
+    "start": 522719,
+    "end": 524640
+  },
+  {
+    "text": "her.",
+    "start": 524640,
+    "end": 525960
+  },
+  {
+    "text": "She's ready to go. Now, she's got to",
+    "start": 525960,
+    "end": 528160
+  },
+  {
+    "text": "drop her ball. Good girl. Leave it. Come",
+    "start": 528160,
+    "end": 531560
+  },
+  {
+    "text": "on. We've been training her to leave her",
+    "start": 531560,
+    "end": 534040
+  },
+  {
+    "text": "ball when we tell her to, and she did it",
+    "start": 534040,
+    "end": 536360
+  },
+  {
+    "text": "this time. She was really good. Now,",
+    "start": 536360,
+    "end": 538200
+  },
+  {
+    "text": "she's ready to go home.",
+    "start": 538200,
+    "end": 541600
+  },
+  {
+    "text": "This is called a latch.",
+    "start": 541600,
+    "end": 543640
+  },
+  {
+    "text": "It's latching the gate shut. So, I'm",
+    "start": 543640,
+    "end": 545440
+  },
+  {
+    "text": "going to open this up and tell her to",
+    "start": 545440,
+    "end": 547080
+  },
+  {
+    "text": "sit down. Sit.",
+    "start": 547080,
+    "end": 549000
+  },
+  {
+    "text": "And now we can go out. Okay. Now, I",
+    "start": 549000,
+    "end": 550839
+  },
+  {
+    "text": "always have to make sure",
+    "start": 550839,
+    "end": 552520
+  },
+  {
+    "text": "that I latch this shut so that the wind",
+    "start": 552520,
+    "end": 555040
+  },
+  {
+    "text": "doesn't blow it open. What's really nice",
+    "start": 555040,
+    "end": 557440
+  },
+  {
+    "text": "about this dog park is they have these",
+    "start": 557440,
+    "end": 559480
+  },
+  {
+    "text": "trash cans, and they have bags that you",
+    "start": 559480,
+    "end": 562440
+  },
+  {
+    "text": "can grab yourself. These are free, so",
+    "start": 562440,
+    "end": 564680
+  },
+  {
+    "text": "you can take these and use for your dog.",
+    "start": 564680,
+    "end": 567640
+  },
+  {
+    "text": "Now, we're going to go down this long",
+    "start": 567640,
+    "end": 569560
+  },
+  {
+    "text": "path. It goes",
+    "start": 569560,
+    "end": 571040
+  },
+  {
+    "text": "way down. It's like maybe half a mile,",
+    "start": 571040,
+    "end": 573920
+  },
+  {
+    "text": "and as you can see,",
+    "start": 573920,
+    "end": 576360
+  },
+  {
+    "text": "there are",
+    "start": 576360,
+    "end": 577320
+  },
+  {
+    "text": "giant power lines up above the path.",
+    "start": 577320,
+    "end": 581000
+  },
+  {
+    "text": "Over here, they go right over the dog",
+    "start": 581000,
+    "end": 582880
+  },
+  {
+    "text": "park, and a lot of people do not like",
+    "start": 582880,
+    "end": 585200
+  },
+  {
+    "text": "these. They don't look very good. So, if",
+    "start": 585200,
+    "end": 587640
+  },
+  {
+    "text": "your house is right by the power lines,",
+    "start": 587640,
+    "end": 589880
+  },
+  {
+    "text": "like these people live right by them,",
+    "start": 589880,
+    "end": 592360
+  },
+  {
+    "text": "and that's just not very nice. But, I",
+    "start": 592360,
+    "end": 594600
+  },
+  {
+    "text": "guess we are getting a lot of",
+    "start": 594600,
+    "end": 596080
+  },
+  {
+    "text": "electricity from them. So, now I'm going",
+    "start": 596080,
+    "end": 599120
+  },
+  {
+    "text": "to answer a couple of questions that you",
+    "start": 599120,
+    "end": 601120
+  },
+  {
+    "text": "might have about Clover. Number one is",
+    "start": 601120,
+    "end": 604040
+  },
+  {
+    "text": "how old is Clover? Clover is 6 years",
+    "start": 604040,
+    "end": 608120
+  },
+  {
+    "text": "old. She turned 6 in October of last",
+    "start": 608120,
+    "end": 610520
+  },
+  {
+    "text": "year. Second is what dog breed, what",
+    "start": 610520,
+    "end": 613800
+  },
+  {
+    "text": "kind of dog is Clover? You guys can take",
+    "start": 613800,
+    "end": 616840
+  },
+  {
+    "text": "a guess right now. What do you think she",
+    "start": 616840,
+    "end": 618640
+  },
+  {
+    "text": "is? Now, I bet no one guessed this.",
+    "start": 618640,
+    "end": 621520
+  },
+  {
+    "text": "She is a Springerdoodle. It's a mix",
+    "start": 621520,
+    "end": 624320
+  },
+  {
+    "text": "between a Springer Spaniel and a Poodle.",
+    "start": 624320,
+    "end": 627560
+  },
+  {
+    "text": "Over here in the United States, mixes",
+    "start": 627560,
+    "end": 630160
+  },
+  {
+    "text": "with Poodles are very popular. So, she's",
+    "start": 630160,
+    "end": 632560
+  },
+  {
+    "text": "a mix between a Springer Spaniel and a",
+    "start": 632560,
+    "end": 635040
+  },
+  {
+    "text": "Poodle. It's called a Springer Spaniel",
+    "start": 635040,
+    "end": 636800
+  },
+  {
+    "text": "Poodle mix, or a Springerdoodle. If you",
+    "start": 636800,
+    "end": 639480
+  },
+  {
+    "text": "put the two words together, it makes",
+    "start": 639480,
+    "end": 641440
+  },
+  {
+    "text": "Springerdoodle. I was going to go this",
+    "start": 641440,
+    "end": 642960
+  },
+  {
+    "text": "way because it's a longer walk, but it",
+    "start": 642960,
+    "end": 645720
+  },
+  {
+    "text": "looks like she wants to go home. And the",
+    "start": 645720,
+    "end": 647440
+  },
+  {
+    "text": "third question that you might have is",
+    "start": 647440,
+    "end": 649480
+  },
+  {
+    "text": "when did I get Clover? How old was she?",
+    "start": 649480,
+    "end": 653160
+  },
+  {
+    "text": "She was actually a puppy. She was just a",
+    "start": 653160,
+    "end": 655880
+  },
+  {
+    "text": "little baby when we first got her, and",
+    "start": 655880,
+    "end": 658600
+  },
+  {
+    "text": "she was so cute. She's still really",
+    "start": 658600,
+    "end": 660960
+  },
+  {
+    "text": "cute, but she was even more cute back",
+    "start": 660960,
+    "end": 663120
+  },
+  {
+    "text": "then. I'll put a video up right now.",
+    "start": 663120,
+    "end": 667452
+  },
+  {
+    "text": ">> [music]",
+    "start": 667452,
+    "end": 669760
+  },
+  {
+    "text": ">> Now, this is something Clover loves to",
+    "start": 669760,
+    "end": 671880
+  },
+  {
+    "text": "do. No matter how big the stick is, she",
+    "start": 671880,
+    "end": 675080
+  },
+  {
+    "text": "will bring it home. She has brought home",
+    "start": 675080,
+    "end": 677560
+  },
+  {
+    "text": "sticks that were 5 ft long. That's",
+    "start": 677560,
+    "end": 682080
+  },
+  {
+    "text": "almost as tall as me, and you can see",
+    "start": 682080,
+    "end": 684480
+  },
+  {
+    "text": "her head is kind of high up because",
+    "start": 684480,
+    "end": 686880
+  },
+  {
+    "text": "she's proud of it. She will just bring",
+    "start": 686880,
+    "end": 688920
+  },
+  {
+    "text": "it all the way home. No matter how far",
+    "start": 688920,
+    "end": 691040
+  },
+  {
+    "text": "she is, she'll bring it all the way back",
+    "start": 691040,
+    "end": 693280
+  },
+  {
+    "text": "to our house.",
+    "start": 693280,
+    "end": 697582
+  },
+  {
+    "text": ">> [music]",
+    "start": 697582,
+    "end": 697880
+  },
+  {
+    "text": ">> She is on a mission.",
+    "start": 697880,
+    "end": 700000
+  },
+  {
+    "text": "She is not stopping for anything. This",
+    "start": 700000,
+    "end": 702600
+  },
+  {
+    "text": "dog is bringing this stick to my house.",
+    "start": 702600,
+    "end": 705880
+  },
+  {
+    "text": "She found",
+    "start": 705880,
+    "end": 707400
+  },
+  {
+    "text": "an even bigger stick.",
+    "start": 707400,
+    "end": 710240
+  },
+  {
+    "text": "I told you guys,",
+    "start": 710240,
+    "end": 712200
+  },
+  {
+    "text": "no matter",
+    "start": 712200,
+    "end": 713720
+  },
+  {
+    "text": "how big, she will bring it home.",
+    "start": 713720,
+    "end": 717320
+  },
+  {
+    "text": "Look how big this stick is, and she",
+    "start": 717320,
+    "end": 719680
+  },
+  {
+    "text": "always grabs them by the end",
+    "start": 719680,
+    "end": 722040
+  },
+  {
+    "text": "so that she has to drag them.",
+    "start": 722040,
+    "end": 724920
+  },
+  {
+    "text": "Look at this, and then she always drops",
+    "start": 724920,
+    "end": 727600
+  },
+  {
+    "text": "them",
+    "start": 727600,
+    "end": 728600
+  },
+  {
+    "text": "before we get inside.",
+    "start": 728600,
+    "end": 730800
+  },
+  {
+    "text": "See?",
+    "start": 730800,
+    "end": 731840
+  },
+  {
+    "text": "Here's her collection of sticks.",
+    "start": 731840,
+    "end": 734160
+  },
+  {
+    "text": "You can see",
+    "start": 734160,
+    "end": 735720
+  },
+  {
+    "text": "it is a growing collection. She has so",
+    "start": 735720,
+    "end": 738760
+  },
+  {
+    "text": "many",
+    "start": 738760,
+    "end": 739880
+  },
+  {
+    "text": "all over the place. She loves bringing",
+    "start": 739880,
+    "end": 742400
+  },
+  {
+    "text": "them to our house. Clover, you are a",
+    "start": 742400,
+    "end": 744080
+  },
+  {
+    "text": "funny dog. Sit.",
+    "start": 744080,
+    "end": 749320
+  },
+  {
+    "text": "Now, the first place she went",
+    "start": 749320,
+    "end": 751760
+  },
+  {
+    "text": "was to get water",
+    "start": 751760,
+    "end": 753840
+  },
+  {
+    "text": "because it's so hot out there. She's so",
+    "start": 753840,
+    "end": 755839
+  },
+  {
+    "text": "thirsty.",
+    "start": 755839,
+    "end": 757360
+  },
+  {
+    "text": "She's getting hydrated. Whenever you",
+    "start": 757360,
+    "end": 759440
+  },
+  {
+    "text": "drink a lot of water, you become",
+    "start": 759440,
+    "end": 761800
+  },
+  {
+    "text": "hydrated. You fill up with water,",
+    "start": 761800,
+    "end": 764393
+  },
+  {
+    "text": ">> [music]",
+    "start": 764393,
+    "end": 764440
+  },
+  {
+    "text": ">> and our bodies need to be hydrated. And",
+    "start": 764440,
+    "end": 767440
+  },
+  {
+    "text": "before, while she was outside, she was",
+    "start": 767440,
+    "end": 769280
+  },
+  {
+    "text": "probably dehydrated. She really needed",
+    "start": 769280,
+    "end": 772400
+  },
+  {
+    "text": "water.",
+    "start": 772400,
+    "end": 772908
+  },
+  {
+    "text": ">> [music]",
+    "start": 772908,
+    "end": 773080
+  },
+  {
+    "text": ">> But now, she just drank a lot, so she's",
+    "start": 773080,
+    "end": 775240
+  },
+  {
+    "text": "good. She's hydrated. Now, I have to",
+    "start": 775240,
+    "end": 777200
+  },
+  {
+    "text": "take her harness off. I have to do undo",
+    "start": 777200,
+    "end": 780240
+  },
+  {
+    "text": "these two clips.",
+    "start": 780240,
+    "end": 782640
+  },
+  {
+    "text": "There we go.",
+    "start": 782640,
+    "end": 783839
+  },
+  {
+    "text": "And watch this. She always pulls her",
+    "start": 783839,
+    "end": 785240
+  },
+  {
+    "text": "head out.",
+    "start": 785240,
+    "end": 788360
+  },
+  {
+    "text": "Good job. She's still panting. Clover",
+    "start": 788360,
+    "end": 791720
+  },
+  {
+    "text": "just started going crazy.",
+    "start": 791720,
+    "end": 797120
+  },
+  {
+    "text": "Yeah.",
+    "start": 797120,
+    "end": 798960
+  },
+  {
+    "text": "Look at this. She's just standing up on",
+    "start": 798960,
+    "end": 800600
+  },
+  {
+    "text": "her hind legs.",
+    "start": 800600,
+    "end": 802520
+  },
+  {
+    "text": "When an animal stands on its back legs",
+    "start": 802520,
+    "end": 804440
+  },
+  {
+    "text": "like this,",
+    "start": 804440,
+    "end": 807200
+  },
+  {
+    "text": "it's called standing up on its hind",
+    "start": 807200,
+    "end": 808960
+  },
+  {
+    "text": "legs. What?",
+    "start": 808960,
+    "end": 812040
+  },
+  {
+    "text": "I think she wanted to be picked up. So,",
+    "start": 812040,
+    "end": 814240
+  },
+  {
+    "text": "now I'm going to carry her around.",
+    "start": 814240,
+    "end": 817120
+  },
+  {
+    "text": "Good girl.",
+    "start": 817120,
+    "end": 820069
+  },
+  {
+    "text": ">> [laughter]",
+    "start": 820069,
+    "end": 820520
+  },
+  {
+    "text": ">> Oh, yeah. Oh, yeah.",
+    "start": 820520,
+    "end": 823680
+  },
+  {
+    "text": "Now she's exhausted. She's going to",
+    "start": 823680,
+    "end": 825840
+  },
+  {
+    "text": "probably sleep here for a few hours.",
+    "start": 825840,
+    "end": 828440
+  },
+  {
+    "text": "This is her favorite place in the house",
+    "start": 828440,
+    "end": 830480
+  },
+  {
+    "text": "to sit. Yeah, you're going to sleep",
+    "start": 830480,
+    "end": 832600
+  },
+  {
+    "text": "here, aren't you?",
+    "start": 832600,
+    "end": 836444
+  },
+  {
+    "text": ">> [music]",
+    "start": 836444,
+    "end": 839320
+  },
+  {
+    "text": ">> See what I mean?",
+    "start": 839320,
+    "end": 841000
+  },
+  {
+    "text": "She is going to sleep here forever.",
+    "start": 841000,
+    "end": 844040
+  },
+  {
+    "text": "Hey, I see why she does this. This is",
+    "start": 844040,
+    "end": 846640
+  },
+  {
+    "text": "pretty nice.",
+    "start": 846640,
+    "end": 849480
+  }
+]
