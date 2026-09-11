@@ -205,6 +205,12 @@ async function loadLanguage() {
 
 async function loadTranscript() {
   const videoId = new URL(location.href).searchParams.get('v');
+
+  // Rời khỏi trang watch → reset để lần sau vào lại video cũ vẫn chạy
+  if (!videoId) {
+    currentVideoId = null;
+    return;
+  }
   if (!videoId || videoId === currentVideoId) return;
 
   currentVideoId = videoId;
