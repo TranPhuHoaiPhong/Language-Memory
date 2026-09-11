@@ -9,6 +9,7 @@ router = APIRouter()
 @router.post("/send-id")
 async def send_id(request: SendIdRequest):
 
+    print(f"Received request: {request}")
     return await process_id(
         request.id,
         request.target_language,
