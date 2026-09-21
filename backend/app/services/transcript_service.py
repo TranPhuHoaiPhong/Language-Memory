@@ -73,7 +73,6 @@ def _normalize_transcript(data):
         return {"events": []}
 
     if isinstance(data, dict):
-        # Đôi khi data bọc trong {"data": {...}} hoặc {"transcript": "..."}
         if "events" in data:
             return data
         for key in ("data", "transcript", "result", "subtitle"):
@@ -97,7 +96,6 @@ def _normalize_transcript(data):
         s = data.strip()
         if not s:
             return {"events": []}
-        # Thử parse JSON
         if s[0] in "{[":
             try:
                 parsed = json.loads(s)
@@ -105,7 +103,6 @@ def _normalize_transcript(data):
                 parsed = None
             if parsed is not None:
                 return _normalize_transcript(parsed)
-        # Không phải JSON → coi như plain text (không có timing)
         return {"events": [], "_plain_text": s}
 
     return {"events": []}
@@ -186,27 +183,45 @@ def build_bilingual_entries(en_caps, vi_caps):
 
 
 # =========================
-# 2. Boundary detection
+# 2. Boundary detection (FIXED)
 # =========================
 
-ABBREVIATIONS = {
-    "mr", "mrs", "ms", "dr", "prof", "sr", "jr", "st", "vs", "etc",
-    "inc", "ltd", "co", "corp", "no", "vol", "fig", "ch", "sec",
+# Chỉ những từ hầu như KHÔNG BAO GIỜ là kết thúc câu thật
+TRUE_ABBREVIATIONS = {
+    "mr", "mrs", "ms", "dr", "prof", "sr", "jr",
+    "vs", "etc", "inc", "ltd", "corp",
     "u.s", "u.k", "u.n", "a.m", "p.m", "ph.d",
+    # Có thể thêm nếu chấp nhận rủi ro nhỏ:
+    # "st", "co", "vol", "fig", "ch", "sec",
 }
 
+# Các từ có thể vừa là viết tắt, vừa là câu trả lời ngắn
+# → chỉ bỏ boundary khi đoạn trước rất ngắn
+AMBIGUOUS_SHORT = {
+    # English
+    "no", "ok", "okay", "yes", "yeah", "yep", "yup", "nah",
+    "oh", "ah", "uh", "um", "hi", "hey", "bye", "wow", "oops", "huh",
+    # Vietnamese
+    "không", "vâng", "ừ", "ờ", "à", "ơ", "ôi", "ủa", "hả",
+    "được", "rồi", "thôi", "nào", "này", "kìa", "đấy",
+}
 
-def _is_abbrev_dot(text, dot_idx):
+MIN_SENTENCE_LEN = 10   # dưới mức này coi là interjection
+
+
+def _is_true_abbrev(text, dot_idx):
+    """Chỉ trả về True với những viết tắt gần như không bao giờ kết thúc câu thật."""
     if dot_idx <= 0:
         return False
     i = dot_idx - 1
-    while i >= 0 and text[i].isalnum():
+    while i >= 0 and (text[i].isalnum() or ord(text[i]) > 127):
         i -= 1
     token = text[i + 1:dot_idx].lower()
     if not token:
         return False
-    if token in ABBREVIATIONS:
+    if token in TRUE_ABBREVIATIONS:
         return True
+    # Single letter abbreviation (A. B. C.)
     if len(token) == 1 and token.isalpha():
         if i < 0 or text[i].isspace() or text[i] == '.':
             return True
@@ -214,28 +229,61 @@ def _is_abbrev_dot(text, dot_idx):
 
 
 def find_boundaries(text):
+    """
+    Tìm boundary câu.
+    Logic ưu tiên:
+    1. True abbreviation → luôn bỏ boundary
+    2. Câu rất ngắn + nằm trong AMBIGUOUS_SHORT → bỏ boundary
+    3. Câu đủ dài → tạo boundary bình thường
+    """
     boundaries = []
     n = len(text)
     i = 0
+    last_bound = 0
+
     while i < n:
         c = text[i]
         if c in ".!?…":
             if c == '.':
+                # Số thập phân
                 if 0 < i < n - 1 and text[i - 1].isdigit() and text[i + 1].isdigit():
                     i += 1
                     continue
+                # Dấu ...
                 if i + 1 < n and text[i + 1] == '.':
                     i += 1
                     continue
-                if _is_abbrev_dot(text, i):
+                # True abbreviation → luôn bỏ
+                if _is_true_abbrev(text, i):
                     i += 1
                     continue
 
+            # Nhìn phía trước (bỏ qua khoảng trắng + dấu ngoặc đóng)
             j = i + 1
             while j < n and (text[j].isspace() or text[j] in "\"')]}»”’"):
                 j += 1
-            if j < n and (text[j].isupper() or text[j].isdigit()):
-                boundaries.append((j, c))
+
+            is_next_start = False
+            if j < n:
+                ch = text[j]
+                # Chấp nhận chữ hoa Latin hoặc chữ non-ASCII (tiếng Việt)
+                if ch.isupper() or ch.isdigit() or (ord(ch) > 127 and ch.isalpha()):
+                    is_next_start = True
+
+            if is_next_start:
+                left = text[last_bound:i].strip()
+                left_lower = left.lower().rstrip('.')
+
+                # Trường hợp 1: câu rất ngắn + là interjection mơ hồ → bỏ boundary
+                if len(left) < MIN_SENTENCE_LEN and left_lower in AMBIGUOUS_SHORT:
+                    pass
+                # Trường hợp 2: câu đủ dài → tạo boundary
+                elif len(left) >= MIN_SENTENCE_LEN:
+                    boundaries.append((j, c))
+                    last_bound = j
+                # Trường hợp 3: ngắn nhưng không nằm trong AMBIGUOUS_SHORT
+                # → vẫn tạo boundary (an toàn hơn)
+
             i = j if j > i else i + 1
         else:
             i += 1

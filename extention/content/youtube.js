@@ -277,6 +277,8 @@ document.addEventListener('yt-navigate-finish', loadTranscript);
 
 // ===== Init =====
 injectCss();
+
+
 updateLoop();
 
 (async () => {

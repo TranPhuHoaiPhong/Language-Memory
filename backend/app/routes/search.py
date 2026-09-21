@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Request
 
-from app.services.search_service import search_service
+from app.services.search.search_service import search_service
 
 
 router = APIRouter()
@@ -11,21 +11,21 @@ async def search(request: Request):
 
     body = await request.json()
 
-    # print("\n========================================")
-    # print("[PYTHON] SEARCH REQUEST")
-    # print("RAW BODY:")
-    # print(body)
-    # print("========================================")
+    print("\n========================================")
+    print("[PYTHON] SEARCH REQUEST")
+    print("RAW BODY:")
+    print(body)
+    print("========================================")
 
     word = body.get("word")
     language = body.get("language")
     subtitle = body.get("subtitle")
     source_language = body.get("sourceLanguage")
 
-    # print("[PYTHON] word =", word)
-    # print("[PYTHON] language =", language)
-    # print("[PYTHON] subtitle =", subtitle)
-    # print("[PYTHON] sourceLanguage =", source_language)
+    print("[PYTHON] word =", word)
+    print("[PYTHON] language =", language)
+    print("[PYTHON] subtitle =", subtitle)
+    print("[PYTHON] sourceLanguage =", source_language)
 
     result = await search_service(
         word,

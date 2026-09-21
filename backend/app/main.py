@@ -29,14 +29,8 @@ app.add_middleware(
 # AUDIO
 # ============================================================
 
-BASE_DIR = os.path.dirname(
-    os.path.abspath(__file__)
-)
-
-AUDIO_DIR = os.path.join(
-    BASE_DIR,
-    "audio"
-)
+# main.py và search_service.py
+from app.config import AUDIO_DIR
 
 os.makedirs(
     AUDIO_DIR,
