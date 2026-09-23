@@ -16,6 +16,15 @@ DATA_DIR.mkdir(exist_ok=True)
 # 1. Đọc & làm sạch caption
 # =========================
 
+# Caption mà TOÀN BỘ nội dung chỉ là 1 tag noise, ví dụ: [music], (applause), [Laughs]
+_NOISE_ONLY_RE = re.compile(r'^[\[\(][^\]\)]*[\]\)]$')
+
+
+def _is_noise_only(text: str) -> bool:
+    """True nếu cả câu chỉ là 1 tag kiểu [music], (applause), [laughs]..."""
+    return bool(_NOISE_ONLY_RE.match(text.strip()))
+
+
 def _clean_with_position_map(raw_text):
     """Tối ưu: ít lookup dict hơn, xử lý khoảng trắng gọn hơn."""
     text = raw_text.replace("\n", " ")
@@ -137,6 +146,13 @@ def extract_captions(data):
         raw_text = "".join(raw_parts)
         clean_str, raw_to_clean = _clean_with_position_map(raw_text)
         if not clean_str:
+            continue
+
+        # Bỏ qua caption mà toàn bộ nội dung chỉ là tag noise, ví dụ "[music]".
+        # Nếu không lọc ở đây, entry này sẽ lẫn vào full_en/full_vi và làm
+        # lệch thời gian bắt đầu của câu thoại thật kế tiếp (vì nó không có
+        # dấu câu kết thúc nên bị gộp chung với câu sau trong find_boundaries).
+        if _is_noise_only(clean_str):
             continue
 
         word_times = []
@@ -482,7 +498,6 @@ def match_boundaries(en_bounds, vi_bounds, en_len, vi_len,
 def _final_cleanup(text):
     if not text:
         return text
-
     text = re.sub(r'\[[^\]]*\]', '', text)
     text = re.sub(r'\([^)]*\)', '', text)
     text = text.replace('"', '')
@@ -491,13 +506,65 @@ def _final_cleanup(text):
     return text
 
 
+MAX_GAP_FILL_MS = 1000  # 1 giây
+GAP_THRESHOLD_MS = 150
+
+
+def _fill_gaps(output, max_fill_ms=MAX_GAP_FILL_MS):
+    """Kéo end của câu trước tới start của câu sau, tối đa max_fill_ms."""
+    if not output:
+        return output
+    max_fill_s = max_fill_ms / 1000.0
+    for i in range(len(output) - 1):
+        cur = output[i]
+        nxt = output[i + 1]
+        gap = nxt["start"] - cur["end"]
+        if gap > 0:
+            extension = min(gap, max_fill_s)
+            cur["end"] = round(min(cur["end"] + extension, nxt["start"]), 3)
+    return output
+
+
+def _build_entry_ranges(entries):
+    """
+    Trả về list các (cum_start, cum_end, entry_start_ms, entry_end_ms)
+    cho phần tiếng Anh. Dùng để fallback timing cục bộ theo caption gốc.
+    """
+    ranges = []
+    cum = 0
+    for entry in entries:
+        if not entry["en"]:
+            continue
+        text_len = len(entry["en"])
+        # khoảng trắng ngăn giữa các entry
+        if ranges:
+            cum += 1  # space
+        ranges.append((cum, cum + text_len, entry["start_ms"], entry["end_ms"]))
+        cum += text_len
+    return ranges
+
+
+def _time_from_entry_ranges(ranges, pos, fallback_ms):
+    """Nội suy thời gian bên trong caption gốc chứa vị trí pos."""
+    if not ranges:
+        return fallback_ms
+    for s, e, t0, t1 in ranges:
+        if s <= pos <= e:
+            if e == s:
+                return t0
+            ratio = (pos - s) / (e - s)
+            return int(t0 + ratio * (t1 - t0))
+    # ngoài cùng → dùng entry cuối
+    return ranges[-1][3]
+
+
 def split_entries(entries):
     if not entries:
         return []
 
     en_parts = []
     vi_parts = []
-    en_times = []
+    en_times = []          # (pos, ms) từ word_times
     vi_times = []
     en_len_so_far = 0
     vi_len_so_far = 0
@@ -524,6 +591,9 @@ def split_entries(entries):
     full_en = "".join(en_parts)
     full_vi = "".join(vi_parts)
 
+    # Map vị trí → thời gian gốc của caption event (dùng khi word_times thiếu)
+    entry_ranges = _build_entry_ranges(entries)
+
     en_bounds = find_boundaries(full_en)
     vi_bounds = find_boundaries(full_vi)
 
@@ -536,12 +606,15 @@ def split_entries(entries):
     output = []
     prev_en = prev_vi = 0
     seg_start = entries[0]["start_ms"]
-    seg_end = entries[-1]["end_ms"]
+    overall_end = entries[-1]["end_ms"]
 
     def emit(en_txt, vi_txt, s_ms, e_ms):
         en_txt = _final_cleanup(en_txt)
         vi_txt = _final_cleanup(vi_txt)
         if en_txt or vi_txt:
+            # bảo vệ: end không được nhỏ hơn start
+            if e_ms < s_ms:
+                e_ms = s_ms
             output.append({
                 "start": round(s_ms / 1000.0, 3),
                 "end":   round(e_ms / 1000.0, 3),
@@ -556,17 +629,43 @@ def split_entries(entries):
             prev_en, prev_vi = en_pos, vi_pos
             continue
 
-        fallback = compute_split_time(seg_start, seg_end, full_en, en_pos)
-        split_ms = lookup_time_at(en_times, en_pos, fallback)
-        if split_ms <= seg_start or split_ms > seg_end:
-            split_ms = fallback
+        # 1. Ưu tiên word-level
+        current_end_ms = time_before(en_times, en_pos, None)
+        next_start_ms  = time_at_position(en_times, en_pos, None)
+
+        # 2. Nếu thiếu → nội suy cục bộ theo caption gốc chứa vị trí đó
+        if current_end_ms is None:
+            current_end_ms = _time_from_entry_ranges(entry_ranges, en_pos - 1, seg_start)
+        if next_start_ms is None:
+            next_start_ms = _time_from_entry_ranges(entry_ranges, en_pos, overall_end)
+
+        # 3. Quyết định điểm cắt
+        if (
+            current_end_ms is not None
+            and next_start_ms is not None
+            and (next_start_ms - current_end_ms) >= GAP_THRESHOLD_MS
+        ):
+            split_ms = current_end_ms
+            next_seg_start = next_start_ms
+        else:
+            split_ms = next_start_ms if next_start_ms is not None else current_end_ms
+            next_seg_start = split_ms
+
+        # bảo vệ biên
+        if split_ms is None or split_ms <= seg_start:
+            split_ms = seg_start + 200   # tối thiểu 0.2s
+        if split_ms > overall_end:
+            split_ms = overall_end
+        if next_seg_start is None or next_seg_start < split_ms:
+            next_seg_start = split_ms
 
         emit(en_sent, vi_sent, seg_start, split_ms)
         prev_en, prev_vi = en_pos, vi_pos
-        seg_start = split_ms
+        seg_start = next_seg_start
 
-    emit(full_en[prev_en:], full_vi[prev_vi:], seg_start, seg_end)
-    return output
+    # câu cuối
+    emit(full_en[prev_en:], full_vi[prev_vi:], seg_start, overall_end)
+    return _fill_gaps(output)
 
 
 # =========================
@@ -646,8 +745,8 @@ async def transcript_service(
             "noTranslation": no_translation or False,
         }
 
-        # with open("data/transcript.json", "w", encoding="utf-8") as f:
-        #     json.dump(result, f, ensure_ascii=False, indent=2)
+        with open("data/transcript.json", "w", encoding="utf-8") as f:
+            json.dump(result, f, ensure_ascii=False, indent=2)
 
         return result
 

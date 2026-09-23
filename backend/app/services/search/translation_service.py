@@ -1,276 +1,164 @@
-import asyncio
+from ollama import chat
+import json
 import re
-from datetime import datetime, timedelta
-
-from deep_translator import GoogleTranslator, MyMemoryTranslator
+import asyncio
 
 
-# ============================================================
-# MEANING CACHE
-# ============================================================
-
-meaning_cache = {}
-
-CACHE_TTL = timedelta(
-    minutes=15
-)
-
-
-# Các kiểu dấu đánh dấu để thử, theo thứ tự ưu tiên.
-# Ưu tiên các ký tự HIẾM bị Google dịch/xóa, và không phải ký tự
-# ngữ pháp phổ biến như dấu ngoặc đơn thường (dễ bị dịch lẫn vào câu).
-MARKER_SETS = [
-    ("⟦⟦", "⟧⟧"),
-    ("【【", "】】"),
-    ("(( ", " ))"),
-    ("[[ ", " ]]"),
-    ("( ", " )"),
-]
-
-
-def _extract_between_markers(translated: str, start: str, end: str):
-    regex = re.escape(start.strip()) + r"\s*(.*?)\s*" + re.escape(end.strip())
-    match = re.search(regex, translated)
-
-    if match:
-        result = match.group(1).strip()
-        if result:
-            return result
-
-    return None
-
-
-def _normalize_for_compare(text: str):
-    """Chuẩn hoá để so sánh: bỏ dấu câu, khoảng trắng thừa, chữ hoa/thường."""
-    return re.sub(r"[^\w]", "", text).lower()
-
-
-def _is_untranslated(result: str, word: str):
-    """
-    True nếu kết quả trích ra giống hệt từ gốc (không đổi ký tự nào)
-    -> nhiều khả năng đây là từ vay mượn / Google không dịch, không
-    phải nghĩa thật -> cần thử fallback khác.
-    """
-    return _normalize_for_compare(result) == _normalize_for_compare(word)
-
-
-def _translate_with_markers(translator, sentence: str, word: str):
-    """
-    Thử dịch câu với từ được đánh dấu bằng nhiều kiểu ký tự khác nhau.
-    Trả về nghĩa nếu tách được VÀ khác với từ gốc, None nếu không có
-    kiểu nào thành công (hoặc tất cả đều trả về y hệt từ gốc).
-    """
-    pattern = r"\b" + re.escape(word) + r"\b"
-
-    best_unchanged = None  # lưu lại kết quả "y hệt từ gốc" phòng khi
-                            # không còn lựa chọn nào khác tốt hơn
-
-    for start, end in MARKER_SETS:
-
-        marked = re.sub(
-            pattern,
-            f"{start}{word}{end}",
-            sentence,
-            count=1,
-            flags=re.IGNORECASE
-        )
-
-        # Nếu re.sub không tìm thấy từ trong câu (không thay đổi gì) thì bỏ qua
-        if marked == sentence:
-            continue
-
-        try:
-            translated = translator.translate(marked)
-
-            result = _extract_between_markers(translated, start, end)
-
-            if not result:
-                continue
-
-            if _is_untranslated(result, word):
-                best_unchanged = best_unchanged or result
-                continue
-
-            return result, None
-
-        except Exception as e:
-            print(f"[MARKER FAILED] {start.strip()}{end.strip()}: {e}")
-
-    return None, best_unchanged
-
-
-def _translate_short_phrase(translator, sentence: str, word: str, window: int = 3):
-    """
-    Fallback 2: thay vì dịch cả câu dài (dễ đảo cấu trúc), chỉ lấy một
-    cụm ngắn quanh từ (window từ trước + sau) rồi thử đánh dấu lại.
-    Câu ngắn hơn => ít bị đảo trật tự => marker dễ giữ đúng vị trí hơn.
-    Trả về (result, unchanged) giống _translate_with_markers.
-    """
-    tokens = sentence.split()
-
-    lower_tokens = [t.strip(".,!?;:\"'()[]").lower() for t in tokens]
-    target = word.lower()
-
-    if target not in lower_tokens:
-        return None, None
-
-    idx = lower_tokens.index(target)
-
-    start_idx = max(0, idx - window)
-    end_idx = min(len(tokens), idx + window + 1)
-
-    phrase = " ".join(tokens[start_idx:end_idx])
-
-    return _translate_with_markers(translator, phrase, word)
-
-
-def _translate_word_alone(word: str, native: str, language: str):
-    """
-    Fallback: dịch riêng từ đó, không có ngữ cảnh câu, thử LẦN LƯỢT
-    nhiều engine dịch khác nhau (Google -> MyMemory), vì mỗi engine
-    xử lý từ vay mượn (loanword) khác nhau. Trả về kết quả ĐẦU TIÊN
-    không giống hệt từ gốc; nếu tất cả đều giống, trả về kết quả
-    của engine đầu tiên (dùng làm phương án cuối, còn hơn không có gì).
-    """
-    engines = [
-        ("Google", lambda: GoogleTranslator(source=language, target=native)),
-        ("MyMemory", lambda: MyMemoryTranslator(source=language, target=native)),
-    ]
-
-    fallback_unchanged = None
-
-    for name, make_translator in engines:
-        try:
-            translator = make_translator()
-            result = translator.translate(word)
-
-            if not result:
-                continue
-
-            result = result.strip()
-
-            if not _is_untranslated(result, word):
-                return result
-
-            fallback_unchanged = fallback_unchanged or result
-
-        except Exception as e:
-            print(f"[WORD-ONLY {name} FAILED] {e}")
-
-    return fallback_unchanged
-
-
-def translate_context_sync(
-    word: str,
-    sentence: str,
-    native: str,
-    language: str
+def explain_word(
+    payload: dict,
+    level: str = "B1",
+    model: str = "qwen3:1.7b",
 ):
-    if not word:
-        return None
+    # ============================================================
+    # GET DATA
+    # ============================================================
+    word = payload["word"]
+    language = payload.get("language", "vi")
+    source_language = payload.get("sourceLanguage", "en")
+    subtitle = payload["subtitle"]
 
-    if not sentence:
-        sentence = ""
+    if isinstance(subtitle, str):
+        start = None
+        end = None
+        original = subtitle
+        translated = ""
+    else:
+        start = subtitle.get("start")
+        end = subtitle.get("end")
+        original = subtitle["original"]
+        translated = subtitle.get("translated", "")
 
-    translator = GoogleTranslator(
-        source=language,
-        target=native
+    # ============================================================
+    # TRANSLATED BLOCK
+    # ============================================================
+    translated_block = (
+        f'Tiếng Việt của câu:\n"{translated}"\n'
+        if translated
+        else ""
     )
 
-    overall_unchanged = None
+    # ============================================================
+    # PROMPT
+    # ============================================================
+    prompt = f"""
+Bạn là giáo viên tiếng Anh cho người học trình độ {level}.
 
-    # ========================================================
-    # LỚP 1: DỊCH CẢ CÂU + ĐÁNH DẤU TỪ
-    # ========================================================
+Hãy giải thích từ hoặc cụm từ tiếng Anh "{word}" dựa HOÀN TOÀN vào câu sau:
 
-    if sentence:
+"{original}"
 
-        try:
-            result, unchanged = _translate_with_markers(
-                translator,
-                sentence,
-                word
-            )
+{translated_block}
 
-            if result:
-                return result
+YÊU CẦU:
 
-            if unchanged:
-                overall_unchanged = unchanged
+1. "context_meaning"
+- Chỉ cho biết nghĩa của "{word}" trong chính câu này.
+- Viết bằng tiếng Việt.
+- Ngắn gọn, khoảng 2-8 từ.
+- Không viết định nghĩa kiểu từ điển.
+- Không thêm thông tin không cần thiết.
+- Không giải thích lịch sử, nguồn gốc hoặc nghĩa khác của từ.
 
-        except Exception as e:
+2. "reason"
+- Giải thích ngắn gọn tại sao "{word}" được dùng trong câu này.
+- Cho biết từ loại nếu phù hợp: danh từ, động từ, tính từ, trạng từ...
+- Giải thích vai trò của nó trong cấu trúc câu nếu có điểm ngữ pháp đáng chú ý.
+- Nếu nó nằm trong một cụm từ/cấu trúc, hãy giải thích vai trò của nó trong cụm đó.
+- Chỉ giải thích ngữ pháp thực sự liên quan đến "{word}".
+- Không lặp lại nguyên văn "context_meaning".
+- Không viết ví dụ.
 
-            print(
-                f"[CONTEXT ERROR] {e}"
-            )
+QUAN TRỌNG:
+- Chỉ trả lời bằng tiếng Việt.
+- Không đưa ví dụ.
+- Không đưa từ đồng nghĩa.
+- Không đưa từ trái nghĩa.
+- Không đưa collocation.
+- Không đưa word family.
+- Không đưa IPA.
+- Không đưa phát âm.
+- Không đưa thông tin ngoài hai trường được yêu cầu.
+- Không giải thích chung chung như từ điển.
+- Phải dựa vào câu cụ thể.
 
-    # ========================================================
-    # LỚP 2: DỊCH CỤM NGẮN QUANH TỪ
-    # ========================================================
+TRẢ VỀ DUY NHẤT JSON HỢP LỆ.
 
-    if sentence:
+Định dạng bắt buộc:
 
-        try:
-            result, unchanged = _translate_short_phrase(
-                translator,
-                sentence,
-                word
-            )
+{{
+  "word": "{word}",
+  "context_meaning": "nghĩa ngắn gọn của từ trong câu",
+  "reason": "giải thích ngắn gọn về từ loại, vai trò hoặc ngữ pháp liên quan"
+}}
 
-            if result:
-                return result
+Không được trả về Markdown.
+Không được sử dụng ```json.
+Không được thêm bất kỳ text nào trước hoặc sau JSON.
+"""
 
-            if unchanged:
-                overall_unchanged = (
-                    overall_unchanged
-                    or unchanged
-                )
+    # ============================================================
+    # CALL OLLAMA
+    # ============================================================
+    print(f"\n=== Đang tạo giải thích cho từ: {word} ===\n")
 
-        except Exception as e:
+    response = chat(
+        model=model,
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ],
+        think=False,
+        stream=True,
+        options={
+            "temperature": 0.1,
+            "num_predict": 300,
+        },
+    )
 
-            print(
-                f"[SHORT PHRASE ERROR] {e}"
-            )
+    full_content = ""
 
-    # ========================================================
-    # LỚP 3: DỊCH RIÊNG TỪ
-    # ========================================================
+    for chunk in response:
+        content = chunk["message"]["content"]
+        print(content, end="", flush=True)
+        full_content += content
 
+    print("\n")
+
+    # ============================================================
+    # CLEAN RESPONSE
+    # ============================================================
+    cleaned = full_content.strip()
+
+    # Remove Markdown code fence nếu model vẫn trả về
+    cleaned = re.sub(
+        r"^```(?:json)?\s*",
+        "",
+        cleaned,
+        flags=re.IGNORECASE
+    )
+    cleaned = re.sub(
+        r"\s*```$",
+        "",
+        cleaned
+    )
+    cleaned = cleaned.strip()
+
+    # ============================================================
+    # PARSE & RETURN
+    # ============================================================
     try:
+        result = json.loads(cleaned)
+    except json.JSONDecodeError:
+        # fallback an toàn nếu model trả về không đúng format
+        result = {
+            "word": word,
+            "context_meaning": "không xác định",
+            "reason": "không phân tích được"
+        }
 
-        result = _translate_word_alone(
-            word,
-            native,
-            language
-        )
-
-        # Có kết quả và không phải chính từ gốc
-        if result and not _is_untranslated(
-            result,
-            word
-        ):
-            return result
-
-        if result:
-            overall_unchanged = (
-                overall_unchanged
-                or result
-            )
-
-    except Exception as e:
-
-        print(
-            f"[WORD FALLBACK ERROR] {e}"
-        )
-
-    # ========================================================
-    # LỚP 4: LOANWORD
-    # ========================================================
-
-    if overall_unchanged:
-        return overall_unchanged
-
-    return None
+    return result
 
 
 async def get_context_meaning(
@@ -279,40 +167,17 @@ async def get_context_meaning(
     native: str,
     language: str
 ):
+    payload = {
+        "word": word,
+        "language": native,
+        "subtitle": sentence,
+        "sourceLanguage": language
+    }
 
-    # key = (
-    #     word.lower(),
-    #     sentence,
-    #     native,
-    #     language
-    # )
-
-    # now = datetime.now()
-
-    # if key in meaning_cache:
-
-    #     value, timestamp = meaning_cache[key]
-
-    #     if now - timestamp < CACHE_TTL:
-    #         return value
-
-    #     del meaning_cache[key]
-
-    # loop = asyncio.get_running_loop()
-
-    # result = await loop.run_in_executor(
-    #     None,
-    #     translate_context_sync,
-    #     word,
-    #     sentence,
-    #     native,
-    #     language
-    # )
-
-    # meaning_cache[key] = (
-    #     result,
-    #     now
-    # )
-
-    # return result
-    return ""
+    result = await asyncio.to_thread(
+        explain_word,
+        payload=payload,
+        level="B1",
+        model="qwen3:1.7b"
+    )
+    return result
