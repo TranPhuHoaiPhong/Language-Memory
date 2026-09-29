@@ -1,6 +1,10 @@
 # Node
 node_modules/
 
+my-extension/node_modules/
+my-extension/package-lock.json
+my-extension/package.json
+
 all/audio
 
 # Python virtual environment

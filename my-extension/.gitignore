@@ -1,0 +1,8 @@
+node_modules
+dist
+*.local
+*.log
+
+# dotenv environment variable files
+.env
+.env.*.local

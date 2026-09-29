@@ -1,0 +1,118 @@
+/* ===== Word popup — main frame ===== */
+#word-popup {
+  position: absolute;
+  display: flex;
+  visibility: hidden;
+  z-index: 42;
+  min-width: clamp(140px, 12vw, 280px);
+  max-width: clamp(200px, 50vw, 500px);
+  background: white;
+  border-radius: clamp(8px, 1vw, 14px);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: clamp(13px, 1.2vw, 18px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  animation: word-popup-fade 0.12s ease-out;
+  pointer-events: auto;
+  padding: 5px 6px;
+}
+
+#word-popup .popup-container {
+  flex: 1;
+}
+
+#word-popup .popup-content {
+  max-height: 200px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#word-popup .popup-content::-webkit-scrollbar {
+  display: none;
+}
+
+#word-popup::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transform: translateX(-50%) rotate(45deg);
+  background: white;
+}
+
+@keyframes word-popup-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.word-popup-word {
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 0.2em;
+  word-break: break-word;
+  text-align: center;
+  color: black;
+}
+
+.word-popup-ipa {
+  color: #555;
+  font-size: 0.85em;
+  margin-bottom: 0.4em;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+.word-popup-meaning {
+  color: #222;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-top: 0.8em;
+  margin-bottom: 0.6em;
+  min-height: 1.2em;
+  text-align: center;
+}
+
+/* ===== Spinner ===== */
+.word-popup-spinner {
+  width: 20px;
+  height: 20px;
+  margin: 8px auto;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  animation: word-popup-spin 0.7s linear infinite;
+}
+
+@keyframes word-popup-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Interaction guards ===== */
+#subtitle-translate .sub-translated {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+#subtitle-translate .sub-original {
+  -webkit-user-drag: none;
+}

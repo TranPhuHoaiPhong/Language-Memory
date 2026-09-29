@@ -1,0 +1,95 @@
+/* ===== Subtitle container ===== */
+#subtitle-translate {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 40;
+  font-size: 28px;
+}
+
+/* Per-line colours and the gap come from the popup; the rest of the
+   typography is set inline on the root element. */
+#subtitle-translate .sub-original,
+#subtitle-translate .sub-translated {
+  font-size: inherit;
+  margin: 0;
+  text-align: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+#subtitle-translate .sub-original {
+  color: var(--sub-original-color, #fff);
+  user-select: text;
+  -webkit-user-select: text;
+  pointer-events: auto !important;
+}
+
+#subtitle-translate .sub-translated {
+  color: var(--sub-translated-color, #fff);
+  margin-top: var(--subtitle-gap, 0.2em);
+  pointer-events: none !important;
+}
+
+/* Each rendered line is its own box so the background hugs the text. */
+#subtitle-translate .sub-line {
+  display: inline-block;
+  margin: 0 auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--sub-background, rgba(0, 0, 0, 0.4));
+  padding: var(--sub-padding, 5px 13px);
+  border-radius: var(--sub-radius, 4px);
+  line-height: inherit;
+  text-shadow: var(--sub-text-shadow, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000);
+  box-shadow: var(--sub-box-shadow, none);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+#subtitle-translate .sub-line + .sub-line {
+  margin-top: 0.5em;
+}
+
+#subtitle-translate .sub-original::selection {
+  color: #ffe600;
+}
+
+/* ===== Drag handle ===== */
+#subtitle-translate .subtitle-drag-handle {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  cursor: grab;
+  z-index: 20;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  user-select: none;
+  opacity: 0;
+  pointer-events: auto;
+  transition: opacity 0.2s;
+}
+
+#subtitle-translate .subtitle-content {
+  user-select: text;
+}
+
+/* ===== Hover feedback ===== */
+#subtitle-translate .sub-word {
+  cursor: pointer;
+}
+
+#subtitle-translate .sub-word:hover {
+  color: #ffe600;
+}

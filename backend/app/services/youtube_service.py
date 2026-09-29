@@ -193,6 +193,7 @@ async def process_id(
     target_language: str,
     native_language: str,
 ):
+    print("Rêceived video_id:", video_id)
     links = get_timedtext_url(
         video_id=video_id,
         target_language=target_language,

@@ -1,0 +1,9 @@
+/*
+ * Injected into the host page by the content script. Vite bundles this into
+ * the single `content.js` file and injects it at runtime (MV3 content scripts
+ * cannot load an external stylesheet).
+ */
+@import './subtitle.css';
+@import './word-popup.css';
+@import './popup-pos.css';
+@import './popup-controls.css';
