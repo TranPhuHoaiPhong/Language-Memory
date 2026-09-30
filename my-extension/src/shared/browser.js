@@ -29,6 +29,21 @@ export function sendMessage(message) {
 }
 
 /**
+ * Listens for messages pushed by the background worker (the extension icon
+ * toggling the settings sidebar). Returns an unsubscribe function.
+ */
+export function onMessage(handler) {
+  if (!extension?.runtime?.onMessage) return () => {}
+
+  const listener = (message) => {
+    if (message?.type) handler(message)
+  }
+
+  extension.runtime.onMessage.addListener(listener)
+  return () => extension.runtime.onMessage.removeListener(listener)
+}
+
+/**
  * Fires `callback` with the new values of `keys` whenever they change in
  * `storage.sync`. Returns an unsubscribe function.
  */

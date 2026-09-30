@@ -10,7 +10,7 @@ import {
 import { MIN_PREVIEW_FONT_SIZE } from '../composables/previewMetrics.js'
 
 /**
- * Applies the exact same declarations as the content overlay, so the popup is
+ * Applies the exact same declarations as the content overlay, so the sidebar is
  * a faithful preview instead of an approximation. 18px is the overlay's own
  * minimum font size, i.e. the reference case for small players.
  */

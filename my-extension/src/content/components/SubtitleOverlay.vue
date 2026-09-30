@@ -20,7 +20,7 @@ const handleStyle = computed(() => ({
 }))
 
 /**
- * Everything the popup can change is expressed as CSS custom properties on the
+ * Everything the settings sidebar can change is expressed as CSS custom properties on the
  * root. The rules that differ per line (`.sub-original` / `.sub-translated`)
  * or per box (`.sub-line`) read those variables, so the stylesheet stays static
  * and only the inline bindings change when a slider moves.

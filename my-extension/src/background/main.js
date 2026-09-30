@@ -2,8 +2,18 @@
 import { API_BASE } from '../shared/constants.js'
 
 /**
+ * There is no `default_popup`: the toolbar icon is the sidebar's only trigger,
+ * so the click is relayed to the content script of the current tab. Tabs that
+ * do not run the content script (chrome:// pages, other sites) simply ignore it.
+ */
+chrome.action.onClicked.addListener((tab) => {
+  if (typeof tab?.id !== 'number') return
+  chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_SETTINGS' }).catch(() => {})
+})
+
+/**
  * The only place allowed to talk to the backend. Content scripts and the
- * popup relay their requests here through `chrome.runtime.sendMessage`.
+ * settings sidebar relay their requests here through `chrome.runtime.sendMessage`.
  */
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type !== 'API_REQUEST') return false

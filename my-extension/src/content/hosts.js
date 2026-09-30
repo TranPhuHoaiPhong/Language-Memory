@@ -14,3 +14,9 @@ function createHost() {
 
 export const subtitleHost = createHost()
 export const wordPopupHost = createHost()
+
+/**
+ * The settings sidebar is `position: fixed`, so it must not inherit any of the
+ * page's stacking contexts; a plain container appended to `<body>` is enough.
+ */
+export const settingsHost = createHost()

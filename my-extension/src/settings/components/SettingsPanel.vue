@@ -1,31 +1,47 @@
 <script setup>
-import LanguageSelect from './components/LanguageSelect.vue'
-import SubtitleSettings from './components/SubtitleSettings.vue'
-import { LANGUAGES } from '../shared/languages.js'
-import { usePopup } from './composables/usePopup.js'
+import { onBeforeUnmount, onMounted } from 'vue'
+import LanguageSelect from './LanguageSelect.vue'
+import SubtitleSettings from './SubtitleSettings.vue'
+import { LANGUAGES } from '../../shared/languages.js'
+import { useSettingsPanel } from '../composables/useSettingsPanel.js'
 
 const {
-  ready,
+  isOpen,
   activeTab,
   nativeLanguage,
   targetLanguage,
   settings,
   showSavedHint,
   resetSettings,
-} = usePopup()
+  close,
+} = useSettingsPanel()
 
 const TABS = [
   { id: 'language', label: 'Ngôn ngữ' },
   { id: 'subtitle', label: 'Phụ đề' },
 ]
+
+function onKeydown(event) {
+  if (event.key === 'Escape') close()
+}
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
-  <main class="container">
+  <!-- Kept mounted and only translated off-screen, so opening it is instant and
+       the settings keep their state (open <details>, scroll, active tab). -->
+  <aside id="lingo-settings" :class="{ open: isOpen }" :aria-hidden="!isOpen">
     <header class="head">
+      <button class="close-btn" type="button" aria-label="Đóng" @click="close">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
       <h2>LINGO</h2>
       <transition name="fade">
-        <span v-if="ready && showSavedHint" class="saved-hint">Đã lưu</span>
+        <span v-if="showSavedHint" class="saved-hint">Đã lưu</span>
       </transition>
     </header>
 
@@ -63,5 +79,5 @@ const TABS = [
 
       <SubtitleSettings v-show="activeTab === 'subtitle'" v-model:settings="settings" @reset="resetSettings" />
     </div>
-  </main>
+  </aside>
 </template>

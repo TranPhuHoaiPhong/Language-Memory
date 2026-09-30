@@ -10,12 +10,12 @@ const PUBLIC_DIR = resolvePath('./public')
 const OUT_DIR = resolvePath('./dist')
 
 /**
- * Three separate builds, because each Chrome extension target has its own
+ * Two separate builds, because each Chrome extension target has its own
  * module-format requirement and they cannot share a single Rollup pass:
  *
- *   popup      - regular HTML page, code-split ES modules (dist/popup.html)
  *   content    - content_scripts are NOT modules in MV3, needs one IIFE file
- *                with the CSS inlined as JS (dist/content.js)
+ *                with the CSS inlined as JS (dist/content.js). Also carries the
+ *                settings sidebar UI.
  *   background - MV3 service worker, ES module (dist/background.js)
  */
 export default defineConfig(({ mode }) => {
@@ -65,19 +65,10 @@ export default defineConfig(({ mode }) => {
 
   return {
     ...base,
-    // Relative asset URLs so the page keeps working from any extension path.
     base: './',
     build: {
       outDir: OUT_DIR,
       emptyOutDir: true,
-      rollupOptions: {
-        input: { popup: resolvePath('./popup.html') },
-        output: {
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          assetFileNames: 'assets/[name]-[hash][extname]',
-        },
-      },
     },
   }
 })

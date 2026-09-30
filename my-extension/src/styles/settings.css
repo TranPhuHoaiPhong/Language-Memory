@@ -1,62 +1,143 @@
-* {
+/*
+ * Settings sidebar. Injected into the host page by the content script, so
+ * every rule is scoped to `#lingo-settings`: an unscoped `select` or `*` reset
+ * here would restyle YouTube itself.
+ */
+#lingo-settings {
+  --panel-width: 20vw;
+  --slide-duration: 0.28s;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--panel-width);
+  /* `dvh` follows mobile browser chrome; `vh` is the fallback. */
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 16px 18px 20px;
+  /* The panel itself never scrolls: the head and the tabs stay pinned and only
+     `.panels` scrolls, so the title cannot drift while the user scrolls down. */
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: #f7f8fc;
+  color: #222;
+  border-left: 1px solid #d9dee9;
+  box-shadow: -4px 0 20px rgba(15, 23, 42, 0.18);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  /* Slid in from the right edge; `visibility` keeps it out of hit-testing. */
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform var(--slide-duration) ease, visibility 0s linear var(--slide-duration);
+}
+
+#lingo-settings.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform var(--slide-duration) ease, visibility 0s;
+}
+
+/* The page must not read text selections or scroll under the panel. */
+#lingo-settings *,
+#lingo-settings *::before,
+#lingo-settings *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  color: #222;
+  font-family: inherit;
 }
 
-body {
-  width: 300px;
-  background: #f7f8fc;
-}
-
-.container {
-  padding: 16px 18px 20px;
+#lingo-settings button,
+#lingo-settings input,
+#lingo-settings select,
+#lingo-settings summary {
+  font-family: inherit;
+  color: inherit;
 }
 
 /* ===== Header ===== */
-.head {
+#lingo-settings .head {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 8px;
+  height: 30px;
   margin-bottom: 14px;
+  flex: none;
 }
 
-h2 {
+/* Out of flow so the "Đã lưu" chip appearing on the right cannot shift it. */
+#lingo-settings h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 20px;
   letter-spacing: 0.5px;
 }
 
-.saved-hint {
+#lingo-settings .saved-hint {
+  margin-left: auto;
   font-size: 11px;
   color: #16a34a;
   background: #dcfce7;
   border-radius: 999px;
   padding: 3px 9px;
+  white-space: nowrap;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+#lingo-settings .close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: #e9edf5;
+  color: #5b6478;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+#lingo-settings .close-btn:hover {
+  background: #dde3ee;
+  color: #222;
+}
+
+#lingo-settings .close-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+#lingo-settings .fade-enter-active,
+#lingo-settings .fade-leave-active {
   transition: opacity 0.2s;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+#lingo-settings .fade-enter-from,
+#lingo-settings .fade-leave-to {
   opacity: 0;
 }
 
 /* ===== Tabs ===== */
-.tabs {
+#lingo-settings .tabs {
   display: flex;
   gap: 4px;
   padding: 4px;
   background: #e9edf5;
   border-radius: 10px;
   margin-bottom: 16px;
+  flex: none;
 }
 
-.tab {
+#lingo-settings .tab {
   flex: 1;
   height: 32px;
   border: none;
@@ -69,37 +150,47 @@ h2 {
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
 }
 
-.tab:hover {
+#lingo-settings .tab:hover {
   color: #222;
 }
 
-.tab.active {
+#lingo-settings .tab.active {
   background: #fff;
   color: #1677ff;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
 }
 
 /* ===== Panels ===== */
-.tab-body {
+#lingo-settings .panels {
+  flex: 1;
+  min-height: 0;
+  margin-right: -6px;
+  padding-right: 6px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+#lingo-settings .tab-body {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.hint {
+#lingo-settings .hint {
   font-size: 11px;
   line-height: 1.5;
   color: #8a93a6;
 }
 
 /* ===== Language select ===== */
-.desc {
+#lingo-settings .desc {
   margin-bottom: 6px;
   color: #666;
   font-size: 13px;
 }
 
-select {
+#lingo-settings select {
   width: 100%;
   height: 40px;
   border: 1px solid #dcdcdc;
@@ -114,15 +205,15 @@ select {
   -moz-appearance: none;
 }
 
-select:focus {
+#lingo-settings select:focus {
   border-color: #1677ff;
 }
 
-.select-wrapper {
+#lingo-settings .select-wrapper {
   position: relative;
 }
 
-.select-wrapper::after {
+#lingo-settings .select-wrapper::after {
   content: '▼';
   position: absolute;
   right: 16px;
@@ -134,38 +225,38 @@ select:focus {
 }
 
 /* ===== Settings fields ===== */
-.field-head {
+#lingo-settings .field-head {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 8px;
 }
 
-.field-label {
+#lingo-settings .field-label {
   font-size: 13px;
   color: #444;
 }
 
-.field-hint {
+#lingo-settings .field-hint {
   font-size: 11px;
   color: #98a0b3;
 }
 
-.field-value {
+#lingo-settings .field-value {
   font-size: 12px;
   font-weight: 600;
   color: #1677ff;
   font-variant-numeric: tabular-nums;
 }
 
-.field-value--swatch {
+#lingo-settings .field-value--swatch {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   color: #666;
 }
 
-.swatch-dot {
+#lingo-settings .swatch-dot {
   width: 11px;
   height: 11px;
   border-radius: 3px;
@@ -173,20 +264,20 @@ select:focus {
 }
 
 /* ===== Collapsible sections ===== */
-.section {
+#lingo-settings .section {
   background: #fff;
   border: 1px solid #e6e9f0;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.section + .section,
-.section + .tab-body > .field,
-.field + .section {
+#lingo-settings .section + .section,
+#lingo-settings .section + .tab-body > .field,
+#lingo-settings .field + .section {
   margin-top: 2px;
 }
 
-.section-head {
+#lingo-settings .section-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,50 +290,49 @@ select:focus {
   user-select: none;
 }
 
-.section-head::-webkit-details-marker {
+#lingo-settings .section-head::-webkit-details-marker {
   display: none;
 }
 
-.section-head:hover {
+#lingo-settings .section-head:hover {
   background: #fafbfd;
 }
 
-.section-chevron {
+#lingo-settings .section-chevron {
   width: 15px;
   height: 15px;
   color: #9aa4b8;
   transition: transform 0.18s;
 }
 
-.section[open] .section-chevron {
+#lingo-settings .section[open] .section-chevron {
   transform: rotate(90deg);
 }
 
-.section-body {
+#lingo-settings .section-body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 2px 12px 14px;
   border-top: 1px solid #f0f2f7;
   margin-top: -1px;
-  padding-top: 13px;
+  padding: 13px 12px 14px;
 }
 
 /* ===== Toggle ===== */
-.toggle-row {
+#lingo-settings .toggle-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.toggle-text {
+#lingo-settings .toggle-text {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.toggle {
+#lingo-settings .toggle {
   flex: none;
   width: 38px;
   height: 22px;
@@ -254,11 +344,11 @@ select:focus {
   transition: background 0.2s;
 }
 
-.toggle.on {
+#lingo-settings .toggle.on {
   background: #1677ff;
 }
 
-.toggle-knob {
+#lingo-settings .toggle-knob {
   display: block;
   width: 18px;
   height: 18px;
@@ -269,24 +359,24 @@ select:focus {
   transition: transform 0.2s;
 }
 
-.toggle.on .toggle-knob {
+#lingo-settings .toggle.on .toggle-knob {
   transform: translateX(16px);
 }
 
 /* ===== Compact select inside a field row ===== */
-.select-wrapper--compact {
+#lingo-settings .select-wrapper--compact {
   margin-top: 6px;
 }
 
 /* ===== Actions ===== */
-.actions {
+#lingo-settings .actions {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: 2px;
 }
 
-.reset-btn {
+#lingo-settings .reset-btn {
   height: 34px;
   border: 1px solid #d7dce6;
   border-radius: 9px;
@@ -298,13 +388,13 @@ select:focus {
   transition: 0.18s;
 }
 
-.reset-btn:hover {
+#lingo-settings .reset-btn:hover {
   border-color: #1677ff;
   color: #1677ff;
 }
 
 /* ===== Range ===== */
-.range {
+#lingo-settings .range {
   width: 100%;
   height: 4px;
   border-radius: 999px;
@@ -315,7 +405,7 @@ select:focus {
   cursor: pointer;
 }
 
-.range::-webkit-slider-thumb {
+#lingo-settings .range::-webkit-slider-thumb {
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -326,7 +416,7 @@ select:focus {
   -webkit-appearance: none;
 }
 
-.range::-moz-range-thumb {
+#lingo-settings .range::-moz-range-thumb {
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -336,13 +426,13 @@ select:focus {
 }
 
 /* ===== Colour swatches ===== */
-.swatches {
+#lingo-settings .swatches {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
 }
 
-.swatch {
+#lingo-settings .swatch {
   position: relative;
   height: 28px;
   border-radius: 7px;
@@ -354,15 +444,15 @@ select:focus {
   padding: 0;
 }
 
-.swatch:hover {
+#lingo-settings .swatch:hover {
   transform: translateY(-1px);
 }
 
-.swatch.active {
+#lingo-settings .swatch.active {
   box-shadow: 0 0 0 2px #1677ff;
 }
 
-.swatch--custom {
+#lingo-settings .swatch--custom {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -370,7 +460,7 @@ select:focus {
   background-image: conic-gradient(#f87171, #fbbf24, #4ade80, #38bdf8, #a78bfa, #f87171);
 }
 
-.swatch--custom input[type='color'] {
+#lingo-settings .swatch--custom input[type='color'] {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -381,7 +471,7 @@ select:focus {
   opacity: 0;
 }
 
-.swatch-check {
+#lingo-settings .swatch-check {
   position: absolute;
   font-size: 12px;
   font-weight: 700;
@@ -391,7 +481,7 @@ select:focus {
 }
 
 /* ===== Preview ===== */
-.preview-stage {
+#lingo-settings .preview-stage {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -402,12 +492,12 @@ select:focus {
   overflow: hidden;
 }
 
-.preview-sub {
+#lingo-settings .preview-sub {
   /* Same box model as the overlay's .sub-line. */
   margin: 0 auto;
 }
 
-.preview-line {
+#lingo-settings .preview-line {
   display: inline-block;
   max-width: 100%;
   background: var(--sub-background, rgba(0, 0, 0, 0.4));
@@ -421,15 +511,15 @@ select:focus {
   -webkit-box-decoration-break: clone;
 }
 
-.preview-line--original {
+#lingo-settings .preview-line--original {
   color: var(--sub-original-color, #fff);
 }
 
-.preview-line--translated {
+#lingo-settings .preview-line--translated {
   color: var(--sub-translated-color, #fff);
 }
 
-.preview-caption {
+#lingo-settings .preview-caption {
   margin-top: 6px;
   text-align: center;
   font-size: 10px;

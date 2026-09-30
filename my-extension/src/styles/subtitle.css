@@ -11,8 +11,8 @@
   font-size: 28px;
 }
 
-/* Per-line colours and the gap come from the popup; the rest of the
-   typography is set inline on the root element. */
+/* Per-line colours, the gap and the text shadow come from the settings panel;
+   the rest of the typography is set inline on the root element. */
 #subtitle-translate .sub-original,
 #subtitle-translate .sub-translated {
   font-size: inherit;
@@ -45,7 +45,7 @@
   padding: var(--sub-padding, 5px 13px);
   border-radius: var(--sub-radius, 4px);
   line-height: inherit;
-  text-shadow: var(--sub-text-shadow, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000);
+  text-shadow: var(--sub-text-shadow, none);
   box-shadow: var(--sub-box-shadow, none);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;

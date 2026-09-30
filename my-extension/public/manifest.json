@@ -6,7 +6,7 @@
   "description": "Translate YouTube subtitles into your native language.",
 
   "action": {
-    "default_popup": "popup.html",
+    "default_title": "Cài đặt LINGO",
     "default_icon": {
       "16": "icons/icon.png",
       "32": "icons/icon.png"

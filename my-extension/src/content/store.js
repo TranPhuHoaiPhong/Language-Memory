@@ -19,7 +19,7 @@ export const store = reactive({
   nativeLanguage: DEFAULT_LANGUAGES.native,
   sourceLanguage: '',
 
-  /** Appearance chosen in the popup, applied live to the overlay. */
+  /** Appearance chosen in the settings sidebar, applied live to the overlay. */
   // Deep-cloned, not spread: a shallow copy would share the nested groups with
   // DEFAULT_SETTINGS, so any later mutation would corrupt the factory default.
   settings: normalizeSettings({}),

@@ -1,4 +1,4 @@
-// src/popup/composables/usePopup.js
+// src/settings/composables/useSettingsPanel.js
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { storageGet, storageSet } from '../../shared/browser.js'
 import { DEFAULT_LANGUAGES, STORAGE_KEYS } from '../../shared/constants.js'
@@ -8,7 +8,18 @@ import { SETTINGS_KEY, normalizeSettings } from '../../shared/settings.js'
 const SAVE_DELAY = 200
 const SAVED_HINT_MS = 1200
 
-export function usePopup() {
+/**
+ * The panel lives in the content script, which lives as long as the page, so the
+ * open/closed state is a module-level ref: the background worker toggles it by
+ * sending a message instead of re-mounting the app.
+ */
+const isOpen = ref(false)
+
+export function togglePanel() {
+  isOpen.value = !isOpen.value
+}
+
+export function useSettingsPanel() {
   const ready = ref(false)
   const activeTab = ref('language')
   const nativeLanguage = ref(DEFAULT_LANGUAGES.native)
@@ -67,6 +78,10 @@ export function usePopup() {
     settings.value = normalizeSettings({})
   }
 
+  function close() {
+    isOpen.value = false
+  }
+
   onBeforeUnmount(() => {
     clearTimeout(saveTimer)
     clearTimeout(hintTimer)
@@ -74,11 +89,13 @@ export function usePopup() {
 
   return {
     ready,
+    isOpen,
     activeTab,
     nativeLanguage,
     targetLanguage,
     settings,
     showSavedHint,
     resetSettings,
+    close,
   }
 }

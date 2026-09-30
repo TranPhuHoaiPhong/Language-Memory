@@ -6,7 +6,7 @@ import { loadLanguages, setSettings, store } from '../store.js'
 import { loadTranscript } from './useTranscript.js'
 
 /**
- * Loads everything the popup owns, then keeps it in sync with later edits so
+ * Loads everything the settings sidebar owns, then keeps it in sync with later edits so
  * the overlay restyles the moment the user tweaks a slider.
  *
  * Runs from the content-script entry point, which lives as long as the page,

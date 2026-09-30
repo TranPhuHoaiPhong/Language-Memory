@@ -6,7 +6,7 @@ export const SETTINGS_KEY = 'subtitle_settings'
 /**
  * Every string that reaches a style binding comes from one of these lists.
  * A free-text `font-family` or `box-shadow` would be a CSS injection hole, so
- * the popup only ever stores the key and `resolve()` maps it to the real value.
+ * the sidebar only ever stores the key and `resolve()` maps it to the real value.
  */
 export const FONT_FAMILIES = [
   { value: 'system', label: 'Hệ thống', stack: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' },
@@ -59,7 +59,7 @@ export const DEFAULT_SETTINGS = {
   font: {
     family: 'system',
     /** Multiplier on the auto font size derived from the player height. */
-    scale: 1,
+    scale: 0.8,
     weight: 600,
     lineHeight: 1.3,
     /** Tracking in `em`. */
@@ -87,7 +87,7 @@ export const DEFAULT_SETTINGS = {
     paddingX: 13,
     paddingY: 5,
     boxShadow: 'none',
-    textShadow: 'outline',
+    textShadow: 'none',
   },
 }
 
