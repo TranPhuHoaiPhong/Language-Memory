@@ -1,5 +1,5 @@
-// src/api/translate.js
-import { sendMessage } from '../shared/browser.js'
+// src/features/subtitles/logic/translate.js
+import { sendMessage } from '../../../core/js/browser.js'
 
 /**
  * Google's public `translate_a/t` endpoint, reached through the service worker

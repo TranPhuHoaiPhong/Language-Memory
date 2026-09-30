@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue'
-import { store } from '../store.js'
-import { tokenizeBlock } from '../utils/tokenize.js'
-import { alignWordTimings } from '../utils/wordTiming.js'
+import { tokenizeBlock } from '../logic/tokenize.js'
+import { alignWordTimings } from '../logic/wordTiming.js'
+import { subtitleStore } from '../state/state.js'
 
 const props = defineProps({
   text: { type: String, default: '' },
@@ -32,7 +32,7 @@ const lines = computed(() => {
 
 /** True while the video clock has not reached this word yet. */
 function isPending(part) {
-  return !!part.timing && part.timing.start > store.activeWordTime
+  return !!part.timing && part.timing.start > subtitleStore.activeWordTime
 }
 </script>
 

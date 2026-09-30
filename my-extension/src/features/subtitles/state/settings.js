@@ -1,7 +1,10 @@
-// src/shared/settings.js
+// src/features/subtitles/state/settings.js
 
 /** Single storage key so the content script can read everything in one go. */
 export const SETTINGS_KEY = 'subtitle_settings'
+
+/** The overlay's dragged position: per-device, so `localStorage` not `sync`. */
+export const SUBTITLE_POSITION_KEY = 'subtitlePosition'
 
 /**
  * Every string that reaches a style binding comes from one of these lists.
@@ -90,15 +93,6 @@ export const DEFAULT_SETTINGS = {
     textShadow: 'none',
   },
 }
-
-export const COLOR_PRESETS = [
-  { value: '#ffffff', label: 'Trắng' },
-  { value: '#ffe600', label: 'Vàng' },
-  { value: '#38bdf8', label: 'Xanh dương' },
-  { value: '#4ade80', label: 'Xanh lá' },
-  { value: '#f472b6', label: 'Hồng' },
-  { value: '#ff8a4c', label: 'Cam' },
-]
 
 const HEX_COLOR = /^#[0-9a-f]{6}$/i
 

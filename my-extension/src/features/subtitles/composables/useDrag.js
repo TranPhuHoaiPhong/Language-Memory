@@ -1,8 +1,7 @@
-// src/content/composables/useDrag.js
+// src/features/subtitles/composables/useDrag.js
 import { onMounted, onBeforeUnmount, ref } from 'vue'
-import { store } from '../store.js'
-import { SUBTITLE_POSITION_KEY } from '../../shared/constants.js'
-import { getPlayerContainer } from '../utils/dom.js'
+import { getPlayerContainer } from '../../../core/js/dom.js'
+import { saveDragPosition, subtitleStore } from '../state/state.js'
 
 /**
  * Makes the overlay's handle draggable. The vertical position is stored as a
@@ -55,7 +54,7 @@ export function useDrag(rootRef, handleRef) {
     const maxTop = Math.max(0, containerRect.height - root.offsetHeight)
     const top = Math.max(0, Math.min(e.clientY - containerRect.top - offsetY, maxTop))
 
-    store.dragPosition = { topRatio: containerRect.height ? top / containerRect.height : 0 }
+    subtitleStore.dragPosition = { topRatio: containerRect.height ? top / containerRect.height : 0 }
 
     root.style.top = `${top}px`
     root.style.bottom = 'auto'
@@ -70,8 +69,8 @@ export function useDrag(rootRef, handleRef) {
 
     isDragging.value = false
 
-    if (store.dragPosition) {
-      localStorage.setItem(SUBTITLE_POSITION_KEY, JSON.stringify(store.dragPosition))
+    if (subtitleStore.dragPosition) {
+      saveDragPosition(subtitleStore.dragPosition)
     }
 
     const root = rootRef.value

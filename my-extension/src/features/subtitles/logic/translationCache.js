@@ -1,5 +1,5 @@
-// src/content/translationCache.js
-import { localGet, localSet } from '../shared/browser.js'
+// src/features/subtitles/logic/translationCache.js
+import { localGet, localSet } from '../../../core/js/browser.js'
 
 /**
  * Per-sentence translations live in `storage.local`, keyed as

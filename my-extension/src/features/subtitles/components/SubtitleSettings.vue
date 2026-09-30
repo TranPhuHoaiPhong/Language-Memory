@@ -1,10 +1,10 @@
 <script setup>
-import ColorPicker from './ColorPicker.vue'
-import RangeField from './RangeField.vue'
-import SectionBlock from './SectionBlock.vue'
-import SelectField from './SelectField.vue'
+import ColorPicker from '../../../core/ui/ColorPicker.vue'
+import RangeField from '../../../core/ui/RangeField.vue'
+import SectionBlock from '../../../core/ui/SectionBlock.vue'
+import SelectField from '../../../core/ui/SelectField.vue'
+import ToggleField from '../../../core/ui/ToggleField.vue'
 import SubtitlePreview from './SubtitlePreview.vue'
-import ToggleField from './ToggleField.vue'
 import {
   ALIGN_OPTIONS,
   BOX_SHADOWS,
@@ -20,7 +20,7 @@ import {
   SCALE_RANGE,
   TEXT_SHADOWS,
   WIDTH_RANGE,
-} from '../../shared/settings.js'
+} from '../state/settings.js'
 
 const props = defineProps({
   settings: { type: Object, required: true },

@@ -1,5 +1,5 @@
-// src/api/client.js
-import { sendMessage } from '../shared/browser.js'
+// src/core/js/api.js
+import { sendMessage } from './browser.js'
 
 /**
  * Every call is proxied through the background service worker so the content
@@ -12,7 +12,7 @@ export async function apiRequest(endpoint, options = {}) {
   })
 
   if (!response) {
-    throw new Error('Không nhận được phản hồi từ background script')
+    throw new Error('KhÃ´ng nháº­n Ä‘Æ°á»£c pháº£n há»“i tá»« background script')
   }
   if (!response.ok) {
     throw new Error(response.error || 'API request failed')

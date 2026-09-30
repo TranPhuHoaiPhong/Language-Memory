@@ -1,4 +1,4 @@
-// src/content/utils/subtitles.js
+// src/features/subtitles/logic/subtitles.js
 
 // A cue is a couple of seconds long whether it is measured in seconds or in
 // milliseconds, so anything above this is only plausible as milliseconds.

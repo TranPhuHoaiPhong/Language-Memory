@@ -1,6 +1,14 @@
 <script setup>
 import { computed } from 'vue'
-import { COLOR_PRESETS } from '../../shared/settings.js'
+
+const COLOR_PRESETS = [
+  { value: '#ffffff', label: 'Trắng' },
+  { value: '#ffe600', label: 'Vàng' },
+  { value: '#38bdf8', label: 'Xanh dương' },
+  { value: '#4ade80', label: 'Xanh lá' },
+  { value: '#f472b6', label: 'Hồng' },
+  { value: '#ff8a4c', label: 'Cam' },
+]
 
 const props = defineProps({
   label: { type: String, default: 'Màu chữ' },

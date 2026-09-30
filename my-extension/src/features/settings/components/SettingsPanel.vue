@@ -1,24 +1,24 @@
 <script setup>
 import { onBeforeUnmount, onMounted } from 'vue'
-import LanguageSelect from './LanguageSelect.vue'
-import SubtitleSettings from './SubtitleSettings.vue'
-import { LANGUAGES } from '../../shared/languages.js'
+import LanguageSelect from '../../../core/ui/LanguageSelect.vue'
+import { LANGUAGES } from '../../../core/js/languages.js'
 import { useSettingsPanel } from '../composables/useSettingsPanel.js'
 
 const {
   isOpen,
   activeTab,
+  tabs,
+  model,
   nativeLanguage,
   targetLanguage,
-  settings,
+  setField,
   showSavedHint,
-  resetSettings,
   close,
 } = useSettingsPanel()
 
 const TABS = [
   { id: 'language', label: 'Ngôn ngữ' },
-  { id: 'subtitle', label: 'Phụ đề' },
+  ...tabs.map((tab) => ({ id: tab.id, label: tab.label })),
 ]
 
 function onKeydown(event) {
@@ -77,7 +77,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
         <p class="hint">Đổi ngôn ngữ sẽ tải lại phụ đề của video hiện tại.</p>
       </section>
 
-      <SubtitleSettings v-show="activeTab === 'subtitle'" v-model:settings="settings" @reset="resetSettings" />
+      <component
+        v-for="tab in tabs"
+        :is="tab.component"
+        :key="tab.id"
+        v-show="activeTab === tab.id"
+        v-model:settings="model[tab.storageKey]"
+        @reset="setField(tab.storageKey, null)"
+      />
     </div>
   </aside>
 </template>

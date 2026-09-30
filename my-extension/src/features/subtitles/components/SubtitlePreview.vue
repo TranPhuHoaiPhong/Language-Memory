@@ -6,8 +6,8 @@ import {
   fontStack,
   textShadowCss,
   withAlpha,
-} from '../../shared/settings.js'
-import { MIN_PREVIEW_FONT_SIZE } from '../composables/previewMetrics.js'
+} from '../state/settings.js'
+import { MIN_PREVIEW_FONT_SIZE } from '../logic/previewMetrics.js'
 
 /**
  * Applies the exact same declarations as the content overlay, so the sidebar is

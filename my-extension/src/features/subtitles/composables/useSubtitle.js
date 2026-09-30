@@ -1,7 +1,7 @@
-// src/content/composables/useSubtitle.js
+// src/features/subtitles/composables/useSubtitle.js
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { store } from '../store.js'
-import { attachTo, getPlayerContainer, getVideo } from '../utils/dom.js'
+import { attachTo, getPlayerContainer, getVideo } from '../../../core/js/dom.js'
+import { subtitleStore } from '../state/state.js'
 
 const MIN_FONT_SIZE = 18
 const FONT_RATIO = 0.04
@@ -25,7 +25,7 @@ export function useSubtitle(rootRef) {
   )
 
   const fontSize = computed(() =>
-    Math.max(10, Math.round(baseFontSize.value * store.settings.font.scale)),
+    Math.max(10, Math.round(baseFontSize.value * subtitleStore.settings.font.scale)),
   )
 
   function attach() {
@@ -45,9 +45,9 @@ export function useSubtitle(rootRef) {
     root.style.left = '50%'
     root.style.transform = 'translateX(-50%)'
 
-    if (store.dragPosition) {
+    if (subtitleStore.dragPosition) {
       const maxTop = Math.max(0, container.clientHeight - root.offsetHeight)
-      const top = Math.max(0, Math.min(store.dragPosition.topRatio * container.clientHeight, maxTop))
+      const top = Math.max(0, Math.min(subtitleStore.dragPosition.topRatio * container.clientHeight, maxTop))
       root.style.top = `${top}px`
       root.style.bottom = 'auto'
     } else {
@@ -58,21 +58,21 @@ export function useSubtitle(rootRef) {
 
   function syncActiveCue(currentTime) {
     while (
-      store.currentIndex < store.subtitles.length - 1 &&
-      currentTime > store.subtitles[store.currentIndex].end
+      subtitleStore.currentIndex < subtitleStore.subtitles.length - 1 &&
+      currentTime > subtitleStore.subtitles[subtitleStore.currentIndex].end
     ) {
-      store.currentIndex++
+      subtitleStore.currentIndex++
     }
-    while (store.currentIndex > 0 && currentTime < store.subtitles[store.currentIndex].start) {
-      store.currentIndex--
+    while (subtitleStore.currentIndex > 0 && currentTime < subtitleStore.subtitles[subtitleStore.currentIndex].start) {
+      subtitleStore.currentIndex--
     }
 
-    const cue = store.subtitles[store.currentIndex]
+    const cue = subtitleStore.subtitles[subtitleStore.currentIndex]
     const active = cue && currentTime >= cue.start && currentTime <= cue.end ? cue : null
 
-    if (active !== store.currentSubtitle) {
-      store.currentSubtitle = active
-      store.activeWordTime = -1
+    if (active !== subtitleStore.currentSubtitle) {
+      subtitleStore.currentSubtitle = active
+      subtitleStore.activeWordTime = -1
     }
   }
 
@@ -83,7 +83,7 @@ export function useSubtitle(rootRef) {
    * timings leave the marker at -1, which dimms nothing.
    */
   function syncActiveWord(currentTime) {
-    const words = store.currentSubtitle?.words
+    const words = subtitleStore.currentSubtitle?.words
     let start = -1
 
     if (words) {
@@ -93,15 +93,15 @@ export function useSubtitle(rootRef) {
       }
     }
 
-    if (start !== store.activeWordTime) {
-      store.activeWordTime = start
+    if (start !== subtitleStore.activeWordTime) {
+      subtitleStore.activeWordTime = start
     }
   }
 
   function loop() {
     attach()
 
-    const video = store.loading ? null : getVideo()
+    const video = subtitleStore.loading ? null : getVideo()
     if (video) {
       updatePosition()
       syncActiveCue(video.currentTime)

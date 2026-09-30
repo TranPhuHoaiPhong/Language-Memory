@@ -1,87 +1,30 @@
-// src/content/store.js
+// src/core/js/state.js
 import { reactive } from 'vue'
-import {
-  DEFAULT_LANGUAGES,
-  STORAGE_KEYS,
-  SUBTITLE_POSITION_KEY,
-} from '../shared/constants.js'
-import { normalizeSettings } from '../shared/settings.js'
+import { DEFAULT_LANGUAGES } from './constants.js'
 
 /**
- * Shared reactive state between the two content-script apps (subtitle overlay
- * and word popup). They are mounted on separate hosts and therefore cannot
- * use provide/inject, so they talk through this single store.
+ * Session state no single feature owns: the language pair the whole extension
+ * runs on. Everything a feature needs for itself lives in that feature's
+ * `state.js`, next to the code that writes it.
  */
 export const store = reactive({
   /** Language the user is learning: the language subtitles are translated into. */
   targetLanguage: DEFAULT_LANGUAGES.target,
   /** Language the user already speaks: dictionary meanings are returned in it. */
   nativeLanguage: DEFAULT_LANGUAGES.native,
-  sourceLanguage: '',
-
-  /** Appearance chosen in the settings sidebar, applied live to the overlay. */
-  // Deep-cloned, not spread: a shallow copy would share the nested groups with
-  // DEFAULT_SETTINGS, so any later mutation would corrupt the factory default.
-  settings: normalizeSettings({}),
-
-  subtitles: [],
-  currentIndex: 0,
-  currentSubtitle: null,
-  /**
-   * Start time of the last word the video clock has reached, or -1 when the cue
-   * has not started yet. Word opacity is driven off this instead of
-   * `currentTime` so the overlay only re-renders on word boundaries.
-   */
-  activeWordTime: -1,
-  loading: false,
-  currentVideoId: null,
-
-  /** `null` renders the transcript, a string renders it as a status line. */
-  message: null,
-
-  /** Vertical offset of the overlay, expressed as a ratio of the player height. */
-  dragPosition: null,
 })
 
 /**
- * The two apps are mounted on separate hosts, so the word popup registers its
- * `hide` action here for the overlay to call when playback resumes.
+ * The content-script apps are mounted on separate hosts, so they cannot use
+ * provide/inject. The word popup registers its `hide` action here for the
+ * features that dismiss it (e.g. the overlay, when playback resumes).
  */
 export const popupControl = { hide: () => {} }
 
-export function setSubtitles(subtitles) {
-  store.subtitles = subtitles || []
-  store.currentIndex = 0
-  store.currentSubtitle = null
-  store.activeWordTime = -1
-  store.message = null
+export function setTargetLanguage(value) {
+  store.targetLanguage = value || DEFAULT_LANGUAGES.target
 }
 
-export function setMessage(message) {
-  store.message = message
+export function setNativeLanguage(value) {
+  store.nativeLanguage = value || DEFAULT_LANGUAGES.native
 }
-
-export function loadLanguages(stored) {
-  store.targetLanguage = stored?.[STORAGE_KEYS.targetLanguage] || DEFAULT_LANGUAGES.target
-  store.nativeLanguage = stored?.[STORAGE_KEYS.nativeLanguage] || DEFAULT_LANGUAGES.native
-}
-
-/** Mutated in place so bindings on `store.settings` survive the update. */
-export function setSettings(raw) {
-  Object.assign(store.settings, normalizeSettings(raw))
-}
-
-function restoreDragPosition() {
-  try {
-    const saved = localStorage.getItem(SUBTITLE_POSITION_KEY)
-    if (!saved) return
-    const pos = JSON.parse(saved)
-    if (pos?.topRatio !== undefined) {
-      store.dragPosition = pos
-    }
-  } catch {
-    // Corrupted value, fall back to the default position.
-  }
-}
-
-restoreDragPosition()

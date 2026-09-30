@@ -1,9 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { store } from '../store.js'
 import { useDrag } from '../composables/useDrag.js'
 import { usePlayerObservers } from '../composables/usePlayerObservers.js'
-import { boxShadowCss, effectiveWeight, fontStack, textShadowCss, withAlpha } from '../../shared/settings.js'
+import { boxShadowCss, effectiveWeight, fontStack, textShadowCss, withAlpha } from '../state/settings.js'
+import { subtitleStore } from '../state/state.js'
 import SubtitleText from './SubtitleText.vue'
 
 const root = ref(null)
@@ -26,7 +26,7 @@ const handleStyle = computed(() => ({
  * and only the inline bindings change when a slider moves.
  */
 const rootStyle = computed(() => {
-  const { font, gap, original, translated, background: bg } = store.settings
+  const { font, gap, original, translated, background: bg } = subtitleStore.settings
 
   return {
     fontSize: `${fontSize.value}px`,
@@ -56,20 +56,20 @@ const rootStyle = computed(() => {
     <div class="subtitle-drag-handle" ref="handle" :style="handleStyle">⠿</div>
 
     <div class="subtitle-content">
-      <template v-if="store.message !== null">
-        <div class="sub-original">{{ store.message }}</div>
-        <div class="sub-translated">{{ store.message }}</div>
+      <template v-if="subtitleStore.message !== null">
+        <div class="sub-original">{{ subtitleStore.message }}</div>
+        <div class="sub-translated">{{ subtitleStore.message }}</div>
       </template>
 
-      <template v-else-if="store.currentSubtitle">
+      <template v-else-if="subtitleStore.currentSubtitle">
         <div class="sub-original">
           <SubtitleText
-            :text="store.currentSubtitle.original"
-            :words="store.currentSubtitle.words"
+            :text="subtitleStore.currentSubtitle.original"
+            :words="subtitleStore.currentSubtitle.words"
           />
         </div>
-        <div v-if="store.currentSubtitle.translated" class="sub-translated">
-          <SubtitleText :text="store.currentSubtitle.translated" />
+        <div v-if="subtitleStore.currentSubtitle.translated" class="sub-translated">
+          <SubtitleText :text="subtitleStore.currentSubtitle.translated" />
         </div>
       </template>
     </div>

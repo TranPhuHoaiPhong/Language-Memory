@@ -1,4 +1,4 @@
-// src/shared/browser.js
+// src/core/js/browser.js
 
 /**
  * Thin wrappers over the `chrome.*` extension APIs so the app can also be

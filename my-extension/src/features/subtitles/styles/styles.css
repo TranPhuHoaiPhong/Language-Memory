@@ -104,3 +104,15 @@
 #subtitle-translate .sub-word--pending {
   opacity: var(--sub-word-pending-opacity, 0.45);
 }
+
+/* ===== Interaction guards ===== */
+#subtitle-translate .sub-translated {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+#subtitle-translate .sub-original {
+  -webkit-user-drag: none;
+}

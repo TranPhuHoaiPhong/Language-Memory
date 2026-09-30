@@ -1,4 +1,4 @@
-// src/content/utils/tokenize.js
+// src/features/subtitles/logic/tokenize.js
 
 // Must stay in sync with `expandRangeToWords` so that every token rendered as
 // a `.sub-word` span is exactly what the selection snapping can latch onto.

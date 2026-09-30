@@ -1,15 +1,17 @@
-// src/content/composables/useWordPopup.js
+// src/features/dictionary/composables/useWordPopup.js
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
-import { CLICK_MOVE_THRESHOLD } from '../../shared/constants.js'
-import { fetchWordInfo, saveWord } from '../../api/word.js'
-import { playAudio, stopAudio } from '../audio.js'
-import { wordPopupHost } from '../hosts.js'
-import { store } from '../store.js'
-import { attachTo, getPlayerContainer, getPlayerRoot, getVideo } from '../utils/dom.js'
-import { expandRangeToWords } from '../utils/range.js'
+import { attachTo, getPlayerContainer, getPlayerRoot, getVideo } from '../../../core/js/dom.js'
+import { store } from '../../../core/js/state.js'
+import { subtitleStore } from '../../subtitles/state/state.js'
+import { playAudio, stopAudio } from '../logic/audio.js'
+import { wordPopupHost } from '../logic/hosts.js'
+import { expandRangeToWords } from '../logic/range.js'
+import { fetchWordInfo, saveWord } from '../logic/word.js'
 
 const EDITABLE = 'input, textarea, [contenteditable="true"]'
 const POPUP_GAP = 5
+/** Distance (px) below which a mouse gesture still counts as a plain click. */
+const CLICK_MOVE_THRESHOLD = 4
 const AUTOPLAY_DELAY = 300
 
 function closest(node, selector) {
@@ -85,7 +87,7 @@ export function useWordPopup(rootRef) {
   }
 
   async function lookup(selectedWord) {
-    const subtitle = store.currentSubtitle
+    const subtitle = subtitleStore.currentSubtitle
     const language = store.nativeLanguage
     const sourceLanguage = store.targetLanguage
     const currentRequestId = ++requestId

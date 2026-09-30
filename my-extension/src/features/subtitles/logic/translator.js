@@ -1,7 +1,8 @@
-// src/content/translator.js
-import { abortRequest, translateSentences } from '../api/translate.js'
-import { store } from './store.js'
-import { getVideo } from './utils/dom.js'
+// src/features/subtitles/logic/translator.js
+import { getVideo } from '../../../core/js/dom.js'
+import { store } from '../../../core/js/state.js'
+import { subtitleStore } from '../state/state.js'
+import { abortRequest, translateSentences } from './translate.js'
 import { readCachedTranslations, writeCachedTranslations } from './translationCache.js'
 
 /**
@@ -177,7 +178,7 @@ function handlePosition(state, index) {
 function createSession(videoId) {
   // The reactive array, not the raw payload: filling in `translated` on it is
   // what makes the overlay pick the sentence up mid-playback.
-  const subtitles = store.subtitles
+  const subtitles = subtitleStore.subtitles
 
   return {
     videoId,
@@ -276,7 +277,7 @@ function teardown(state) {
 }
 
 /**
- * Starts translating `store.subtitles` for `videoId`, resuming from whatever the
+ * Starts translating `subtitleStore.subtitles` for `videoId`, resuming from whatever the
  * cache already holds. Safe to call again to retarget: the previous session is
  * torn down first, which is what makes a language switch or a new video drop the
  * old scheduler instead of racing it.
@@ -284,9 +285,9 @@ function teardown(state) {
 export async function startTranslation(videoId) {
   stopTranslation()
 
-  if (!videoId || !store.subtitles.length) {
+  if (!videoId || !subtitleStore.subtitles.length) {
     console.info(
-      `[Lingo] Không dịch: videoId=${videoId || 'null'}, cues=${store.subtitles.length}`,
+      `[Lingo] Không dịch: videoId=${videoId || 'null'}, cues=${subtitleStore.subtitles.length}`,
     )
     return
   }
@@ -301,7 +302,7 @@ export async function startTranslation(videoId) {
     return
   }
   console.info(
-    `[Lingo] Bắt đầu dịch: video=${videoId}, cues=${store.subtitles.length},`,
+    `[Lingo] Bắt đầu dịch: video=${videoId}, cues=${subtitleStore.subtitles.length},`,
     `${store.nativeLanguage} -> ${store.targetLanguage}, batch=${BATCH_SIZE}, lead=${PREFETCH_LEAD_SECONDS}s`,
   )
 
@@ -310,7 +311,7 @@ export async function startTranslation(videoId) {
 
   // The backend may have shipped translations of its own; those sentences are
   // done and must never be requested again.
-  store.subtitles.forEach((cue, index) => {
+  subtitleStore.subtitles.forEach((cue, index) => {
     if (cue.translated) state.resolved.add(index)
   })
 

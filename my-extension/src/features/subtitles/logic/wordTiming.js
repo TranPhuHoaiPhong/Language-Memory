@@ -1,4 +1,4 @@
-// src/content/utils/wordTiming.js
+// src/features/subtitles/logic/wordTiming.js
 
 // Punctuation and case are the only things that reliably differ between a
 // rendered token and the word the backend timed, so they are dropped before

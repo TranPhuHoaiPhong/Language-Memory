@@ -1,26 +1,43 @@
-// src/content/composables/useTranscript.js
-import { fetchTranscriptData } from '../../api/transcript.js'
-import { setMessage, setSubtitles, store } from '../store.js'
-import { getVideo } from '../utils/dom.js'
-import { normalizeSubtitles } from '../utils/subtitles.js'
-import { startTranslation, stopTranslation } from '../translator.js'
+// src/features/subtitles/composables/useTranscript.js
+import { getVideo } from '../../../core/js/dom.js'
+import { store } from '../../../core/js/state.js'
+import { normalizeSubtitles } from '../logic/subtitles.js'
+import { fetchTranscriptData } from '../logic/transcript.js'
+import { startTranslation, stopTranslation } from '../logic/translator.js'
+import { setMessage, setSubtitles, subtitleStore } from '../state/state.js'
+
+/**
+ * The transcript on screen is identified by the video *and* the language pair,
+ * because the same video needs a new one whenever either language changes.
+ * Callers fire this freely — the panel writes both language keys at once and
+ * `storage.onChanged` reports each key separately — so the request is keyed by
+ * what it depends on, not by how many times it was asked for. Without this,
+ * one turn sends `send-id` + `transcript` twice.
+ */
+function requestKey(videoId) {
+  return `${videoId}|${store.targetLanguage}|${store.nativeLanguage}`
+}
+
+let lastRequestKey = null
 
 export async function loadTranscript() {
   const videoId = new URL(location.href).searchParams.get('v')
 
   if (!videoId) {
     stopTranslation()
-    store.currentVideoId = null
+    lastRequestKey = null
     return
   }
-  if (videoId === store.currentVideoId) return
 
-  store.currentVideoId = videoId
+  const key = requestKey(videoId)
+  if (key === lastRequestKey) return
+  lastRequestKey = key
+
   // The outgoing session belongs to the previous video (or language pair).
   stopTranslation()
 
   setSubtitles([])
-  store.loading = true
+  subtitleStore.loading = true
   setMessage('Generating')
 
   try {
@@ -30,14 +47,14 @@ export async function loadTranscript() {
       store.nativeLanguage,
     )
 
-    store.sourceLanguage = result.sourceLanguage
-    store.loading = false
+    subtitleStore.sourceLanguage = result.sourceLanguage
+    subtitleStore.loading = false
 
     const subtitles = normalizeSubtitles(result.subtitles, getVideo()?.duration)
     console.info(
       `[Lingo] Transcript: raw=${Array.isArray(result.subtitles) ? result.subtitles.length : 0}`,
       `usable=${subtitles.length}, noTranslation=${Boolean(result.noTranslation)}`,
-      `source=${store.sourceLanguage || 'unknown'}`,
+      `source=${subtitleStore.sourceLanguage || 'unknown'}`,
     )
 
     // A same-language pair has nothing to overlay on top of YouTube's own track
@@ -54,7 +71,7 @@ export async function loadTranscript() {
     // Fire and forget: the overlay is already usable, translations stream in.
     startTranslation(videoId)
   } catch (err) {
-    store.loading = false
+    subtitleStore.loading = false
     setSubtitles([])
     setMessage(err.message || 'Error loading transcript')
   }

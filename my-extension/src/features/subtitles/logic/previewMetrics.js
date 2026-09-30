@@ -1,4 +1,4 @@
-// src/settings/composables/previewMetrics.js
+// src/features/subtitles/logic/previewMetrics.js
 
 /**
  * Kept in sync with the content overlay: a small player bottoms out at 18px,

@@ -1,3 +1,4 @@
+
 /* ===== Word popup — main frame ===== */
 #word-popup {
   position: absolute;
@@ -105,14 +106,172 @@
   }
 }
 
-/* ===== Interaction guards ===== */
-#subtitle-translate .sub-translated {
-  user-select: none !important;
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
+/* ===== POS (part of speech) ===== */
+.word-popup-pos {
+  font-size: 0.7em;
+  margin-bottom: 0.8em;
+  min-height: 1.2em;
+  text-align: center;
+  font-weight: 600;
 }
 
-#subtitle-translate .sub-original {
-  -webkit-user-drag: none;
+/* Noun */
+.word-popup-pos.pos-noun {
+  color: #2563eb;
+}
+
+/* Verb */
+.word-popup-pos.pos-verb {
+  color: #dc2626;
+}
+
+/* Adjective */
+.word-popup-pos.pos-adj {
+  color: #16a34a;
+}
+
+/* Adverb */
+.word-popup-pos.pos-adv {
+  color: #9333ea;
+}
+
+/* Pronoun */
+.word-popup-pos.pos-pron {
+  color: #ea580c;
+}
+
+/* Preposition */
+.word-popup-pos.pos-adp {
+  color: #0891b2;
+}
+
+/* Determiner */
+.word-popup-pos.pos-det {
+  color: #ca8a04;
+}
+
+/* Auxiliary verb */
+.word-popup-pos.pos-aux {
+  color: #db2777;
+}
+
+/* Conjunction */
+.word-popup-pos.pos-cconj,
+.word-popup-pos.pos-sconj {
+  color: #64748b;
+}
+
+/* Proper noun */
+.word-popup-pos.pos-propn {
+  color: #4f46e5;
+}
+
+/* Numeral */
+.word-popup-pos.pos-num {
+  color: #0f766e;
+}
+
+/* Particle */
+.word-popup-pos.pos-part {
+  color: #7c3aed;
+}
+
+/* Interjection */
+.word-popup-pos.pos-intj {
+  color: #f97316;
+}
+
+/* Punctuation */
+.word-popup-pos.pos-punct {
+  color: #6b7280;
+}
+
+/* Other */
+.word-popup-pos.pos-x {
+  color: #6b7280;
+}
+
+/* ===== Controls: audio + save ===== */
+#word-popup .container-word {
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Audio button */
+#word-popup .inside-word-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(28px, 2vw, 44px);
+  height: clamp(28px, 2vw, 44px);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+#word-popup .inside-word-audio:hover {
+  background-color: #f3f4f6;
+}
+
+#word-popup .inside-word-audio:active {
+  transform: scale(0.9);
+}
+
+#word-popup .word-popup-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#word-popup .word-popup-audio img {
+  width: clamp(18px, 1.8vw, 28px);
+  height: 70%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Save button */
+#word-popup .word-popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: clamp(4px, 0.4vw, 8px) clamp(10px, 1vw, 20px);
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+#word-popup .word-popup-btn:hover {
+  background: #2563eb;
+}
+
+#word-popup .word-popup-btn:disabled {
+  background: #999;
+  cursor: default;
+}
+
+/* Loading state */
+#word-popup.loading {
+  min-width: 120px;
+  text-align: center;
+}
+
+#word-popup.loading .container-word {
+  display: none;
 }

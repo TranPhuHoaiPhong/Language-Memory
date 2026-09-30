@@ -1,7 +1,7 @@
-// src/content/composables/usePlayerObservers.js
+// src/features/subtitles/composables/usePlayerObservers.js
 import { onBeforeUnmount, onMounted } from 'vue'
-import { getPlayerContainer, getPlayerRoot, getVideo } from '../utils/dom.js'
-import { popupControl } from '../store.js'
+import { getPlayerContainer, getPlayerRoot, getVideo } from '../../../core/js/dom.js'
+import { popupControl } from '../../../core/js/state.js'
 import { useSubtitle } from './useSubtitle.js'
 import { loadTranscript } from './useTranscript.js'
 

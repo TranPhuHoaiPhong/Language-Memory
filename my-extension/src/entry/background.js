@@ -1,5 +1,5 @@
-// src/background/main.js
-import { API_BASE, PROXY_HOSTS } from '../shared/constants.js'
+// src/entry/background.js
+import { API_BASE, PROXY_HOSTS } from '../core/js/constants.js'
 
 /**
  * There is no `default_popup`: the toolbar icon is the sidebar's only trigger,

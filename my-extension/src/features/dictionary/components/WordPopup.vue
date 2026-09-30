@@ -1,8 +1,8 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { runtimeUrl } from '../../shared/browser.js'
-import { AUDIO_ICON_URL } from '../../shared/constants.js'
-import { popupControl } from '../store.js'
+import { runtimeUrl } from '../../../core/js/browser.js'
+import { AUDIO_ICON_URL } from '../../../core/js/constants.js'
+import { popupControl } from '../../../core/js/state.js'
 import { useWordPopup } from '../composables/useWordPopup.js'
 
 const root = ref(null)

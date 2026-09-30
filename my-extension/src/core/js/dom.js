@@ -1,4 +1,4 @@
-// src/content/utils/dom.js
+// src/core/js/dom.js
 
 export const PLAYER_SELECTOR = '.html5-video-player'
 export const PLAYER_CONTAINER_SELECTOR = '#player'

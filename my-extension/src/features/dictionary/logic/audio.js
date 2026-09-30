@@ -1,4 +1,4 @@
-// src/content/audio.js
+// src/features/dictionary/logic/audio.js
 
 const player = new Audio()
 player.preload = 'none'

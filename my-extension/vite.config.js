@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
         emptyOutDir: false,
         cssCodeSplit: false,
         lib: {
-          entry: resolvePath('./src/content/main.js'),
+          entry: resolvePath('./src/entry/content.js'),
           name: 'SubtitleTranslatorContent',
           formats: ['iife'],
           fileName: () => 'content.js',
@@ -55,7 +55,7 @@ export default defineConfig(({ mode }) => {
         outDir: OUT_DIR,
         emptyOutDir: false,
         lib: {
-          entry: resolvePath('./src/background/main.js'),
+          entry: resolvePath('./src/entry/background.js'),
           formats: ['es'],
           fileName: () => 'background.js',
         },

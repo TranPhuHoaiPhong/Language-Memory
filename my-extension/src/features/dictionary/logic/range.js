@@ -1,4 +1,4 @@
-// src/content/utils/range.js
+// src/features/dictionary/logic/range.js
 
 /**
  * Nearest `.sub-word` ancestor of a node (walks up from text nodes too),

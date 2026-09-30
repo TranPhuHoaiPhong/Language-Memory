@@ -1,8 +1,8 @@
-// src/settings/composables/useSettingsPanel.js
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { storageGet, storageSet } from '../../shared/browser.js'
-import { DEFAULT_LANGUAGES, STORAGE_KEYS } from '../../shared/constants.js'
-import { SETTINGS_KEY, normalizeSettings } from '../../shared/settings.js'
+// src/features/settings/composables/useSettingsPanel.js
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { storageGet, storageSet } from '../../../core/js/browser.js'
+import { DEFAULT_LANGUAGES, STORAGE_KEYS } from '../../../core/js/constants.js'
+import { registeredTabs } from '../../../core/js/registry.js'
 
 /** Coalesce slider drags into a single write: storage.sync is rate limited. */
 const SAVE_DELAY = 200
@@ -20,29 +20,69 @@ export function togglePanel() {
 }
 
 export function useSettingsPanel() {
-  const ready = ref(false)
+  /** One tab per feature that registered a settings section, in registration order. */
+  const tabs = registeredTabs()
   const activeTab = ref('language')
-  const nativeLanguage = ref(DEFAULT_LANGUAGES.native)
-  const targetLanguage = ref(DEFAULT_LANGUAGES.target)
-  const settings = ref(normalizeSettings({}))
   const showSavedHint = ref(false)
+
+  /**
+   * Every storage key the panel edits: the language pair, which belongs to the
+   * session, plus one key per feature tab. The panel is the only writer, so the
+   * whole set is loaded and saved in one go.
+   */
+  const fields = [
+    {
+      storageKey: STORAGE_KEYS.targetLanguage,
+      normalize: (value) => value || DEFAULT_LANGUAGES.target,
+    },
+    {
+      storageKey: STORAGE_KEYS.nativeLanguage,
+      normalize: (value) => value || DEFAULT_LANGUAGES.native,
+    },
+    ...tabs,
+  ]
+
+  /**
+   * `storageKey` -> the value being edited. Seeded with the defaults rather than
+   * left empty, because the tab components are rendered before the stored
+   * values come back and read their model straight away.
+   */
+  const model = reactive(
+    Object.fromEntries(fields.map((field) => [field.storageKey, field.normalize(null)])),
+  )
 
   let saveTimer = null
   let hintTimer = null
   /**
-   * Guards the watcher while the stored values are being applied. `ready` is
-   * not enough: the watcher is pre-flush, so it already observes `ready=true`
+   * Guards the watcher while the stored values are being applied. A `ready`
+   * flag is not enough: the watcher is pre-flush, so it already observes it
    * by the time it runs and would write the freshly loaded values straight
    * back to storage.
    */
   let hydrated = false
 
+  function fieldOf(storageKey) {
+    return fields.find((field) => field.storageKey === storageKey)
+  }
+
+  /** `null` restores the default, which is what a tab's reset button sends. */
+  function setField(storageKey, value) {
+    const field = fieldOf(storageKey)
+    model[storageKey] = field ? field.normalize(value) : value
+  }
+
+  const targetLanguage = computed({
+    get: () => model[STORAGE_KEYS.targetLanguage],
+    set: (value) => setField(STORAGE_KEYS.targetLanguage, value),
+  })
+
+  const nativeLanguage = computed({
+    get: () => model[STORAGE_KEYS.nativeLanguage],
+    set: (value) => setField(STORAGE_KEYS.nativeLanguage, value),
+  })
+
   async function persist() {
-    await storageSet({
-      [STORAGE_KEYS.targetLanguage]: targetLanguage.value,
-      [STORAGE_KEYS.nativeLanguage]: nativeLanguage.value,
-      [SETTINGS_KEY]: { ...settings.value },
-    })
+    await storageSet({ ...model })
 
     showSavedHint.value = true
     clearTimeout(hintTimer)
@@ -50,16 +90,11 @@ export function useSettingsPanel() {
   }
 
   onMounted(async () => {
-    const stored = await storageGet([
-      STORAGE_KEYS.targetLanguage,
-      STORAGE_KEYS.nativeLanguage,
-      SETTINGS_KEY,
-    ])
+    const stored = await storageGet(fields.map((field) => field.storageKey))
 
-    targetLanguage.value = stored[STORAGE_KEYS.targetLanguage] || DEFAULT_LANGUAGES.target
-    nativeLanguage.value = stored[STORAGE_KEYS.nativeLanguage] || DEFAULT_LANGUAGES.native
-    settings.value = normalizeSettings(stored[SETTINGS_KEY])
-    ready.value = true
+    fields.forEach((field) => {
+      model[field.storageKey] = field.normalize(stored[field.storageKey])
+    })
 
     // Let the watcher above run once (and bail out) before accepting edits.
     await nextTick()
@@ -67,16 +102,15 @@ export function useSettingsPanel() {
   })
 
   // Every control writes straight to storage; no Save button.
-  watch([targetLanguage, nativeLanguage, settings], () => {
-    if (!hydrated) return
-    clearTimeout(saveTimer)
-    saveTimer = setTimeout(persist, SAVE_DELAY)
-  })
-
-  /** Back to the factory look; the watcher above persists it. */
-  function resetSettings() {
-    settings.value = normalizeSettings({})
-  }
+  watch(
+    model,
+    () => {
+      if (!hydrated) return
+      clearTimeout(saveTimer)
+      saveTimer = setTimeout(persist, SAVE_DELAY)
+    },
+    { deep: true },
+  )
 
   function close() {
     isOpen.value = false
@@ -88,14 +122,14 @@ export function useSettingsPanel() {
   })
 
   return {
-    ready,
     isOpen,
     activeTab,
+    tabs,
+    model,
     nativeLanguage,
     targetLanguage,
-    settings,
+    setField,
     showSavedHint,
-    resetSettings,
     close,
   }
 }

@@ -1,4 +1,4 @@
-// src/shared/languages.js
+// src/core/js/languages.js
 
 export const LANGUAGES = [
   { code: 'af', name: 'Afrikaans' },

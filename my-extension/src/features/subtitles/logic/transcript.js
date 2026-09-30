@@ -1,5 +1,5 @@
-// src/api/transcript.js
-import { apiRequest } from './client.js'
+// src/features/subtitles/logic/transcript.js
+import { apiRequest } from '../../../core/js/api.js'
 
 function sendVideoId(videoId, target_language) {
   return apiRequest('send-id', {
