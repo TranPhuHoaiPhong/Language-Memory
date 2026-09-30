@@ -88,8 +88,19 @@
 /* ===== Hover feedback ===== */
 #subtitle-translate .sub-word {
   cursor: pointer;
+  opacity: 1;
+  /* Only the class flip animates, which happens on word boundaries — never
+     per frame. */
+  transition: opacity var(--sub-word-fade, 120ms) linear;
 }
 
 #subtitle-translate .sub-word:hover {
   color: #ffe600;
+}
+
+/* ===== Word timings ===== */
+/* Words the speaker has not reached yet sit back, and rise to full opacity the
+   moment the video clock reaches them. */
+#subtitle-translate .sub-word--pending {
+  opacity: var(--sub-word-pending-opacity, 0.45);
 }

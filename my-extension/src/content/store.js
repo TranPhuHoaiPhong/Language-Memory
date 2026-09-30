@@ -27,6 +27,12 @@ export const store = reactive({
   subtitles: [],
   currentIndex: 0,
   currentSubtitle: null,
+  /**
+   * Start time of the last word the video clock has reached, or -1 when the cue
+   * has not started yet. Word opacity is driven off this instead of
+   * `currentTime` so the overlay only re-renders on word boundaries.
+   */
+  activeWordTime: -1,
   loading: false,
   currentVideoId: null,
 
@@ -47,6 +53,7 @@ export function setSubtitles(subtitles) {
   store.subtitles = subtitles || []
   store.currentIndex = 0
   store.currentSubtitle = null
+  store.activeWordTime = -1
   store.message = null
 }
 

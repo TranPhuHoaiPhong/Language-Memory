@@ -29,7 +29,11 @@
 
   "permissions": ["storage", "activeTab"],
 
-  "host_permissions": ["http://localhost:8000/*", "https://www.youtube.com/*"],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "https://www.youtube.com/*",
+    "https://translate.googleapis.com/*"
+  ],
 
   "background": {
     "service_worker": "background.js",

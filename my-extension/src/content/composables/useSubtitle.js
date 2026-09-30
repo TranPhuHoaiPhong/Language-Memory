@@ -72,6 +72,29 @@ export function useSubtitle(rootRef) {
 
     if (active !== store.currentSubtitle) {
       store.currentSubtitle = active
+      store.activeWordTime = -1
+    }
+  }
+
+  /**
+   * Walks the active cue's word list and publishes the start time of the last
+   * word the clock has reached. Words after that point render dimmed, this one
+   * and everything already spoken renders normally. Cues without per-word
+   * timings leave the marker at -1, which dimms nothing.
+   */
+  function syncActiveWord(currentTime) {
+    const words = store.currentSubtitle?.words
+    let start = -1
+
+    if (words) {
+      for (const word of words) {
+        if (word.start > currentTime) break
+        start = word.start
+      }
+    }
+
+    if (start !== store.activeWordTime) {
+      store.activeWordTime = start
     }
   }
 
@@ -82,6 +105,7 @@ export function useSubtitle(rootRef) {
     if (video) {
       updatePosition()
       syncActiveCue(video.currentTime)
+      syncActiveWord(video.currentTime)
     }
 
     frame = requestAnimationFrame(loop)

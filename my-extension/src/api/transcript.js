@@ -1,28 +1,20 @@
 // src/api/transcript.js
 import { apiRequest } from './client.js'
 
-function sendVideoId(videoId, target_language, native_language) {
+function sendVideoId(videoId, target_language) {
   return apiRequest('send-id', {
     method: 'POST',
-    body: { id: videoId, target_language, native_language },
+    body: { id: videoId, target_language },
   })
 }
 
 function sendTranscript(
-  videoId,
-  target_language,
-  native_language,
-  target_transcript,
-  native_transcript,
+  target_transcript
 ) {
   return apiRequest('transcript', {
     method: 'POST',
     body: {
-      target_transcript,
-      native_transcript,
-      target_language,
-      native_language,
-      videoId,
+      target_transcript
     },
   })
 }
@@ -39,28 +31,23 @@ export async function fetchTranscriptData(
   native_language,
   onProgress = () => {},
 ) {
-  const linkData = await sendVideoId(videoId, target_language, native_language)
-  const { target_link, native_link } = linkData || {}
+  const linkData = await sendVideoId(videoId, target_language)
+  const { target_link } = linkData || {}
 
-  if (!target_link || !native_link) {
-    throw new Error('Không nhận được target_link hoặc native_link từ backend')
+  if (!target_link) {
+    throw new Error('Không nhận được target_link từ backend')
   }
 
   onProgress({ stage: 'downloading' })
 
   let targetTranscript
-  let nativeTranscript
+
   try {
-    const [targetRes, nativeRes] = await Promise.all([
-      fetch(target_link),
-      fetch(native_link),
-    ])
+    const targetRes = await fetch(target_link)
 
     if (!targetRes.ok) throw new Error(`Fetch target_link failed: ${targetRes.status}`)
-    if (!nativeRes.ok) throw new Error(`Fetch native_link failed: ${nativeRes.status}`)
 
     targetTranscript = await targetRes.text()
-    nativeTranscript = await nativeRes.text()
   } catch (err) {
     console.error('Lỗi khi tải transcript từ YouTube:', err)
     throw new Error('Không thể tải transcript từ YouTube')
@@ -69,17 +56,13 @@ export async function fetchTranscriptData(
   onProgress({ stage: 'translating' })
 
   const data = await sendTranscript(
-    videoId,
-    target_language,
-    native_language,
-    targetTranscript,
-    nativeTranscript,
+    targetTranscript
   )
 
   return {
     subtitles: data.subtitles,
-    sourceLanguage: data.sourceLanguage,
-    nativeLanguage: data.nativeLanguage,
+    sourceLanguage: data.sourceLanguage || '',
+    nativeLanguage: data.nativeLanguage || '',
     noTranslation: data.noTranslation || false,
   }
 }

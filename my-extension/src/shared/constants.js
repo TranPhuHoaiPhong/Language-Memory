@@ -18,3 +18,10 @@ export const DEFAULT_LANGUAGES = {
 }
 
 export const SUBTITLE_POSITION_KEY = 'subtitlePosition'
+
+/**
+ * Hosts the service worker is allowed to fetch on behalf of a content script.
+ * Anything outside this list is refused so the worker cannot be turned into an
+ * open proxy by a page that manages to talk to it.
+ */
+export const PROXY_HOSTS = ['translate.googleapis.com']

@@ -63,9 +63,12 @@ const rootStyle = computed(() => {
 
       <template v-else-if="store.currentSubtitle">
         <div class="sub-original">
-          <SubtitleText :text="store.currentSubtitle.original" />
+          <SubtitleText
+            :text="store.currentSubtitle.original"
+            :words="store.currentSubtitle.words"
+          />
         </div>
-        <div class="sub-translated">
+        <div v-if="store.currentSubtitle.translated" class="sub-translated">
           <SubtitleText :text="store.currentSubtitle.translated" />
         </div>
       </template>

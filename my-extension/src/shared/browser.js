@@ -23,6 +23,21 @@ export function storageSet(items) {
   return new Promise((resolve) => extension.storage.sync.set(items, resolve))
 }
 
+/**
+ * `storage.local` is used for the subtitle translation cache: one entry per
+ * sentence easily exceeds the `storage.sync` item limits, and the cache is
+ * per-device data that has no business syncing.
+ */
+export function localGet(keys) {
+  if (!extension?.storage?.local) return Promise.resolve({})
+  return new Promise((resolve) => extension.storage.local.get(keys, resolve))
+}
+
+export function localSet(items) {
+  if (!extension?.storage?.local) return Promise.resolve()
+  return new Promise((resolve) => extension.storage.local.set(items, resolve))
+}
+
 export function sendMessage(message) {
   if (!extension?.runtime?.sendMessage) return Promise.resolve(undefined)
   return new Promise((resolve) => extension.runtime.sendMessage(message, resolve))
