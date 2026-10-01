@@ -5,6 +5,7 @@ import { store } from '../../../core/js/state.js'
 import { subtitleStore } from '../../subtitles/state/state.js'
 import { playAudio, stopAudio } from '../logic/audio.js'
 import { wordPopupHost } from '../logic/hosts.js'
+import { wordPanelControl } from '../logic/panelControl.js'
 import { expandRangeToWords } from '../logic/range.js'
 import { fetchWordInfo, saveWord } from '../logic/word.js'
 
@@ -13,6 +14,10 @@ const POPUP_GAP = 5
 /** Distance (px) below which a mouse gesture still counts as a plain click. */
 const CLICK_MOVE_THRESHOLD = 4
 const AUTOPLAY_DELAY = 300
+/** Resting on a word long enough before the lookup is worth a request. */
+const HOVER_DELAY = 250
+/** Grace period so the pointer can travel from the word to the popup. */
+const HOVER_HIDE_DELAY = 220
 
 function closest(node, selector) {
   if (!node) return null
@@ -43,6 +48,14 @@ export function useWordPopup(rootRef) {
   let mouseDownX = 0
   let mouseDownY = 0
   let resizeObserver = null
+
+  let hoverTimer = null
+  let hoverHideTimer = null
+  let hoveredWord = null
+  let pointerOnPopup = false
+  /** Set only when the hover itself stopped the video, so a deliberate pause
+      (a click, a selection) is never undone by the pointer leaving. */
+  let pausedByHover = false
 
   function attachToPlayer() {
     const container = document.fullscreenElement || getPlayerContainer() || getPlayerRoot()
@@ -80,6 +93,91 @@ export function useWordPopup(rootRef) {
     requestId++
     stopAudio()
     visible.value = false
+    clearHover()
+  }
+
+  // ===== Hover lifecycle =====
+
+  function clearHover() {
+    clearTimeout(hoverTimer)
+    clearTimeout(hoverHideTimer)
+    hoverTimer = null
+    hoverHideTimer = null
+    hoveredWord = null
+  }
+
+  function pauseForHover() {
+    const video = getVideo()
+    if (video && !video.paused) {
+      video.pause()
+      pausedByHover = true
+    }
+  }
+
+  function resumeAfterHover() {
+    if (!pausedByHover) return
+    pausedByHover = false
+
+    const video = getVideo()
+    if (video && video.paused) video.play().catch(() => {})
+  }
+
+  function scheduleHoverHide() {
+    clearTimeout(hoverHideTimer)
+    hoverHideTimer = setTimeout(() => {
+      if (pointerOnPopup) return
+      hide()
+      resumeAfterHover()
+    }, HOVER_HIDE_DELAY)
+  }
+
+  /**
+   * Resting on a word is the cheap way to read it: the video stops and the
+   * popup looks the word up. The delay keeps a mouse sweep across a line from
+   * firing a request per word, and the same word is never looked up twice.
+   */
+  function onMouseOver(e) {
+    if (closest(e.target, '#word-popup')) {
+      pointerOnPopup = true
+      clearTimeout(hoverHideTimer)
+      return
+    }
+    pointerOnPopup = false
+
+    const word = closest(e.target, '.sub-original .sub-word')
+    if (!word) {
+      if (hoveredWord) scheduleHoverHide()
+      return
+    }
+
+    const text = word.textContent.trim()
+    if (!text) return
+
+    // Travelling towards the popup must not tear the lookup down.
+    clearTimeout(hoverHideTimer)
+    if (text === hoveredWord) return
+
+    hoveredWord = text
+    clearTimeout(hoverTimer)
+    hoverTimer = setTimeout(() => {
+      if (hoveredWord !== text) return
+      pauseForHover()
+      selectedRect = word.getBoundingClientRect()
+      lookup(text)
+    }, HOVER_DELAY)
+  }
+
+  function onMouseOut(e) {
+    if (closest(e.target, '#word-popup')) {
+      pointerOnPopup = false
+      if (hoveredWord) scheduleHoverHide()
+      return
+    }
+
+    if (!closest(e.target, '.sub-original .sub-word')) return
+    if (closest(e.relatedTarget, '#word-popup')) return
+
+    scheduleHoverHide()
   }
 
   function clearSelection() {
@@ -221,32 +319,44 @@ export function useWordPopup(rootRef) {
         return
       }
 
-      range = document.createRange()
-      range.selectNodeContents(clicked)
-      selection.removeAllRanges()
-      selection.addRange(range)
-    } else {
-      if (!selection?.rangeCount || !selection.toString().trim()) {
-        hide()
-        return
-      }
-      range = selection.getRangeAt(0)
-
-      if (!closest(range.startContainer, '.sub-original')) {
+      const text = clicked.textContent.trim()
+      if (!text) {
         hide()
         return
       }
 
-      const expanded = expandRangeToWords(range)
-      if (!expanded) {
-        hide()
-        clearSelection()
-        return
-      }
-      selection.removeAllRanges()
-      selection.addRange(expanded)
-      range = expanded
+      // A click is a deliberate "keep this one": the floating popup belongs to
+      // hovering and to drag-selection, a clicked word goes to the side panel.
+      // The pause it inherits is the user's now, so the pointer walking away
+      // must not resume the video under the panel.
+      pausedByHover = false
+      hide()
+      clearSelection()
+      wordPanelControl.open(text)
+      return
     }
+
+    // A drag is a phrase, not a word: the popup shows the whole selection.
+    if (!selection?.rangeCount || !selection.toString().trim()) {
+      hide()
+      return
+    }
+    range = selection.getRangeAt(0)
+
+    if (!closest(range.startContainer, '.sub-original')) {
+      hide()
+      return
+    }
+
+    const expanded = expandRangeToWords(range)
+    if (!expanded) {
+      hide()
+      clearSelection()
+      return
+    }
+    selection.removeAllRanges()
+    selection.addRange(expanded)
+    range = expanded
 
     const text = selection.toString().trim()
     if (!text) {
@@ -306,6 +416,8 @@ export function useWordPopup(rootRef) {
     document.addEventListener('mousedown', onMouseDownClearOverlap, true)
     document.addEventListener('mousedown', onMouseDownTrack)
     document.addEventListener('mouseup', onMouseUp)
+    document.addEventListener('mouseover', onMouseOver)
+    document.addEventListener('mouseout', onMouseOut)
     document.addEventListener('selectionchange', onSelectionChange)
     document.addEventListener('mousedown', onMouseDownOutside)
     document.addEventListener('mousedown', onTripleClick, true)
@@ -325,12 +437,15 @@ export function useWordPopup(rootRef) {
     document.removeEventListener('mousedown', onMouseDownClearOverlap, true)
     document.removeEventListener('mousedown', onMouseDownTrack)
     document.removeEventListener('mouseup', onMouseUp)
+    document.removeEventListener('mouseover', onMouseOver)
+    document.removeEventListener('mouseout', onMouseOut)
     document.removeEventListener('selectionchange', onSelectionChange)
     document.removeEventListener('mousedown', onMouseDownOutside)
     document.removeEventListener('mousedown', onTripleClick, true)
     document.removeEventListener('keydown', onKeyDown)
     document.removeEventListener('fullscreenchange', onFullscreenChange)
     resizeObserver?.disconnect()
+    clearHover()
     stopAudio()
   })
 

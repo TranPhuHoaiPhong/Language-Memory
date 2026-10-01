@@ -11,13 +11,23 @@ import { setTargetLanguage, setNativeLanguage } from './state.js'
 
 /**
  * `storage.sync` key -> the handlers that apply the stored value, in
- * registration order. The language pair is registered first so the session
- * state is up to date before a feature reacts to the same change.
+ * registration order.
+ *
+ * The language pair is kept in its own map because it is the session state the
+ * rest of the extension reads: those setters must land *before* any feature
+ * reacts, otherwise a feature sees a half-updated pair and asks for the wrong
+ * transcript. A startup read loads many keys at once, so applying them one by
+ * one would fire a feature once per key with a partially applied pair — hence
+ * `applyStorageBatch`, which settles the session state first and only then
+ * notifies features.
  */
-const storage = new Map([
+const session = new Map([
   [STORAGE_KEYS.targetLanguage, [setTargetLanguage]],
   [STORAGE_KEYS.nativeLanguage, [setNativeLanguage]],
 ])
+
+/** Same shape, for the handlers features register. */
+const storage = new Map()
 
 /** Extra tabs for the settings panel, in registration order. */
 const tabs = []
@@ -36,12 +46,24 @@ export function registerStorageKey(key, apply) {
   storage.set(key, [apply])
 }
 
+/** Every key the session state and the features together need at startup. */
 export function registeredStorageKeys() {
-  return [...storage.keys()]
+  return [...new Set([...session.keys(), ...storage.keys()])]
 }
 
 export function applyStorageKey(key, value) {
+  session.get(key)?.forEach((apply) => apply(value))
   storage.get(key)?.forEach((apply) => apply(value))
+}
+
+/**
+ * Applies a whole batch of loaded values, session state first. Loading is the
+ * one moment several keys land together, and a feature that reacts to the
+ * first of them would read the rest as still unset.
+ */
+export function applyStorageBatch(values) {
+  session.forEach((handlers, key) => handlers.forEach((apply) => apply(values[key])))
+  storage.forEach((handlers, key) => handlers.forEach((apply) => apply(values[key])))
 }
 
 /**

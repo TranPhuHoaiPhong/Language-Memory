@@ -19,6 +19,11 @@ function requestKey(videoId) {
 }
 
 let lastRequestKey = null
+/**
+ * Counts the requests that were actually started, so a response that lost the
+ * race is dropped on arrival instead of overwriting a newer transcript.
+ */
+let requestId = 0
 
 export async function loadTranscript() {
   const videoId = new URL(location.href).searchParams.get('v')
@@ -33,9 +38,10 @@ export async function loadTranscript() {
   if (key === lastRequestKey) return
   lastRequestKey = key
 
-  // The outgoing session belongs to the previous video (or language pair).
+  // Whatever is on screen belongs to the previous video or language pair.
   stopTranslation()
 
+  const id = ++requestId
   setSubtitles([])
   subtitleStore.loading = true
   setMessage('Generating')
@@ -46,6 +52,13 @@ export async function loadTranscript() {
       store.targetLanguage,
       store.nativeLanguage,
     )
+
+    // The user changed video or languages while this was in flight: its result
+    // is for a state the app has already left, so it must not touch the store.
+    if (id !== requestId) {
+      console.info('[Lingo] Bỏ qua response transcript cũ.')
+      return
+    }
 
     subtitleStore.sourceLanguage = result.sourceLanguage
     subtitleStore.loading = false
@@ -71,6 +84,7 @@ export async function loadTranscript() {
     // Fire and forget: the overlay is already usable, translations stream in.
     startTranslation(videoId)
   } catch (err) {
+    if (id !== requestId) return
     subtitleStore.loading = false
     setSubtitles([])
     setMessage(err.message || 'Error loading transcript')

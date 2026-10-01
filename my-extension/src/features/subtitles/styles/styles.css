@@ -89,20 +89,39 @@
 #subtitle-translate .sub-word {
   cursor: pointer;
   opacity: 1;
+  border-radius: 3px;
   /* Only the class flip animates, which happens on word boundaries — never
      per frame. */
-  transition: opacity var(--sub-word-fade, 120ms) linear;
+  transition: opacity var(--sub-word-fade, 120ms) linear,
+    background-color var(--sub-word-fade, 120ms) linear;
 }
 
+/* Hovering a word is the dictionary trigger, so the word itself is the hit
+   area: a translucent plate instead of a recolour, which would fight the
+   per-line colour coming from the settings. */
 #subtitle-translate .sub-word:hover {
-  color: #ffe600;
+  background-color: rgba(83, 79, 86, 0.8);
+}
+
+/* Punctuation and spaces ride along with the word they trail. */
+#subtitle-translate .sub-plain {
+  cursor: default;
+  opacity: 1;
+  transition: opacity var(--sub-word-fade, 120ms) linear;
 }
 
 /* ===== Word timings ===== */
 /* Words the speaker has not reached yet sit back, and rise to full opacity the
-   moment the video clock reaches them. */
+   moment the video clock reaches them. Punctuation is covered by the same rule
+   because it inherits the timing of the word it follows. */
 #subtitle-translate .sub-word--pending {
   opacity: var(--sub-word-pending-opacity, 0.45);
+}
+
+/* Hovering stops the video, so a hovered word is about to be read: it comes
+   back to full opacity instead of staying dimmed. */
+#subtitle-translate .sub-word--pending:hover {
+  opacity: 1;
 }
 
 /* ===== Interaction guards ===== */

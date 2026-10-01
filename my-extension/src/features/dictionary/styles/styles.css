@@ -1,4 +1,145 @@
 
+/* ===== Word panel (clicked word, right edge) ===== */
+/* Injected into the host page, so every rule is scoped to `#lingo-word-panel`.
+   It sits above `#lingo-settings` because both own the right edge. */
+#lingo-word-panel {
+  --panel-width: 400px;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--panel-width);
+  height: 100vh;
+  height: 100dvh;
+  padding: 16px 18px 18px;
+  overflow: hidden;
+  background: #fff;
+  color: #222;
+  border-left: 1px solid #e5e7eb;
+  box-shadow: -4px 0 20px rgba(15, 23, 42, 0.18);
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  pointer-events: auto;
+}
+
+/* Slide in from the right edge, slide back out to it. The panel is pinned to
+   `right: 0`, so a full panel width of travel is off-screen in either
+   direction. Durations match the popup, which fades over 0.18s. */
+/* The transition classes land on the panel itself, so they are matched by the
+   same id the panel rule uses. */
+#lingo-word-panel.word-panel-enter-active {
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#lingo-word-panel.word-panel-leave-active {
+  transition: transform 0.18s ease-in;
+}
+
+#lingo-word-panel.word-panel-enter-from,
+#lingo-word-panel.word-panel-leave-to {
+  transform: translateX(100%);
+}
+
+#lingo-word-panel *,
+#lingo-word-panel *::before,
+#lingo-word-panel *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+
+
+
+#lingo-word-panel .panel-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* The close button leads the header, so the word starts after it. */
+#lingo-word-panel .panel-word {
+  flex: 1;
+  min-width: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  word-break: break-word;
+}
+
+#lingo-word-panel .panel-word--loading {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+#lingo-word-panel .panel-close {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+#lingo-word-panel .panel-close:hover {
+  background: #e5e7eb;
+  color: #111;
+}
+
+#lingo-word-panel .panel-body {
+  flex: 1;
+  min-height: 0;
+  padding: 14px 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+#lingo-word-panel .word-popup-ipa,
+#lingo-word-panel .word-popup-pos,
+#lingo-word-panel .word-popup-meaning {
+  text-align: left;
+  min-height: 0;
+}
+
+#lingo-word-panel .word-popup-ipa {
+  margin: 10px 0 4px;
+}
+
+#lingo-word-panel .word-popup-pos {
+  margin-bottom: 6px;
+}
+
+#lingo-word-panel .word-popup-meaning {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+#lingo-word-panel .panel-foot {
+  flex: none;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+}
+
+#lingo-word-panel.loading .panel-foot {
+  display: none;
+}
+
 /* ===== Word popup — main frame ===== */
 #word-popup {
   position: absolute;
@@ -192,7 +333,7 @@
 }
 
 /* ===== Controls: audio + save ===== */
-#word-popup .container-word {
+#word-popup .container-word, #lingo-word-panel .container-word {
   display: flex;
   gap: 0.6em;
   align-items: center;
@@ -202,7 +343,7 @@
 }
 
 /* Audio button */
-#word-popup .inside-word-audio {
+#word-popup .inside-word-audio, #lingo-word-panel .inside-word-audio {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,15 +355,17 @@
   transition: background-color 0.2s, transform 0.15s;
 }
 
-#word-popup .inside-word-audio:hover {
+#word-popup .inside-word-audio:hover,
+  #lingo-word-panel .inside-word-audio:hover {
   background-color: #f3f4f6;
 }
 
-#word-popup .inside-word-audio:active {
+#word-popup .inside-word-audio:active,
+  #lingo-word-panel .inside-word-audio:active {
   transform: scale(0.9);
 }
 
-#word-popup .word-popup-audio {
+#word-popup .word-popup-audio, #lingo-word-panel .word-popup-audio {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,7 +377,8 @@
   height: 100%;
 }
 
-#word-popup .word-popup-audio img {
+#word-popup .word-popup-audio img,
+  #lingo-word-panel .word-popup-audio img {
   width: clamp(18px, 1.8vw, 28px);
   height: 70%;
   display: block;
@@ -242,7 +386,7 @@
 }
 
 /* Save button */
-#word-popup .word-popup-btn {
+#word-popup .word-popup-btn, #lingo-word-panel .word-popup-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -257,11 +401,13 @@
   white-space: nowrap;
 }
 
-#word-popup .word-popup-btn:hover {
+#word-popup .word-popup-btn:hover,
+  #lingo-word-panel .word-popup-btn:hover {
   background: #2563eb;
 }
 
-#word-popup .word-popup-btn:disabled {
+#word-popup .word-popup-btn:disabled,
+  #lingo-word-panel .word-popup-btn:disabled {
   background: #999;
   cursor: default;
 }

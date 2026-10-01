@@ -34,18 +34,22 @@ const lines = computed(() => {
 function isPending(part) {
   return !!part.timing && part.timing.start > subtitleStore.activeWordTime
 }
+
+/**
+ * Every part is a span, not just the words: the dimming has to cross the
+ * punctuation too, or a sentence reads as half-faded. Only the word parts carry
+ * `.sub-word`, which is the class the selection snapping and the click
+ * handling latch onto.
+ */
+function partClass(part) {
+  return [part.word ? 'sub-word' : 'sub-plain', { 'sub-word--pending': isPending(part) }]
+}
 </script>
 
 <template>
   <div v-for="(line, index) in lines" :key="index" class="sub-line">
-    <template v-for="(part, partIndex) in line.parts" :key="partIndex">
-      <span
-        v-if="part.word"
-        class="sub-word"
-        :class="{ 'sub-word--pending': isPending(part) }"
-        >{{ part.text }}</span
-      >
-      <template v-else>{{ part.text }}</template>
-    </template>
+    <span v-for="(part, partIndex) in line.parts" :key="partIndex" :class="partClass(part)">{{
+      part.text
+    }}</span>
   </div>
 </template>

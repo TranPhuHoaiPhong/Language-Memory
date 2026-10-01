@@ -20,8 +20,10 @@ function normalizeWord(value) {
  *
  * The two lists describe the same text but not the same segmentation — the
  * tokenizer peels punctuation into its own parts — so a small look-ahead is
- * allowed before giving up on a part. Anything unmatched simply renders
- * normally, which is why the result can contain holes.
+ * allowed before giving up on a part. An unmatched *word* simply renders
+ * normally, which is why the result can contain holes; non-word parts instead
+ * inherit the timing of the word before them, so punctuation dims together with
+ * the word it trails.
  *
  * Returns an array parallel to `parts`, holding the matched word or `null`.
  */
@@ -56,5 +58,20 @@ export function alignWordTimings(parts, words) {
     matched++
   }
 
-  return matched ? timings : null
+  if (!matched) return null
+
+  // The tokenizer peels punctuation and spaces into their own parts, and they
+  // trail the word they belong to, so they inherit its timing. Without this they
+  // would stay fully lit while the word they follow is still dimmed, which is
+  // what makes a sentence look half-faded.
+  let last = null
+  for (let i = 0; i < timings.length; i++) {
+    if (timings[i]) {
+      last = timings[i]
+      continue
+    }
+    if (!parts[i]?.word) timings[i] = last
+  }
+
+  return timings
 }
