@@ -59,10 +59,8 @@ export const PADDING_X_RANGE = { min: 0, max: 40, step: 1 }
 export const PADDING_Y_RANGE = { min: 0, max: 20, step: 1 }
 
 export const DEFAULT_SETTINGS = {
+  /** Typography both lines share: everything except family and size. */
   font: {
-    family: 'system',
-    /** Multiplier on the auto font size derived from the player height. */
-    scale: 0.8,
     weight: 600,
     lineHeight: 1.3,
     /** Tracking in `em`. */
@@ -78,15 +76,15 @@ export const DEFAULT_SETTINGS = {
   gap: 0.2,
 
   /** Appearance of the original (source language) line. */
-  original: { color: '#ffffff', opacity: 1 },
+  original: { enabled: true, family: 'system', scale: 0.8, color: '#ffffff', opacity: 1 },
   /** Appearance of the translated (target language) line. */
-  translated: { color: '#ffffff', opacity: 1 },
+  translated: { enabled: true, family: 'system', scale: 0.8, color: '#ffffff', opacity: 1 },
 
   background: {
     enabled: true,
     color: '#000000',
-    opacity: 0.4,
-    radius: 4,
+    opacity: 0.6,
+    radius: 10,
     paddingX: 13,
     paddingY: 5,
     boxShadow: 'none',
@@ -149,10 +147,24 @@ export function effectiveWeight(font) {
 }
 
 /**
+ * The custom properties a single line reads: its own family, size multiplier and
+ * colour. Set on the line element itself so both lines share one CSS rule, and
+ * sized in `em` so the multiplier follows the root's auto font size.
+ */
+export function lineStyle(line) {
+  return {
+    '--sub-family': fontStack(line.family),
+    '--sub-scale': line.scale,
+    '--sub-color': withAlpha(line.color, line.opacity),
+  }
+}
+
+/**
  * Storage can hold anything (or hand-edited junk, or a settings object written
  * by an older version), so every field is clamped and fallbacks are explicit.
  * The pre-nested `{ scale, color, gap }` shape is migrated to the per-line
- * colours so existing users keep their text colour.
+ * settings, and so is a family/size that used to be shared by both lines: it is
+ * copied onto each of them so existing users keep the look they had.
  */
 export function normalizeSettings(raw) {
   const flat = raw && typeof raw === 'object' ? raw : {}
@@ -162,17 +174,13 @@ export function normalizeSettings(raw) {
   const bg = flat.background && typeof flat.background === 'object' ? flat.background : {}
 
   const legacyColor = pickColor(flat.color, null)
+  const legacyFamily = pickOneOf(FONT_FAMILIES, font.family, null)
   const legacyScale = Number.isFinite(Number(flat.scale)) ? Number(flat.scale) : null
+  const sharedScale = Number.isFinite(Number(font.scale)) ? Number(font.scale) : legacyScale
   const d = DEFAULT_SETTINGS
 
   return {
     font: {
-      family: pickOneOf(FONT_FAMILIES, font.family, d.font.family),
-      scale: clampNumber(
-        font.scale ?? legacyScale,
-        SCALE_RANGE,
-        d.font.scale,
-      ),
       weight: pickOneOf(FONT_WEIGHTS, Number(font.weight), d.font.weight),
       lineHeight: clampNumber(font.lineHeight, LINE_HEIGHT_RANGE, d.font.lineHeight),
       letterSpacing: clampNumber(font.letterSpacing, LETTER_SPACING_RANGE, d.font.letterSpacing),
@@ -185,10 +193,16 @@ export function normalizeSettings(raw) {
     gap: clampNumber(flat.gap, GAP_RANGE, d.gap),
 
     original: {
+      enabled: pickBoolean(original.enabled, d.original.enabled),
+      family: pickOneOf(FONT_FAMILIES, original.family, legacyFamily ?? d.original.family),
+      scale: clampNumber(original.scale ?? sharedScale, SCALE_RANGE, d.original.scale),
       color: pickColor(original.color, legacyColor ?? d.original.color),
       opacity: clampNumber(original.opacity, OPACITY_RANGE, d.original.opacity),
     },
     translated: {
+      enabled: pickBoolean(translated.enabled, d.translated.enabled),
+      family: pickOneOf(FONT_FAMILIES, translated.family, legacyFamily ?? d.translated.family),
+      scale: clampNumber(translated.scale ?? sharedScale, SCALE_RANGE, d.translated.scale),
       color: pickColor(translated.color, legacyColor ?? d.translated.color),
       opacity: clampNumber(translated.opacity, OPACITY_RANGE, d.translated.opacity),
     },

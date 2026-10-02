@@ -29,9 +29,9 @@ const props = defineProps({
 const emit = defineEmits(['update:settings', 'reset'])
 
 /**
- * Settings are three levels deep, so a flat `patch(key)` is not enough.
- * Cloning only the touched branch keeps the other groups referentially
- * stable, which is what makes the preview re-render only when it must.
+ * Settings are nested, so a flat `patch(key)` is not enough. Cloning only the
+ * touched branch keeps the other groups referentially stable, which is what
+ * makes the preview re-render only when it must.
  */
 function patch(path, value) {
   const keys = path.split('.')
@@ -48,31 +48,20 @@ function patch(path, value) {
 }
 
 const percent = (n) => `${Math.round(n * 100)}%`
+
+/** The two rendered rows, so their fields are declared once instead of twice. */
+const LINES = [
+  { key: 'original', title: 'Dòng phụ đề gốc' },
+  { key: 'translated', title: 'Dòng phụ đề dịch' },
+]
 </script>
 
 <template>
   <div class="tab-body">
     <SubtitlePreview :settings="settings" />
 
-    <!-- ================= Typography ================= -->
-    <SectionBlock title="Chữ" :open="true">
-      <SelectField
-        label="Font"
-        :model-value="settings.font.family"
-        :options="FONT_FAMILIES"
-        @update:model-value="patch('font.family', $event)"
-      />
-
-      <RangeField
-        label="Kích thước"
-        :model-value="settings.font.scale"
-        :min="SCALE_RANGE.min"
-        :max="SCALE_RANGE.max"
-        :step="SCALE_RANGE.step"
-        :display-value="percent(settings.font.scale)"
-        @update:model-value="patch('font.scale', $event)"
-      />
-
+    <!-- ================= Shared typography ================= -->
+    <SectionBlock title="Chung cho cả 2 dòng" :open="true">
       <SelectField
         label="Độ đậm"
         :model-value="settings.font.weight"
@@ -127,50 +116,61 @@ const percent = (n) => `${Math.round(n * 100)}%`
         :model-value="settings.font.italic"
         @update:model-value="patch('font.italic', $event)"
       />
-    </SectionBlock>
 
-    <RangeField
-      label="Khoảng cách 2 dòng"
-      :model-value="settings.gap"
-      :min="GAP_RANGE.min"
-      :max="GAP_RANGE.max"
-      :step="GAP_RANGE.step"
-      :display-value="`${settings.gap.toFixed(2)}em`"
-      @update:model-value="patch('gap', $event)"
-    />
-
-    <!-- ================= Per-language lines ================= -->
-    <SectionBlock title="Subtitle gốc (English)">
-      <ColorPicker
-        label="Màu chữ"
-        :model-value="settings.original.color"
-        @update:model-value="patch('original.color', $event)"
-      />
       <RangeField
-        label="Độ mờ chữ"
-        :model-value="settings.original.opacity"
-        :min="OPACITY_RANGE.min"
-        :max="OPACITY_RANGE.max"
-        :step="OPACITY_RANGE.step"
-        :display-value="percent(settings.original.opacity)"
-        @update:model-value="patch('original.opacity', $event)"
+        label="Khoảng cách 2 dòng"
+        :model-value="settings.gap"
+        :min="GAP_RANGE.min"
+        :max="GAP_RANGE.max"
+        :step="GAP_RANGE.step"
+        :display-value="`${settings.gap.toFixed(2)}em`"
+        @update:model-value="patch('gap', $event)"
       />
     </SectionBlock>
 
-    <SectionBlock title="Subtitle dịch (Tiếng Việt)">
+    <!-- ================= Per-line settings =================
+         Show/hide, family, size, colour and opacity are per line: the source and
+         the translation are read side by side, so styling them together is what
+         the user wants. -->
+    <SectionBlock v-for="line in LINES" :key="line.key" :title="line.title">
+      <ToggleField
+        label="Hiện dòng này"
+        hint="Tắt để chỉ giữ dòng còn lại"
+        :model-value="settings[line.key].enabled"
+        @update:model-value="patch(`${line.key}.enabled`, $event)"
+      />
+
+      <SelectField
+        label="Kiểu chữ"
+        :model-value="settings[line.key].family"
+        :options="FONT_FAMILIES"
+        @update:model-value="patch(`${line.key}.family`, $event)"
+      />
+
+      <RangeField
+        label="Kích thước"
+        :model-value="settings[line.key].scale"
+        :min="SCALE_RANGE.min"
+        :max="SCALE_RANGE.max"
+        :step="SCALE_RANGE.step"
+        :display-value="percent(settings[line.key].scale)"
+        @update:model-value="patch(`${line.key}.scale`, $event)"
+      />
+
       <ColorPicker
         label="Màu chữ"
-        :model-value="settings.translated.color"
-        @update:model-value="patch('translated.color', $event)"
+        :model-value="settings[line.key].color"
+        @update:model-value="patch(`${line.key}.color`, $event)"
       />
+
       <RangeField
         label="Độ mờ chữ"
-        :model-value="settings.translated.opacity"
+        :model-value="settings[line.key].opacity"
         :min="OPACITY_RANGE.min"
         :max="OPACITY_RANGE.max"
         :step="OPACITY_RANGE.step"
-        :display-value="percent(settings.translated.opacity)"
-        @update:model-value="patch('translated.opacity', $event)"
+        :display-value="percent(settings[line.key].opacity)"
+        @update:model-value="patch(`${line.key}.opacity`, $event)"
       />
     </SectionBlock>
 

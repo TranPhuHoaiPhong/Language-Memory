@@ -19,14 +19,25 @@ export function useSubtitle(rootRef) {
   let frame = 0
   const videoHeight = ref(0)
 
-  /** Auto size for the current player size, before the user's scale factor. */
+  /** Auto size for the current player, the `1em` both per-line scales multiply. */
   const baseFontSize = computed(() =>
     Math.max(MIN_FONT_SIZE, Math.round(videoHeight.value * FONT_RATIO)),
   )
 
-  const fontSize = computed(() =>
-    Math.max(10, Math.round(baseFontSize.value * subtitleStore.settings.font.scale)),
-  )
+  /**
+   * The largest size a *visible* line can reach. Only the bottom offset and the
+   * repositioning watch need it: the rendered size comes from the settings,
+   * multiplied into `1em` by the stylesheet. A hidden row must not count, or
+   * switching it off would leave the overlay floating too high.
+   */
+  const fontSize = computed(() => {
+    const { original, translated } = subtitleStore.settings
+    const scales = [original, translated]
+      .filter((line) => line.enabled)
+      .map((line) => line.scale)
+
+    return Math.max(10, Math.round(baseFontSize.value * (scales.length ? Math.max(...scales) : 1)))
+  })
 
   function attach() {
     return attachTo(getPlayerContainer(), rootRef.value)
@@ -122,5 +133,5 @@ export function useSubtitle(rootRef) {
     cancelAnimationFrame(frame)
   })
 
-  return { updatePosition, fontSize }
+  return { updatePosition, baseFontSize }
 }

@@ -11,7 +11,7 @@ import { loadTranscript } from './useTranscript.js'
  * after SPA navigation.
  */
 export function usePlayerObservers(rootRef) {
-  const { updatePosition, fontSize } = useSubtitle(rootRef)
+  const { updatePosition, baseFontSize } = useSubtitle(rootRef)
 
   let observer = null
   const cleanups = []
@@ -47,5 +47,5 @@ export function usePlayerObservers(rootRef) {
     cleanups.forEach((fn) => fn())
   })
 
-  return { fontSize }
+  return { baseFontSize }
 }

@@ -1,9 +1,14 @@
 
 /* ===== Word panel (clicked word, right edge) ===== */
 /* Injected into the host page, so every rule is scoped to `#lingo-word-panel`.
-   It sits above `#lingo-settings` because both own the right edge. */
+   It sits above `#lingo-settings` because both own the right edge. Its shell is
+   the settings sidebar's, down to the last token: same surface, font, border,
+   shadow, slide and drawer handle, so the two read as one panel. */
 #lingo-word-panel {
   --panel-width: 400px;
+  --slide-duration: 0.28s;
+  /* The column the drawer handle occupies, so nothing is ever drawn under it. */
+  --close-gutter: 38px;
 
   position: fixed;
   top: 0;
@@ -15,13 +20,16 @@
   width: var(--panel-width);
   height: 100vh;
   height: 100dvh;
-  padding: 16px 18px 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 17px;
+  padding-right: 5px;
   overflow: hidden;
-  background: #fff;
+  background: #f7f8fc;
   color: #222;
-  border-left: 1px solid #e5e7eb;
+  border-left: 1px solid #d9dee9;
   box-shadow: -4px 0 20px rgba(15, 23, 42, 0.18);
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
   pointer-events: auto;
@@ -29,11 +37,11 @@
 
 /* Slide in from the right edge, slide back out to it. The panel is pinned to
    `right: 0`, so a full panel width of travel is off-screen in either
-   direction. Durations match the popup, which fades over 0.18s. */
+   direction. Durations match the settings sidebar. */
 /* The transition classes land on the panel itself, so they are matched by the
    same id the panel rule uses. */
 #lingo-word-panel.word-panel-enter-active {
-  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform var(--slide-duration) ease;
 }
 
 #lingo-word-panel.word-panel-leave-active {
@@ -54,59 +62,86 @@
   font-family: inherit;
 }
 
-
-
+/* ===== Header ===== */
+/* Same pinned title row as the settings sidebar, so the word lands where
+   "LINGO" does instead of being pushed aside by the close button. */
 #lingo-word-panel .panel-head {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  height: 30px;
+  margin-bottom: 14px;
   flex: none;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #f3f4f6;
 }
 
-/* The close button leads the header, so the word starts after it. */
 #lingo-word-panel .panel-word {
-  flex: 1;
-  min-width: 0;
-  font-size: 22px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - var(--close-gutter) - 16px);
+  font-size: 20px;
   font-weight: 600;
+  letter-spacing: 0.5px;
   color: #111;
+  text-align: center;
   word-break: break-word;
 }
 
 #lingo-word-panel .panel-word--loading {
-  color: #6b7280;
+  color: #8a93a6;
   font-weight: 500;
 }
 
+/* Drawer handle. Identical to the settings sidebar's `.close-btn`. */
 #lingo-word-panel .panel-close {
-  flex: none;
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 21px;
+  height: 46px;
+  padding: 0;
   border: none;
-  border-radius: 8px;
-  background: #f3f4f6;
-  color: #6b7280;
-  font-size: 13px;
+  border-radius: 9px;
+  background: #e9edf5;
+  color: #5b6478;
   cursor: pointer;
+  transform: translateY(-50%);
   transition: background 0.18s, color 0.18s;
 }
 
 #lingo-word-panel .panel-close:hover {
-  background: #e5e7eb;
-  color: #111;
+  background: #dde3ee;
+  color: #222;
 }
 
+#lingo-word-panel .panel-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== Body ===== */
 #lingo-word-panel .panel-body {
   flex: 1;
   min-height: 0;
-  padding: 14px 0;
+  margin-right: -6px;
+  /* The handle's column plus the scrollbar gutter, exactly as in the settings
+     sidebar, so the card stops short of it while scrolling. */
+  padding-left: 6px;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+/* The white card the settings sections are built from. */
+#lingo-word-panel .panel-card {
+  background: #fff;
+  border: 1px solid #e6e9f0;
+  border-radius: 10px;
+  padding: 13px 12px 14px;
 }
 
 #lingo-word-panel .word-popup-ipa,
@@ -117,23 +152,41 @@
 }
 
 #lingo-word-panel .word-popup-ipa {
-  margin: 10px 0 4px;
+  margin: 0 0 4px;
+  color: #8a93a6;
+  font-size: 13px;
 }
 
 #lingo-word-panel .word-popup-pos {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 #lingo-word-panel .word-popup-meaning {
   margin: 0;
-  font-size: 1em;
+  font-size: 14px;
   line-height: 1.5;
+  color: #222;
 }
 
+/* The shared spinner is white-on-transparent, meant for the dark subtitle
+   overlay. On a light card it would be invisible. */
+#lingo-word-panel .word-popup-spinner {
+  width: 22px;
+  height: 22px;
+  margin: 18px auto;
+  border: 2px solid #dde3ee;
+  border-top-color: #1677ff;
+}
+
+/* ===== Footer ===== */
 #lingo-word-panel .panel-foot {
   flex: none;
+  margin-right: -6px;
+  /* Same gutter as the body, so Save lines up with the card's right edge. */
+  padding-right: calc(var(--close-gutter) + 6px);
   padding-top: 12px;
-  border-top: 1px solid #f3f4f6;
 }
 
 #lingo-word-panel.loading .panel-foot {
@@ -420,4 +473,44 @@
 
 #word-popup.loading .container-word {
   display: none;
+}
+
+/* ===== Word panel controls ===== */
+/* The panel's own audio/save buttons follow the settings sidebar: square neutral
+   control plus the blue accent. Declared after the shared rules above, which the
+   `#word-popup` tooltip still uses, so only the panel restyles. */
+#lingo-word-panel .container-word {
+  padding-top: 0;
+  border-top: none;
+}
+
+#lingo-word-panel .inside-word-audio {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background-color: #fff;
+  border: 1px solid #d7dce6;
+}
+
+#lingo-word-panel .inside-word-audio:hover {
+  background-color: #f7f8fc;
+  border-color: #1677ff;
+}
+
+#lingo-word-panel .word-popup-audio img {
+  width: 18px;
+  height: 18px;
+}
+
+#lingo-word-panel .word-popup-btn {
+  height: 34px;
+  padding: 0 18px;
+  border-radius: 9px;
+  background: #1677ff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#lingo-word-panel .word-popup-btn:disabled {
+  background: #cdd3e0;
 }

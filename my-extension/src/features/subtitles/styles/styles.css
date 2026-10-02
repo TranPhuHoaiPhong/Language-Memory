@@ -11,11 +11,16 @@
   font-size: 28px;
 }
 
-/* Per-line colours, the gap and the text shadow come from the settings panel;
-   the rest of the typography is set inline on the root element. */
+/* Each row picks its own font, size and colour from the settings panel: the
+   inline custom properties are set on the row itself, so one rule serves both.
+   `1em` is the auto size on the root, which is what the per-row scale multiplies.
+   The shared typography (weight, line height, tracking, alignment) is inherited
+   from the root. */
 #subtitle-translate .sub-original,
 #subtitle-translate .sub-translated {
-  font-size: inherit;
+  font-family: var(--sub-family, inherit);
+  font-size: calc(1em * var(--sub-scale, 1));
+  color: var(--sub-color, #fff);
   margin: 0;
   text-align: inherit;
   line-height: inherit;
@@ -23,14 +28,12 @@
 }
 
 #subtitle-translate .sub-original {
-  color: var(--sub-original-color, #fff);
   user-select: text;
   -webkit-user-select: text;
   pointer-events: auto !important;
 }
 
 #subtitle-translate .sub-translated {
-  color: var(--sub-translated-color, #fff);
   margin-top: var(--subtitle-gap, 0.2em);
   pointer-events: none !important;
 }
@@ -41,9 +44,9 @@
   margin: 0 auto;
   white-space: pre-wrap;
   word-break: break-word;
-  background: var(--sub-background, rgba(0, 0, 0, 0.4));
+  background: var(--sub-background, rgba(0, 0, 0, 0.6));
   padding: var(--sub-padding, 5px 13px);
-  border-radius: var(--sub-radius, 4px);
+  border-radius: var(--sub-radius, 10px);
   line-height: inherit;
   text-shadow: var(--sub-text-shadow, none);
   box-shadow: var(--sub-box-shadow, none);

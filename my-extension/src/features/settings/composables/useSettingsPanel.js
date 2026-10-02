@@ -20,15 +20,14 @@ export function togglePanel() {
 }
 
 export function useSettingsPanel() {
-  /** One tab per feature that registered a settings section, in registration order. */
+  /** One section per feature that registered settings, in registration order. */
   const tabs = registeredTabs()
-  const activeTab = ref('language')
   const showSavedHint = ref(false)
 
   /**
    * Every storage key the panel edits: the language pair, which belongs to the
-   * session, plus one key per feature tab. The panel is the only writer, so the
-   * whole set is loaded and saved in one go.
+   * session, plus one key per registered feature. The panel is the only writer,
+   * so the whole set is loaded and saved in one go.
    */
   const fields = [
     {
@@ -123,7 +122,6 @@ export function useSettingsPanel() {
 
   return {
     isOpen,
-    activeTab,
     tabs,
     model,
     nativeLanguage,

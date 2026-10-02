@@ -35,19 +35,41 @@ function timeScale(subtitles, duration) {
   return lengths[Math.floor(lengths.length / 2)] > MILLISECOND_MEDIAN_LIMIT ? 0.001 : 1
 }
 
+/**
+ * The morphological breakdown the backend attached to a word: "it's" arrives as
+ * `it` + `'s`, each with the lemma the lookup has to be sent with. Only the
+ * fields the overlay reads survive; everything else is dropped with the rest of
+ * the raw payload.
+ */
+function normalizeTokens(tokens) {
+  if (!Array.isArray(tokens)) return []
+
+  return tokens
+    .map((token) => ({
+      text: typeof token?.text === 'string' ? token.text : '',
+      lemma: typeof token?.lemma === 'string' ? token.lemma : '',
+    }))
+    .filter((token) => token.text)
+}
+
 /** `null` when the cue carries no usable per-word timings. */
 function normalizeWords(words, scale) {
   if (!Array.isArray(words)) return null
 
   const normalized = []
-  for (const word of words) {
+  words.forEach((word) => {
     const text = typeof word?.text === 'string' ? word.text.trim() : ''
     const start = toNumber(word?.start)
-    if (!text || start === null) continue
+    if (!text || start === null) return
 
     const end = toNumber(word?.end) ?? start
-    normalized.push({ text, start: start * scale, end: Math.max(start, end) * scale })
-  }
+    normalized.push({
+      text,
+      start: start * scale,
+      end: Math.max(start, end) * scale,
+      tokens: normalizeTokens(word?.tokens),
+    })
+  })
 
   return normalized.length ? normalized : null
 }

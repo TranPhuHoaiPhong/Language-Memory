@@ -4,8 +4,10 @@
  * here would restyle YouTube itself.
  */
 #lingo-settings {
-  --panel-width: 20vw;
+  --panel-width: 400px;
   --slide-duration: 0.28s;
+  /* The column the drawer handle occupies, so no setting is ever drawn under it. */
+  --close-gutter: 38px;
 
   position: fixed;
   top: 0;
@@ -19,7 +21,10 @@
   height: 100vh;
   height: 100dvh;
   margin: 0;
-  padding: 16px 18px 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 17px;
+  padding-right: 5px;
   /* The panel itself never scrolls: the head and the tabs stay pinned and only
      `.panels` scrolls, so the title cannot drift while the user scrolls down. */
   overflow: hidden;
@@ -91,31 +96,6 @@
   white-space: nowrap;
 }
 
-#lingo-settings .close-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 8px;
-  background: #e9edf5;
-  color: #5b6478;
-  cursor: pointer;
-  transition: background 0.18s, color 0.18s;
-}
-
-#lingo-settings .close-btn:hover {
-  background: #dde3ee;
-  color: #222;
-}
-
-#lingo-settings .close-btn svg {
-  width: 15px;
-  height: 15px;
-}
-
 #lingo-settings .fade-enter-active,
 #lingo-settings .fade-leave-active {
   transition: opacity 0.2s;
@@ -126,38 +106,37 @@
   opacity: 0;
 }
 
-/* ===== Tabs ===== */
-#lingo-settings .tabs {
+/* ===== Drawer handle ===== */
+/* Out of the header flow: absolute, on the right edge and centred vertically, so
+   it closes the sidebar from the same spot however far the settings are scrolled. */
+#lingo-settings .close-btn {
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  z-index: 1;
   display: flex;
-  gap: 4px;
-  padding: 4px;
-  background: #e9edf5;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  flex: none;
-}
-
-#lingo-settings .tab {
-  flex: 1;
-  height: 32px;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 46px;
+  padding: 0;
   border: none;
-  border-radius: 7px;
-  background: transparent;
+  border-radius: 9px;
+  background: #e9edf5;
   color: #5b6478;
-  font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  transform: translateY(-50%);
+  transition: background 0.18s, color 0.18s;
 }
 
-#lingo-settings .tab:hover {
+#lingo-settings .close-btn:hover {
+  background: #dde3ee;
   color: #222;
 }
 
-#lingo-settings .tab.active {
-  background: #fff;
-  color: #1677ff;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+#lingo-settings .close-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* ===== Panels ===== */
@@ -165,16 +144,18 @@
   flex: 1;
   min-height: 0;
   margin-right: -6px;
-  padding-right: 6px;
+  padding-left: 6px;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
 }
 
+/* A registered feature renders inside its own section, and `.tab-body` is the
+   row layout it lays its fields out with. */
 #lingo-settings .tab-body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 #lingo-settings .hint {
@@ -249,20 +230,6 @@
   font-variant-numeric: tabular-nums;
 }
 
-#lingo-settings .field-value--swatch {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #666;
-}
-
-#lingo-settings .swatch-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-}
-
 /* ===== Collapsible sections ===== */
 #lingo-settings .section {
   background: #fff;
@@ -271,10 +238,8 @@
   overflow: hidden;
 }
 
-#lingo-settings .section + .section,
-#lingo-settings .section + .tab-body > .field,
-#lingo-settings .field + .section {
-  margin-top: 2px;
+#lingo-settings .section+.section {
+  margin-top: 12px;
 }
 
 #lingo-settings .section-head {
@@ -425,59 +390,28 @@
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.3);
 }
 
-/* ===== Colour swatches ===== */
-#lingo-settings .swatches {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-}
-
-#lingo-settings .swatch {
+/* ===== Colour bar ===== */
+/* The whole bar is the hit area: one click opens the OS palette. */
+#lingo-settings .color-bar {
+  display: block;
   position: relative;
-  height: 28px;
-  border-radius: 7px;
-  border: 1px solid rgba(0, 0, 0, 0.14);
+  height: 34px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 9px;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 0;
-}
-
-#lingo-settings .swatch:hover {
-  transform: translateY(-1px);
-}
-
-#lingo-settings .swatch.active {
-  box-shadow: 0 0 0 2px #1677ff;
-}
-
-#lingo-settings .swatch--custom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-  background-image: conic-gradient(#f87171, #fbbf24, #4ade80, #38bdf8, #a78bfa, #f87171);
 }
 
-#lingo-settings .swatch--custom input[type='color'] {
+#lingo-settings .color-bar input[type='color'] {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   padding: 0;
   border: none;
+  background: none;
   cursor: pointer;
   opacity: 0;
-}
-
-#lingo-settings .swatch-check {
-  position: absolute;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
 }
 
 /* ===== Preview ===== */
@@ -498,25 +432,22 @@
 }
 
 #lingo-settings .preview-line {
+  /* Same box model as the overlay's .sub-line, and the same per-line custom
+     properties, so the two cannot drift apart. */
   display: inline-block;
   max-width: 100%;
-  background: var(--sub-background, rgba(0, 0, 0, 0.4));
+  font-family: var(--sub-family, inherit);
+  font-size: calc(1em * var(--sub-scale, 1));
+  color: var(--sub-color, #fff);
+  background: var(--sub-background, rgba(0, 0, 0, 0.6));
   padding: var(--sub-padding, 5px 13px);
-  border-radius: var(--sub-radius, 4px);
+  border-radius: var(--sub-radius, 10px);
   box-shadow: var(--sub-box-shadow, none);
   text-shadow: var(--sub-text-shadow, none);
   word-break: break-word;
   white-space: pre-wrap;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-}
-
-#lingo-settings .preview-line--original {
-  color: var(--sub-original-color, #fff);
-}
-
-#lingo-settings .preview-line--translated {
-  color: var(--sub-translated-color, #fff);
 }
 
 #lingo-settings .preview-caption {
@@ -526,4 +457,10 @@
   letter-spacing: 0.6px;
   text-transform: uppercase;
   color: #a6adbd;
+}
+
+#lingo-settings .preview-empty {
+  margin: auto;
+  font-size: 12px;
+  color: #8a93a6;
 }

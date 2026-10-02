@@ -34,7 +34,7 @@ export function useWordPanel() {
     open.value = false
   }
 
-  async function show(text) {
+  async function show(text, lemma = '') {
     const subtitle = subtitleStore.currentSubtitle
     const language = store.nativeLanguage
     const sourceLanguage = store.targetLanguage
@@ -50,7 +50,7 @@ export function useWordPanel() {
     open.value = true
 
     try {
-      const data = await fetchWordInfo(text, language, subtitle, sourceLanguage)
+      const data = await fetchWordInfo(text, language, subtitle, sourceLanguage, lemma)
       if (currentRequestId !== requestId) return
 
       const info = data.data || {}

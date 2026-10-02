@@ -26,6 +26,20 @@ function closest(node, selector) {
 }
 
 /**
+ * The hovered (or clicked) word plus the lemma of the token it renders as.
+ *
+ * A word can be several spans — `it's` is drawn as `it` + `'s`, each with its
+ * own lemma — so the payload has to be read off the exact element under the
+ * pointer instead of off the surrounding word.
+ */
+function readTarget(el) {
+  const text = el?.textContent.trim() || ''
+  if (!text) return null
+
+  return { text, lemma: el.dataset.lemma || '' }
+}
+
+/**
  * Everything behind the word popup: selection handling, dictionary lookups,
  * playback and saving. The lookup uses the learning language as the source
  * language and returns the definition in the user's native language.
@@ -144,26 +158,26 @@ export function useWordPopup(rootRef) {
     }
     pointerOnPopup = false
 
-    const word = closest(e.target, '.sub-original .sub-word')
-    if (!word) {
+    const el = closest(e.target, '.sub-original .sub-word')
+    if (!el) {
       if (hoveredWord) scheduleHoverHide()
       return
     }
 
-    const text = word.textContent.trim()
-    if (!text) return
+    const target = readTarget(el)
+    if (!target) return
 
     // Travelling towards the popup must not tear the lookup down.
     clearTimeout(hoverHideTimer)
-    if (text === hoveredWord) return
+    if (hoveredWord === target.text) return
 
-    hoveredWord = text
+    hoveredWord = target.text
     clearTimeout(hoverTimer)
     hoverTimer = setTimeout(() => {
-      if (hoveredWord !== text) return
+      if (hoveredWord !== target.text) return
       pauseForHover()
-      selectedRect = word.getBoundingClientRect()
-      lookup(text)
+      selectedRect = el.getBoundingClientRect()
+      lookup(target.text, target.lemma)
     }, HOVER_DELAY)
   }
 
@@ -184,7 +198,7 @@ export function useWordPopup(rootRef) {
     window.getSelection()?.removeAllRanges()
   }
 
-  async function lookup(selectedWord) {
+  async function lookup(selectedWord, lemma = '') {
     const subtitle = subtitleStore.currentSubtitle
     const language = store.nativeLanguage
     const sourceLanguage = store.targetLanguage
@@ -201,7 +215,7 @@ export function useWordPopup(rootRef) {
     await positionPopup()
 
     try {
-      const data = await fetchWordInfo(selectedWord, language, subtitle, sourceLanguage)
+      const data = await fetchWordInfo(selectedWord, language, subtitle, sourceLanguage, lemma)
       if (currentRequestId !== requestId) return
 
       const info = data.data || {}
@@ -319,8 +333,8 @@ export function useWordPopup(rootRef) {
         return
       }
 
-      const text = clicked.textContent.trim()
-      if (!text) {
+      const target = readTarget(clicked)
+      if (!target) {
         hide()
         return
       }
@@ -332,7 +346,7 @@ export function useWordPopup(rootRef) {
       pausedByHover = false
       hide()
       clearSelection()
-      wordPanelControl.open(text)
+      wordPanelControl.open(target.text, target.lemma)
       return
     }
 
