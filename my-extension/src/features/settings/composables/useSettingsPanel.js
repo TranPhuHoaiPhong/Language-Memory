@@ -3,10 +3,14 @@ import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } 
 import { storageGet, storageSet } from '../../../core/js/browser.js'
 import { DEFAULT_LANGUAGES, STORAGE_KEYS } from '../../../core/js/constants.js'
 import { registeredTabs } from '../../../core/js/registry.js'
+import { claimSlot, releaseSlot, sidebar } from '../../../core/js/sidebar.js'
 
 /** Coalesce slider drags into a single write: storage.sync is rate limited. */
 const SAVE_DELAY = 200
 const SAVED_HINT_MS = 1200
+
+/** The panel's name in the sidebar slot; see `claimSlot`. */
+const SLOT_ID = 'settings'
 
 /**
  * The panel lives in the content script, which lives as long as the page, so the
@@ -15,14 +19,36 @@ const SAVED_HINT_MS = 1200
  */
 const isOpen = ref(false)
 
+/** Closing the panel collapses the sidebar column it occupies. */
+export function closePanel() {
+  isOpen.value = false
+  releaseSlot(SLOT_ID)
+}
+
 export function togglePanel() {
+  // Nothing to toggle into on a page without the sidebar, where the toolbar icon
+  // would otherwise appear to do nothing.
+  if (!sidebar.value) return
+
   isOpen.value = !isOpen.value
+  if (isOpen.value) {
+    claimSlot(SLOT_ID, closePanel)
+  } else {
+    releaseSlot(SLOT_ID)
+  }
 }
 
 export function useSettingsPanel() {
   /** One section per feature that registered settings, in registration order. */
   const tabs = registeredTabs()
   const showSavedHint = ref(false)
+
+  /**
+   * There is no sidebar to show the settings in off the watch page, and YouTube
+   * drops the column on every in-app navigation, so the panel hides itself rather
+   * than being pinned to whichever page happens to have one.
+   */
+  const visible = computed(() => isOpen.value && sidebar.value !== null)
 
   /**
    * Every storage key the panel edits: the language pair, which belongs to the
@@ -112,7 +138,7 @@ export function useSettingsPanel() {
   )
 
   function close() {
-    isOpen.value = false
+    closePanel()
   }
 
   onBeforeUnmount(() => {
@@ -122,6 +148,7 @@ export function useSettingsPanel() {
 
   return {
     isOpen,
+    visible,
     tabs,
     model,
     nativeLanguage,

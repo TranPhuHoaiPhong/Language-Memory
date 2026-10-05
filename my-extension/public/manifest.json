@@ -22,7 +22,7 @@
 
   "web_accessible_resources": [
     {
-      "resources": ["icons/2.svg"],
+      "resources": ["icons/1.svg", "icons/2.svg", "icons/icon.png"],
       "matches": ["https://www.youtube.com/*"]
     }
   ],

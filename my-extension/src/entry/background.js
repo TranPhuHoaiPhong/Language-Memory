@@ -19,7 +19,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type !== 'API_REQUEST') return false
 
   const { endpoint, options } = message.payload
-  const url = `${API_BASE}/${endpoint}`
+  const url = new URL(`${API_BASE}/${endpoint}`)
+  for (const [key, value] of Object.entries(options.query || {})) {
+    if (value === undefined || value === null || value === '') continue
+    url.searchParams.set(key, value)
+  }
+
   const config = {
     headers: { 'Content-Type': 'application/json' },
     method: options.method || 'GET',

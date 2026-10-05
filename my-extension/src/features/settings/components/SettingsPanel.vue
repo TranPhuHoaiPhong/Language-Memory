@@ -6,7 +6,7 @@ import { LANGUAGES } from '../../../core/js/languages.js'
 import { useSettingsPanel } from '../composables/useSettingsPanel.js'
 
 const {
-  isOpen,
+  visible,
   tabs,
   model,
   nativeLanguage,
@@ -25,30 +25,30 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
-  <!-- Kept mounted and only translated off-screen, so opening it is instant and
-       the settings keep their state (open <details>, scroll position). -->
-  <aside id="lingo-settings" :class="{ open: isOpen }" :aria-hidden="!isOpen">
-    <!-- Out of the header and pinned to the right edge, vertically centred: a
-         drawer handle. It stays reachable no matter how far the settings are
-         scrolled, and the `>` reads as "push it back in". -->
-    <button class="close-btn" type="button" aria-label="Đóng" @click="close">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </button>
-
+  <!-- Kept mounted and only hidden, so opening it is instant and the settings keep
+       their state (open <details>, scroll position). It sits inside the watch
+       page's sidebar column, which opening it expands and closing collapses, so
+       there is nothing to slide in from. -->
+  <aside id="lingo-settings" :class="{ open: visible }" :aria-hidden="!visible">
     <header class="head">
       <h2>LINGO</h2>
       <transition name="fade">
         <span v-if="showSavedHint" class="saved-hint">Đã lưu</span>
       </transition>
+      <button class="close-btn" type="button" aria-label="Đóng" @click="close">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
     </header>
 
     <!-- One panel, no tab bar: the language pair and every feature section used
          to be tabs of their own, which hid two related settings behind a click
-         for no reason. They are collapsible sections of a single scrolling list
-         instead, and a feature that registers a tab later lands here as well. -->
-    <div class="panels">
+         for no reason. They are collapsible sections of a single list instead,
+         and a feature that registers a tab later lands here as well. It is also
+         the panel's one scrolling region: it fills what the header leaves and
+         scrolls when the settings are longer than the sidebar column. -->
+    <div class="panels" id="content">
       <SectionBlock title="Ngôn ngữ" :open="true">
         <LanguageSelect
           id="learningLanguage"

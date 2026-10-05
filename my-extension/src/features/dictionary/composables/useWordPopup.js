@@ -1,23 +1,20 @@
 // src/features/dictionary/composables/useWordPopup.js
-import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { attachTo, getPlayerContainer, getPlayerRoot, getVideo } from '../../../core/js/dom.js'
 import { store } from '../../../core/js/state.js'
-import { subtitleStore } from '../../subtitles/state/state.js'
-import { playAudio, stopAudio } from '../logic/audio.js'
 import { wordPopupHost } from '../logic/hosts.js'
 import { wordPanelControl } from '../logic/panelControl.js'
 import { expandRangeToWords } from '../logic/range.js'
-import { fetchWordInfo, saveWord } from '../logic/word.js'
+import { fetchWordInfo, readEntry, readMeanings } from '../logic/word.js'
 
 const EDITABLE = 'input, textarea, [contenteditable="true"]'
 const POPUP_GAP = 5
 /** Distance (px) below which a mouse gesture still counts as a plain click. */
 const CLICK_MOVE_THRESHOLD = 4
-const AUTOPLAY_DELAY = 300
 /** Resting on a word long enough before the lookup is worth a request. */
-const HOVER_DELAY = 250
+const HOVER_DELAY = 50
 /** Grace period so the pointer can travel from the word to the popup. */
-const HOVER_HIDE_DELAY = 220
+const HOVER_HIDE_DELAY = 10
 
 function closest(node, selector) {
   if (!node) return null
@@ -40,21 +37,17 @@ function readTarget(el) {
 }
 
 /**
- * Everything behind the word popup: selection handling, dictionary lookups,
- * playback and saving. The lookup uses the learning language as the source
- * language and returns the definition in the user's native language.
+ * Everything behind the hover popup: selection handling and dictionary lookups.
+ * Hovering is a reading gesture, so the popup only carries the word and its
+ * senses — the clicked word is what the side panel keeps, and that is where the
+ * audio, the saving and the rest of the entry live. Definitions come back in the
+ * user's native language.
  */
 export function useWordPopup(rootRef) {
   const visible = ref(false)
   const loading = ref(false)
   const word = ref('')
-  const ipa = ref('')
-  const pos = ref('')
-  const meaning = ref('')
-  const audioUrl = ref('')
-
-  /** Payload of the last successful lookup; `null` while loading or on error. */
-  const savePayload = ref(null)
+  const meanings = ref([])
 
   /** Bumped on every hide/lookup so stale responses are discarded. */
   let requestId = 0
@@ -105,7 +98,6 @@ export function useWordPopup(rootRef) {
 
   function hide() {
     requestId++
-    stopAudio()
     visible.value = false
     clearHover()
   }
@@ -199,76 +191,36 @@ export function useWordPopup(rootRef) {
   }
 
   async function lookup(selectedWord, lemma = '') {
-    const subtitle = subtitleStore.currentSubtitle
     const language = store.nativeLanguage
-    const sourceLanguage = store.targetLanguage
     const currentRequestId = ++requestId
 
-    word.value = ''
-    ipa.value = ''
-    pos.value = ''
-    meaning.value = ''
-    audioUrl.value = ''
-    savePayload.value = null
+    word.value = selectedWord
+    meanings.value = []
     loading.value = true
 
+    // The request goes out while the popup is still being measured: placing it
+    // costs a frame, and waiting for it first would put that frame between the
+    // pointer arriving and the lookup starting.
+    const pending = fetchWordInfo(lemma || selectedWord, language)
     await positionPopup()
 
     try {
-      const data = await fetchWordInfo(selectedWord, language, subtitle, sourceLanguage, lemma)
+      const data = await pending
       if (currentRequestId !== requestId) return
 
-      const info = data.data || {}
+      const info = readEntry(data)
       word.value = info.word || selectedWord
-      ipa.value = info.ipa ? `/${info.ipa}/` : ''
-      pos.value = info.pos || ''
-      meaning.value = info.meaning || ''
-      audioUrl.value = info.audio || ''
-
-      savePayload.value = {
-        word: word.value,
-        ipa: info.ipa || '',
-        pos: pos.value,
-        meaning: meaning.value,
-        subtitle,
-        language,
-        sourceLanguage,
-        audio: audioUrl.value,
-      }
-
-      if (audioUrl.value) {
-        setTimeout(() => {
-          if (currentRequestId === requestId) playAudio(audioUrl.value)
-        }, AUTOPLAY_DELAY)
-      }
+      meanings.value = readMeanings(info)
     } catch {
       if (currentRequestId !== requestId) return
       word.value = 'Failed'
-      ipa.value = ''
-      pos.value = ''
-      meaning.value = ''
-      audioUrl.value = ''
+      meanings.value = []
     } finally {
       if (currentRequestId === requestId) {
         loading.value = false
         await positionPopup()
       }
     }
-  }
-
-  async function onSave() {
-    if (!savePayload.value) return
-    try {
-      await saveWord(savePayload.value)
-      alert('Saved successfully!')
-    } catch (err) {
-      console.error(err)
-      alert('Save failed')
-    }
-  }
-
-  function onAudioClick() {
-    playAudio(audioUrl.value)
   }
 
   // ===== Selection lifecycle =====
@@ -460,20 +412,13 @@ export function useWordPopup(rootRef) {
     document.removeEventListener('fullscreenchange', onFullscreenChange)
     resizeObserver?.disconnect()
     clearHover()
-    stopAudio()
   })
 
   return {
     visible,
     loading,
     word,
-    ipa,
-    pos,
-    meaning,
-    audioUrl,
-    canSave: computed(() => savePayload.value !== null),
+    meanings,
     hide,
-    onSave,
-    onAudioClick,
   }
 }

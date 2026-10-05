@@ -1,17 +1,21 @@
 // src/features/dictionary/composables/useWordPanel.js
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { claimSlot, releaseSlot, sidebar } from '../../../core/js/sidebar.js'
 import { store } from '../../../core/js/state.js'
 import { subtitleStore } from '../../subtitles/state/state.js'
 import { playAudio, stopAudio } from '../logic/audio.js'
 import { wordPanelControl } from '../logic/panelControl.js'
-import { fetchWordInfo, saveWord } from '../logic/word.js'
+import { fetchWordInfo, readEntry, readMeanings, saveWord } from '../logic/word.js'
 
-const AUTOPLAY_DELAY = 300
+const AUTOPLAY_DELAY = 10
+
+/** The panel's name in the sidebar slot; see `claimSlot`. */
+const SLOT_ID = 'word'
 
 /**
- * The clicked-word panel: the same lookup the popup does, but pinned to the right
- * edge of the page so it survives the pointer leaving the subtitle and the video
- * being scrubbed.
+ * The clicked-word panel: the same lookup the popup does, but kept in the watch
+ * page's sidebar column so it survives the pointer leaving the subtitle and the
+ * video being scrubbed.
  */
 export function useWordPanel() {
   const open = ref(false)
@@ -19,22 +23,33 @@ export function useWordPanel() {
   const word = ref('')
   const ipa = ref('')
   const pos = ref('')
-  const meaning = ref('')
+  const meanings = ref([])
   const audioUrl = ref('')
 
   /** Payload of the last successful lookup; `null` while loading or on error. */
   const savePayload = ref(null)
 
+  /**
+   * One column, one panel: opening a word evicts the settings. `visible` also
+   * covers the pages without a sidebar, and the navigations where YouTube drops
+   * the column the panel was opened in.
+   */
+  const visible = computed(() => open.value && sidebar.value !== null)
+
   /** Bumped on every open so a slow response for a previous word is dropped. */
   let requestId = 0
 
+  /** Closing the panel collapses the sidebar column it occupies. */
   function close() {
     requestId++
     stopAudio()
     open.value = false
+    releaseSlot(SLOT_ID)
   }
 
   async function show(text, lemma = '') {
+    if (!sidebar.value) return
+
     const subtitle = subtitleStore.currentSubtitle
     const language = store.nativeLanguage
     const sourceLanguage = store.targetLanguage
@@ -43,28 +58,29 @@ export function useWordPanel() {
     word.value = text
     ipa.value = ''
     pos.value = ''
-    meaning.value = ''
+    meanings.value = []
     audioUrl.value = ''
     savePayload.value = null
     loading.value = true
     open.value = true
+    claimSlot(SLOT_ID, close)
 
     try {
-      const data = await fetchWordInfo(text, language, subtitle, sourceLanguage, lemma)
+      const data = await fetchWordInfo(lemma || text, language)
       if (currentRequestId !== requestId) return
 
-      const info = data.data || {}
+      const info = readEntry(data)
       word.value = info.word || text
       ipa.value = info.ipa ? `/${info.ipa}/` : ''
       pos.value = info.pos || ''
-      meaning.value = info.meaning || ''
+      meanings.value = readMeanings(info)
       audioUrl.value = info.audio || ''
 
       savePayload.value = {
         word: word.value,
         ipa: info.ipa || '',
         pos: pos.value,
-        meaning: meaning.value,
+        meaning: meanings.value.join('; '),
         subtitle,
         language,
         sourceLanguage,
@@ -119,11 +135,12 @@ export function useWordPanel() {
 
   return {
     open,
+    visible,
     loading,
     word,
     ipa,
     pos,
-    meaning,
+    meanings,
     audioUrl,
     canSave: computed(() => savePayload.value !== null),
     close,

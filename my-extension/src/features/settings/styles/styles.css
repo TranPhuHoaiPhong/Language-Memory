@@ -1,51 +1,36 @@
 /*
- * Settings sidebar. Injected into the host page by the content script, so
- * every rule is scoped to `#lingo-settings`: an unscoped `select` or `*` reset
- * here would restyle YouTube itself.
+ * Settings panel. Injected into the host page by the content script, so every
+ * rule is scoped to `#lingo-settings`: an unscoped `select` or `*` reset here
+ * would restyle YouTube itself.
+ *
+ * It is a block inside the watch page's right-hand column
+ * (`ytd-engagement-panel-section-list-renderer`), not an overlay: no fixed
+ * positioning and no slide. It grows to fill that column — full width, and
+ * whatever height is left in it — so only `#content` scrolls and the header stays
+ * put while the settings are read.
  */
 #lingo-settings {
-  --panel-width: 400px;
-  --slide-duration: 0.28s;
-  /* The column the drawer handle occupies, so no setting is ever drawn under it. */
-  --close-gutter: 38px;
-
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 2147483646;
-  display: flex;
+  display: none;
+  /* The column is a flex column, so this is what claims its leftover height. */
+  flex: 1;
   flex-direction: column;
   box-sizing: border-box;
-  width: var(--panel-width);
-  /* `dvh` follows mobile browser chrome; `vh` is the fallback. */
-  height: 100vh;
-  height: 100dvh;
-  margin: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 17px;
-  padding-right: 5px;
-  /* The panel itself never scrolls: the head and the tabs stay pinned and only
-     `.panels` scrolls, so the title cannot drift while the user scrolls down. */
+  width: 100%;
+  min-height: 0;
+  /* `min()` covers the two ceilings: the column's own height, and the viewport
+     when the column is itself content-sized and reports no definite height. */
+  max-height: min(100%, 100dvh);
   overflow: hidden;
-  overscroll-behavior: contain;
+  padding: 12px;
   background: #f7f8fc;
   color: #222;
-  border-left: 1px solid #d9dee9;
-  box-shadow: -4px 0 20px rgba(15, 23, 42, 0.18);
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
-  /* Slid in from the right edge; `visibility` keeps it out of hit-testing. */
-  transform: translateX(100%);
-  visibility: hidden;
-  transition: transform var(--slide-duration) ease, visibility 0s linear var(--slide-duration);
 }
 
 #lingo-settings.open {
-  transform: translateX(0);
-  visibility: visible;
-  transition: transform var(--slide-duration) ease, visibility 0s;
+  display: flex;
 }
 
 /* The page must not read text selections or scroll under the panel. */
@@ -68,26 +53,23 @@
 
 /* ===== Header ===== */
 #lingo-settings .head {
-  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 30px;
   margin-bottom: 14px;
   flex: none;
 }
 
-/* Out of flow so the "Đã lưu" chip appearing on the right cannot shift it. */
+/* Takes the slack so the saved hint and the close button stay on the right,
+   whether or not the hint happens to be showing. */
 #lingo-settings h2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
+  flex: 1;
+  font-size: 18px;
   letter-spacing: 0.5px;
 }
 
 #lingo-settings .saved-hint {
-  margin-left: auto;
+  flex: none;
   font-size: 11px;
   color: #16a34a;
   background: #dcfce7;
@@ -106,26 +88,20 @@
   opacity: 0;
 }
 
-/* ===== Drawer handle ===== */
-/* Out of the header flow: absolute, on the right edge and centred vertically, so
-   it closes the sidebar from the same spot however far the settings are scrolled. */
+/* ===== Close ===== */
 #lingo-settings .close-btn {
-  position: absolute;
-  top: 50%;
-  left: 1px;
-  z-index: 1;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 21px;
-  height: 46px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: none;
-  border-radius: 9px;
+  border-radius: 8px;
   background: #e9edf5;
   color: #5b6478;
   cursor: pointer;
-  transform: translateY(-50%);
   transition: background 0.18s, color 0.18s;
 }
 
@@ -135,16 +111,17 @@
 }
 
 #lingo-settings .close-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 
 /* ===== Panels ===== */
+/* The one scrolling region: it fills the panel and scrolls when the settings are
+   longer than the column. */
 #lingo-settings .panels {
   flex: 1;
   min-height: 0;
-  margin-right: -6px;
-  padding-left: 6px;
+  width: 100%;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -463,4 +440,39 @@
   margin: auto;
   font-size: 12px;
   color: #8a93a6;
+}
+
+/* ===== Player button ===== */
+/* Lives in YouTube's own control bar (`.ytp-right-controls-right`), so unlike
+   every rule above it cannot be scoped to `#lingo-settings`: it is only scoped
+   by its own class, which nothing on the page uses. */
+.lingo-player-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  /* Dimmed until hovered, the way YouTube's own control icons behave. */
+  opacity: 0.9;
+  transition: opacity 0.15s;
+}
+
+.lingo-player-btn:hover {
+  opacity: 1;
+}
+
+.lingo-player-btn img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  /* No filter by default, so a coloured logo is used as drawn. Set
+     `--lingo-logo-filter: invert(1)` on `.lingo-player-btn` when the artwork is
+     black-on-white and the control bar's own icons are white. */
+  filter: var(--lingo-logo-filter, none);
+  pointer-events: none;
 }

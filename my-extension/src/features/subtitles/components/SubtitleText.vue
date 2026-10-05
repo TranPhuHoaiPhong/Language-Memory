@@ -33,13 +33,11 @@ const lines = computed(() => {
       if (!part.word) return [{ ...part, timing }]
 
       // One word can be several pieces ("it's" -> "it" + "'s"): each gets its own
-      // span and its own lemma. They share the group's id, so a selection over
-      // one of them still snaps to the whole word, and they share the timing when
-      // there is one, because the backend timed the word and not its pieces.
-      const pieces = splitWordPart(part.text, timing?.tokens)
-      if (!pieces) return [{ ...part, timing }]
-
-      return pieces.map((piece) => ({
+      // span and its own lemma, so a plain word is not left without one. They
+      // share the group's id, so a selection over one of them still snaps to the
+      // whole word, and they share the timing when there is one, because the
+      // backend timed the word and not its pieces.
+      return splitWordPart(part.text, timing?.tokens).map((piece) => ({
         text: piece.text,
         word: true,
         lemma: piece.lemma,
@@ -68,9 +66,9 @@ function partClass(part) {
 /**
  * The lemma and the group id travel on the element instead of through a Vue
  * event: hovering and clicking are both delegated from the document, so whatever
- * is under the pointer has to carry its own lookup payload. The group id is only
- * set on the pieces of a split word, which is exactly what the selection snapping
- * needs to grow a range back to the whole word.
+ * is under the pointer has to carry its own lookup payload. The group id names
+ * the word a span belongs to, which is what the selection snapping needs to grow
+ * a range back to the whole word; a word drawn as a single piece groups alone.
  */
 function partAttrs(part) {
   if (!part.word) return null

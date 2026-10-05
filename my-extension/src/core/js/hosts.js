@@ -3,7 +3,7 @@
 /**
  * Mount point for an independent Vue app. It is `display: contents` so the
  * rendered root behaves as if it were a direct child of whatever container it
- * gets attached to (the YouTube player, or `<body>` for a fixed sidebar).
+ * gets attached to (the YouTube player, or the watch page's sidebar column).
  *
  * Every feature mounts on its own host: they cannot share one app instance
  * because the overlay and the word popup are re-parented into different

@@ -203,14 +203,24 @@ export function splitClitics(text) {
 }
 
 /**
- * The pieces a word part is drawn as: the backend's own breakdown when it
- * describes more than one token, the clitic rules otherwise. A single-token
- * breakdown is ignored on purpose — it covers the word but does not cut it, so
- * falling back keeps `it's` from rendering as a bare `it`.
+ * The pieces a word part is drawn as, each carrying the lemma its lookup has to
+ * be sent with: the backend's own breakdown when it describes more than one
+ * token, the clitic rules otherwise. A single-token breakdown never cuts the
+ * word — falling back keeps `it's` from rendering as a bare `it` — but it still
+ * names the dictionary form, so it is what an unsplit word is looked up by.
+ *
+ * Always returns at least one piece, so even a word the rules know nothing about
+ * gets a lemma: an empty one lets the backend fall back to the surface form,
+ * while `null` used to drop the lookup payload of every ordinary word.
  */
 export function splitWordPart(text, tokens) {
   const byTokens = splitPartByTokens(text, tokens)
   if (byTokens && byTokens.length > 1) return byTokens
 
-  return splitClitics(text)
+  const clitics = splitClitics(text)
+  if (clitics) return clitics
+
+  // The single token's own slice is not reused as the text: it is cut out of the
+  // comparable form, so for "Mr." it would drop the period the part renders with.
+  return [{ text, lemma: byTokens?.[0]?.lemma ?? '' }]
 }

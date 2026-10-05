@@ -5,12 +5,12 @@ import { AUDIO_ICON_URL } from '../../../core/js/constants.js'
 import { useWordPanel } from '../composables/useWordPanel.js'
 
 const {
-  open,
+  visible,
   loading,
   word,
   ipa,
   pos,
-  meaning,
+  meanings,
   audioUrl,
   canSave,
   close,
@@ -258,31 +258,35 @@ const activeTab = ref('overview')
   <Transition name="word-panel">
     <aside
       id="lingo-word-panel"
-      v-if="open"
+      v-if="visible"
       :class="{ loading }"
       @mousedown.stop
     >
-      <!-- Same drawer handle as the settings sidebar: out of the header flow,
-           pinned to the right edge and centred vertically. -->
-      <button class="panel-close" type="button" aria-label="Đóng" @click="close">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-
       <header class="panel-head">
         <div class="panel-word panel-word--loading" v-show="loading">{{ word }}</div>
         <div class="panel-word" v-show="!loading">{{ word }}</div>
+        <!-- Same header button as the settings panel, on the same row. -->
+        <button class="panel-close" type="button" aria-label="Đóng" @click="close">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </button>
       </header>
 
-      <div class="panel-body">
+      <!-- The one scrolling region: it fills what the header and footer leave, so
+           the entry scrolls instead of stretching the column. -->
+      <div class="panel-body" id="content">
         <div class="word-popup-spinner" v-show="loading"></div>
 
         <!-- The same white card the settings sections sit in. -->
         <div class="panel-card" v-show="!loading">
-          <div class="word-popup-ipa">{{ ipa }}</div>
+          <div class="word-popup-ipa" v-show="ipa">{{ ipa }}</div>
           <div v-show="pos" :class="posClass">{{ pos }}</div>
-          <div class="word-popup-meaning">{{ meaning }}</div>
+          <ul class="word-popup-meanings" v-show="meanings.length">
+            <li v-for="(text, index) in meanings" :key="index" class="word-popup-meaning">
+              {{ text }}
+            </li>
+          </ul>
         </div>
 
         <!-- ============ DỮ LIỆU MỞ RỘNG TỪ move muːv.txt ============ -->
