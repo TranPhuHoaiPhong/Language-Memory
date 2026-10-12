@@ -9,8 +9,8 @@ import './styles/styles.css'
 export const settingsPanel = {
   id: 'settings',
   /**
-   * Two things: the panel itself, in the watch page's right-hand column, and the
-   * button in the player's control bar that opens it.
+   * Two things: the panel itself, in the fixed dock on the right of the screen,
+   * and the button in the player's control bar that opens it.
    */
   mount() {
     createApp(SettingsPanel).mount(createSidebarHost())

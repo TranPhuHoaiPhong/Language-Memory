@@ -54,13 +54,33 @@ function isPending(part) {
 }
 
 /**
+ * True for the word the clock is on right now: the last word whose start time
+ * the scheduler published. Pieces of one word share a timing, so they light up
+ * together. Only used while the karaoke highlight is switched on.
+ */
+function isActive(part) {
+  return (
+    subtitleStore.settings.highlight.enabled &&
+    subtitleStore.activeWordTime >= 0 &&
+    !!part.timing &&
+    part.timing.start === subtitleStore.activeWordTime
+  )
+}
+
+/**
  * Every part is a span, not just the words: the dimming has to cross the
  * punctuation too, or a sentence reads as half-faded. Only the word parts carry
  * `.sub-word`, which is the class the selection snapping and the click
  * handling latch onto.
  */
 function partClass(part) {
-  return [part.word ? 'sub-word' : 'sub-plain', { 'sub-word--pending': isPending(part) }]
+  return [
+    part.word ? 'sub-word' : 'sub-plain',
+    {
+      'sub-word--pending': isPending(part),
+      'sub-word--active': part.word && isActive(part),
+    },
+  ]
 }
 
 /**

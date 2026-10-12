@@ -10,8 +10,8 @@ export const dictionary = {
   id: 'dictionary',
   mount() {
     createApp(WordPopup).mount(wordPopupHost)
-    // The panel shares the watch page's sidebar column with the settings, so it
-    // replaces that column's contents instead of floating over the player.
+    // The panel shares the fixed right-hand dock with the settings, so opening
+    // one evicts the other instead of the two stacking on the player.
     createApp(WordPanel).mount(createSidebarHost())
   },
 }

@@ -5,7 +5,7 @@ import { store } from '../../../core/js/state.js'
 import { subtitleStore } from '../../subtitles/state/state.js'
 import { playAudio, stopAudio } from '../logic/audio.js'
 import { wordPanelControl } from '../logic/panelControl.js'
-import { fetchWordInfo, readEntry, readMeanings, saveWord } from '../logic/word.js'
+import { fetchWordDetail, readEntry, readMeanings, saveWord } from '../logic/word.js'
 
 const AUTOPLAY_DELAY = 10
 
@@ -13,9 +13,9 @@ const AUTOPLAY_DELAY = 10
 const SLOT_ID = 'word'
 
 /**
- * The clicked-word panel: the same lookup the popup does, but kept in the watch
- * page's sidebar column so it survives the pointer leaving the subtitle and the
- * video being scrubbed.
+ * The clicked-word panel: the same lookup the popup does, but kept in the fixed
+ * right-hand dock so it survives the pointer leaving the subtitle and the video
+ * being scrubbed.
  */
 export function useWordPanel() {
   const open = ref(false)
@@ -30,16 +30,15 @@ export function useWordPanel() {
   const savePayload = ref(null)
 
   /**
-   * One column, one panel: opening a word evicts the settings. `visible` also
-   * covers the pages without a sidebar, and the navigations where YouTube drops
-   * the column the panel was opened in.
+   * One dock, one panel: opening a word evicts the settings. `visible` also
+   * covers the pages without a sidebar, where there is nothing to look up.
    */
   const visible = computed(() => open.value && sidebar.value !== null)
 
   /** Bumped on every open so a slow response for a previous word is dropped. */
   let requestId = 0
 
-  /** Closing the panel collapses the sidebar column it occupies. */
+  /** Closing the panel dismisses the dock slot it holds. */
   function close() {
     requestId++
     stopAudio()
@@ -66,7 +65,7 @@ export function useWordPanel() {
     claimSlot(SLOT_ID, close)
 
     try {
-      const data = await fetchWordInfo(lemma || text, language)
+      const data = await fetchWordDetail(lemma || text, language)
       if (currentRequestId !== requestId) return
 
       const info = readEntry(data)

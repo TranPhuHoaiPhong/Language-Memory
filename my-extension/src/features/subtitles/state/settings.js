@@ -59,6 +59,15 @@ export const PADDING_X_RANGE = { min: 0, max: 40, step: 1 }
 export const PADDING_Y_RANGE = { min: 0, max: 20, step: 1 }
 
 export const DEFAULT_SETTINGS = {
+  /** Master switch: off hides the whole overlay, whatever the rows say. */
+  enabled: true,
+
+  /** Karaoke glow on the word the video clock has reached. */
+  highlight: { enabled: false, color: '#ffe600' },
+
+  /** Words the clock has not reached yet fade back to this opacity. */
+  pending: { enabled: true, opacity: 0.45 },
+
   /** Typography both lines share: everything except family and size. */
   font: {
     weight: 600,
@@ -83,11 +92,11 @@ export const DEFAULT_SETTINGS = {
   background: {
     enabled: true,
     color: '#000000',
-    opacity: 0.6,
+    opacity: 0.7,
     radius: 10,
     paddingX: 13,
     paddingY: 5,
-    boxShadow: 'none',
+    boxShadow: 'soft',
     textShadow: 'none',
   },
 }
@@ -172,6 +181,8 @@ export function normalizeSettings(raw) {
   const original = flat.original && typeof flat.original === 'object' ? flat.original : {}
   const translated = flat.translated && typeof flat.translated === 'object' ? flat.translated : {}
   const bg = flat.background && typeof flat.background === 'object' ? flat.background : {}
+  const highlight = flat.highlight && typeof flat.highlight === 'object' ? flat.highlight : {}
+  const pending = flat.pending && typeof flat.pending === 'object' ? flat.pending : {}
 
   const legacyColor = pickColor(flat.color, null)
   const legacyFamily = pickOneOf(FONT_FAMILIES, font.family, null)
@@ -180,6 +191,18 @@ export function normalizeSettings(raw) {
   const d = DEFAULT_SETTINGS
 
   return {
+    enabled: pickBoolean(flat.enabled, d.enabled),
+
+    highlight: {
+      enabled: pickBoolean(highlight.enabled, d.highlight.enabled),
+      color: pickColor(highlight.color, d.highlight.color),
+    },
+
+    pending: {
+      enabled: pickBoolean(pending.enabled, d.pending.enabled),
+      opacity: clampNumber(pending.opacity, OPACITY_RANGE, d.pending.opacity),
+    },
+
     font: {
       weight: pickOneOf(FONT_WEIGHTS, Number(font.weight), d.font.weight),
       lineHeight: clampNumber(font.lineHeight, LINE_HEIGHT_RANGE, d.font.lineHeight),

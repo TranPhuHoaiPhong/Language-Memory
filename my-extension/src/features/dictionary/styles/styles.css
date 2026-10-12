@@ -1,21 +1,21 @@
-
-/* ===== Word panel (clicked word, watch page sidebar) ===== */
+/* ===== Word panel (clicked word, fixed right dock) ===== */
 /* Injected into the host page, so every rule is scoped to `#lingo-word-panel`.
-   It sits in the watch page's right-hand column next to the settings, so it is
-   an ordinary block: same surface, font and sections as `#lingo-settings`. Like
-   the settings, it grows to fill that column — full width, and whatever height is
-   left in it — so only `#content` scrolls and the word stays put with the footer. */
+   It is a fixed dock pinned to the right of the viewport — 400px wide, full
+   browser height — same surface, font and sections as `#lingo-settings`, and it
+   stays put while the page scrolls. Only `#content` scrolls, so the word stays
+   put with the footer. */
 #lingo-word-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-right: 0px !important;
+  z-index: 2147483000;
   display: flex;
-  /* The column is a flex column, so this is what claims its leftover height. */
-  flex: 1;
   flex-direction: column;
   box-sizing: border-box;
-  width: 100%;
-  min-height: 0;
-  /* `min()` covers the two ceilings: the column's own height, and the viewport
-     when the column is itself content-sized and reports no definite height. */
-  max-height: min(100%, 100dvh);
+  width: 400px;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   padding: 12px;
   background: #f7f8fc;
@@ -24,17 +24,19 @@
   font-size: 14px;
   line-height: 1.4;
   pointer-events: auto;
+  box-shadow: -8px 0 24px rgba(15, 23, 42, 0.18);
 }
 
-/* Nothing slides any more — the panel fades into a column that is already there. */
+/* The panel slides in from the right edge of the viewport. */
 #lingo-word-panel.word-panel-enter-active,
 #lingo-word-panel.word-panel-leave-active {
-  transition: opacity 0.18s ease;
+  transition: transform 0.24s ease, opacity 0.24s ease;
 }
 
 #lingo-word-panel.word-panel-enter-from,
 #lingo-word-panel.word-panel-leave-to {
   opacity: 0;
+  transform: translateX(100%);
 }
 
 #lingo-word-panel *,
@@ -222,6 +224,7 @@
     opacity: 0;
     transform: translateY(4px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -276,6 +279,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -463,7 +467,14 @@
 }
 
 /* Looking up: the box shrinks to the spinner, so nothing of the entry it is
-   replacing is left showing around it. */
+   replacing is left showing around it. The frame goes fully transparent — no
+   background, shadow or tail — leaving only the spinner visible. */
 #word-popup.loading {
-  padding: 9px 10px;
+  padding: 4px;
+  background: transparent;
+  box-shadow: none;
+}
+
+#word-popup.loading::after {
+  display: none;
 }

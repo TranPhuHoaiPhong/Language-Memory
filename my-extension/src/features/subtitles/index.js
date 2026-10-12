@@ -24,6 +24,7 @@ registerStorageKey(STORAGE_KEYS.nativeLanguage, loadTranscript)
 registerSettingsTab({
   id: 'subtitle',
   label: 'Phụ đề',
+  labelKey: 'settings.subtitleTab',
   storageKey: SETTINGS_KEY,
   normalize: normalizeSettings,
   component: SubtitleSettings,

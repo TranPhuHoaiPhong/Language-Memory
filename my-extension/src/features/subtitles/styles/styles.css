@@ -38,20 +38,30 @@
   pointer-events: none !important;
 }
 
-/* Each rendered line is its own box so the background hugs the text. */
+/* One shared box around both rows: the background wraps the whole block instead
+   of each line, and `inline-block` keeps it only as wide as the text it holds
+   (capped at the overlay's width so long cues still wrap). The text shadow lives
+   here too, so it reaches every row through inheritance. */
+#subtitle-translate .subtitle-content {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 auto;
+  background: var(--sub-background, rgba(0, 0, 0, 0.6));
+  padding: var(--sub-padding, 5px 13px);
+  border-radius: var(--sub-radius, 10px);
+  text-shadow: var(--sub-text-shadow, none);
+  box-shadow: var(--sub-box-shadow, none);
+  user-select: text;
+}
+
+/* Each rendered line is just text now: the box they used to draw is the shared
+   one on `.subtitle-content`. */
 #subtitle-translate .sub-line {
   display: inline-block;
   margin: 0 auto;
   white-space: pre-wrap;
   word-break: break-word;
-  background: var(--sub-background, rgba(0, 0, 0, 0.6));
-  padding: var(--sub-padding, 5px 13px);
-  border-radius: var(--sub-radius, 10px);
   line-height: inherit;
-  text-shadow: var(--sub-text-shadow, none);
-  box-shadow: var(--sub-box-shadow, none);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 #subtitle-translate .sub-line + .sub-line {
@@ -82,10 +92,6 @@
   opacity: 0;
   pointer-events: auto;
   transition: opacity 0.2s;
-}
-
-#subtitle-translate .subtitle-content {
-  user-select: text;
 }
 
 /* ===== Hover feedback ===== */
@@ -125,6 +131,16 @@
    back to full opacity instead of staying dimmed. */
 #subtitle-translate .sub-word--pending:hover {
   opacity: 1;
+}
+
+/* ===== Karaoke highlight ===== */
+/* The word the clock is on right now glows in the chosen colour. The class flips
+   on word boundaries, so the transition is between words, not per frame. */
+#subtitle-translate .sub-word--active {
+  color: var(--sub-highlight-color, #ffe600);
+  text-shadow: 0 0 10px var(--sub-highlight-color, #ffe600);
+  transition: color var(--sub-word-fade, 120ms) linear,
+    text-shadow var(--sub-word-fade, 120ms) linear;
 }
 
 /* ===== Interaction guards ===== */

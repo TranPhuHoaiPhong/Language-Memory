@@ -26,7 +26,7 @@ const handleStyle = computed(() => ({
  * a single rule that reads the variables of the element it is applied to.
  */
 const rootStyle = computed(() => {
-  const { font, gap, background: bg } = subtitleStore.settings
+  const { font, gap, background: bg, highlight, pending } = subtitleStore.settings
 
   return {
     fontSize: `${baseFontSize.value}px`,
@@ -44,12 +44,19 @@ const rootStyle = computed(() => {
     '--sub-padding': `${bg.paddingY}px ${bg.paddingX}px`,
     '--sub-box-shadow': boxShadowCss(bg.boxShadow),
     '--sub-text-shadow': textShadowCss(bg.textShadow),
+    '--sub-highlight-color': highlight.color,
+    '--sub-word-pending-opacity': pending.enabled ? pending.opacity : 1,
   }
 })
 </script>
 
 <template>
-  <div id="subtitle-translate" ref="root" :style="rootStyle">
+  <div
+    id="subtitle-translate"
+    ref="root"
+    v-show="subtitleStore.settings.enabled"
+    :style="rootStyle"
+  >
     <div class="subtitle-drag-handle" ref="handle" :style="handleStyle">⠿</div>
 
     <div class="subtitle-content">

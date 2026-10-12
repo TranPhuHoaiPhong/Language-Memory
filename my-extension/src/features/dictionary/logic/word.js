@@ -9,9 +9,23 @@ const MAX_MEANINGS = 3
  * dictionary form, so `lemma` is the whole lookup and `lang` is the language the
  * definition has to be written in — the user's native language. Nothing else is
  * sent, so a word the backend broke down no further is looked up by its own text.
+ *
+ * This is the light lookup behind the hover popup.
  */
 export function fetchWordInfo(lemma, language) {
   return apiRequest('search/vocabulary', {
+    method: 'GET',
+    query: { lemma, lang: language },
+  })
+}
+
+/**
+ * `GET /search/detail-vocabulary?lemma=love&lang=vi`: the same lookup, but the
+ * full entry — IPA, part of speech and audio included. Used by the clicked-word
+ * panel, which has room for all of it, where the popup only shows the senses.
+ */
+export function fetchWordDetail(lemma, language) {
+  return apiRequest('search/detail-vocabulary', {
     method: 'GET',
     query: { lemma, lang: language },
   })

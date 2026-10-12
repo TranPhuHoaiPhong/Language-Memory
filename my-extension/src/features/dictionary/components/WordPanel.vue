@@ -263,14 +263,14 @@ const activeTab = ref('overview')
       @mousedown.stop
     >
       <header class="panel-head">
-        <div class="panel-word panel-word--loading" v-show="loading">{{ word }}</div>
-        <div class="panel-word" v-show="!loading">{{ word }}</div>
-        <!-- Same header button as the settings panel, on the same row. -->
         <button class="panel-close" type="button" aria-label="Đóng" @click="close">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
           </svg>
         </button>
+        <div class="panel-word panel-word--loading" v-show="loading">{{ word }}</div>
+        <div class="panel-word" v-show="!loading">{{ word }}</div>
+        <!-- Same header button as the settings panel, on the same row. -->
       </header>
 
       <!-- The one scrolling region: it fills what the header and footer leave, so
@@ -415,7 +415,7 @@ const activeTab = ref('overview')
         <!-- ============ /DỮ LIỆU MỞ RỘNG ============ -->
       </div>
 
-      <footer class="panel-foot" v-show="!loading">
+      <!-- <footer class="panel-foot" v-show="!loading">
         <div class="container-word">
           <div class="container-word-audio">
             <div class="inside-word-audio">
@@ -430,7 +430,7 @@ const activeTab = ref('overview')
             </div>
           </div>
         </div>
-      </footer>
+      </footer> -->
     </aside>
   </Transition>
 </template>

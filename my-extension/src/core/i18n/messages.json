@@ -1,0 +1,156 @@
+{
+  "en": {
+    "settings": {
+      "close": "Close",
+      "saved": "Saved",
+      "languageSection": "Language",
+      "learningLanguage": "Language you want to learn",
+      "nativeLanguage": "Your native language",
+      "languageHint": "Changing the language reloads the subtitles of the current video.",
+      "subtitleTab": "Subtitles"
+    },
+    "subtitles": {
+      "display": "Display",
+      "enabled": "Enable subtitles",
+      "enabledHint": "Turn off to hide subtitles completely on the video",
+      "pending": "Fade upcoming words",
+      "pendingHint": "Words not yet read are dimmed and become clear as their time arrives",
+      "pendingOpacity": "Opacity",
+      "highlight": "Glow the current word",
+      "highlightHint": "The word being spoken lights up following the video time",
+      "highlightColor": "Glow color",
+      "shared": "Shared by both lines",
+      "weight": "Weight",
+      "lineHeight": "Line height",
+      "width": "Subtitle width",
+      "align": "Text align",
+      "bold": "Bold",
+      "italic": "Italic",
+      "gap": "Gap between lines",
+      "originalLine": "Original subtitle line",
+      "translatedLine": "Translated subtitle line",
+      "lineEnabled": "Show this line",
+      "lineEnabledHint": "Turn off to keep only the other line",
+      "family": "Font",
+      "scale": "Size",
+      "color": "Text color",
+      "lineOpacity": "Text opacity",
+      "background": "Subtitle background",
+      "bgEnabled": "Enable background",
+      "bgColor": "Background color",
+      "bgOpacity": "Background opacity",
+      "paddingX": "Horizontal padding",
+      "paddingY": "Vertical padding",
+      "radius": "Corner radius",
+      "textShadow": "Text shadow",
+      "reset": "Reset to defaults",
+      "appliedHint": "Changes apply on the video right away, no reload needed."
+    },
+    "options": {
+      "weight": {
+        "300": "Thin",
+        "400": "Regular",
+        "500": "Medium",
+        "600": "Semibold",
+        "700": "Bold",
+        "800": "Black"
+      },
+      "align": {
+        "left": "Left",
+        "center": "Center",
+        "right": "Right"
+      },
+      "textShadow": {
+        "outline": "Outline",
+        "soft": "Soft",
+        "glow": "Glow",
+        "none": "None"
+      },
+      "family": {
+        "system": "System",
+        "sans": "Sans serif",
+        "serif": "Serif",
+        "mono": "Monospace",
+        "rounded": "Rounded",
+        "condensed": "Condensed"
+      }
+    }
+  },
+  "vi": {
+    "settings": {
+      "close": "Đóng",
+      "saved": "Đã lưu",
+      "languageSection": "Ngôn ngữ",
+      "learningLanguage": "Ngôn ngữ bạn muốn học",
+      "nativeLanguage": "Ngôn ngữ bản ngữ của bạn",
+      "languageHint": "Đổi ngôn ngữ sẽ tải lại phụ đề của video hiện tại.",
+      "subtitleTab": "Phụ đề"
+    },
+    "subtitles": {
+      "display": "Hiển thị",
+      "enabled": "Bật phụ đề",
+      "enabledHint": "Tắt để ẩn hoàn toàn phụ đề trên video",
+      "pending": "Làm mờ từ chưa tới",
+      "pendingHint": "Từ chưa được đọc sẽ mờ đi, rõ dần khi tới thời gian phát",
+      "pendingOpacity": "Độ mờ",
+      "highlight": "Phát sáng từ đang nói",
+      "highlightHint": "Từ đang phát sẽ sáng lên theo thời gian video",
+      "highlightColor": "Màu phát sáng",
+      "shared": "Chung cho cả 2 dòng",
+      "weight": "Độ đậm",
+      "lineHeight": "Chiều cao dòng",
+      "width": "Độ rộng phụ đề",
+      "align": "Căn chữ",
+      "bold": "In đậm",
+      "italic": "In nghiêng",
+      "gap": "Khoảng cách 2 dòng",
+      "originalLine": "Dòng phụ đề gốc",
+      "translatedLine": "Dòng phụ đề dịch",
+      "lineEnabled": "Hiện dòng này",
+      "lineEnabledHint": "Tắt để chỉ giữ dòng còn lại",
+      "family": "Kiểu chữ",
+      "scale": "Kích thước",
+      "color": "Màu chữ",
+      "lineOpacity": "Độ mờ chữ",
+      "background": "Nền phụ đề",
+      "bgEnabled": "Bật nền",
+      "bgColor": "Màu nền",
+      "bgOpacity": "Độ mờ nền",
+      "paddingX": "Padding ngang",
+      "paddingY": "Padding dọc",
+      "radius": "Bo góc",
+      "textShadow": "Đổ bóng chữ",
+      "reset": "Đặt lại mặc định",
+      "appliedHint": "Tuỳ chỉnh được áp dụng ngay trên video, không cần tải lại trang."
+    },
+    "options": {
+      "weight": {
+        "300": "Thin",
+        "400": "Thường",
+        "500": "Medium",
+        "600": "Semibold",
+        "700": "Đậm",
+        "800": "Black"
+      },
+      "align": {
+        "left": "Trái",
+        "center": "Giữa",
+        "right": "Phải"
+      },
+      "textShadow": {
+        "outline": "Viền",
+        "soft": "Mềm",
+        "glow": "Phát sáng",
+        "none": "Không"
+      },
+      "family": {
+        "system": "Hệ thống",
+        "sans": "Sans serif",
+        "serif": "Serif",
+        "mono": "Monospace",
+        "rounded": "Bo tròn",
+        "condensed": "Chữ hẹp"
+      }
+    }
+  }
+}

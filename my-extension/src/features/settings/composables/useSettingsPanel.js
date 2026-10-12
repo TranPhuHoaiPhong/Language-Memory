@@ -19,7 +19,7 @@ const SLOT_ID = 'settings'
  */
 const isOpen = ref(false)
 
-/** Closing the panel collapses the sidebar column it occupies. */
+/** Closing the panel dismisses the dock slot it holds. */
 export function closePanel() {
   isOpen.value = false
   releaseSlot(SLOT_ID)
@@ -44,9 +44,9 @@ export function useSettingsPanel() {
   const showSavedHint = ref(false)
 
   /**
-   * There is no sidebar to show the settings in off the watch page, and YouTube
-   * drops the column on every in-app navigation, so the panel hides itself rather
-   * than being pinned to whichever page happens to have one.
+   * The settings only have something to act on off a watch page, so the panel
+   * hides itself wherever YouTube has no right-hand column rather than floating
+   * over pages the video features do not run on.
    */
   const visible = computed(() => isOpen.value && sidebar.value !== null)
 

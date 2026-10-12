@@ -3,23 +3,23 @@
  * rule is scoped to `#lingo-settings`: an unscoped `select` or `*` reset here
  * would restyle YouTube itself.
  *
- * It is a block inside the watch page's right-hand column
- * (`ytd-engagement-panel-section-list-renderer`), not an overlay: no fixed
- * positioning and no slide. It grows to fill that column — full width, and
- * whatever height is left in it — so only `#content` scrolls and the header stays
- * put while the settings are read.
+ * It is a fixed dock pinned to the right of the viewport — 400px wide, full
+ * browser height — rather than an overlay inside the watch page's own column, so
+ * it stays put while the page scrolls. Opening it slides it in from the right.
+ * Only `#content` scrolls, so the header stays put while the settings are read.
  */
 #lingo-settings {
-  display: none;
-  /* The column is a flex column, so this is what claims its leftover height. */
-  flex: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483000;
+  padding-right: 0px !important;
+  display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 100%;
-  min-height: 0;
-  /* `min()` covers the two ceilings: the column's own height, and the viewport
-     when the column is itself content-sized and reports no definite height. */
-  max-height: min(100%, 100dvh);
+  width: 400px;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   padding: 12px;
   background: #f7f8fc;
@@ -27,10 +27,21 @@
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.4;
+  box-shadow: -8px 0 24px rgba(15, 23, 42, 0.18);
 }
 
-#lingo-settings.open {
-  display: flex;
+/* Opening slides the panel in from the right edge of the viewport. `v-show`
+   keeps the element mounted so its state survives; the transition only runs on
+   the way in and out. */
+#lingo-settings.settings-panel-enter-active,
+#lingo-settings.settings-panel-leave-active {
+  transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+#lingo-settings.settings-panel-enter-from,
+#lingo-settings.settings-panel-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
 }
 
 /* The page must not read text selections or scroll under the panel. */
@@ -389,57 +400,6 @@
   background: none;
   cursor: pointer;
   opacity: 0;
-}
-
-/* ===== Preview ===== */
-#lingo-settings .preview-stage {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 128px;
-  padding: 10px 8px;
-  border-radius: 10px;
-  background: linear-gradient(160deg, #1f2937, #0f172a);
-  overflow: hidden;
-}
-
-#lingo-settings .preview-sub {
-  /* Same box model as the overlay's .sub-line. */
-  margin: 0 auto;
-}
-
-#lingo-settings .preview-line {
-  /* Same box model as the overlay's .sub-line, and the same per-line custom
-     properties, so the two cannot drift apart. */
-  display: inline-block;
-  max-width: 100%;
-  font-family: var(--sub-family, inherit);
-  font-size: calc(1em * var(--sub-scale, 1));
-  color: var(--sub-color, #fff);
-  background: var(--sub-background, rgba(0, 0, 0, 0.6));
-  padding: var(--sub-padding, 5px 13px);
-  border-radius: var(--sub-radius, 10px);
-  box-shadow: var(--sub-box-shadow, none);
-  text-shadow: var(--sub-text-shadow, none);
-  word-break: break-word;
-  white-space: pre-wrap;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-#lingo-settings .preview-caption {
-  margin-top: 6px;
-  text-align: center;
-  font-size: 10px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: #a6adbd;
-}
-
-#lingo-settings .preview-empty {
-  margin: auto;
-  font-size: 12px;
-  color: #8a93a6;
 }
 
 /* ===== Player button ===== */

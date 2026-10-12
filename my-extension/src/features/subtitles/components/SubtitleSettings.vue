@@ -1,17 +1,16 @@
 <script setup>
+import { computed } from 'vue'
+import { t } from '../../../core/i18n/index.js'
 import ColorPicker from '../../../core/ui/ColorPicker.vue'
 import RangeField from '../../../core/ui/RangeField.vue'
 import SectionBlock from '../../../core/ui/SectionBlock.vue'
 import SelectField from '../../../core/ui/SelectField.vue'
 import ToggleField from '../../../core/ui/ToggleField.vue'
-import SubtitlePreview from './SubtitlePreview.vue'
 import {
   ALIGN_OPTIONS,
-  BOX_SHADOWS,
   FONT_FAMILIES,
   FONT_WEIGHTS,
   GAP_RANGE,
-  LETTER_SPACING_RANGE,
   LINE_HEIGHT_RANGE,
   OPACITY_RANGE,
   PADDING_X_RANGE,
@@ -30,8 +29,7 @@ const emit = defineEmits(['update:settings', 'reset'])
 
 /**
  * Settings are nested, so a flat `patch(key)` is not enough. Cloning only the
- * touched branch keeps the other groups referentially stable, which is what
- * makes the preview re-render only when it must.
+ * touched branch keeps the other groups referentially stable.
  */
 function patch(path, value) {
   const keys = path.split('.')
@@ -49,28 +47,82 @@ function patch(path, value) {
 
 const percent = (n) => `${Math.round(n * 100)}%`
 
+/**
+ * Dropdown option labels live in the locale JSON, keyed by their value, so a
+ * language switch re-labels them like every other string. The stored value does
+ * not change — only the visible label is replaced.
+ */
+function localizeOptions(options, group) {
+  return options.map((option) => ({ ...option, label: t(`options.${group}.${option.value}`) }))
+}
+
+const weightOptions = computed(() => localizeOptions(FONT_WEIGHTS, 'weight'))
+const alignOptions = computed(() => localizeOptions(ALIGN_OPTIONS, 'align'))
+const textShadowOptions = computed(() => localizeOptions(TEXT_SHADOWS, 'textShadow'))
+const familyOptions = computed(() => localizeOptions(FONT_FAMILIES, 'family'))
+
 /** The two rendered rows, so their fields are declared once instead of twice. */
 const LINES = [
-  { key: 'original', title: 'Dòng phụ đề gốc' },
-  { key: 'translated', title: 'Dòng phụ đề dịch' },
+  { key: 'original', titleKey: 'subtitles.originalLine' },
+  { key: 'translated', titleKey: 'subtitles.translatedLine' },
 ]
 </script>
 
 <template>
   <div class="tab-body">
-    <SubtitlePreview :settings="settings" />
+    <!-- ================= Display & word states ================= -->
+    <SectionBlock :title="t('subtitles.display')" :open="true">
+      <ToggleField
+        :label="t('subtitles.enabled')"
+        :hint="t('subtitles.enabledHint')"
+        :model-value="settings.enabled"
+        @update:model-value="patch('enabled', $event)"
+      />
+
+      <ToggleField
+        :label="t('subtitles.pending')"
+        :hint="t('subtitles.pendingHint')"
+        :model-value="settings.pending.enabled"
+        @update:model-value="patch('pending.enabled', $event)"
+      />
+
+      <RangeField
+        v-if="settings.pending.enabled"
+        :label="t('subtitles.pendingOpacity')"
+        :model-value="settings.pending.opacity"
+        :min="OPACITY_RANGE.min"
+        :max="OPACITY_RANGE.max"
+        :step="OPACITY_RANGE.step"
+        :display-value="percent(settings.pending.opacity)"
+        @update:model-value="patch('pending.opacity', $event)"
+      />
+
+      <ToggleField
+        :label="t('subtitles.highlight')"
+        :hint="t('subtitles.highlightHint')"
+        :model-value="settings.highlight.enabled"
+        @update:model-value="patch('highlight.enabled', $event)"
+      />
+
+      <ColorPicker
+        v-if="settings.highlight.enabled"
+        :label="t('subtitles.highlightColor')"
+        :model-value="settings.highlight.color"
+        @update:model-value="patch('highlight.color', $event)"
+      />
+    </SectionBlock>
 
     <!-- ================= Shared typography ================= -->
-    <SectionBlock title="Chung cho cả 2 dòng" :open="true">
+    <SectionBlock :title="t('subtitles.shared')" :open="true">
       <SelectField
-        label="Độ đậm"
+        :label="t('subtitles.weight')"
         :model-value="settings.font.weight"
-        :options="FONT_WEIGHTS"
+        :options="weightOptions"
         @update:model-value="patch('font.weight', $event)"
       />
 
       <RangeField
-        label="Chiều cao dòng"
+        :label="t('subtitles.lineHeight')"
         :model-value="settings.font.lineHeight"
         :min="LINE_HEIGHT_RANGE.min"
         :max="LINE_HEIGHT_RANGE.max"
@@ -80,17 +132,7 @@ const LINES = [
       />
 
       <RangeField
-        label="Giãn chữ"
-        :model-value="settings.font.letterSpacing"
-        :min="LETTER_SPACING_RANGE.min"
-        :max="LETTER_SPACING_RANGE.max"
-        :step="LETTER_SPACING_RANGE.step"
-        :display-value="`${settings.font.letterSpacing.toFixed(2)}em`"
-        @update:model-value="patch('font.letterSpacing', $event)"
-      />
-
-      <RangeField
-        label="Độ rộng phụ đề"
+        :label="t('subtitles.width')"
         :model-value="settings.font.width"
         :min="WIDTH_RANGE.min"
         :max="WIDTH_RANGE.max"
@@ -100,25 +142,25 @@ const LINES = [
       />
 
       <SelectField
-        label="Căn chữ"
+        :label="t('subtitles.align')"
         :model-value="settings.font.align"
-        :options="ALIGN_OPTIONS"
+        :options="alignOptions"
         @update:model-value="patch('font.align', $event)"
       />
 
       <ToggleField
-        label="In đậm"
+        :label="t('subtitles.bold')"
         :model-value="settings.font.bold"
         @update:model-value="patch('font.bold', $event)"
       />
       <ToggleField
-        label="In nghiêng"
+        :label="t('subtitles.italic')"
         :model-value="settings.font.italic"
         @update:model-value="patch('font.italic', $event)"
       />
 
       <RangeField
-        label="Khoảng cách 2 dòng"
+        :label="t('subtitles.gap')"
         :model-value="settings.gap"
         :min="GAP_RANGE.min"
         :max="GAP_RANGE.max"
@@ -132,23 +174,23 @@ const LINES = [
          Show/hide, family, size, colour and opacity are per line: the source and
          the translation are read side by side, so styling them together is what
          the user wants. -->
-    <SectionBlock v-for="line in LINES" :key="line.key" :title="line.title">
+    <SectionBlock v-for="line in LINES" :key="line.key" :title="t(line.titleKey)">
       <ToggleField
-        label="Hiện dòng này"
-        hint="Tắt để chỉ giữ dòng còn lại"
+        :label="t('subtitles.lineEnabled')"
+        :hint="t('subtitles.lineEnabledHint')"
         :model-value="settings[line.key].enabled"
         @update:model-value="patch(`${line.key}.enabled`, $event)"
       />
 
       <SelectField
-        label="Kiểu chữ"
+        :label="t('subtitles.family')"
         :model-value="settings[line.key].family"
-        :options="FONT_FAMILIES"
+        :options="familyOptions"
         @update:model-value="patch(`${line.key}.family`, $event)"
       />
 
       <RangeField
-        label="Kích thước"
+        :label="t('subtitles.scale')"
         :model-value="settings[line.key].scale"
         :min="SCALE_RANGE.min"
         :max="SCALE_RANGE.max"
@@ -158,13 +200,13 @@ const LINES = [
       />
 
       <ColorPicker
-        label="Màu chữ"
+        :label="t('subtitles.color')"
         :model-value="settings[line.key].color"
         @update:model-value="patch(`${line.key}.color`, $event)"
       />
 
       <RangeField
-        label="Độ mờ chữ"
+        :label="t('subtitles.lineOpacity')"
         :model-value="settings[line.key].opacity"
         :min="OPACITY_RANGE.min"
         :max="OPACITY_RANGE.max"
@@ -175,22 +217,22 @@ const LINES = [
     </SectionBlock>
 
     <!-- ================= Background box ================= -->
-    <SectionBlock title="Nền phụ đề">
+    <SectionBlock :title="t('subtitles.background')">
       <ToggleField
-        label="Bật nền"
+        :label="t('subtitles.bgEnabled')"
         :model-value="settings.background.enabled"
         @update:model-value="patch('background.enabled', $event)"
       />
 
       <template v-if="settings.background.enabled">
         <ColorPicker
-          label="Màu nền"
+          :label="t('subtitles.bgColor')"
           :model-value="settings.background.color"
           @update:model-value="patch('background.color', $event)"
         />
 
         <RangeField
-          label="Độ mờ nền"
+          :label="t('subtitles.bgOpacity')"
           :model-value="settings.background.opacity"
           :min="OPACITY_RANGE.min"
           :max="OPACITY_RANGE.max"
@@ -200,7 +242,7 @@ const LINES = [
         />
 
         <RangeField
-          label="Padding ngang"
+          :label="t('subtitles.paddingX')"
           :model-value="settings.background.paddingX"
           :min="PADDING_X_RANGE.min"
           :max="PADDING_X_RANGE.max"
@@ -210,7 +252,7 @@ const LINES = [
         />
 
         <RangeField
-          label="Padding dọc"
+          :label="t('subtitles.paddingY')"
           :model-value="settings.background.paddingY"
           :min="PADDING_Y_RANGE.min"
           :max="PADDING_Y_RANGE.max"
@@ -220,7 +262,7 @@ const LINES = [
         />
 
         <RangeField
-          label="Bo góc"
+          :label="t('subtitles.radius')"
           :model-value="settings.background.radius"
           :min="RADIUS_RANGE.min"
           :max="RADIUS_RANGE.max"
@@ -230,24 +272,17 @@ const LINES = [
         />
 
         <SelectField
-          label="Đổ bóng khung"
-          :model-value="settings.background.boxShadow"
-          :options="BOX_SHADOWS"
-          @update:model-value="patch('background.boxShadow', $event)"
-        />
-
-        <SelectField
-          label="Đổ bóng chữ"
+          :label="t('subtitles.textShadow')"
           :model-value="settings.background.textShadow"
-          :options="TEXT_SHADOWS"
+          :options="textShadowOptions"
           @update:model-value="patch('background.textShadow', $event)"
         />
       </template>
     </SectionBlock>
 
     <div class="actions">
-      <button class="reset-btn" type="button" @click="emit('reset')">Đặt lại mặc định</button>
-      <p class="hint">Tuỳ chỉnh được áp dụng ngay trên video, không cần tải lại trang.</p>
+      <button class="reset-btn" type="button" @click="emit('reset')">{{ t('subtitles.reset') }}</button>
+      <p class="hint">{{ t('subtitles.appliedHint') }}</p>
     </div>
   </div>
 </template>
