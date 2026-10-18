@@ -38,6 +38,12 @@
   pointer-events: none !important;
 }
 
+/* Shown on the translated row while a cue has not been translated yet, so the
+   pending line reads as a status rather than as a translation. */
+#subtitle-translate .sub-translated-pending {
+  opacity: 0.6;
+}
+
 /* One shared box around both rows: the background wraps the whole block instead
    of each line, and `inline-block` keeps it only as wide as the text it holds
    (capped at the overlay's width so long cues still wrap). The text shadow lives

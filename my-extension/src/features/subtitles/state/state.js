@@ -30,6 +30,13 @@ export const subtitleStore = reactive({
   loading: false,
   currentVideoId: null,
 
+  /**
+   * True while a translation session is running, i.e. the scheduler still has
+   * cues left to translate. The overlay shows a "Generating" placeholder on the
+   * translated row for cues whose translation has not arrived yet.
+   */
+  translating: false,
+
   /** `null` renders the transcript, a string renders it as a status line. */
   message: null,
 

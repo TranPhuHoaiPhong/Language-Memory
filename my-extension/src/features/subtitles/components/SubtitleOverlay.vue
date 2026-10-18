@@ -20,6 +20,18 @@ const handleStyle = computed(() => ({
 }))
 
 /**
+ * The translated row is drawn when there is a translation, or a placeholder
+ * while one is still being fetched for a cue that has source text. Otherwise
+ * the empty row would still add its gap under the original.
+ */
+const hasTranslatedRow = computed(() => {
+  const cue = subtitleStore.currentSubtitle
+  if (!cue) return false
+  if (cue.translated) return true
+  return subtitleStore.translating && Boolean(cue.original)
+})
+
+/**
  * Everything the settings sidebar can change is expressed as CSS custom properties
  * on the root, except the per-line ones, which are set on the line itself: each
  * row has its own font and size, so `.sub-original` / `.sub-translated` can share
@@ -92,11 +104,15 @@ const rootStyle = computed(() => {
           />
         </div>
         <div
-          v-if="subtitleStore.currentSubtitle.translated && subtitleStore.settings.translated.enabled"
+          v-if="subtitleStore.settings.translated.enabled && hasTranslatedRow"
           class="sub-translated"
           :style="lineStyle(subtitleStore.settings.translated)"
         >
-          <SubtitleText :text="subtitleStore.currentSubtitle.translated" />
+          <SubtitleText
+            v-if="subtitleStore.currentSubtitle.translated"
+            :text="subtitleStore.currentSubtitle.translated"
+          />
+          <span v-else class="sub-translated-pending">Generating</span>
         </div>
       </template>
     </div>

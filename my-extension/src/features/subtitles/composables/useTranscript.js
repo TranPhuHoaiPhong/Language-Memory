@@ -7,12 +7,13 @@ import { startTranslation, stopTranslation } from '../logic/translator.js'
 import { setMessage, setSubtitles, subtitleStore } from '../state/state.js'
 
 /**
- * The transcript on screen is identified by the video *and* the language pair,
- * because the same video needs a new one whenever either language changes.
- * Callers fire this freely — the panel writes both language keys at once and
- * `storage.onChanged` reports each key separately — so the request is keyed by
- * what it depends on, not by how many times it was asked for. Without this,
- * one turn sends `send-id` + `transcript` twice.
+ * The work triggered by a language change is keyed by the video *and* the pair,
+ * even though the fetched transcript itself only depends on the video: a native
+ * change still has to retranslate, and this is what keeps one turn from running
+ * the same reload twice. Callers fire this freely — the panel writes both
+ * language keys at once and `storage.onChanged` reports each key separately —
+ * so the key is what it depends on, not how many times it was asked for.
+ * Without this, one turn sends `send-id` + `transcript` twice.
  */
 function requestKey(videoId) {
   return `${videoId}|${store.targetLanguage}|${store.nativeLanguage}`
@@ -20,10 +21,22 @@ function requestKey(videoId) {
 
 let lastRequestKey = null
 /**
+ * The video and target language the on-screen transcript was fetched for. A
+ * change to the reader's language alone does not need a new transcript: the
+ * backend payload does not depend on it, so it is retranslated in place.
+ */
+let loadedVideoId = null
+let loadedTargetLanguage = null
+/**
  * Counts the requests that were actually started, so a response that lost the
  * race is dropped on arrival instead of overwriting a newer transcript.
  */
 let requestId = 0
+
+/** Drops the translations carried for the previous reader language. */
+function clearTranslations() {
+  for (const cue of subtitleStore.subtitles) cue.translated = ''
+}
 
 export async function loadTranscript() {
   const videoId = new URL(location.href).searchParams.get('v')
@@ -31,12 +44,27 @@ export async function loadTranscript() {
   if (!videoId) {
     stopTranslation()
     lastRequestKey = null
+    loadedVideoId = null
     return
   }
 
   const key = requestKey(videoId)
   if (key === lastRequestKey) return
   lastRequestKey = key
+
+  // Only the language the user reads changed. The transcript on screen does not
+  // depend on it, so asking the backend again would be a wasted round trip:
+  // keeping the cues and letting the scheduler retranslate them is enough.
+  if (
+    videoId === loadedVideoId &&
+    store.targetLanguage === loadedTargetLanguage &&
+    subtitleStore.subtitles.length
+  ) {
+    stopTranslation()
+    clearTranslations()
+    startTranslation(videoId)
+    return
+  }
 
   // Whatever is on screen belongs to the previous video or language pair.
   stopTranslation()
@@ -62,6 +90,8 @@ export async function loadTranscript() {
 
     subtitleStore.sourceLanguage = result.sourceLanguage
     subtitleStore.loading = false
+    loadedVideoId = videoId
+    loadedTargetLanguage = store.targetLanguage
 
     const subtitles = normalizeSubtitles(result.subtitles, getVideo()?.duration)
     console.info(

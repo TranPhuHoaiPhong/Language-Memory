@@ -301,6 +301,9 @@ export async function startTranslation(videoId) {
     )
     return
   }
+  // A session is being set up: the overlay uses this to show a placeholder on
+  // cues whose translation is still to come.
+  subtitleStore.translating = true
   console.info(
     `[Lingo] Bắt đầu dịch: video=${videoId}, cues=${subtitleStore.subtitles.length},`,
     `${store.nativeLanguage} -> ${store.targetLanguage}, batch=${BATCH_SIZE}, lead=${PREFETCH_LEAD_SECONDS}s`,
@@ -341,6 +344,7 @@ export async function startTranslation(videoId) {
 }
 
 export function stopTranslation() {
+  subtitleStore.translating = false
   if (!session) return
   teardown(session)
   session = null
