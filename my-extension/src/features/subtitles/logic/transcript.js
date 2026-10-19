@@ -50,8 +50,7 @@ function getVideoId() {
 }
 
 /**
- * Cách 1 (ưu tiên): lấy baseUrl từ ytInitialPlayerResponse
- * Đây là cách ổn định nhất hiện nay.
+ * Lấy captionTracks từ ytInitialPlayerResponse
  */
 function getCaptionTracksFromPlayer() {
   try {
@@ -66,34 +65,28 @@ function getCaptionTracksFromPlayer() {
         ? JSON.parse(playerResponse)
         : playerResponse
 
-    const tracks =
-      data?.captions?.playerCaptionsTracklistRenderer?.captionTracks || []
-
-    return tracks
+    return data?.captions?.playerCaptionsTracklistRenderer?.captionTracks || []
   } catch {
     return []
   }
 }
 
 /**
- * Xây dựng danh sách URL ứng viên từ captionTracks
+ * Xây dựng danh sách URL ứng viên từ captionTracks (fallback)
  */
-function buildUrlsFromTracks(videoId) {
+function buildUrlsFromTracks() {
   const tracks = getCaptionTracksFromPlayer()
   const urls = []
 
   for (const track of tracks) {
     if (!track.baseUrl) continue
 
-    // Ưu tiên bản gốc (không phải auto-translate)
     const url = new URL(track.baseUrl)
 
-    // Thử nhiều format phổ biến
     const formats = ['json3', 'srv3', 'vtt', 'ttml']
     for (const fmt of formats) {
       const u = new URL(url)
       u.searchParams.set('fmt', fmt)
-      // Bỏ tlang để lấy bản gốc
       u.searchParams.delete('tlang')
       urls.push(u.toString())
     }
@@ -103,7 +96,7 @@ function buildUrlsFromTracks(videoId) {
 }
 
 /**
- * Lấy từ performance resource (cách cũ, vẫn giữ làm fallback)
+ * Lấy URL timedtext từ performance resource (có sẵn pot, signature, ...)
  */
 function getCandidatesFromPerformance(videoId) {
   return performance
@@ -145,6 +138,76 @@ async function tryFetchAny(urls, tried) {
   return null
 }
 
+/** Lấy mã ngôn ngữ gốc của URL (vd: 'vi', 'en', 'en-US') */
+function getUrlLang(url) {
+  try {
+    return (new URL(url).searchParams.get('lang') || '').toLowerCase()
+  } catch {
+    return ''
+  }
+}
+
+const isEnglish = (lang) => lang === 'en' || lang.startsWith('en-')
+
+/**
+ * Chuẩn bị URL timedtext đã bắt được (giữ nguyên pot, signature, ...)
+ * - lang là en: giữ nguyên, không thêm tlang
+ * - lang khác (vi, ...): thêm tlang=en
+ */
+function prepareUrl(url, tlang = 'en') {
+  const u = new URL(url)
+  const lang = getUrlLang(url)
+
+  if (isEnglish(lang)) {
+    u.searchParams.delete('tlang')
+  } else {
+    u.searchParams.set('tlang', tlang)
+  }
+
+  u.searchParams.set('fmt', 'json3')
+  return { url: u.toString(), needTranslate: !isEnglish(lang) }
+}
+
+/** Gửi request 2 lần, cách nhau 1 giây; trả về body hợp lệ gần nhất */
+async function fetchTwice(url, gapMs = 1000) {
+  let result = null
+
+  for (let i = 0; i < 2; i++) {
+    if (i > 0) await sleep(gapMs)
+
+    try {
+      const res = await fetch(url, {
+        credentials: 'include',
+        cache: 'no-store',
+      })
+      if (!res.ok) continue
+
+      const body = await res.text()
+      if (isValidCaption(body)) result = body
+    } catch {
+      // bỏ qua, thử lần tiếp
+    }
+  }
+
+  return result
+}
+
+/** Lấy caption từ các URL đã bắt được (lang khác en thì thêm tlang=en, gửi 2 lần) */
+async function tryFetchTranslated(urls, tried, tlang = 'en') {
+  for (const raw of urls) {
+    const { url, needTranslate } = prepareUrl(raw, tlang)
+    if (tried.has(url)) continue
+    tried.add(url)
+
+    // lang=en: gửi 1 lần bình thường; lang khác: tlang=en, gửi 2 lần cách 1 giây
+    const body = needTranslate
+      ? await fetchTwice(url)
+      : (await tryFetchAny([url], new Set()))
+    if (body) return body
+  }
+  return null
+}
+
 /** Ép player load lại caption bằng cách toggle nút CC */
 async function forceLoadCaptions() {
   const btn = getCcButton()
@@ -179,17 +242,17 @@ async function waitForPlayerReady(timeout = 8000) {
 async function attemptGetCaption(videoId, attempt, waitMs) {
   const tried = new Set()
 
-  // 1. Ưu tiên lấy từ ytInitialPlayerResponse (rất ổn định)
-  const trackUrls = buildUrlsFromTracks(videoId)
-  if (trackUrls.length) {
-    const body = await tryFetchAny(trackUrls, tried)
+  // 1. URL bắt từ performance (có pot) -> thêm tlang=en, gửi 2 lần
+  const perfUrls = getCandidatesFromPerformance(videoId)
+  if (perfUrls.length) {
+    const body = await tryFetchTranslated(perfUrls, tried, 'en')
     if (body) return body
   }
 
-  // 2. Lấy từ performance entries (nếu CC đã từng được bật)
-  const perfUrls = getCandidatesFromPerformance(videoId)
-  if (perfUrls.length) {
-    const body = await tryFetchAny(perfUrls, tried)
+  // 2. Fallback: baseUrl từ ytInitialPlayerResponse
+  const trackUrls = buildUrlsFromTracks()
+  if (trackUrls.length) {
+    const body = await tryFetchAny(trackUrls, tried)
     if (body) return body
   }
 
@@ -201,13 +264,13 @@ async function attemptGetCaption(videoId, attempt, waitMs) {
   while (Date.now() - t0 < waitMs) {
     await sleep(400)
 
-    // Kết hợp cả 2 nguồn
-    const urls = [
-      ...buildUrlsFromTracks(videoId),
-      ...getCandidatesFromPerformance(videoId),
-    ]
+    const captured = getCandidatesFromPerformance(videoId)
+    if (captured.length) {
+      const body = await tryFetchTranslated(captured, tried, 'en')
+      if (body) return body
+    }
 
-    const body = await tryFetchAny(urls, tried)
+    const body = await tryFetchAny(buildUrlsFromTracks(), tried)
     if (body) return body
   }
 
