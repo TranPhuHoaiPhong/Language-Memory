@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -8,6 +9,41 @@ const resolvePath = (path) => fileURLToPath(new URL(path, import.meta.url))
 // Extension pages/icons are shipped as-is, never processed by Vite.
 const PUBLIC_DIR = resolvePath('./public')
 const OUT_DIR = resolvePath('./dist')
+
+const MIME_TYPES = {
+  '.png': 'image/png',
+  '.svg': 'image/svg+xml',
+}
+
+/**
+ * Assets that end up in the page DOM cannot be loaded as `chrome-extension://`
+ * URLs: Chrome blocks those requests unless the frame matches
+ * `web_accessible_resources`, and it still rejects them in some contexts. This
+ * plugin lets the content script import an icon from `public/` as a data URL,
+ * so the page never has to request a cross-origin resource at all.
+ *
+ *     import logo from 'virtual:icon/icons/icon.png'
+ */
+function inlinePublicIcon() {
+  const PREFIX = 'virtual:icon/'
+
+  return {
+    name: 'inline-public-icon',
+    resolveId(id) {
+      return id.startsWith(PREFIX) ? `\0${id}` : null
+    },
+    load(id) {
+      if (!id.startsWith(`\0${PREFIX}`)) return null
+
+      const file = id.slice(`\0${PREFIX}`.length)
+      const ext = file.slice(file.lastIndexOf('.'))
+      const mime = MIME_TYPES[ext] ?? 'application/octet-stream'
+      const base64 = readFileSync(resolvePath(`./public/${file}`)).toString('base64')
+
+      return `export default ${JSON.stringify(`data:${mime};base64,${base64}`)}`
+    },
+  }
+}
 
 /**
  * Two separate builds, because each Chrome extension target has its own
@@ -24,7 +60,7 @@ export default defineConfig(({ mode }) => {
   const libDefine = { 'process.env.NODE_ENV': JSON.stringify('production') }
 
   const base = {
-    plugins: [vue()],
+    plugins: [vue(), inlinePublicIcon()],
     publicDir: PUBLIC_DIR,
     define: libDefine,
     build: { outDir: OUT_DIR },
@@ -33,7 +69,7 @@ export default defineConfig(({ mode }) => {
   if (mode === 'content') {
     return {
       ...base,
-      plugins: [vue(), cssInjectedByJs()],
+      plugins: [vue(), cssInjectedByJs(), inlinePublicIcon()],
       build: {
         outDir: OUT_DIR,
         emptyOutDir: false,

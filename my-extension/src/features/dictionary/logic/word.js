@@ -38,11 +38,41 @@ export function fetchWordDetail(lemma, language) {
  * older `search` endpoint wrapped it in `data`, so both shapes are unwrapped here
  * rather than at every call site.
  */
-export function readEntry(payload) {
-  if (!payload || typeof payload !== 'object') return {}
+/** Chuẩn hoá payload tra từ thành cấu trúc panel dùng. */
+export function readEntry(data) {
+  if (!data) return {}
 
-  const inner = payload.data
-  return inner && typeof inner === 'object' ? inner : payload
+  const pronunciations = Array.isArray(data.pronunciations) ? data.pronunciations : []
+  const us = pronunciations.find((p) => p.dialect === 'en-US') || pronunciations[0]
+  const ipa = us?.phonetic ? us.phonetic.replace(/^\/|\/$/g, '') : ''
+
+  const meanings = Array.isArray(data.meanings) ? data.meanings : []
+  const posList = [...new Set(meanings.map((m) => m.part_of_speech).filter(Boolean))]
+
+  /**
+   * The pronunciation file, wherever the API happens to put it: on the entry
+   * itself or on the pronunciation it belongs to. The current API ships none,
+   * and the panel falls back to the browser's own voice.
+   */
+  const audio =
+    data.audio ||
+    data.audio_url ||
+    us?.audio ||
+    pronunciations.find((p) => p.audio || p.audio_url)?.audio ||
+    ''
+
+  return {
+    word: data.text || '',
+    ipa,
+    pos: posList.join(', '),
+    audio,
+    meanings,
+    inflections: data.inflections || [],
+    synonyms: data.synonyms || [],
+    relatedWords: data.related_words || [],
+    // Bóc lớp phrase_entry cho tiện render
+    phrases: (data.phrases || []).map((p) => p.phrase_entry).filter(Boolean),
+  }
 }
 
 /**

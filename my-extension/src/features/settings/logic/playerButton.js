@@ -1,7 +1,6 @@
 // src/features/settings/logic/playerButton.js
 import { attachTo } from '../../../core/js/dom.js'
-import { runtimeUrl } from '../../../core/js/browser.js'
-import { LOGO_ICON_URL } from '../../../core/js/constants.js'
+import { LOGO_ICON } from '../../../core/js/icons.js'
 import { togglePanel } from '../composables/useSettingsPanel.js'
 
 const CONTROLS_SELECTOR = '.ytp-right-controls-right'
@@ -23,7 +22,7 @@ export function mountPlayerButton() {
   button.addEventListener('click', togglePanel)
 
   const icon = document.createElement('img')
-  icon.src = runtimeUrl(LOGO_ICON_URL)
+  icon.src = LOGO_ICON
   icon.alt = ''
   button.appendChild(icon)
 

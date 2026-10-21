@@ -3,11 +3,9 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { claimSlot, releaseSlot, sidebar } from '../../../core/js/sidebar.js'
 import { store } from '../../../core/js/state.js'
 import { subtitleStore } from '../../subtitles/state/state.js'
-import { playAudio, stopAudio } from '../logic/audio.js'
+import { isSpeechSupported, playAudio, speak, stopAudio } from '../logic/audio.js'
 import { wordPanelControl } from '../logic/panelControl.js'
 import { fetchWordDetail, readEntry, readMeanings, saveWord } from '../logic/word.js'
-
-const AUTOPLAY_DELAY = 10
 
 /** The panel's name in the sidebar slot; see `claimSlot`. */
 const SLOT_ID = 'word'
@@ -23,8 +21,29 @@ export function useWordPanel() {
   const word = ref('')
   const ipa = ref('')
   const pos = ref('')
+
+  /** Flat list of explanation strings; kept for backward-compatible saving. */
   const meanings = ref([])
+
+  /** Full structured entries, one per part-of-speech meaning. */
+  const meaningEntries = ref([])
+
+  /** Extra sections from the payload. */
+  const inflections = ref([])
+  const synonyms = ref([])
+  const relatedWords = ref([])
+  const phrases = ref([])
+
+  /** Pronunciation URL of the current entry; empty when the API has none. */
   const audioUrl = ref('')
+
+  /**
+   * The API ships no pronunciation file, so the entry is spoken by the browser.
+   * The button is shown whenever there is something to pronounce.
+   */
+  const canPlayAudio = computed(
+    () => Boolean(audioUrl.value || (word.value && isSpeechSupported())),
+  )
 
   /** Payload of the last successful lookup; `null` while loading or on error. */
   const savePayload = ref(null)
@@ -46,6 +65,21 @@ export function useWordPanel() {
     releaseSlot(SLOT_ID)
   }
 
+  /** Reset every field so a previous word never leaks into the next lookup. */
+  function reset() {
+    word.value = ''
+    ipa.value = ''
+    pos.value = ''
+    meanings.value = []
+    meaningEntries.value = []
+    inflections.value = []
+    synonyms.value = []
+    relatedWords.value = []
+    phrases.value = []
+    audioUrl.value = ''
+    savePayload.value = null
+  }
+
   async function show(text, lemma = '') {
     if (!sidebar.value) return
 
@@ -54,12 +88,8 @@ export function useWordPanel() {
     const sourceLanguage = store.targetLanguage
     const currentRequestId = ++requestId
 
+    reset()
     word.value = text
-    ipa.value = ''
-    pos.value = ''
-    meanings.value = []
-    audioUrl.value = ''
-    savePayload.value = null
     loading.value = true
     open.value = true
     claimSlot(SLOT_ID, close)
@@ -73,6 +103,11 @@ export function useWordPanel() {
       ipa.value = info.ipa ? `/${info.ipa}/` : ''
       pos.value = info.pos || ''
       meanings.value = readMeanings(info)
+      meaningEntries.value = info.meanings || []
+      inflections.value = info.inflections || []
+      synonyms.value = info.synonyms || []
+      relatedWords.value = info.relatedWords || []
+      phrases.value = info.phrases || []
       audioUrl.value = info.audio || ''
 
       savePayload.value = {
@@ -83,14 +118,10 @@ export function useWordPanel() {
         subtitle,
         language,
         sourceLanguage,
-        audio: audioUrl.value,
+        // Preserve the full entry so nothing is lost server-side.
+        detail: data,
       }
 
-      if (audioUrl.value) {
-        setTimeout(() => {
-          if (currentRequestId === requestId) playAudio(audioUrl.value)
-        }, AUTOPLAY_DELAY)
-      }
     } catch {
       if (currentRequestId !== requestId) return
       word.value = 'Failed'
@@ -110,8 +141,16 @@ export function useWordPanel() {
     }
   }
 
+  /**
+   * Plays the current entry's pronunciation: the API's audio file when there is
+   * one, the browser's own voice otherwise.
+   */
   function onAudioClick() {
-    playAudio(audioUrl.value)
+    if (audioUrl.value) {
+      playAudio(audioUrl.value)
+      return
+    }
+    speak(word.value, store.targetLanguage)
   }
 
   function onKeyDown(e) {
@@ -140,7 +179,13 @@ export function useWordPanel() {
     ipa,
     pos,
     meanings,
+    meaningEntries,
+    inflections,
+    synonyms,
+    relatedWords,
+    phrases,
     audioUrl,
+    canPlayAudio,
     canSave: computed(() => savePayload.value !== null),
     close,
     onSave,
