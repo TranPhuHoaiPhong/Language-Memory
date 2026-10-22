@@ -2,13 +2,32 @@
 import { API_BASE, PROXY_HOSTS } from '../core/js/constants.js'
 
 /**
+ * A service worker is torn down while it is idle, and the extension can be
+ * reloaded under it. Anything still in flight then fails with "Extension
+ * context invalidated.", and a reply to a port that no longer exists throws
+ * the same. Both are wrapped: a dead context stays silent instead of filling
+ * the console with errors the user cannot act on.
+ */
+function reply(sendResponse, payload) {
+  try {
+    sendResponse(payload)
+  } catch {
+    // The port is gone; there is nobody left to answer.
+  }
+}
+
+/**
  * There is no `default_popup`: the toolbar icon is the sidebar's only trigger,
  * so the click is relayed to the content script of the current tab. Tabs that
  * do not run the content script (chrome:// pages, other sites) simply ignore it.
  */
 chrome.action.onClicked.addListener((tab) => {
   if (typeof tab?.id !== 'number') return
-  chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_SETTINGS' }).catch(() => {})
+  try {
+    chrome.tabs.sendMessage(tab.id, { type: 'TOGGLE_SETTINGS' }).catch(() => {})
+  } catch {
+    // The extension was reloaded between the click and the send.
+  }
 })
 
 /**
@@ -41,8 +60,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
       return response.json()
     })
-    .then((data) => sendResponse({ ok: true, data }))
-    .catch((err) => sendResponse({ ok: false, error: err.message }))
+    .then((data) => reply(sendResponse, { ok: true, data }))
+    .catch((err) => reply(sendResponse, { ok: false, error: err.message }))
 
   return true
 })
@@ -67,19 +86,28 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   const { requestId, url, method, body, contentType } = message.payload || {}
   if (!isProxyable(url)) {
-    sendResponse({ ok: false, error: `Host not allowed: ${url}` })
+    reply(sendResponse, { ok: false, error: `Host not allowed: ${url}` })
     return false
   }
 
   const controller = new AbortController()
   if (requestId) activeRequests.set(requestId, controller)
 
-  fetch(url, {
-    method: method || 'GET',
-    headers: contentType ? { 'Content-Type': contentType } : undefined,
-    body,
-    signal: controller.signal,
-  })
+  let request
+  try {
+    request = fetch(url, {
+      method: method || 'GET',
+      headers: contentType ? { 'Content-Type': contentType } : undefined,
+      body,
+      signal: controller.signal,
+    })
+  } catch (err) {
+    if (requestId) activeRequests.delete(requestId)
+    reply(sendResponse, { ok: false, error: err.message })
+    return false
+  }
+
+  request
     .then(async (response) => {
       const data = await response.json()
       if (!response.ok) {
@@ -87,14 +115,14 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
       return data
     })
-    .then((data) => sendResponse({ ok: true, data }))
+    .then((data) => reply(sendResponse, { ok: true, data }))
     .catch((err) => {
       // An abort is a deliberate decision by the caller, not a failure.
       if (err.name === 'AbortError') {
-        sendResponse({ ok: false, error: 'aborted', aborted: true })
+        reply(sendResponse, { ok: false, error: 'aborted', aborted: true })
         return
       }
-      sendResponse({ ok: false, error: err.message })
+      reply(sendResponse, { ok: false, error: err.message })
     })
     .finally(() => {
       if (requestId) activeRequests.delete(requestId)

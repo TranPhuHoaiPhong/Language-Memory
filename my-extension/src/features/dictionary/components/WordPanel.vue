@@ -59,7 +59,9 @@ const hasInflections = computed(() => inflections.value.length > 0)
 const hasSynonyms = computed(() => synonyms.value.length > 0)
 const hasRelated = computed(() => relatedWords.value.length > 0)
 const hasPhrases = computed(() => phrases.value.length > 0)
-const hasDetails = computed(() => hasSynonyms.value || hasRelated.value || hasPhrases.value)
+const hasDetails = computed(
+  () => hasInflections.value || hasSynonyms.value || hasRelated.value || hasPhrases.value,
+)
 </script>
 
 <template>
@@ -169,7 +171,10 @@ const hasDetails = computed(() => hasSynonyms.value || hasRelated.value || hasPh
               <li v-for="(text, index) in meanings" :key="index">{{ text }}</li>
             </ul>
           </section>
+        </div>
 
+        <!-- ========== TAB CHI TIẾT ========== -->
+        <div v-show="!loading && activeTab === 'details'" class="wx-pane">
           <section v-if="hasInflections" class="wx-section">
             <h3 class="wx-title">Các dạng của từ</h3>
             <table class="wx-table">
@@ -187,10 +192,7 @@ const hasDetails = computed(() => hasSynonyms.value || hasRelated.value || hasPh
               </tbody>
             </table>
           </section>
-        </div>
 
-        <!-- ========== TAB CHI TIẾT ========== -->
-        <div v-show="!loading && activeTab === 'details'" class="wx-pane">
           <section v-if="hasSynonyms" class="wx-section">
             <h3 class="wx-title">Từ đồng nghĩa</h3>
             <ul class="wx-inline-list">

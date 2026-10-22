@@ -12,7 +12,7 @@ export async function apiRequest(endpoint, options = {}) {
   })
 
   if (!response) {
-    throw new Error('KhÃ´ng nháº­n Ä‘Æ°á»£c pháº£n há»“i tá»« background script')
+    throw new Error('Không nhận được phản hồi từ background script')
   }
   if (!response.ok) {
     throw new Error(response.error || 'API request failed')
