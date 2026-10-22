@@ -34,6 +34,17 @@ export function useWordPanel() {
   const relatedWords = ref([])
   const phrases = ref([])
 
+  /** Every pronunciation of the entry, US and GB included. */
+  const phonetics = ref([])
+
+  /** Cách phát âm theo từng giọng: Mỹ và Anh đọc cùng một từ khác nhau. */
+  const ipaUs = computed(
+    () => phonetics.value.find((p) => /(^|[-_])us$/i.test(p.dialect))?.ipa || '',
+  )
+  const ipaGb = computed(
+    () => phonetics.value.find((p) => /(^|[-_])(gb|uk)$/i.test(p.dialect))?.ipa || '',
+  )
+
   /** Pronunciation URL of the current entry; empty when the API has none. */
   const audioUrl = ref('')
 
@@ -76,6 +87,7 @@ export function useWordPanel() {
     synonyms.value = []
     relatedWords.value = []
     phrases.value = []
+    phonetics.value = []
     audioUrl.value = ''
     savePayload.value = null
   }
@@ -101,6 +113,7 @@ export function useWordPanel() {
       const info = readEntry(data)
       word.value = info.word || text
       ipa.value = info.ipa ? `/${info.ipa}/` : ''
+      phonetics.value = info.phonetics || []
       pos.value = info.pos || ''
       meanings.value = readMeanings(info)
       meaningEntries.value = info.meanings || []
@@ -184,6 +197,9 @@ export function useWordPanel() {
     synonyms,
     relatedWords,
     phrases,
+    phonetics,
+    ipaUs,
+    ipaGb,
     audioUrl,
     canPlayAudio,
     canSave: computed(() => savePayload.value !== null),

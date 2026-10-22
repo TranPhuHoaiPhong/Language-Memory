@@ -50,6 +50,19 @@ export function readEntry(data) {
   const posList = [...new Set(meanings.map((m) => m.part_of_speech).filter(Boolean))]
 
   /**
+   * Mọi cách phát âm của từ, US và GB đều giữ lại: "either" đọc lên ("/ˈaɪðər/") ở
+   * Mỹ nhưng đọc xuống ("/ˈiːðər/") ở Anh, nên chỉ giữ một cái là mất nửa thông
+   * tin. Thứ tự ưu tiên US trước GB, phần còn lại giữ nguyên thứ tự API.
+   */
+  const phonetics = pronunciations
+    .map((p) => ({
+      dialect: p?.dialect || '',
+      ipa: p?.phonetic ? String(p.phonetic).replace(/^\/|\/$/g, '') : '',
+    }))
+    .filter((p) => p.ipa)
+    .sort((a, b) => dialectRank(a.dialect) - dialectRank(b.dialect))
+
+  /**
    * The pronunciation file, wherever the API happens to put it: on the entry
    * itself or on the pronunciation it belongs to. The current API ships none,
    * and the panel falls back to the browser's own voice.
@@ -67,12 +80,41 @@ export function readEntry(data) {
     pos: posList.join(', '),
     audio,
     meanings,
-    inflections: data.inflections || [],
+    inflections: readInflections(data.inflections, data.text),
+    phonetics,
     synonyms: data.synonyms || [],
     relatedWords: data.related_words || [],
     // Bóc lớp phrase_entry cho tiện render
     phrases: (data.phrases || []).map((p) => p.phrase_entry).filter(Boolean),
   }
+}
+
+/**
+ * Thứ tự hiển thị cách phát âm: Anh trước Mỹ, các giọng khác sau.
+ */
+function dialectRank(dialect) {
+  const key = String(dialect || '').toLowerCase()
+  if (key === 'en-gb' || key === 'uk' || key === 'gb') return 0
+  if (key === 'en-us' || key === 'us') return 1
+  return 2
+}
+
+/**
+ * "Các dạng của từ" chỉ nên liệt kê dạng khác từ gốc. API đôi khi trả về
+ * chính từ đó gắn nhãn từ loại ("noun" + "happiness"), và đó không phải là
+ * biến đổi. Dạng thiếu chữ hoặc trùng từ gốc thì bỏ hẳn; danh sách còn rỗng
+ * nghĩa là từ đó không có biến đổi nào, và panel ẩn luôn section.
+ */
+function readInflections(inflections, lemma) {
+  const base = String(lemma || '').trim().toLowerCase()
+
+  return (Array.isArray(inflections) ? inflections : [])
+    .map((item) => ({
+      form: String(item?.form ?? '').trim(),
+      word: String(item?.word ?? '').trim(),
+    }))
+    .filter((item) => item.form && item.word)
+    .filter((item) => item.word.toLowerCase() !== base)
 }
 
 /**

@@ -1,5 +1,5 @@
 /* ==========================================================
-   Lingo word panel — panel.css (v2)
+   Lingo word panel — panel.css (v3)
    Dùng với: <style scoped src="../styles/panel.css"></style>
 
    Quy ước để không bị CSS của trang web chủ đè lên:
@@ -110,29 +110,6 @@
 }
 
 /* ---------- Header: lưới 2 cột, nút đóng không còn đè lên nội dung ---------- */
-#lingo-word-panel .panel-head {
-  flex: none;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-rows: auto auto;
-  align-items: start;
-}
-
-#lingo-word-panel .panel-close {
-  grid-column: 2;
-  grid-row: 1;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  margin: -4px 0 0;
-  padding: 0;
-  color: var(--wp-ink-soft);
-  background: transparent;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-}
 
 #lingo-word-panel .panel-close svg {
   width: 16px;
@@ -145,8 +122,6 @@
 }
 
 #lingo-word-panel .panel-word {
-  grid-column: 1;
-  grid-row: 1;
   font-family: inherit;
   font-size: 23px;
   font-weight: 600;
@@ -156,21 +131,19 @@
   overflow-wrap: anywhere;
 }
 
-#lingo-word-panel .panel-word--loading {
-  color: var(--wp-ink-faint);
-  animation: wp-pulse 1.2s ease-in-out infinite;
+#lingo-word-panel .panel-word-pos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 83px;
 }
 
 #lingo-word-panel .panel-word-meta {
-  grid-column: 1 / -1;
-  grid-row: 2;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
   margin-bottom: 14px;
-
 }
 
 #lingo-word-panel .word-popup-ipa {
@@ -191,6 +164,34 @@
   color: var(--wp-accent);
   background: var(--wp-accent-soft);
   border-radius: 999px;
+}
+
+/* Nhãn giọng trước cách phát âm: GB / US */
+#lingo-word-panel .word-popup-ipa-label {
+  margin-right: 5px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--wp-ink-soft, #8a93a6);
+  background: rgba(148, 163, 184, 0.16);
+  border-radius: 4px;
+}
+
+/* Hàng nhãn từ loại: mỗi từ loại một pill, tên tiếng Việt ("Động từ"). */
+#lingo-word-panel .panel-pos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Bỏ margin/width mà styles.css đặt cho popup: ở đây nhãn nằm cạnh nhau. */
+#lingo-word-panel .panel-pos-list .word-popup-pos {
+  margin: 0;
+  width: auto;
+  font-style: normal;
 }
 
 #lingo-word-panel .word-popup-pos.pos-n,
@@ -229,7 +230,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   #lingo-word-panel .word-popup-pos.pos-n,
   #lingo-word-panel .word-popup-pos.pos-noun {
     --pos: #9db0ff;
@@ -301,123 +301,185 @@
   /* bỏ thanh cuộn ngang */
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 0 var(--wp-pad-x);
+  padding-left: 4px;
   scrollbar-width: thin;
   scrollbar-color: var(--wp-line) transparent;
 }
 
-#lingo-word-panel .word-popup-spinner {
-  width: 28px;
-  height: 28px;
-  margin: 48px auto;
-  border: 3px solid var(--wp-line);
-  border-top-color: var(--wp-accent);
-  border-radius: 50%;
-  animation: wp-spin 0.7s linear infinite;
-}
-
-/* ---------- Tabs ---------- */
-
-
-#lingo-word-panel .wx-tabs {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+/* ---------- Skeleton loading ---------- */
+#lingo-word-panel .wx-skeleton {
   display: flex;
-  gap: 4px;
-  margin: 0 calc(var(--wp-pad-x) * -1);
-  /* luôn bằng đúng padding của body */
-  padding: 8px var(--wp-pad-x) 0;
-  background: var(--wp-bg);
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+  padding-bottom: 24px;
 }
 
-#lingo-word-panel .wx-tab {
-  position: relative;
-  padding: 8px 12px 10px;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
-  color: var(--wp-ink-soft);
-  background: none;
-  border: 0;
-  cursor: pointer;
-  transition: color 0.15s;
+/* Base shimmer */
+#lingo-word-panel .sk-line {
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--wp-bg-soft) 0%,
+    var(--wp-line) 50%,
+    var(--wp-bg-soft) 100%
+  );
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
 }
 
-#lingo-word-panel .wx-tab:hover {
-  color: var(--wp-ink);
+/* Dòng tiêu đề từ — khớp .panel-word (≈23px) */
+#lingo-word-panel .sk-line--word {
+  height: 26px;
+  width: 55%;
+  margin: 4px 0 18px;
 }
 
-#lingo-word-panel .wx-tab.active {
-  color: var(--wp-accent);
-  font-weight: 600;
+/* Hàng meta: 2 nhóm (nút tròn + IPA) song song, khớp .panel-word-pos */
+#lingo-word-panel .sk-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 83px;
+  margin-bottom: 14px;
 }
 
-#lingo-word-panel .wx-tab.active::after {
-  content: '';
-  position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: -1px;
-  height: 2px;
-  background: var(--wp-accent);
-  border-radius: 2px 2px 0 0;
+#lingo-word-panel .sk-ipa-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* ---------- Nội dung các tab ---------- */
+#lingo-word-panel .sk-dot {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(
+    90deg,
+    var(--wp-bg-soft) 0%,
+    var(--wp-line) 50%,
+    var(--wp-bg-soft) 100%
+  );
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
+}
+
+#lingo-word-panel .sk-line--ipa {
+  height: 16px;
+  width: 130px;
+  margin: 0;
+}
+
+/* Dòng tiêu đề section — khớp .wx-title */
+#lingo-word-panel .sk-line--title {
+  height: 16px;
+  width: 30%;
+  margin-bottom: 4px;
+}
+
+#lingo-word-panel .sk-line--short {
+  width: 42%;
+}
+
+/* Dòng ví dụ — khớp .wx-example (thụt lề + gạch trái) */
+#lingo-word-panel .sk-line--example {
+  height: 12px;
+  width: 88%;
+  margin-left: 12px;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+
+#lingo-word-panel .sk-line--example + .sk-line--example {
+  width: 70%;
+}
+
+/* Hàng bảng "Các dạng của từ" — 2 cột */
+#lingo-word-panel .sk-table-row {
+  display: flex;
+  gap: 8px;
+}
+
+#lingo-word-panel .sk-line--cell {
+  height: 14px;
+  flex: 1 1 50%;
+}
+
+#lingo-word-panel .sk-line--cell-strong {
+  opacity: 0.85;
+}
+
+/* Entry list (đồng nghĩa / cùng họ / cụm từ) */
+#lingo-word-panel .sk-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0;
+}
+
+#lingo-word-panel .sk-line--entry-head {
+  height: 15px;
+  width: 35%;
+}
+
+#lingo-word-panel .sk-line--entry-meaning {
+  height: 13px;
+  width: 70%;
+  opacity: 0.85;
+}
+
+/* Nhóm dòng trong một section */
+#lingo-word-panel .sk-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 0 0;
+  margin-top: 8px;
+}
+
+@keyframes sk-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* ---------- Nội dung ---------- */
 #lingo-word-panel .wx-pane {
   padding-top: 4px;
 }
 
 #lingo-word-panel .wx-section {
-  padding: 18px 0 6px;
+  padding: 18px 0 0px;
 }
 
-#lingo-word-panel .wx-section+.wx-section {
+#lingo-word-panel .wx-section + .wx-section {
   margin-top: 8px;
 }
 
 /* Tiêu đề nhóm: từ loại, "Các dạng của từ", ... */
 #lingo-word-panel .wx-title {
-  margin: 0 0 12px;
-  font-size: 13px;
+  margin: 0 0 15px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
   color: var(--wp-accent);
 }
 
-/* ---------- Danh sách nghĩa (có thứ tự thật → đánh số) ---------- */
+/* ---------- Danh sách nghĩa ---------- */
 #lingo-word-panel .wx-sense-list {
   list-style: none;
-  counter-reset: sense;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 #lingo-word-panel .wx-sense {
-  counter-increment: sense;
   position: relative;
-  padding-left: 34px;
   list-style: none;
-}
-
-#lingo-word-panel .wx-sense::before {
-  content: counter(sense);
-  position: absolute;
-  top: 1px;
-  left: 0;
-  display: grid;
-  place-items: center;
-  width: 22px;
-  height: 22px;
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--wp-accent);
-  background: var(--wp-accent-soft);
-  border-radius: 50%;
 }
 
 #lingo-word-panel .wx-sense__title {
@@ -499,10 +561,10 @@
 
 #lingo-word-panel .wx-table th,
 #lingo-word-panel .wx-table td {
-  padding: 9px 12px;
+  padding: 8px 0px;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid var(--wp-line);
+  padding-right: 5px;
 }
 
 #lingo-word-panel .wx-table th {
@@ -530,61 +592,35 @@
   font-size: 15px;
   font-weight: 600;
   color: var(--wp-ink);
-}
-
-#lingo-word-panel .wx-table tbody tr:last-child td {
-  border-bottom: 0;
+  padding-left: 5px;
 }
 
 /* ---------- Tab Chi tiết ---------- */
-#lingo-word-panel .wx-inline-list,
-#lingo-word-panel .wx-phrase-list {
+/* Từ đồng nghĩa, từ cùng họ và cụm từ dùng chung một danh sách: từ ở dòng
+   trên, nghĩa ở dòng dưới. */
+#lingo-word-panel .wx-entry-list {
   list-style: none;
   display: flex;
   flex-direction: column;
 }
 
-#lingo-word-panel .wx-inline-list li {
-  padding: 9px 0;
-  font-size: 14px;
-  color: var(--wp-ink-soft);
+#lingo-word-panel .wx-entry {
+  padding: 8px 0px;
   list-style: none;
-  border-bottom: 1px solid var(--wp-line);
-}
-
-#lingo-word-panel .wx-inline-list li:last-child {
-  border-bottom: 0;
-}
-
-#lingo-word-panel .wx-inline-list strong {
-  font-family: var(--wp-font-word);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--wp-ink);
-}
-
-#lingo-word-panel .wx-phrase {
-  padding: 10px 12px;
-  list-style: none;
-  background: var(--wp-accent-soft);
   border-radius: 8px;
 }
 
-#lingo-word-panel .wx-phrase+.wx-phrase {
-  margin-top: 8px;
-}
-
-#lingo-word-panel .wx-phrase__head {
+#lingo-word-panel .wx-entry__head {
   font-size: 15px;
 }
 
-#lingo-word-panel .wx-phrase__head strong {
+#lingo-word-panel .wx-entry__head strong {
   font-family: var(--wp-font-word);
   font-weight: 600;
   color: var(--wp-ink);
 }
 
-#lingo-word-panel .wx-phrase__meaning {
+#lingo-word-panel .wx-entry__meaning {
   margin-top: 2px;
   font-size: 14px;
   color: var(--wp-ink-soft);
@@ -628,19 +664,6 @@
   cursor: not-allowed;
 }
 
-/* ---------- Animations ---------- */
-@keyframes wp-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes wp-pulse {
-  50% {
-    opacity: 0.45;
-  }
-}
-
 /* ---------- Mobile: bottom sheet ---------- */
 @media (max-width: 520px) {
   #lingo-word-panel {
@@ -663,11 +686,15 @@
   #lingo-word-panel .panel-word {
     font-size: 30px;
   }
+
+  /* Skeleton mobile: chữ từ to hơn, các dòng cũng to theo cho khớp */
+  #lingo-word-panel .sk-line--word {
+    height: 34px;
+  }
 }
 
 /* ---------- Giảm chuyển động ---------- */
 @media (prefers-reduced-motion: reduce) {
-
   .word-panel-enter-active,
   .word-panel-leave-active {
     transition: opacity 0.15s linear;
@@ -678,8 +705,9 @@
     transform: none;
   }
 
-  #lingo-word-panel .word-popup-spinner,
-  #lingo-word-panel .panel-word--loading {
-    animation-duration: 2.4s;
+  /* Tắt shimmer, chỉ dùng nền tĩnh */
+  #lingo-word-panel .sk-line {
+    animation: none;
+    background: var(--wp-bg-soft);
   }
 }

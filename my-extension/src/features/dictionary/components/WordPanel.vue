@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { SPEAKER_ICON } from '../../../core/js/icons.js'
 import { useWordPanel } from '../composables/useWordPanel.js'
 
@@ -7,7 +7,8 @@ const {
   visible,
   loading,
   word,
-  ipa,
+  ipaUs,
+  ipaGb,
   pos,
   meanings,
   meaningEntries,
@@ -24,22 +25,91 @@ const {
 
 const audioIcon = SPEAKER_ICON
 
-/* Tab đang mở: 'overview' | 'details' */
-const activeTab = ref('overview')
+/** Phần thân cuộn được của panel. */
+const panelBody = ref(null)
 
-/* Mỗi lần panel mở lại hoặc tra một từ mới đều quay về tab Tổng quan */
-watch([visible, word], ([isVisible]) => {
-  if (isVisible) activeTab.value = 'overview'
+/**
+ * Mỗi lần mở một từ mới, phần thân panel bắt đầu từ trên cùng. Không reset thì
+ * panel giữ vị trí cuộn của từ trước và mở ra là thấy giữa chừng nội dung.
+ */
+watch(loading, async (value) => {
+  if (value) return
+  await nextTick()
+  panelBody.value?.scrollTo({ top: 0, left: 0 })
 })
 
-/* Ghép class từ POS, lọc bỏ ký tự lạ: "n., v." -> pos-n pos-v */
-const posClass = computed(() => {
-  const tokens = (pos.value || '')
+/**
+ * Từ loại: API trả về cả viết tắt ("n.", "v.") lẫn dạng đầy đủ ("noun",
+ * "verb"). Bảng này đặt tên tiếng Việt cho cả hai, vì viết tắt của tiếng Anh
+ * không nói được gì với người đọc tiếng Việt — "v." là "Động từ", "n." là
+ * "Danh từ". Từ loại lạ thì giữ nguyên như API trả về.
+ */
+const POS_LABELS = {
+  n: 'Danh từ',
+  noun: 'Danh từ',
+  propn: 'Danh từ riêng',
+  v: 'Động từ',
+  verb: 'Động từ',
+  aux: 'Trợ động từ',
+  adj: 'Tính từ',
+  a: 'Tính từ',
+  adjective: 'Tính từ',
+  adv: 'Trạng từ',
+  adverb: 'Trạng từ',
+  prep: 'Giới từ',
+  preposition: 'Giới từ',
+  conj: 'Liên từ',
+  conjunction: 'Liên từ',
+  cconj: 'Liên từ',
+  sconj: 'Liên từ',
+  pron: 'Đại từ',
+  pronoun: 'Đại từ',
+  det: 'Từ hạn định',
+  determiner: 'Từ hạn định',
+  num: 'Số từ',
+  numeral: 'Số từ',
+  intj: 'Thán từ',
+  interj: 'Thán từ',
+  exclamation: 'Thán từ',
+  part: 'Trợ từ',
+  particle: 'Trợ từ',
+  punct: 'Dấu câu',
+  punctuation: 'Dấu câu',
+  x: 'Khác',
+}
+
+/** Khoá chuẩn hoá của một từ loại: "n." và "noun" cùng ra "n". */
+function posKey(raw) {
+  return String(raw || '')
+    .replace(/[^a-z]/gi, '')
+    .toLowerCase()
+}
+
+/** Tên tiếng Việt của một từ loại; từ lạ thì giữ nguyên chữ của API. */
+function posLabel(raw) {
+  const key = posKey(raw)
+  return POS_LABELS[key] || raw
+}
+
+/**
+ * Mỗi từ loại của từ đang tra, dạng nhãn ở đầu panel: nhãn tiếng Việt để hiện,
+ * class màu theo từ loại, và viết tắt gốc của API để làm tooltip.
+ */
+const posTags = computed(() => {
+  return (pos.value || '')
     .split(/[,;]\s*/)
+    .map((raw) => raw.trim())
     .filter(Boolean)
-    .map((t) => `pos-${t.replace(/[^a-z]/gi, '').toLowerCase()}`)
-    .filter((c) => c !== 'pos-')
-  return ['word-popup-pos', ...tokens]
+    .map((raw) => {
+      const key = posKey(raw)
+      return {
+        key,
+        raw,
+        label: POS_LABELS[key] || raw,
+        className: `pos-${key}`,
+      }
+    })
+    .filter((tag) => tag.key)
 })
 
 /* Gom nghĩa theo từ loại để chia section cho đẹp */
@@ -50,7 +120,11 @@ const groupedMeanings = computed(() => {
     if (!map.has(key)) map.set(key, [])
     map.get(key).push(m)
   }
-  return [...map.entries()].map(([pos, items]) => ({ pos, items }))
+  return [...map.entries()].map(([pos, items]) => ({
+    pos,
+    label: posLabel(pos),
+    items,
+  }))
 })
 
 const hasMeaningEntries = computed(() => groupedMeanings.value.length > 0)
@@ -59,9 +133,6 @@ const hasInflections = computed(() => inflections.value.length > 0)
 const hasSynonyms = computed(() => synonyms.value.length > 0)
 const hasRelated = computed(() => relatedWords.value.length > 0)
 const hasPhrases = computed(() => phrases.value.length > 0)
-const hasDetails = computed(
-  () => hasInflections.value || hasSynonyms.value || hasRelated.value || hasPhrases.value,
-)
 </script>
 
 <template>
@@ -84,62 +155,141 @@ const hasDetails = computed(
             />
           </svg>
         </button>
-
       </header>
 
-      <div class="panel-body" id="content">
-        <div class="word-popup-spinner" v-show="loading"></div>
+      <div class="panel-body" id="content" ref="panelBody">
+        <!-- Skeleton loading: các khối xám đúng hình dạng nội dung thật -->
+        <div
+          v-if="loading"
+          class="wx-skeleton"
+          role="status"
+          aria-label="Đang tải dữ liệu"
+        >
+          <!-- Tiêu đề từ -->
+          <div class="sk-line sk-line--word"></div>
 
-        <div>
-          <div class="panel-word" v-show="!loading">{{ word }}</div>
+          <!-- Hàng nút phát âm + phiên âm UK / US -->
+          <div class="sk-meta-row">
+            <div class="sk-ipa-group">
+              <div class="sk-dot"></div>
+              <div class="sk-line sk-line--ipa"></div>
+            </div>
+            <div class="sk-ipa-group">
+              <div class="sk-dot"></div>
+              <div class="sk-line sk-line--ipa"></div>
+            </div>
+          </div>
 
-          <div class="panel-word-meta" v-show="!loading">
-            <button
-              v-if="canPlayAudio"
-              class="word-audio-btn"
-              type="button"
-              aria-label="Phát âm"
-              @click="onAudioClick"
-            >
-              <img :src="audioIcon" alt="" />
-            </button>
+          <!-- Section 1: nghĩa + 2 ví dụ -->
+          <div class="sk-block">
+            <div class="sk-line sk-line--title"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line sk-line--short"></div>
+            <div class="sk-line sk-line--example"></div>
+            <div class="sk-line sk-line--example"></div>
+          </div>
 
-            <span v-if="ipa" class="word-popup-ipa">{{ ipa }}</span>
-            
+          <!-- Section 2: nghĩa + 1 ví dụ -->
+          <div class="sk-block">
+            <div class="sk-line sk-line--title"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line sk-line--short"></div>
+            <div class="sk-line sk-line--example"></div>
+          </div>
+
+          <!-- Section 3: nghĩa -->
+          <div class="sk-block">
+            <div class="sk-line sk-line--title"></div>
+            <div class="sk-line"></div>
+            <div class="sk-line sk-line--short"></div>
+          </div>
+
+          <!-- Section 4: bảng "Các dạng của từ" -->
+          <div class="sk-block">
+            <div class="sk-line sk-line--title"></div>
+            <div class="sk-table-row">
+              <div class="sk-line sk-line--cell"></div>
+              <div class="sk-line sk-line--cell sk-line--cell-strong"></div>
+            </div>
+            <div class="sk-table-row">
+              <div class="sk-line sk-line--cell"></div>
+              <div class="sk-line sk-line--cell sk-line--cell-strong"></div>
+            </div>
+            <div class="sk-table-row">
+              <div class="sk-line sk-line--cell"></div>
+              <div class="sk-line sk-line--cell sk-line--cell-strong"></div>
+            </div>
+          </div>
+
+          <!-- Section 5: danh sách entry (đồng nghĩa / cùng họ / cụm từ) -->
+          <div class="sk-block">
+            <div class="sk-line sk-line--title"></div>
+            <div class="sk-entry">
+              <div class="sk-line sk-line--entry-head"></div>
+              <div class="sk-line sk-line--entry-meaning"></div>
+            </div>
+            <div class="sk-entry">
+              <div class="sk-line sk-line--entry-head"></div>
+              <div class="sk-line sk-line--entry-meaning"></div>
+            </div>
+            <div class="sk-entry">
+              <div class="sk-line sk-line--entry-head"></div>
+              <div class="sk-line sk-line--entry-meaning"></div>
+            </div>
           </div>
         </div>
 
-        <!-- Tabs -->
-        <nav
-          class="wx-tabs"
-          v-show="!loading && (hasMeaningEntries || hasDetails)"
-        >
-          <button
-            type="button"
-            :class="['wx-tab', { active: activeTab === 'overview' }]"
-            @click="activeTab = 'overview'"
-          >
-            Tổng quan
-          </button>
-          <button
-            v-if="hasDetails"
-            type="button"
-            :class="['wx-tab', { active: activeTab === 'details' }]"
-            @click="activeTab = 'details'"
-          >
-            Chi tiết
-          </button>
-        </nav>
+        <div v-show="!loading">
+          <div class="panel-word">{{ word }}</div>
 
-        <!-- ========== TAB TỔNG QUAN ========== -->
-        <div v-show="!loading && activeTab === 'overview'" class="wx-pane">
+          <div class="panel-word-pos">
+            <!-- GB IPA -->
+            <div class="panel-word-meta" v-show="ipaGb">
+              <button
+                v-if="canPlayAudio"
+                class="word-audio-btn"
+                type="button"
+                aria-label="Phát âm"
+                @click="onAudioClick"
+              >
+                <img :src="audioIcon" alt="" />
+              </button>
+
+              <span class="word-popup-ipa">
+                <span class="word-popup-ipa-label">UK</span>/{{ ipaGb }}/
+              </span>
+            </div>
+
+            <!-- US IPA -->
+            <div class="panel-word-meta" v-show="ipaUs">
+              <button
+                v-if="canPlayAudio"
+                class="word-audio-btn"
+                type="button"
+                aria-label="Phát âm"
+                @click="onAudioClick"
+              >
+                <img :src="audioIcon" alt="" />
+              </button>
+
+              <span class="word-popup-ipa">
+                <span class="word-popup-ipa-label">US</span>/{{ ipaUs }}/
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nghĩa, các dạng của từ, từ đồng nghĩa, từ cùng họ và cụm từ: một
+             danh sách liên tiếp, không tách tab. -->
+        <div v-show="!loading" class="wx-pane">
           <template v-if="hasMeaningEntries">
             <section
               v-for="group in groupedMeanings"
               :key="group.pos"
               class="wx-section"
             >
-              <h3 class="wx-title">{{ group.pos }}</h3>
+              <h3 class="wx-title" :title="group.pos">{{ group.label }}</h3>
               <ol class="wx-sense-list">
                 <li v-for="(m, i) in group.items" :key="i" class="wx-sense">
                   <p v-if="m.explanation" class="wx-sense__title">{{ m.explanation }}</p>
@@ -171,19 +321,10 @@ const hasDetails = computed(
               <li v-for="(text, index) in meanings" :key="index">{{ text }}</li>
             </ul>
           </section>
-        </div>
 
-        <!-- ========== TAB CHI TIẾT ========== -->
-        <div v-show="!loading && activeTab === 'details'" class="wx-pane">
           <section v-if="hasInflections" class="wx-section">
             <h3 class="wx-title">Các dạng của từ</h3>
             <table class="wx-table">
-              <thead>
-                <tr>
-                  <th>Dạng</th>
-                  <th>Từ</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr v-for="f in inflections" :key="f.form + f.word">
                   <td>{{ f.form }}</td>
@@ -195,32 +336,40 @@ const hasDetails = computed(
 
           <section v-if="hasSynonyms" class="wx-section">
             <h3 class="wx-title">Từ đồng nghĩa</h3>
-            <ul class="wx-inline-list">
-              <li v-for="s in synonyms" :key="s.synonym">
-                <strong>{{ s.synonym }}</strong>
-                <span v-if="s.translation"> — {{ s.translation }}</span>
+            <ul class="wx-entry-list">
+              <li v-for="s in synonyms" :key="s.synonym" class="wx-entry">
+                <p class="wx-entry__head">
+                  <strong>{{ s.synonym }}</strong>
+                </p>
+                <p v-if="s.translation" class="wx-entry__meaning">
+                  {{ s.translation }}
+                </p>
               </li>
             </ul>
           </section>
 
           <section v-if="hasRelated" class="wx-section">
             <h3 class="wx-title">Từ cùng họ</h3>
-            <ul class="wx-inline-list">
-              <li v-for="w in relatedWords" :key="w.word">
-                <strong>{{ w.word }}</strong>
-                <span v-if="w.meaning"> — {{ w.meaning }}</span>
+            <ul class="wx-entry-list">
+              <li v-for="w in relatedWords" :key="w.word" class="wx-entry">
+                <p class="wx-entry__head">
+                  <strong>{{ w.word }}</strong>
+                </p>
+                <p v-if="w.meaning" class="wx-entry__meaning">
+                  {{ w.meaning }}
+                </p>
               </li>
             </ul>
           </section>
 
           <section v-if="hasPhrases" class="wx-section">
             <h3 class="wx-title">Cụm từ thường gặp</h3>
-            <ul class="wx-phrase-list">
-              <li v-for="p in phrases" :key="p.normalized" class="wx-phrase">
-                <p class="wx-phrase__head">
+            <ul class="wx-entry-list">
+              <li v-for="p in phrases" :key="p.normalized" class="wx-entry">
+                <p class="wx-entry__head">
                   <strong>{{ p.normalized }}</strong>
                 </p>
-                <p v-if="p.translations?.length" class="wx-phrase__meaning">
+                <p v-if="p.translations?.length" class="wx-entry__meaning">
                   {{
                     p.translations
                       .map((t) => t.translation_vi)
